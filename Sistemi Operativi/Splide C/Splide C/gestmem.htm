@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Gestione della Memoria</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<style type="text/css">
+<!--
+.stile1 {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 36px;
+	text-align: justify;
+}
+.stile1red {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 36px;
+	color: #FF0000;
+}
+.stile1redsmall {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 18px;
+	color: #FF0000;
+}
+.stile1redmedium {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 24px;
+	color: #FF0000;
+}
+.stile1medium {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 24px;
+}
+.style9 {font-family: "Times New Roman", Times, serif; font-size: 36px; text-align: justify; color: #0000FF; }
+.style12 {font-size: 36px; font-family: "Times New Roman", Times, serif;}
+.style15 {color: #0000FF}
+</style>
+<body bgcolor="#FFFFFF">
+<p align="center" class="stile1red">Gestione della Memoria  </p>
+<p align="justify" class="stile1">Uno dei compiti di un S.O. &egrave; quello di gestire la memoria. Quando la memoria &egrave; assegnata dinamicamente abbiamo bisogno di una struttura dati per mantenere informazioni sulle zone
+    libere e sulle zone occupate.<br>
+  Le strutture dati possibili:</p>
+<ul>
+  <ul>
+    <li class="stile1red">mappe di bit</li>
+    <li class="stile1red"> liste con puntatori</li>
+  </ul>
+  <p>&nbsp;</p>
+</ul>
+<hr/>
+<p align="center"  class="stile1red">Mappe di bit</p>
+<ul>
+  <li class="stile1">La memoria viene suddivisa in unit&agrave; di allocazione</li>
+  <li class="stile1">ad ogni unit&agrave; di allocazione corrisponde un bit in una bitmap</li>
+  <li class="stile1">le unit&agrave; libere sono associate ad un bit di valore <span class="stile1red">0</span>, le unit&agrave; occupate sono
+    associate ad un bit di valore <span class="stile1red">1</span>.</li>
+</ul>
+<p align="center" class="stile1red"><img src="mappa.jpg" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestmem/mappa.jpg" width="401" height="218"></p>
+<p align="center" class="stile1">Nel nostro caso consideriamo
+che lo spazio di memoria sia di K unit&agrave;.</p>
+<p align="center" class="stile1">La mappa di bit pu&ograve; essere rappresentata </p>
+<ul>
+  <li class="stile1red">char mapp[k]; //ossia con 8*k bit </li>
+</ul>
+<p class="stile1">oppure</p>
+<ul>
+  <li class="stile1red">char mapp[k/8]; //ossia con k bit </li>
+</ul>
+<p align="center" class="stile1">La gestione della mappa con la prima rappresentazione &egrave; molto semplice.</p>
+<p align="center" class="stile1">Nel secondo caso bisogna adoperare l'operatore &amp; per trovare il bit corrispondente.</p>
+<hr>
+<p align="center" class="stile1red">Liste di puntatori (singola lista) </p>
+<ul>
+  <li class="stile1"> Si mantiene una lista dei blocchi allocati e liberi di memoria</li>
+  <li class="stile1">ogni elemento della lista specifica
+      <ul>
+        <li class="stile1">se si tratta di un processo (P) o di un blocco libero (Hole) </li>
+        <li class="stile1">la dimensione (inizio/fine) del segmento</li>
+      </ul>
+  </li>
+</ul>
+<p><img src="mappa2.jpg" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestmem/mappa2.jpg" width="1124" height="314"></p>
+<p>&nbsp;</p>
+<p align="justify" class="stile1">I campi della coda dei Processi sono: </p>
+<p align="center">&nbsp;</p>
+<div align="center">
+  <table width="75%" border="1">
+    <tr>
+      <td width="14%" class="stile1"><div align="center">IP </div></td>
+      <td width="86%" class="stile1">di tipo int (identificatore unico processo=1 o buco=0) </td>
+    </tr>
+    <tr>
+      <td class="stile1">
+        <div align="center"><font color="#FF0000" size="6">BIni </font></div></td>
+      <td class="stile1">di tipo intero ( <font size="6" face="arial">blocco iniziale della memoria) </font></td>
+    </tr>
+    <tr>
+      <td class="stile1">
+        <div align="center"><font color="#FF0000">Bend</font></div></td>
+      <td class="stile1">di tipo intero <font face="arial">( <font size="6" face="arial">blocco finale della memoria) </font></font></td>
+    </tr>
+    <tr>
+      <td class="stile1">
+        <div align="center"><font color="#FF0000" size="6" face="arial">Next </font></div></td>
+      <td class="stile1"><font size="6" face="arial"> (link al Blocco successivo) </font></td>
+    </tr>
+  </table>
+</div>
+<p align="center">&nbsp;</p>
+<p align="justify" class="stile1"><font size="6" face="arial">La cui struttura in C potrebbe essere questa </font></p>
+<div align="center">
+  <center>
+    <table border="1" width="667" height="167">
+      <tr>
+        <td width="667" height="167" bgcolor="#FFFF00">
+          <p align="justify" class="stile1"><font color="#0000FF" size="6" face="arial">typedef struct PROC_CODA<br>
+            {unsigned int IP;<br>
+            unsigned int BIni;<br>
+            unsigned int BEnd;<br>
+            PROC_CODA *next;<br>
+            } proc_coda; <br>
+        </font></td>
+      </tr>
+    </table>
+    <p align="justify" class="stile1"><font size="6" face="arial">I</font><font size="6" face="arial">Si suppone quindi che i processi vengano inseriti nella propria coda, e che la coda della memoria si modifichi opportunamente. </font></p>
+    <p align="justify" class="stile1"><font size="6" face="arial">Esempio </font></p>
+    <table border="1" width="890" height="167">
+      <tr>
+        <td width="880" height="167" bgcolor="#FFFF00">
+          <p align="justify"> <font size="6" face="arial"><span class="stile1"><font color="#0000FF">Si supponga che lo spazio di memoria sia di 300 <font color="#0000FF">quindi all'inizio la coda della memoria sia in questa configurazione </font></font></span></font>
+          <p align="justify"><font color="#FF0000" size="6" face="arial"><span class="stile1red">[0|0|300]-&gt;NULL </span> </font>
+          <p align="justify"> <font size="6" face="arial"><span class="style9">Inseriamo il processo con blocco iniziale 0, e BEnd 20 </span></font>
+          <p align="justify"> <font color="#0000FF" size="6" face="arial"><span class="stile1red">[1|0|20]-&gt;</span></font><font color="#FF0000" size="6" face="arial"><span class="stile1red">[0|2</span><span class="style12">1</span><span class="stile1red">|300]-&gt;NULL</span><span class="stile1"> sar&agrave; la coda della memoria </span> </font>
+          <p align="justify"> <font color="#0000FF" size="6" face="arial"><span class="stile1">Inseriamo il processo con blocco iniziale 200, e BEnd 250 </span></font>
+        <p align="justify"><font color="#FF0000" size="6" face="arial"><span class="stile1red">[1|0|20]-&gt;[0|21</span><span class="style12">|199]-&gt;</span><span class="stile1red">[2|200|250]-&gt;NULL</span><span class="stile1"> </span></font> </td>
+      </tr>
+    </table>
+    <hr>
+  </center>
+</div>
+<p align="center" class="stile1red">Liste di puntatori (doppia lista) </p>
+<ul>
+  <li class="stile1"> due liste una dei blocchi allocati e una dei blocchi liberi di memoria</li>
+  <li class="stile1">ogni elemento della lista specifica
+      <ul>
+        <li class="stile1">la dimensione (inizio/fine) del segmento</li>
+      </ul>
+  </li>
+</ul>
+<p align="justify" class="stile1">I campi della coda dei Processi sono: </p>
+<p align="center">&nbsp;</p>
+<div align="center">
+  <table width="75%" border="1">
+    <tr>
+      <td width="14%" class="stile1"><div align="center">IP </div></td>
+      <td width="86%" class="stile1">di tipo intero (identificatore unico processo) </td>
+    </tr>
+    <tr>
+      <td class="stile1"><font color="#FF0000" size="6">
+        <div align="center">BIni </div>
+      </font></td>
+      <td class="stile1">di tipo intero ( <font size="6" face="arial">blocco iniziale della memoria) </font></td>
+    </tr>
+    <tr>
+      <td class="stile1"><font color="#FF0000">
+        <div align="center">Bend</div>
+      </font></td>
+      <td class="stile1">di tipo intero <font face="arial">( <font size="6" face="arial">blocco finale della memoria) </font></font></td>
+    </tr>
+    <tr>
+      <td class="stile1"><font size="6" face="arial"><font color="#FF0000">
+        <div align="center">Next </div>
+      </font></font></td>
+      <td class="stile1"><font size="6" face="arial"> (link al processo successivo) </font></td>
+    </tr>
+  </table>
+</div>
+<p align="center">&nbsp;</p>
+<p align="justify" class="stile1"><font size="6" face="arial">La cui struttura in C potrebbe essere questa </font></p>
+<p align="center" class="stile1">&nbsp;</p>
+<p align="justify">&nbsp;</p>
+<div align="center">
+  <center>
+    <table border="1" width="667" height="167">
+      <tr>
+        <td width="667" height="167" bgcolor="#FFFF00">
+          <p align="justify" class="stile1"><font color="#0000FF" size="6">typedef struct PROC_CODA<br>
+            {<font color="#0000FF">unsigned int IP;<br>
+            <font color="#0000FF"> unsigned int BIni;<br>
+            <font color="#0000FF">unsigned int BEnd;<br>
+            PROC_CODA *next;<br>
+            } proc_coda; <br>
+        </font></font></font></font></td>
+      </tr>
+    </table>
+    <p>&nbsp;</p>
+    <p align="justify" class="stile1">I campi della coda della Memoria sono: </p>
+  </center>
+</div>
+<div align="center">
+  <table width="75%" border="1">
+    <tr>
+      <td width="14%" class="stile1"><font color="#FF0000" size="6">BIni </font></td>
+      <td width="86%" class="stile1"><font size="6" face="arial">di tipo intero (blocco iniziale della memoria libera) </font></td>
+    </tr>
+    <tr>
+      <td class="stile1"><font color="#FF0000">BEnd</font></td>
+      <td class="stile1"><font face="arial">di tipo intero <font face="arial">(blocco finale della memoria libera) </font></font></td>
+    </tr>
+    <tr>
+      <td class="stile1"><font size="6" face="arial"><font color="#FF0000">Next </font></font></td>
+      <td class="stile1"><font size="6" face="arial"> (link al blocco successivo) </font></td>
+    </tr>
+  </table>
+</div>
+<p align="center">&nbsp;</p>
+<p align="justify" class="stile1"><font size="6" face="arial">La cui struttura in C potrebbe essere questa </font></p>
+<font size="6" face="arial">
+<p align="justify">&nbsp;</p>
+<div align="center">
+  <center>
+    <table border="1" width="667" height="167">
+      <tr>
+        <td width="667" height="167" bgcolor="#FFFF00">
+          <p align="justify" class="stile1"><font color="#0000FF" size="6">typedef struct MEM_CODA<br>
+            {<font color="#0000FF">unsigned int BIni;<br>
+            <font color="#0000FF">&nbsp;unsigned int BEnd;<br>
+&nbsp;MEM_CODA *next;<br>
+            } mem_coda; <br>
+        </font></font></font></td>
+      </tr>
+    </table>
+    <p>&nbsp;</p>
+  </center>
+</div>
+<p align="justify" class="stile1">Si suppone quindi che i processi vengano inseriti nella propria coda, e che la coda della memoria si modifichi opportunamente. </p>
+</font>
+<p align="justify" class="stile1">Esempio </p>
+<table border="1" width="909" height="794">
+  <tr>
+    <td width="990" height="167" bgcolor="#FFFF00">
+      <p align="justify"> <span class="stile1"><font color="#0000FF" size="6">Si supponga che lo spazio di memoria sia di 300 <font color="#0000FF" size="6">quindi all'inizio la coda della memoria sia in questa configurazione </font></font></span>
+      <p align="justify"> 
+      <font color="#FF0000" size="6"><span class="stile1red">[0|300]-&gt;NULL </span> </font>
+      <p align="justify"> <font size="6"><span class="style9">Inseriamo il processo con blocco iniziale 0, e BEnd 20 </span></font>
+      <p align="justify"> <font color="#0000FF" size="6"><span class="stile1red">[1|0|20]-&gt;NULL</span> </font><font size="6"><span class="style9">sar&agrave; la coda dei processi </span> </font>
+      
+      <p align="justify"> 
+      <font color="#FF0000" size="6"><span class="stile1red">[21|300]-&gt;NULL</span> </font><font size="6"><span class="style9">sar&agrave; la coda della memoria libera </span> </font>
+      <p align="justify"> <span class="style15"><font size="6"><span class="stile1">Inseriamo il processo con blocco iniziale 200, e BEnd 250 </span></font></span>
+      <p align="justify"> 
+      <font color="#FF0000" size="6"><span class="stile1red">[1|0|20]-&gt;[2|200|250]-&gt;NULL</span></font><font size="6"><span class="style9"> coda dei processi </span> </font>
+      <p align="justify"> <font color="#FF0000" size="6"><span class="stile1red"> [21|199]-&gt;[251|300]-&gt;NULL</span> </font><font size="6"><span class="style9">coda memoria </span></font>
+      <p align="justify" class="style15"> <font size="6"><span class="stile1">Inseriamo il processo con Bini 280, e BEnd 300</span></font>
+      <p align="justify"> <font color="#0000FF" size="6"><span class="stile1red">[1|0|20]-&gt;[2|200|250]-&gt;[3|280|300]-&gt;NULL</span></font> <font size="6"><span class="style9">coda dei processi</span></font>      
+      <font color="#FF0000" size="6"><font color="#FF0000" size="6"><font color="#0000FF" size="6"><font color="#0000FF" size="6"><font color="#FF0000" size="6"><font color="#FF0000" size="6"><font color="#0000FF" size="6"><font color="#FF0000" size="6"><font color="#FF0000" size="6"><font color="#0000FF" size="6"><font color="#0000FF" size="6"><font color="#0000FF"><p align="justify" class="stile1"><span class="stile1red">[20|199]-&gt;[251|279]-&gt;NULL</span> coda memoria 
+                      
+    </font></font></font></font></font></font></font></font></font></font></font></font></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p align="center" class="stile1">&nbsp;</p>
+</body>
+</html>

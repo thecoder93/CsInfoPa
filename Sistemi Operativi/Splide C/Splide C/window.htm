@@ -1,0 +1,114 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>WINDOWS</title>
+<link href="file.css" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/file.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style1 {color: #FF0000}
+.style2 {
+	color: #0000FF;
+	font-size: x-large;
+}
+-->
+</style>
+</head>
+
+<body>
+<p class="titoli">Sistema Operativo Windows </p>
+<p>Il Sistema Operativo Windows &egrave; strutturato in maniera modulare e stratificata e si possono distingure tre strati </p>
+<ul>
+  <li>HAL hardware Abstraction layer
+    <ul>
+      <li class="style1">Strato software che estrae alcuni meccanismi di base come il cambio contesto o la gestione delle interruzioni a basso libello , dalla particolare macchina fisica. </li>
+    </ul>
+  </li>
+  <li>KERNEL o Nucleo
+    <ul>
+      <li><span class="style1">Cuore del sistema che fornisce i 4 servizi fondamentali
+        </span>
+        <ul>
+          <li>a) lo sheduling dei thread </li>
+          <li>b) la gestione degli interupt </li>
+          <li>c) la sincronizzazione a basso livello</li>
+          <li>d)gestione del consumo energetico </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Executive 
+    <ul>
+      <li><span class="style1">fornisce un insieme di servizzi in modalit&agrave; utente come </span>
+        <ul>
+          <li>la gestione degli oggetti di sistema </li>
+          <li>la gestione della memoria virtuale </li>
+          <li>il file system e L'I/O </li>
+          <li> la creazione dei processi e dei thread. </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<p align="center"><img src="win32.jpg" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/win32.jpg" width="805" height="591"></p>
+<p class="titoli">Processi in WINDOW </p>
+<hr>
+      <p> Un processo in Windows &egrave; un &ldquo;oggetto di nucleo&rdquo; (kernel object) che definisce uno spazio di indirizzamento. &Egrave; caratterizzato da:</p>
+<ul>
+  <li>Un identificatore
+  </li>
+  <li>Uno spazio di indirizzamento privato</li>
+  <li>Uno o pi&ugrave; thread di esecuzione</li>
+  <li>Una directory corrente </li>
+  <li>Varie tabelle contenenti le risorse del processo</font>
+  </li>
+</ul>
+<p>Un thread è un “oggetto di nucleo” che definisce una entità concorrente e schedulabile. 
+È caratterizzato da:</p>
+<ul>
+  <li> Un identificatore    </li>
+  <li>Una funzione da eseguire      </li>
+  <li>Un contesto (insieme di registri del processore)        </li>
+  <li>Un puntatore allo stack </li>
+</ul>
+<p>La politica di scheduling dei thread in Windows &egrave; intermedia tra la politica prioritaria e quella “round-robin”.</p>
+<p> La priorità di un  thread viene calcolata come somma di due componenti:  </p>
+<ul>
+  <li>Una classe di priorità associata al processo a cui il thread appartiene      </li>
+  <li>Una priorità relativa del thread </li>
+</ul>
+<p>La gestione della memoria Virtuale in Windows prevede:</p>
+<ul>
+  <li>Dimensione della memoria virtuale di 4 gigabyte (indirizzo virtuale di 32 bit)</li>
+  <li>Memoria virtuale paginata (paginazione a domanda) con pagine di dimensioni fisse (le dimensioni della pagina dipendono dalla particolare macchina fisica)</li>
+  <li>Spazio virtuale suddiviso in due sottospazi di 2 gigabyte ciascuno:
+    <ul>
+      <li>il sottospazio inferiore è privato di ogni processo </li>
+      <li> il sottospazio superiore è condiviso tra tutti i processi e contiene il sistema operativo. </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Il Meccanismo di paginazione &egrave; a due livelli:</p>
+<ul>
+  <li> la tabella di primo livello (Page Directory) contiene 1024 elementi (Page Directory Entry) ciascuno dei quali punta ad una tabella di secondo livello (Page Table) anch’essa di 1024 elementi (Page Table Entry).      </li>
+</ul>
+<p>Indirizzo virtuale suddiviso in tre parti:</p>
+<p align="center"><img   align="middle"src="mem.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/mem.gif" width="582" height="129"></p>
+
+  <p >Il file system delle ultime versioni di Windows (NTFS - Native NT File System) &egrave; di tipo transazionale con capaci&agrave; di recupero dopo una caduta del sistema (crash).<br>
+      Fornisce il supporto al concetto di partizioni logica (volume), dove ogni volume &egrave; suddiviso in cluster (insieme di settori fisici del disco) che rappresentano le unit&agrave; elementari di allocazione dei dati.</p>
+  <p class="titoli">Creazione di Processi in WINDOW </p>
+  <hr>
+  <p >Esistono vari meccanismi per la creazione di un nuovo processo all'interno di un programma C, alcuni esclusivamente di window altri condivisi con altri SO come linux</p>
+  <ol>
+    <ol>
+      <li><a href="procwinlinux.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/procwinlinux.htm">Mecanismi comuni a Windows e Unix/Linux</a></li>
+      <li><a href="processi.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/processi.htm">Mecanismi esclusivamente di Windows </a></li>
+    </ol>
+  </ol>
+</body>
+
+</html>

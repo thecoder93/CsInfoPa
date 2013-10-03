@@ -1,0 +1,138 @@
+<html>//Perricone
+#include<windows.h>
+#include<stdio.h>
+#include<process.h>
+#include<conio.h>
+#define GetRandom(min,max) ((rand()%(int)((max+1)-min))+min)
+
+DWORD finito(LPDWORD p);
+DWORD pizzaiolo1(LPDWORD p);
+DWORD pizzaiolo2(LPDWORD p);
+void inforna(int i,int pizze,int pizlo);
+HANDLE hT1,hT2; 
+HANDLE fornoSemaf; //Semaforo per controllare l'entrata delle pizze nel forno
+HANDLE mtx; //mutex per incrementare e decrementare il numero di posti disponibili nel foro
+int nposti;//numero posti disponibili nel forno
+int fine; 
+int i;//numero ordinazione
+
+void main()
+{
+fine=1;
+nposti=8;//Inizializzo il num dei posti
+i=1;
+HANDLE hTfn;
+DWORD IDfn,ID1,ID2;
+hTfn=CreateThread(NULL,0,(LPTHREAD_START_ROUTINE)finito,(LPVOID)&fine,0,&IDfn);
+if (hTfn==NULL) printf("Errore creazione Thread finito\n");
+else{
+
+fornoSemaf=CreateSemaphore(NULL,8,8,NULL);
+mtx=CreateMutex(NULL,FALSE,NULL);
+
+
+hT1=CreateThread(NULL,0,(LPTHREAD_START_ROUTINE)pizzaiolo1,(LPVOID)i,0,&ID1);
+//Sleep(GetRandom(1000,5000));//tempo usato per scandire l'arrivo delle ordinazioni per il pizzaiolo
+	
+i++;
+hT2=CreateThread(NULL,0,(LPTHREAD_START_ROUTINE)pizzaiolo2,(LPVOID)i,0,&ID2);
+//Sleep(GetRandom(1000,5000));//tempo usato per scandire l'arrivo delle ordinazioni per il pizzaiolo
+while(fine);
+CloseHandle(mtx);
+}
+}
+
+DWORD finito(LPDWORD p)
+{int *fine;
+fine=(int *)p;
+getch();
+Sleep(1000);
+*fine=0;
+return 0;
+}
+
+DWORD pizzaiolo1(LPDWORD p)
+{int t;//tempo di preparazione delle pizze
+ int tp=100;//tempo di preparazione di una singola pizza per il pizzaiolo1
+	int i=(int )p;//numero ordinazione
+	int pizze;
+	int pizlo=1;
+while(fine){
+	printf("Il pizzaiolo1 esegue l'ordinazione numero %d \n",i);
+	pizze=GetRandom(1,10);//numero pizze ordinate
+
+t=pizze*tp;
+printf("il pizzaiolo 1 sta preparando %d pizze\n",pizze);
+Sleep(t);//Il Pizzaiolo prepara le pizze
+
+inforna(i,pizze,pizlo);
+printf("il pizzaiolo1 ha terminato l'ordinazione numero %d\n",i);
+
+Sleep(10);
+i++;
+	}//while
+return 0;
+
+}
+
+DWORD pizzaiolo2(LPDWORD p)
+{int t;//tempo di preparazione delle pizze
+ int tp=200;//tempo di preparazione di una singola pizza per il pizzaiolo2
+	int i=(int )p;//numero ordinazione
+	int pizze;
+	int pizlo=2;
+while(fine){
+	printf("Il pizzaiolo2 esegue l'ordinazione numero %d\n",i);
+	pizze=GetRandom(1,10);//numero pizze ordinate
+
+t=pizze*tp;
+printf("il pizzaiolo 2 sta preparando %d pizze\n",pizze);
+Sleep(t);//Il Pizzaiolo prepara le pizze
+
+inforna(i,pizze,pizlo);
+
+printf("il pizzaiolo 2 ha terminato l'ordinazione numero %d\n",i);
+
+Sleep(10);
+i++;
+}//while
+return 0;
+}
+
+void inforna(int i,int pizzeord,int pizlo)
+{int pizzerimaste,pizzeinfornate;
+ int tc=2000;//tempo di cottura
+printf("il pizzaiolo %d deve infornare %d pizze\n",pizlo,pizzeord);
+pizzerimaste=pizzeord;
+
+while(pizzerimaste>0){
+
+if(pizzeord>nposti) {
+pizzerimaste=pizzeord-nposti;//pizze ancora da infornare
+pizzeinfornate=pizzeord-pizzerimaste;}
+else{
+pizzerimaste=0;
+pizzeinfornate=pizzeord;}
+
+for(int j=0;j<nposti;j++)
+WaitForSingleObject(fornoSemaf,INFINITE);
+
+
+    WaitForSingleObject(mtx,INFINITE);
+	  nposti=nposti-pizzeinfornate;
+	ReleaseMutex(mtx);
+
+printf("il pizzaiolo %d ha infornato %d pizze e attende la loro cottura\n",pizlo,pizzeinfornate);
+	Sleep(tc);
+
+for( j=0;j<nposti;j++)
+ReleaseSemaphore(fornoSemaf,1,0);
+
+WaitForSingleObject(mtx,INFINITE);
+nposti=nposti+pizzeinfornate;
+ReleaseMutex(mtx);
+
+printf("il pizzaiolo %d deve infornare ancora %d pizze\n",pizlo,pizzerimaste);
+inforna(i,pizzerimaste,pizlo);
+}//while
+}

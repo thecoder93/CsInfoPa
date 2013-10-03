@@ -1,0 +1,195 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>iniziamo</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="justify"><font size="7">Il <b>primo programma in C</b>, il più
+semplice in assoluto è il famoso &quot;Hello World!&quot; (Ciao Mondo) che ha
+soltanto lo scopo di stampare a video la scritta per spiegare la sintassi
+basilare del linguaggio,</font></p>
+<p>&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" width="667" height="167">
+    <tr>
+      <td width="667" height="167" bgcolor="#FFFF00"><font size="7">// Il mio
+        primo programma</font>
+        <p><font size="7">#include &lt;stdio.h&gt;<br>
+        main ()<br>
+        {<br>
+        &nbsp;&nbsp;printf(&quot;Hello World!&quot;);/* stampa a video &quot;Hello
+        Word!&quot; */<br>
+        }</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="justify"><font size="7">Questo semplice programma ha delle corrispondenze anche in
+altri linguaggi,</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="810" height="156">
+    <tr>
+      <td width="800" height="156" bordercolor="#FFFF00" bgcolor="#FFFF00"><font size="7">//
+        Pascal<br>
+        program main;<br>
+        begin<br>
+        &nbsp;&nbsp;writeln('Hello World!');<br>
+        end.<br>
+        <br>
+        // C++<br>
+        #include &lt;iostream.h&gt;<br>
+        main()<br>
+        {<br>
+        &nbsp;&nbsp;cout &lt;&lt; &quot;Hello World!&quot;;<br>
+        }<br>
+        <br>
+        // Java<br>
+        class Saluto {<br>
+        &nbsp;&nbsp;public static void main(String args[]) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&quot;Hello World!&quot;);<br>
+        &nbsp;&nbsp;}<br>
+        }</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+&nbsp;
+<p><font size="7">Vediamo nello specifico alcune parole chiavi</font></p>
+<blockquote>
+  <p align="justify"><font size="7">L'<font color="#FF0000">include</font> è una direttiva del
+          preprocessore, un comando, che permette di richiamare le librerie standard
+          del C. Senza librerie un programma non avrebbe a disposizione i comandi per
+          eseguire anche le operazioni più semplici, come leggere un file o stampare
+          a video una scritta.</font></p>
+</blockquote>
+<p align="justify">&nbsp;</p>
+<div align="justify">
+<ul>
+      <li><font size="7">La funzione principale in un qualsiasi programma in C è la <font color="#FF0000">main</font> che, in questo caso, non ha parametri, ma
+          può ricevere anche degli input da riga di comando. Il <font color="#FF0000">main</font> è indispensabile ed unico e deve esserci sempre;</font>
+  </ul>
+</div>
+<ul>
+</ul>
+<p>&nbsp;</p>
+<blockquote>
+  <p align="justify"><font size="7">Le <font color="#FF0000">parentesi graffe</font> servono,
+          invece, per delimitare le istruzioni, o come vengono abitualmente chiamate
+  &quot;statement&quot;, che devono essere eseguite in ordine, da quella più
+    in alto, giù fino all'ultima, gioca lo stesso ruolo delle parole chiavi
+          Begin end in pascal </font>
+  </p>
+</blockquote>
+<p>&nbsp;</p>
+<blockquote>
+  <p align="justify"><font size="7">Il <font color="#FF0000">punto e virgola</font>, invece,
+          serve per &quot;chiudere&quot; un'istruzione, per far capire che dopo quel
+          simbolo inizia una nuova istruzione.</font></p>
+</blockquote>
+<p>&nbsp;</p>
+<blockquote>
+  <p align="justify"><font size="7"><font color="#FF0000">printf</font>&nbsp; è la funzione
+          adibita a stampare a video tutto quello che gli viene passato come argomento,
+          essa che fa parte della libreria &lt;stdio.h&gt;.</font></p>
+</blockquote>
+<p>&nbsp;</p>
+<blockquote>
+  <p align="justify"><font size="7">All'interno di un programma in C possono essere inseriti
+        dei commenti,esistono due modi:</font>
+  </p>
+  <p><font size="7">1.&nbsp;&nbsp; // &nbsp;&nbsp; - Tutto quello che sta a
+        destra sulla medesima riga viene considerato commento;</font></p>
+  <p><font size="7">2. /* ... */ - Tutto quello che è compreso tra i due
+        asterischi viene considerato commento; questa forma viene utilizzata per
+        commenti su più righe.</font></p>
+</blockquote>
+<p>&nbsp;</p>
+<p><font size="7"><a name="ilc"></a>Nel seguito vedremo i componenti principali dei un programma 
+  in C</font></p>
+<p>&nbsp;</p>
+<div align="center">
+  <center>
+    <table border="1" width="897" height="482">
+      <tr> 
+        <td width="15" height="38"><font size="7"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></font></td>
+        <td width="492" height="38"><font size="7"><a href="le_variabili.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/le_variabili.htm">Le 
+          variabili </a></font></td>
+        <td width="368">&nbsp;</td>
+      </tr>
+      <tr> 
+        <td width="15" height="38"><font size="7"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></font></td>
+        <td width="492" height="38"><font size="7"><a href="le_costanti.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/le_costanti.htm">Le 
+          costanti</a></font></td>
+        <td width="368" height="38">&nbsp;</td>
+      </tr>
+      <tr> 
+        <td width="15" height="38"><font size="7"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></font></td>
+        <td width="492" height="38"><font size="7"> <a href="operatori.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/operatori.htm">Operatori</a></font></td>
+        <td width="368" height="38">&nbsp;</td>
+      </tr>
+      <tr> 
+        <td width="15" height="38"><font size="7"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></font></td>
+        <td width="492" height="38"><font size="7"><a href="operazioniIO.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/operazioniIO.htm"> 
+          Prime operazioni di I/O</a></font></td>
+        <td width="368" height="38"><font size="7"><a href="esercitazione1.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/esecitazioni/esercitazione1.htm">Esercitazione 
+          1</a></font></td>
+      </tr>
+      <tr> 
+        <td width="15" height="38"><font size="7"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></font></td>
+        <td height="38"><p><font size="7"><a href="condizionali.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/condizionali.htm">Controlli 
+            condizionali</a></font></p></td>
+        <td height="38">&nbsp;<font size="7"><a href="esercitazione2.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/esecitazioni/esercitazione2.htm">Esercitazione 
+          2</a></font></td>
+      </tr>
+      <tr> 
+        <td width="15" height="38"><font size="7"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></font></td>
+        <td height="38"><p><font size="7"><a href="iterativi.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/iterativi.htm">Controlli Iterativi:</a> 
+            </font></p></td>
+        <td height="38">&nbsp;<font size="7"><a href="esercitazione3.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/esecitazioni/esercitazione3.htm">Esercitazione 
+          3</a></font></td>
+      </tr>
+      <tr> 
+        <td width="15" height="38"><font size="7"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></font></td>
+        <td height="38"><font size="7"><a href="array.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/array.htm">Gli array</a> </font></td>
+        <td height="38">&nbsp;<font size="7"><a href="esercitazione4.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/esecitazioni/esercitazione4.htm">Esercitazione 
+          4</a></font></td>
+      </tr>
+      <tr> 
+        <td height="38"><font size="7"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></font></td>
+        <td height="38"><font size="7"><a href="funzioni.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/funzioni.htm">Funzioni</a></font></td>
+        <td height="38"><a href="esercitazione5.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/esecitazioni/esercitazione5.htm"><font size="7">Esercitazione 
+          5</font></a></td>
+      </tr>
+      <tr> 
+        <td height="38"><font size="7"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></font></td>
+        <td height="38"><font size="7"><a href="strutture.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/strutture.htm">Strutture</a></font></td>
+        <td height="38">&nbsp;</td>
+      </tr>
+      <tr> 
+        <td height="38"><font size="7"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></font></td>
+        <td height="38"><font size="7"><a href="puntatori.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/puntatori.htm">Puntatori</a></font></td>
+        <td height="38"><a href="esercitazione6.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/esecitazioni/esercitazione6.htm"><font size="7">Esercitazione 6 </font></a></td>
+      </tr>
+      <tr> 
+        <td height="38"><font size="7"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></font></td>
+        <td height="76" valign="middle" align="center"> <p align="justify"><font size="7">
+		<a href="puntatoriefunz.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/puntatoriefunz.htm">Puntatori 
+            e Funzioni</a></font></p></td>
+        <td height="76" valign="middle" align="center"> <p align="justify"><a href="esercitazione7.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/esecitazioni/esercitazione7.htm"><font size="7">Esercitazione 7 </font></a></p></td>
+      </tr>
+    </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

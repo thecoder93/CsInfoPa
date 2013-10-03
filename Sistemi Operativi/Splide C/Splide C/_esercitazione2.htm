@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Esecitazione1</title>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<p><font size="4" face="arial">Esercizio 1</font></p>
+<p><font size="4"><font face="arial">Preparare un programma che calcoli le soluzioni 
+  dell'equazione di 2° grado </font></font><font face="arial"><strong>ax</strong></font><strong><font face="Arial"><sup>2</sup></font><font face="arial">+bx+c=0.</font></strong></p>
+<p>#include &lt;stdio.h><br>
+#include &lt;math.h><br>
+void main()<br>
+{<br>
+float a,b,c;<br>
+printf("a=");scanf("%f",&amp;a);<br>
+printf("b=");scanf("%f",&amp;b);<br>
+printf("c=");scanf("%f",&amp;c);<br>
+float delta;<br>
+delta=pow(b,2)-4*a*c;<br>
+if(delta>=0)<br>
+{if(delta==0)<br>
+	printf("due soluzioni concidenti x1=x2=%.2f",-b/(2*a));<br>
+ else<br>
+    printf("due soluzioni  x1=%.2f x2=%.2f",(-b+sqrt(delta))/(2*a),(-b-sqrt(delta))/(2*a));<br>
+}<br>
+else<br>
+ printf("Nessuna soluzione");<br>
+}&nbsp;<br>
+</p>
+<hr>
+<p><font size="4" face="arial">Esercizio 2</font></p>
+<p><font size="4" face="arial">Preparare un programma che dato u intero positivo
+&lt;100 dia in output la cifra in lettere.</font></p>
+<p>#include &lt;stdio.h><br>
+#include &lt;math.h><br>
+void main()<br>
+{<br>
+int  a,b;<br>
+printf("a=");scanf("%d",&amp;a);<br>
+if(a>=100) printf("%d >100 numero non consentito",a);<br>
+else<br>
+{if( a&lt;20)<br>
+	{switch(a)<br>
+		{case 0: printf("zero");break;<br>
+		 case 1: printf("uno");break;<br>
+         case 2: printf("due");break;<br>
+         case 3: printf("tre");break;&nbsp;<br>
+         case 4: printf("quattro");break;&nbsp;<br>
+         case 5: printf("cinque");break;&nbsp;<br>
+         case 6: printf("sei");break;&nbsp;<br>
+         case 7: printf("sette");break;&nbsp;<br>
+         case 8: printf("otto");break;&nbsp;<br>
+         case 9: printf("nove");break;&nbsp;<br>
+         case 10: printf("dieci");break;&nbsp;<br>
+         case 11: printf("undici");break;&nbsp;<br>
+         case 12: printf("dodici");break;&nbsp;<br>
+         case 13: printf("tredici");break;&nbsp;<br>
+         case 14: printf("quattordici");break;&nbsp;<br>
+         case 15: printf("quindici");break;&nbsp;<br>
+         case 16: printf("sedici");break;&nbsp;<br>
+         case 17: printf("diciasette");break;&nbsp;<br>
+         case 18: printf("diciotto");break;&nbsp;<br>
+         case 19: printf("diciannove");break;&nbsp;<br>
+		}<br>
+	}<br>
+else<br>
+	{int b=a/10;<br>
+     switch(b)<br>
+		{case 2: printf("venti");break;<br>
+         case 3: printf("trenta");break;&nbsp;<br>
+         case 4: printf("quaranta");break;&nbsp;<br>
+         case 5: printf("cinquanta");break;&nbsp;<br>
+         case 6: printf("sessanta");break;&nbsp;<br>
+         case 7: printf("settanta");break;&nbsp;<br>
+         case 8: printf("ottanta");break;&nbsp;<br>
+         case 9: printf("novanta");break;&nbsp;<br>
+		}<br>
+	 int c=a-(b*10);<br>
+     switch(c)<br>
+		{case 0:break;<br>
+		 case 1: printf("uno");break;<br>
+         case 2: printf("due");break;<br>
+         case 3: printf("tre");break;&nbsp;<br>
+         case 4: printf("quattro");break;&nbsp;<br>
+         case 5: printf("cinque");break;&nbsp;<br>
+         case 6: printf("sei");break;&nbsp;<br>
+         case 7: printf("sette");break;&nbsp;<br>
+         case 8: printf("otto");break;&nbsp;<br>
+         case 9: printf("nove");break;&nbsp;<br>
+		}<br>
+	}<br>
+}<br>
+}&nbsp;</p>
+<hr>
+<p>&nbsp; </p>
+</body>
+</html>

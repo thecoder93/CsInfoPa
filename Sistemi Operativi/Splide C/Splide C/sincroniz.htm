@@ -1,0 +1,144 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>thread</title>
+</head>
+
+<body>
+<p align="center"><b><font color="#FF0000" size="7"><span style="font-family: Tahoma; text-shadow: auto; mso-color-index: 3">Sincronizzazione</span></font></b></p>
+<p align="left"><font size="6">Un thread che deve aspettare un evento esterno
+come ad esempio il rilascio di una risorsa da parte di un altro Thread deve andare in stato di 
+attesa o Wait.</font></p>
+<p align="justify"><font size="6">Per sospendere un thread fino a che uno o più
+oggetti kernel non diventano disponibile o “segnalati”, si usano le seguenti funzioni di Wait:</font></p>
+
+<div align="center">
+  <center>
+      <table border="1" width="737" height="66" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="721" height="66" bgcolor="#FFFF00" bordercolorlight="#FFFF00">
+            <p align="left"><font color="#0000FF" size="5">WaitForSingleObject</font></p>
+          </td>
+        </tr>
+        <tr>
+          <td width="721" height="66" bgcolor="#FFFF00" bordercolorlight="#FFFF00">
+            <p align="left"><font color="#0000FF" size="5">WaitForMultipleObjects</font></td>
+        </tr>
+        <tr>
+          <td width="721" height="66" bgcolor="#FFFF00" bordercolorlight="#FFFF00">
+            <p align="left"><font color="#0000FF" size="5">MsgWaitForMultipleObjects</font></td>
+        </tr>
+      </table>
+  </center>
+</div>
+<hr>
+<p><code><font size="5" color="#FF0000"><b>DWORD WaitForSingleObject(&nbsp;<br>
+&nbsp;&nbsp;&nbsp; HANDLE hHandle, // handle ossia puntatore all'oggeto di cui 
+si aspetta il rilascio&nbsp;<br>
+&nbsp;&nbsp;&nbsp; DWORD dwMilliseconds // l'intervallo di time-out&nbsp; in millisecondi );</b></font></code></p>
+
+<p align="justify"><font size="6">La funzione <u><font color="#FF0000">WaitForSingleObject</font></u> 
+  controlla lo stato dell'oggetto specificato il cui maneggiatore o per meglio 
+dire&nbsp; il puntatore hHandle&nbsp; passato come primo parametro. Se l'oggetto 
+è disponibile e quindi è segnalato 
+  <font color="#FF0000">(signaled)</font> , il processo esecutivo&nbsp; procede. 
+Viceversa se l'oggetto non è disponibile e quindi il suo stato non è segnalato <font color="#FF0000">(nonsignaled) </font>il 
+  processo si mette in stato di wait fino a che lo stato dell'oggetto diventa&nbsp; 
+  signaled o&nbsp; l'intervallo di time-out è raggiunto.</font></p>
+<p align="justify"><font size="6">La funzione ritorna il valore
+<font color="#FF0000">WAIT_OBJECT_0</font>&nbsp;&nbsp; se lo stato dell'oggetto 
+è diventato&nbsp; signaled , <font color="#FF0000">WAIT_TIMEOUT</font> se lo 
+stato dell'oggetto non è diventato&nbsp; signaled&nbsp; nell'intervallo di tempo 
+definito nel secondo parametro, <font color="#FF0000">WAIT_ABANDONED</font> se 
+l'oggetto non è diventato&nbsp; signaled ed&nbsp; il thread in cui l'oggetto è 
+stato dichiarato è stato terminato.</font><br>
+&nbsp;</p>
+<hr>
+<p><font size="6" color="#FF0000"><code><b>DWORD WaitForMultipleObjects(&nbsp;<br>
+&nbsp;&nbsp;&nbsp; DWORD nCount, // numbero di oggetti da controllare&nbsp;<br>
+&nbsp;&nbsp;&nbsp; CONST HANDLE *lpHandles, // puntatore al vettore di oggetti handle <br>
+&nbsp;&nbsp;&nbsp; BOOL fWaitAll, // wait flag&nbsp;<br>
+&nbsp;&nbsp;&nbsp; DWORD dwMilliseconds // </b></code></font><code><font size="5" color="#FF0000"><b>
+l'intervallo di time-out&nbsp; in millisecondi</b></font></code><font size="5" color="#FF0000"><code><b>);</b></code></font></p>
+<p align="justify"><font size="6">La funzione <font color="#FF0000">WaitForMultipleObjects</font> 
+controlla lo stato di più di un singolo oggetto. Il primo parametro </font>
+<font size="6" color="#FF0000">nCount</font><b><code><font size="5" color="#FF0000"> </font></code></b>
+<font size="6">determina il numero di oggetti che si voglio monitorare, il 
+secondo <font color="#FF0000">lpHandles</font></font><font color="#FF0000"></font><font size="6"> 
+è il puntatore&nbsp; al vettore di Handle , il terzo parametro è un booleano che 
+se è settato a TRUE, fa in modo che la funzione aspetta finché lo stato di tutti 
+gli oggetti diventa&nbsp; &quot;signaled&quot;, se FALSE, fa in modo che la funzione 
+aspetti che uno solo degli oggetti divenga &quot;signaled&quot;. In questo caso il valore 
+di ritorno indica l'oggetto il cui stato è cambiato.</font></p>
+<p align="justify"><font size="6">La funzione ritorna il valore
+<font color="#FF0000">WAIT_OBJECT_n</font>&nbsp;con <font color="#FF0000">n= 0..</font></font><font size="6" color="#FF0000">Count-1</font><font size="6"> se lo stato dell'oggetto 
+è diventato&nbsp; signaled , <font color="#FF0000">WAIT_TIMEOUT</font> se lo 
+stato dell'oggetto non è diventato&nbsp; signaled&nbsp; nell'intervallo di tempo 
+definito nel secondo parametro, <font color="#FF0000">WAIT_ABANDONED_n </font>
+con<font color="#FF0000"> n= 0..</font></font><font size="6" color="#FF0000">Count-1</font><font size="6"> se 
+l'oggetto non è diventato&nbsp; signaled ed&nbsp; il thread in cui l'oggetto è 
+stato dichiarato è stato terminato. Quindi l'indice dell'oggetto diventato 
+segnalato sarà
+<font color="#FF0000">WAIT_OBJECT_n-WAIT_OBJECT_0.</font></font></p>
+<hr>
+<p><code><font size="5" color="#FF0000"><b>DWORD MsgWaitForMultipleObjects(&nbsp;<br>
+&nbsp;&nbsp;&nbsp; DWORD nCount, // number of handles in the handle array&nbsp;<br>
+&nbsp;&nbsp;&nbsp; LPHANDLE pHandles, // pointer to the object-handle array&nbsp;<br>
+&nbsp;&nbsp;&nbsp; BOOL fWaitAll, // wait for all or wait for one&nbsp;<br>
+&nbsp;&nbsp;&nbsp; DWORD dwMilliseconds, // time-out interval in milliseconds&nbsp;<br>
+&nbsp;&nbsp;&nbsp; DWORD dwWakeMask // type of input events to wait for );</b></font></code></p>
+<p align="left"><font size="6">La funzione <font color="#FF0000">MsgWaitForMultipleObjects</font>
+termina se</font>
+<blockquote>
+  <p><font size="6">- </font><font size="6" align="left">O tutti o nessun degli oggetti si trovano
+                nello stato&nbsp; signaled . Gli oggetti possono includere oggetti su eventi
+                di input che possono essere utilizzati specificando il parametro dwWakeMask </font>
+  </p>
+  <p><font size="6" align="left">- E' trascorso il limite di tempo timeout.</font></p>
+</blockquote>
+<p align="left"><font size="6">Un esempio di dwWakeMask può essere
+<font color="#FF0000">QS_KEY</font> input da tastiera, <font color="#FF0000">
+QS_MOUSEBUTTON</font> e <font color="#FF0000">QS_MOUSEMOVE</font>&nbsp; input da 
+mouse ect.</font><br>
+&nbsp;</p>
+<hr>
+<p align="left"><font size="6">Vediamo ora gli oggetti che si possono utilizzare 
+nelle funzioni di wait. Gli oggetti che si sfruttano nelle funzioni del&nbsp; kernel per la Sincronizzazione 
+sono:</font></p>
+
+<div align="center">
+  <center>
+      <table border="1" width="307" height="66" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="42" height="66">
+            <p><font size="6">1</font></td>
+          
+        <td width="259" height="66"><font size="6"><a href="mutex.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/mutex.htm">Mutex</a></font></td>
+        </tr>
+        <tr>
+          <td width="42" height="66"><font size="6">2</font></td>
+          
+        <td width="259" height="66"><font size="6"><a href="semaphore.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/semaphore.htm">Semaphore</a></font></td>
+        </tr>
+        <tr>
+          <td width="42" height="66"><font size="6">3</font></td>
+          
+        <td width="259" height="66"><font size="6"><a href="critical.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/critical.htm">Critical 
+          Section</a></font></td>
+        </tr>
+        <tr>
+          <td width="42" height="66"><font size="6">4</font></td>
+          
+        <td width="259" height="66"><font size="6"><a href="event.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/event.htm">Event</a></font></td>
+        </tr>
+      </table>
+  </center>
+</div>
+<hr>
+
+</body>
+
+</html>

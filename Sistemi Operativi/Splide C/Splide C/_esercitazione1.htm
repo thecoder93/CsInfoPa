@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>esecitazione1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<p><font size="5" face="arial">Esercizio 1</font></p>
+<p><font size="5" face="arial">Preparare un programma che conti il numero di caratteri 
+  digitati fino ad al carattere '$' che terminer&agrave; il programma, usando
+getchar.</font></p>
+<p><font size="4">#include &lt;stdio.h><br>
+main()<br>
+{<br>
+int ch, i = 0;<br>
+while((ch = getchar()) != '$')<br>
+i ++;<br>
+printf("%d\n", i);<br>
+}</font></p>
+<hr>
+<p><font size="5" face="arial">Esercizio 2</font></p>
+<p><font size="5" face="arial">Preparare un programma che trasformi i caratteri 
+  in minuscolo in input in caratteri maiuscolo usando getchar e putchar.</font></p>
+<p><font size="4">#include &lt;ctype.h> /* Per la definizione di toupper */<br>
+#include &lt;stdio.h>&nbsp;<br>
+void main()<br>
+{<br>
+int ch;<br>
+while((ch = getchar()) != '$')<br>
+putchar(toupper(ch));<br>
+}</font></p>
+<hr>
+<p><font size="5" face="arial">Esercizio 3</font></p>
+<p><font size="5" face="arial">Preparare un programma che dato un intero dia il 
+carattere ASCI corrispondente. </font></p>
+<p><font size="4">#include &lt;stdio.h><br>
+<br>
+int main()<br>
+{<br>
+int i;<br>
+scanf("%d",&amp;i);<br>
+printf("%c \n", i);<br>
+}&nbsp;</font></p>
+<hr>
+<p><font size="5" face="arial">Esercizio 4 </font></p>
+<p><font size="5" face="arial">Preparare un programma che dati 2 interi calcoli la divisione 
+  reale,divisione intera, ed il resto. </font></p>
+<p><font size="4">#include &lt;stdio.h><br>
+<br>
+void main()<br>
+{<br>
+int a,b;<br>
+float c;<br>
+printf("a=");scanf("%d",&amp;a);<br>
+printf("b=");scanf("%d",&amp;b);<br>
+c=(float)a/b;<br>
+printf("%d/%d=%f,%ddiv%d=%d,resto=%d \n",a,b,c,a,b,a/b,a%b);<br>
+}</font></p>
+<hr>
+
+<p align="center">&nbsp;
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><font face="arial" size="5">&nbsp; </font> </p>
+</body>
+</html>

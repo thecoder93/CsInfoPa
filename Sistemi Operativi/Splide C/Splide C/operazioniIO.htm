@@ -1,0 +1,301 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Prime operazioni di I/O</title>
+</head>
+
+<body>
+<p align="center"><font size="7" color="#FF0000">Strumenti adatti ad operare sull'input/output</font></p>
+<p>&nbsp;</p>
+<p align="justify"><font size="6"> Per adoperare le funzioni base di I/O si deve includere il 
+  file &lt;stdio.h&gt; che mette a disposizione alcune funzioni predefinite per 
+  eseguire la lettura da un dispositivo di input (es. tastiera) o scrittura su 
+  un dispositivo di output (es. video);</font></p>
+<p><font size="6">Le funzioni di cui parleremo sono</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="278" height="46">
+    <tr>
+      <td width="33" height="46"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></td>
+      <td width="229" height="46"><font size="7">getchar</font></td>
+    </tr>
+    <tr>
+      <td width="33" height="46"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></td>
+      <td width="229" height="46"><font size="7">putchar</font></td>
+    </tr>
+    <tr>
+      <td width="33" height="46"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></td>
+      <td width="229" height="46"><font size="7"> printf</font></td>
+    </tr>
+    <tr>
+      <td width="33" height="46"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></td>
+      <td width="229" height="46"><font size="7">scanf</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<hr>
+<p align="center"><font size="7" color="#FF0000">getchar</font></p>
+<p align="justify"><font size="6">getchar&nbsp; legge un carattere per volta dalla tastiera;
+Ad esempio il programma mostrato conta il numero di volte che si &egrave; digitato un carattere</font></p>
+<p><font size="6">&nbsp;(per interrompere il programma premere $).</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="445" height="236" bordercolor="#FFFF00" bgcolor="#FFFF00">
+    <tr>
+      <td width="445" height="236">
+<p><font size="6">#include &lt;stdio.h&gt;</font></p>
+<p><font size="6">main()<br>
+  {<br>
+  int ch, i = 0;</font></p>
+<p> <font size="6">while((ch = getchar()) != '$')<br>
+  i ++;</font></p>
+<p> <font size="6">printf(&quot;%d\n&quot;, i);<br>
+  }</font> </p>
+        <p></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<hr>
+<p align="center"><font size="7" color="#FF0000">putchar</font></p>
+<p align="justify"><font size="6">putchar legge un carattere alla volta e lo stampa a video;&nbsp;</font> </p>
+<p align="justify"><font size="6">Ad esempio il programma seguente converte ogni carattere inserito nell'equivalente lettera 
+  maiuscola grazie alla funzione toupper().</font> </p>
+<div align="center">
+  <center>
+  <table border="1" width="632" height="169">
+    <tr>
+      <td width="632" height="169" bgcolor="#FFFF00">
+<p><font size="6">#include &lt;ctype.h&gt; </font><font size="5"> /* Per la definizione di toupper */</font><font size="6"><br>
+  #include &lt;stdio.h&gt;&nbsp;</font></p>
+<p><font size="6">main()<br>
+  {<br>
+  int ch;</font></p>
+<p> <font size="6">while((ch = getchar()) != '$')<br>
+putchar(toupper(ch));<br>
+  }</font></p>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<hr>
+<p align="center"><font size="7" color="#FF0000"> printf</font> </p>
+<p align="justify"><br>
+  <font size="6">printf è l'istruzione per stampare a video pi&ugrave; usata . La struttura di printf &egrave; la seguente:</font> </p>
+<p align="justify"><font size="6"> 
+  <br>
+  <font color="#FF0000">
+  int printf(char *formato, lista argomenti ...)</font></font> </p>
+<p align="justify"><font size="6">che stampa sullo stdout (il video in questo caso) la lista di argomenti conformemente 
+  alla stringa di formato specificata.</font> 
+</p>
+<p align="justify"><font size="6">La funzione ritorna il numero di caratteri 
+  stampanti.&nbsp;</font> 
+</p>
+<p align="justify"><font size="6"> La stringa di formato ha due tipi di argomenti:</font> 
+</p>
+<p align="left"><font size="7">1. <font color="#FF0000" size="6">caratteri ordinari:</font></font> 
+</p>
+<blockquote>
+  <blockquote>
+    <p align="justify"><font size="6">questi vengono copiati nell'output;</font> 
+          </p>
+  </blockquote>
+</blockquote>
+<p align="left"><font size="6">2. </font><font size="6" color="#FF0000">specificazioni
+di conversione</font> 
+</p>
+<blockquote>
+  <blockquote>
+    <p align="justify"><font size="6"> contraddistinte dal carattere &quot;%&quot; e da un altro carattere che specifica il formato con il quale stampare le variabili 
+      presenti nella lista di argomenti</font> 
+          </p>
+    <blockquote>
+      <blockquote>
+        <p align="left">&nbsp; 
+          </p>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+<p align="center"><font size="6"> La tabella seguente mostra i possibili formati&nbsp;</font> 
+</p>
+<div align="center">
+  <center>
+  <table border="1" width="564" height="48">
+    <tr>
+      <td width="203" height="48">
+        <p align="center"><font size="6">Stringa di controllo</font></td>
+      <td width="345" height="48"><font size="6">&nbsp;Cosa viene stampato</font></td>
+    </tr>
+    <tr>
+      <td width="203" height="48"><font color="#FF0000" size="6">%d, %i</font></td>
+      <td width="345" height="48"><font color="#FF0000" size="6"> Intero decimale</font></td>
+    </tr>
+    <tr>
+      <td width="203" height="48"><font color="#FF0000" size="6">
+  %f&nbsp;</font></td>
+      <td width="345" height="48"><font color="#FF0000" size="6"> Valore in virgola mobile(float o
+        double)</font></td>
+    </tr>
+    <tr>
+      <td width="203" height="48"><font color="#FF0000" size="6">
+  %c</font></td>
+      <td width="345" height="48"><font color="#FF0000" size="6"> Un carattere</font></td>
+    </tr>
+    <tr>
+      <td width="203" height="48"><font color="#FF0000" size="6">
+  %s</font></td>
+      <td width="345" height="48"><font color="#FF0000" size="6">&nbsp;Una stringa di caratteri</font></td>
+    </tr>
+    <tr>
+      <td width="203" height="48"><font color="#FF0000" size="6">
+  %o</font></td>
+      <td width="345" height="48"><font color="#FF0000" size="6"> Numero ottale</font></td>
+    </tr>
+    <tr>
+      <td width="203" height="48"><font color="#FF0000" size="6">%x, %X</font></td>
+      <td width="345" height="48"><font color="#FF0000" size="6"> Numero esadecimale</font></td>
+    </tr>
+    <tr>
+      <td width="203" height="48"><font color="#FF0000" size="6">
+  %u</font></td>
+      <td width="345" height="48"><font color="#FF0000" size="6"> Intero senza segno</font></td>
+    </tr>
+    <tr>
+      <td width="203" height="48"><font color="#FF0000" size="6">%e, %E</font></td>
+      <td width="345" height="48"><font color="#FF0000" size="6"> Formato scientifico</font></td>
+    </tr>
+    <tr>
+      <td width="203" height="48"><font color="#FF0000" size="6">
+  %%</font></td>
+      <td width="345" height="48"><font color="#FF0000" size="6"> Stampa il carattere %</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p><font size="5"><br>
+    <font size="6">È possibile inserire, tra il simbolo % e l'identificativo del formato, 
+  una delle seguenti voci:</font></font> <br>
+</p>
+<div align="center">
+  <center>
+  <table border="1" width="578" height="33">
+    <tr>
+      <td width="210" height="33" align="center"><font color="#FF0000" size="5">
+  Segno meno (-)</font></td>
+      <td width="352" height="33"><font color="#FF0000" size="5"> esegue la giustificazione a
+        sinistra</font></td>
+    </tr>
+    <tr>
+      <td width="210" height="33" align="center"><font color="#FF0000" size="5">
+  Un numero intero</font></td>
+      <td width="352" height="33"><font color="#FF0000" size="5"> specifica l'ampiezza del campo</font></td>
+    </tr>
+    <tr>
+      <td width="210" height="33" align="center"><font color="#FF0000" size="5">una coppia di
+        interi divisi da un punto</font> <font color="#FF0000" size="5">m.d</font></td>
+      <td width="352" height="33"><font color="#FF0000" size="5"> dove m &egrave; l'ampiezza del campo e d &egrave; la precisione del numero; 
+  usato generalmente per le stringhe o per un numero di tipo reale.</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p><font size="6">Facciamo alcuni&nbsp; esempi</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="669" height="220">
+    <tr>
+      <td width="659" height="220" bgcolor="#FFFF00">
+<p><font size="5">
+  <font size="6">int x = 40;<br>
+  printf(&quot;Il numero &egrave; %d&quot;, x);&nbsp; // &quot;Il numero &egrave; 40&quot;</font></font></p>
+<p><font size="6">printf(&quot;Il carattere ASSCI %d&nbsp; &egrave; %c&quot;, x,x);&nbsp;&nbsp;</font></p>
+<p><font size="6">// &quot;Il carattere ASSCI 40&nbsp; &egrave; (&nbsp;
+</font></p>
+<p><font size="6">print(&quot;%2.3f \n&quot;, 24.392734); // 24.393</font></p>
+<p><font size="6">printf(&quot;IVA = 20%%&quot;);//stampa &quot;IVA = 20%&quot;</font> </p>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp; </p>
+<p><font size="6">All'intero&nbsp; del formato si possono inserire delle sequenza di
+escape che servono per rappresentare dei caratteri 
+  &quot;speciali&quot;. Le sequenze di escape iniziano con il carattere 
+  backslash (\) e sono interpretate come un singolo carattere.</font> </p>
+<div align="center">
+  <center>
+  <table border="1" width="607" height="23">
+    <tr>
+      <td width="159" height="61"><font size="6">O</font><font size="6">pzione&nbsp;</font></td>
+      <td width="432" height="61"><font size="6"> Descrizione</font></td>
+    </tr>
+    <tr>
+      <td width="159" height="42"><div align="center"><font color="#FF0000" size="6">
+    \n</font></div></td>
+      <td width="432" height="42"><div align="center"><font color="#FF0000" size="6">&nbsp;Ritorno a capo</font></div></td>
+    </tr>
+    <tr>
+      <td width="159" height="42"><div align="center"><font color="#FF0000" size="6">
+    \t</font></div></td>
+      <td width="432" height="42"><div align="center"><font color="#FF0000" size="6"> Tabulazione orizzontale</font></div></td>
+    </tr>
+    <tr>
+      <td width="159" height="42"><div align="center"><font color="#FF0000" size="6">
+    \b</font></div></td>
+      <td width="432" height="42"><div align="center"><font color="#FF0000" size="6">&nbsp;Tabulazione verticale</font></div></td>
+    </tr>
+    <tr>
+      <td width="159" height="42"><div align="center"><font color="#FF0000" size="6">\a</font></div></td>
+      <td width="432" height="42"><div align="center"><font color="#FF0000" size="6"> Torna indietro di uno spazio</font></div></td>
+    </tr>
+    <tr>
+      <td width="159" height="42"><div align="center"><font color="#FF0000" size="6">
+    \f</font></div></td>
+      <td width="432" height="42"><div align="center"><font color="#FF0000" size="6">&nbsp;Salto pagina</font></div></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<hr>
+<p align="center"><font size="7" color="#FF0000">scanf</font> </p>
+<p align="justify"><font size="6"> scanf serve per leggere dallo stdin (generalmente la tastiera) una 
+  sequenza di caratteri (lettere o cifre) che verranno memorizzate all'interno 
+  di opportune variabili.&nbsp;</font> </p>
+<p align="justify"><font size="6" color="#FF0000">
+  int scanf(char *formato, lista argomenti ...)</font> </p>
+<p align="justify"><font size="6">A differenza della printf, la variabile deve essere messa preceduta 
+  dal simbolo &amp;, perch&eacute; in realt&agrave; tra gli argomenti non dobbiamo 
+  passare il nome della variabile, ma il suo indirizzo</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="352" height="177">
+    <tr>
+      <td width="352" height="177" bgcolor="#FFFF00">
+<p><font size="5">
+  #include &lt;stdio.h&gt;</font></p>
+<p><font size="5">int main()<br>
+  {<br>
+  int i;<br>
+            scanf(&quot;%d &quot;, &amp;i);<br>
+printf(&quot;%d \n&quot;, i);<br>
+  }</font> </p>
+        <p></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+<p><font size="6">Questo semplice programma&nbsp; legge un numero 
+  da tastiera e lo ristamparlo a video;</font></p>
+
+</body>
+
+</html>

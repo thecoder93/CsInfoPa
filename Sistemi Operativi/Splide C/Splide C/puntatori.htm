@@ -1,0 +1,224 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Puntatorii</title>
+</head>
+
+<body>
+<p align="center"><b><font size="7" color="#FF0000">Puntatori</font></b>
+<p align="justify"><font face="arial" size="6">Abbiamo già parlato dei puntatori a proposito
+degli array , ma vediamo che cosa è un
+puntatore?&nbsp;</font></p>
+<table width="678" height="55" border="1" align="center" bgcolor="#FFFF00">
+  <tr>
+    <td width="678" height="55"><div align="justify"><font face="arial" size="7"><b>Un puntatore è
+        una variabile che contiene&nbsp; un indirizzo&nbsp; di memoria </b></font><font size="5"></font></div></td>
+  </tr>
+</table>
+<p align="justify"><font face="arial" size="6">Quando si dichiara una variabile, a questa verrà
+riservato un indirizzo di memoria; un puntatore contiene, appunto, l'indirizzo
+di tale variabile.</font></p>
+<p align="justify"><font face="arial" size="6">Per definire un puntatore è necessario seguire
+la seguente sintassi:</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="843" height="55" bgcolor="#FFFF00">
+    <tr>
+      <td width="843" height="55"><font face="arial" size="6"><span style="COLOR: #008080">//
+        variabile normale</span><br>
+        int variabile;<br>
+        <span style="COLOR: #008080">// puntatore</span><br>
+        int *puntatore;<span style="COLOR: #008080"><br>
+        // assegno al puntatore l'indirizzo di variabile</span><br>
+        puntatore = &amp;variabile;</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p class="codice">&nbsp;</p>
+<div align="justify"><font face="arial" size="6">L'asterisco (*) viene chiamato <b>operatore di
+  indirezione o deferenziazione</b> e restituisce il contenuto dell'oggetto
+  puntato dal puntatore;</font>
+</div>
+<p>&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" width="385" height="55" bgcolor="#FFFF00">
+    <tr>
+      <td width="385" height="55"><font size="5">int a, *pa;<br>
+        int b,&nbsp;<br>
+        a=100;<br>
+        pa=&amp;a;&nbsp;<br>
+        b=*pa;&nbsp;</font><span style="COLOR: #008080"><font face="arial" size="6"><br>
+        </font><font face="arial" size="5">//b = 100</font></span></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p><font face="arial" size="7"><br>
+    <font size="6">La e commerciale (<b>&amp;</b>) restituisce l'indirizzo della variabile.</font></font></p>
+<p class="codice">&nbsp;</p>
+<p align="justify"><font face="arial" size="6">E' possibile&nbsp; aggiungere o togliere dei
+valori ad un puntatore, e quindi cambiare l'indirizzo a cui è puntato il
+puntatore. Poichè un puntatore esiste sempre in funzione del tipo puntato, se
+creo un puntatore ad int a 32 bit, il blocco di memoria sar&agrave; di 4 byte, un
+puntatore a char sar&agrave; di 1 byte.&nbsp;</font></p>
+<p align="justify"><font face="arial" size="6">Quindi se incremento di uno un puntatore ad <b>int</b>
+il suo indirizzo aumenta di 32, mentre se incremento di uno un puntatore ad <b>char</b>
+il suo indirizzo aumenta di 8.</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="724" height="55" bgcolor="#FFFF00">
+    <tr>
+      <td width="724" height="55"><font size="5"><span style="COLOR: #008080">//
+        supponiamo che l'indirizzo di a sia 100 e che&nbsp;&nbsp; l'indirizzo di
+        b sia 200</span><br>
+        int a, *pa;<br>
+        char b, *pb;<br>
+        pa=&amp;a;&nbsp;<br>
+        </font><font size="5">pb=&amp;b;&nbsp;<br>
+        pa++;<span style="COLOR: #008080">// pa=132;</span><br>
+        pa+=10;<span style="COLOR: #008080">// pa=132+32*10=452;</span>
+        <br>
+        pb++;<span style="COLOR: #008080">// pb=208;</span><br>
+        pb=&amp;b+10;<span style="COLOR: #008080">// pb=200+8*10=280;</span></font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<hr>
+<p align="center"><b><font size="7" color="#FF0000">Puntatori e Funzioni</font></b>
+<p align="justify"><br>
+<font face="arial" size="6">Abbiamo già visto che in C i parametri delle
+funzioni sono passati esclusivamente per valore, per passare i parametri per
+indirizzo si usano i puntatori.</font></p>
+<p align="justify"><font face="arial" size="6">Ad esempio consideriamo la funzione&nbsp;</font>
+<font face="arial" size="6"><font color="#FF0000">swap(alfa, beta)</font>
+che scambia il valore di alfa con beta e viceversa;&nbsp;</font></p>
+<p align="justify"><font face="arial" size="6">Se passassimo i parametri per valoreil
+valore restituito dalla funzione (con return) non cambierebbe i valori delle
+variabili alfa e beta, cosa che vogliamo, invece, accada per poter
+effettivamente fare lo scambio.</font></p>
+<p align="justify"><font face="arial" size="6">In questo caso si passano alla funzione, non i
+valori delle variabili, ma il loro indirizzo,</font> <font face="arial" size="6"><br>
+<br>
+</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="724" height="55" bgcolor="#FFFF00">
+    <tr>
+      <td width="724" height="55"><p><font face="arial" size="5">#include &lt;stdio.h&gt;<br>void swap(int *apt,
+            int *bpt);<br>
+            int main()<br>
+            {&nbsp;&nbsp;int alfa = 5;<br>
+&nbsp;&nbsp;&nbsp;int beta = 13;<br>
+&nbsp;&nbsp;&nbsp;printf(&quot;alfa -&gt; %d, beta -&gt; %d\n&quot;,
+            alfa, beta);<br>
+&nbsp;&nbsp;&nbsp;swap(&amp;alfa, &amp;beta);<br>
+&nbsp;&nbsp;&nbsp;printf(&quot;alfa -&gt; %d, beta -&gt; %d\n&quot;,
+            alfa, beta);<br>
+            }<br>
+            <br>
+            void swap(int *apt, int *bpt)<br>
+            {<br>
+&nbsp;&nbsp;&nbsp;int temp;<br>
+&nbsp;&nbsp;&nbsp;temp = *apt;<br>
+&nbsp;&nbsp;&nbsp;*apt = *bpt;<br>
+&nbsp;&nbsp;&nbsp;*bpt = temp;<br>
+        }</font></p></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<hr>
+<p align="center"><font face="Verdana" color="black" size="6">&nbsp;</font><font size="6"><b><font color="#FF0000">Puntatori
+e Strutture</font></b></font></p>
+<p align="justify"><font size="6">  <br>
+  </font><font face="arial" size="6">In C è possibile dichiarare puntatori ad una
+  struttura, come mostrato nell'esempio seguente:</font></p>
+<p align="justify" class="codice"><font color="#FF0000" size="6" face="arial">struct PIPPO { int x, y, z; }
+elemento;<br>
+struct PIPPO *puntatore;</font><font face="arial" size="6"><br>
+<br>
+<font color="#FF0000">puntatore = &amp;elemento;<br>
+</font><br>
+<font color="#FF0000">puntatore-&gt;x = 6;<br>
+puntatore-&gt;y = 8;<br>
+puntatore-&gt;z = 5;</font></font></p>
+<p align="justify"><font face="arial" size="6">si può notare che abbiamo creato una struttura
+di tipo PIPPO e di nome &quot;elemento&quot;, ed un puntatore ad una struttura
+di tipo PIPPO.Per accedere ai membri interni della struttura
+&quot;elemento&quot; abbiamo usato l'operatore <b>-&gt;</b> sul puntatore alla
+struttura.</font></p>
+<p align="justify"><font face="arial" size="6">Inoltre è possibile utilizzare i puntatori anche
+per creare delle liste semplici o strutture più complesse come alberi e grafi.</font></p>
+<p align="justify">&nbsp;</p>
+<table border="1" width="724" height="67" bgcolor="#FFFF00">
+    <tr>
+      <td width="724" height="67"><font size="5"><span style="color: #008080">//
+        Per creare una lista&nbsp;</span></font>
+        <p><font face="arial" size="5">typedef struct&nbsp;<br>
+        { int inf;&nbsp;<br>
+        &nbsp;st_elemento *pun;&nbsp;<br>
+        } ELEMENTO;</font></p>
+        <font size="5"><span style="color: #008080">// Per creare un albero
+        binario</span></font>
+        <p><font face="arial" size="5">typedef struct st_elemento<br>
+        {int inf;&nbsp;<br>
+ st_elemento *destra;<br>
+ st_elemento *sinistra;<br>
+        } ELEMENTO</font></p>
+        <p><font face="arial" size="5">Per costruire un albero binario
+        supponendo di avere un vettore <font color="#0000FF">a</font> di <font color="#0000FF">n</font>
+        interi&nbsp;</font></p>
+        <p><font size="5">void main()<br>
+        {............<br>
+        ELEMENTO *albero;<br>
+        &nbsp;albero=(ELEMENTO *)malloc(sizeof(ELEMENTO));<br>
+        &nbsp;albero-&gt;destra=albero-&gt;sinistra=NULL;<br>
+        &nbsp;crealbero(albero,a,0,n-1);<br>
+        &nbsp;leggialbero(albero);<br>
+        &nbsp;.............<br>
+        }</font></p>
+        <p><font size="5"><span style="color: #008080">//crealbero;&nbsp;</span><br>
+        void crealbero(ELEMENTO *p, int *a,int inizio,int fine)<br>
+        { ELEMENTO *albero;<br>
+        &nbsp;int j=(fine-inizio)/2; // in j elemento centrale&nbsp;<br>
+        &nbsp;p-&gt;inf=a[inizio+j];<br>
+        &nbsp;if(j!=0)<br>
+        &nbsp;{albero=(ELEMENTO *)malloc(sizeof(ELEMENTO));<br>
+        &nbsp; albero-&gt;destra=albero-&gt;sinistra=NULL;<br>
+        &nbsp; p->destra=albero;<br>
+        &nbsp; crealbero(albero,a,inizio,inizio+j-1);<br>
+        &nbsp; albero=(ELEMENTO *)malloc(sizeof(ELEMENTO));<br>
+        &nbsp; albero-&gt;destra=albero-&gt;sinistra=NULL;<br>
+        &nbsp; p->sinistra=albero;<br>
+        &nbsp; crealbero(albero,a,inizio+j+1,fine);<br>
+        &nbsp;}<br>
+  else<br>
+        &nbsp;{if(inizio!=fine)<br>
+        &nbsp; {albero=(ELEMENTO *)malloc(sizeof(ELEMENTO));<br>
+        &nbsp; albero-&gt;destra=albero-&gt;sinistra=NULL;<br>
+        &nbsp; p->sinistra=albero;<br>
+        &nbsp; albero->inf=a[fine];<br>
+        &nbsp; }<br>
+        &nbsp;}<br>
+        }<br>
+        <br>
+        void leggialbero(ELEMENTO *radice)<br>
+        {if(radice!=NULL)<br>
+        &nbsp;{leggialbero1(radice->destra);<br>
+        &nbsp; printf(&quot;%d &quot;,radice-&gt;inf);<br>
+        &nbsp; leggialbero1(radice->sinistra);&nbsp;<br>
+        &nbsp;}<br>
+        }</font></p>
+      </td>
+    </tr>
+</table>
+
+</body>
+
+</html>

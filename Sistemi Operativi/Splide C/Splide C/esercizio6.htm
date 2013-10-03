@@ -1,0 +1,150 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Nuova pagina 1</title>
+</head>
+
+<body>
+
+<p><font size="5" face="arial">Implementare un programma che inserisca in testa dei dati interi in una lista concatenata . </font> </p>
+<p>#include &lt;stdio.h&gt;<br>
+  #include &lt;malloc.h&gt;<br>
+  typedef struct st_elemento<br>
+  {int inf; <br>
+st_elemento *next;<br>
+} ELEMENTO;</p>
+<p>void main()<br>
+  {int a;<br>
+  ELEMENTO *testa,*coda,*p;<br>
+  testa=coda=NULL;<br>
+  scanf(&quot;%d&quot;,&amp;a);<br>
+  while(a!=0)<br>
+  {p=(ELEMENTO *)malloc(sizeof(ELEMENTO));<br>
+  p-&gt;inf=a;p-&gt;next=NULL;<br>
+  if(testa==NULL) testa=coda=p;<br>
+  else<br>
+  {coda-&gt;next=p;<br>
+  coda=p;<br>
+  }<br>
+  scanf(&quot;%d&quot;,&amp;a);<br>
+  }<br>
+  p=testa;<br>
+  while(p!=NULL)<br>
+  {printf(&quot;%d-&gt;&quot;,p-&gt;inf);<br>
+  p=p-&gt;next;<br>
+  }</p>
+<p>}<br>
+</p>
+<p><font size="5">Esercizio <font face="arial">Implementare un programma che dati n interi li ordini e li inserisca in un albero binario dicotomico.</font></font></p>
+<p>#include &lt;stdio.h><br>
+  #include &lt;malloc.h><br>
+  typedef struct st_elemento<br>
+  {int inf;&nbsp;<br>
+  st_elemento *destra;<br>
+  st_elemento *sinistra;<br>
+  } ELEMENTO;<br>
+  void leggi(int *a,int n);<br>
+  void ordina(int *a,int n);<br>
+  void crealbero(ELEMENTO *radice, int *a,int inizio,int fine);&nbsp;<br>
+  void leggialbero1(ELEMENTO *radice);&nbsp;<br>
+  void leggialbero2(ELEMENTO *radice);&nbsp;<br>
+  void leggialbero3(ELEMENTO *radice);&nbsp;<br>
+  void main()<br>
+  {<br>
+  int *a;<br>
+  int n;&nbsp;<br>
+  printf("dai il numero di elementi da inserire nell'albero binario ");<br>
+  scanf("%d",&amp;n);<br>
+  a=(int *) malloc(n*sizeof(int));<br>
+  leggi(a,n);<br>
+  ordina(a,n);<br>
+  ELEMENTO *albero;<br>
+  albero=(ELEMENTO *)malloc(sizeof(ELEMENTO));<br>
+  albero->destra=albero->sinistra=NULL;<br>
+  crealbero(albero,a,0,n-1);<br>
+  leggialbero1(albero);<br>
+  printf("\n");<br>
+  leggialbero2(albero);<br>
+  printf("\n");<br>
+  leggialbero3(albero);<br>
+  printf("\n");<br>
+  <br>
+  }<br>
+  // leggi<br>
+  void leggi(int *a,int n)<br>
+  {<br>
+  for (int i=0;i&lt;n; i++)&nbsp;<br>
+  {printf("a[%d]=",i);<br>
+  scanf("%d",&amp;a[i]);<br>
+  <br>
+  }&nbsp;<br>
+  }<br>
+  //ordina<br>
+  void ordina(int *a,int n)<br>
+  {int i,j,min_pos,tmp;<br>
+  for (i=0; i&lt;n; i++)&nbsp;<br>
+  {min_pos = i;<br>
+  for (j=i+1; j&lt;n; j++)&nbsp;<br>
+  if (a[j] &lt; a[min_pos]) min_pos = j;<br>
+  tmp = a[i];<br>
+  a[i] = a[min_pos];<br>
+  a[min_pos] = tmp;<br>
+  }&nbsp;<br>
+  }<br>
+  //crealbero;&nbsp;<br>
+  void crealbero(ELEMENTO *p, int *a,int inizio,int fine)<br>
+  { ELEMENTO *albero;<br>
+  int j=(fine-inizio)/2; // in j elemento centrale&nbsp;<br>
+  p->inf=a[inizio+j];<br>
+  if(j!=0)<br>
+  {<br>
+  albero=(ELEMENTO *)malloc(sizeof(ELEMENTO));<br>
+  albero->destra=albero->sinistra=NULL;<br>
+  p->destra=albero;<br>
+  crealbero(albero,a,inizio,inizio+j-1);<br>
+  <br>
+  <br>
+  albero=(ELEMENTO *)malloc(sizeof(ELEMENTO));<br>
+  albero->destra=albero->sinistra=NULL;<br>
+  p->sinistra=albero;<br>
+  crealbero(albero,a,inizio+j+1,fine);<br>
+  }<br>
+  else<br>
+  {if(inizio!=fine)<br>
+  {albero=(ELEMENTO *)malloc(sizeof(ELEMENTO));<br>
+  albero->destra=albero->sinistra=NULL;<br>
+  p->sinistra=albero;<br>
+  albero->inf=a[fine];<br>
+  }<br>
+  }<br>
+  <br>
+  }<br>
+  <br>
+  void leggialbero1(ELEMENTO *radice)<br>
+  {if(radice!=NULL)<br>
+  {printf("%d ",radice->inf);<br>
+  leggialbero1(radice->destra);<br>
+  leggialbero1(radice->sinistra);&nbsp;<br>
+  }<br>
+  }<br>
+  void leggialbero2(ELEMENTO *radice)<br>
+  {if(radice!=NULL)<br>
+  {leggialbero2(radice->destra);<br>
+  printf("%d ",radice->inf);<br>
+  leggialbero2(radice->sinistra);&nbsp;<br>
+  }<br>
+  }<br>
+  void leggialbero3(ELEMENTO *radice)<br>
+  {if(radice!=NULL)<br>
+  {leggialbero3(radice->destra);<br>
+  leggialbero3(radice->sinistra);<br>
+  printf("%d ",radice->inf);<br>
+  }<br>
+  }<br>
+</p>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+body {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 36px;
+	text-align: justify;
+}
+.titoli {
+	text-align: center;
+	color: #FF0000;
+}
+ul {
+	color: #0000FF;
+}

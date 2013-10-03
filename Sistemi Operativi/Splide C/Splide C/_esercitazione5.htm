@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>esecitazione1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<p><font size="5" face="arial">Esercizio 1</font></p>
+<p><font size="5" face="arial">Preparare un programma che calcoli il MCD con
+l'algoritmo euclideo utilizzando un funzione ricorsiva</font></p>
+<p><font size="3">#include &lt;stdio.h><br>
+#include &lt;math.h><br>
+#include &quot;MCD.h&quot;<br>
+<br>
+void main()<br>
+  {<br>
+  int a,b;<br>
+printf(&quot;a=&quot;);scanf(&quot;%d&quot;,&amp;a);<br>
+printf(&quot;b=&quot;);scanf(&quot;%d&quot;,&amp;b);<br>
+printf(&quot;MCD tra %d ed %d = %d&quot;,a,b,MCD(a,b));<br>
+  }<br>
+int MCD(int a,int b)<br>
+{int max,min;<br>
+ max = (a&gt;b) ? a : b;<br>
+min= (a&lt;b) ? a : b;<br>
+ int r1=max%min;<br>
+if(r1==0) return(min);<br>
+return(MCD(min,r1));<br>
+}<br>
+</font><font size="4"><br>
+</font></p>
+<hr>
+<p><font size="5" face="arial">Esercizio 2</font></p>
+<p><font size="5" face="arial">Regola di Laplace</font></p>
+<p>Sia &nbsp;<font color="blue" size="4"><i><b>A<sub>ij</sub></b></i></font> la
+matrice ottenuta cancellando da <font size="4"><i>A</i></font> la riga i-esima e
+la colonna j-esima:<br>
+<br>
+<font color="blue" size="4"><i><b>A</b></i></font> <img src="file:///D|/biagio/LEZIONI/labso/labso/il_linguaggioc/esecitazioni/app.gif" align="absMiddle" width="16" height="13">
+<font color="blue" size="4"><i><b>M<sup>&nbsp;n-1,n-1</sup>(K)</b></i></font>.<br>
+<br>
+Si definisce <font face="ARIAL" color="red">complemento algebrico</font>
+dell'elemento <i><font size="4">a<sub>ij</sub></font></i> di <i><font size="4">A</font></i>
+il numero <img src="image234.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/esecitazioni/image234.gif" align="absMiddle" width="42" height="37">&nbsp;così
+definito:<br>
+<br>
+<img src="image234.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/esecitazioni/image234.gif" align="absMiddle" width="42" height="37"> = <i><font size="4">(-1)<sup>&nbsp;i+j</sup>&nbsp;(det
+A<sub>ij</sub>)</font></i>.<br>
+<br>
+Si definisce infine il <font face="ARIAL" color="red">determinante di A</font> ,
+<font face="ARIAL" color="red">sviluppato rispetto alla i-esima riga</font> :<br>
+<br>
+<img src="image235.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/esecitazioni/image235.gif" width="234" height="80"><br>
+<img src="image236.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/il_linguaggioc/esecitazioni/image236.gif" width="362" height="77"><font size="7" face="arial">.</font></p>
+<p>/***************** soluzione per una matrice a valori interi
+****************/</p>
+<p>#include &lt;stdio.h><br>
+#include &lt;stdlib.h><br>
+<br>
+int det3(int *);<br>
+int det(int,int,int *);<br>
+void minore(int,int,int *,int *);<br>
+void scrivi(int ,int *);<br>
+void main( void )<br>
+{int i,j,n;<br>
+&nbsp;int car;<br>
+&nbsp;int *mat,*mat1;<br>
+&nbsp;int dett;<br>
+&nbsp;scanf(&quot;%d&quot;,&amp;n);&nbsp;<br>
+&nbsp;mat=(int *)malloc((n*n)*sizeof(int));&nbsp;<br>
+&nbsp;mat1=mat;<br>
+&nbsp;for(i=0;i&lt;n;i++)<br>
+&nbsp; {for(j=0;j&lt;n;j++)<br>
+&nbsp;&nbsp;&nbsp; {printf(&quot;a[%d,%d]=&quot;,i,j);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; scanf(&quot;%d&quot;,mat1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; mat1++;<br>
+&nbsp;&nbsp; }<br>
+&nbsp; }<br>
+car=n;<br>
+dett=det(n,car,mat);<br>
+printf(&quot;det = %d&quot;,dett);<br>
+}<br>
+/************************************/<br>
+void minore(int i1,int n,int *mat,int *mat1)<br>
+{int i,j,ind,ind1;<br>
+&nbsp;ind=ind1=0;<br>
+&nbsp;for(i=0;i&lt;n;i++)<br>
+&nbsp; {ind++;<br>
+&nbsp;&nbsp; for(j=0;j&lt;n-1;j++)<br>
+&nbsp;&nbsp; {if(i1==i)&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; {j=n;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ind=ind+(n-1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp; else<br>
+&nbsp;&nbsp;&nbsp;&nbsp; {*(mat1+ind1)=*(mat+ind);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ind++;ind1++;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp; }<br>
+&nbsp;}<br>
+	}</p>
+<p>/*************************************/<br>
+void scrivi(int n,int *mat)<br>
+{int i,j,ind;<br>
+for(i=0;i&lt;n;i++)<br>
+{for(j=0;j&lt;n;j++)<br>
+{ind=(i*n)+j;<br>
+printf(&quot;%d &quot;,*(mat+ind));<br>
+			}<br>
+printf(&quot;\n&quot;);<br>
+		}<br>
+	}&nbsp;<br>
+</p>
+<p>/****************************************/</p>
+<p>int det(int n, int car,int *mat)<br>
+	{<br>
+	int *mat1,i,siz,ris,dt,a,ind;<br>
+siz=(n-1)*(n-1)*sizeof(int);<br>
+mat1=(int *) malloc(siz);&nbsp;<br>
+ris=0;<br>
+if(n==3) ris=det3(mat);<br>
+	else<br>
+{for(i=0;i&lt;n;i++)<br>
+{ind=n*i;a=*(mat+ind);<br>
+if(a!=0)<br>
+{minore(i,n,mat,mat1);<br>
+&nbsp;dt=a*det(n-1,car,mat1);<br>
+&nbsp;if(i%2==1) dt=-dt;&nbsp;<br>
+&nbsp;ris=ris+dt;<br>
+}<br>
+<br>
+			}<br>
+		}<br>
+return(ris);<br>
+	}<br>
+/**************************************/<br>
+int det3(int *mat)<br>
+{int a,d,h,k,flg,ind,i,j,bf,bf1;<br>
+bf=1;bf1=1;<br>
+	 d=0;<br>
+for(k=0;k&lt;3;k++)<br>
+{i=k;flg=1;<br>
+for(h=0;h&lt;3 &amp;&amp; flg==1;h++)<br>
+		{j=h;<br>
+if(i&gt;=3) i=0;<br>
+ind=(j*3)+i;a=*(mat+ind);<br>
+if(a==0) {bf=0;flg=0;}<br>
+         else bf=bf * a;<br>
+i++;<br>
+		}<br>
+<br>
+d=d+bf;<br>
+bf=1;<br>
+	 }<br>
+for(k=0;k&lt;3;k++)<br>
+{i=2-k;flg=1;<br>
+for(h=0;h&lt;3 &amp;&amp; flg==1;h++)<br>
+		{j=h;<br>
+if(i&lt;0) i=2;<br>
+ind=(j*3)+i;a=*(mat+ind);<br>
+if(a==0) {bf=0;flg=0;}<br>
+         else bf=bf * a;<br>
+		 i--;<br>
+		}<br>
+d=d-bf;<br>
+bf=1;<br>
+	 }<br>
+     return(d);&nbsp;<br>
+	}<br>
+</p>
+<hr>
+</body>
+</html>

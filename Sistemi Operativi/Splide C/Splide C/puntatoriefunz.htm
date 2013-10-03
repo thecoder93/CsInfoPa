@@ -1,0 +1,230 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Puntatori e Funzioni</title>
+</head>
+
+<body>
+<p align="center"><font color="#FF0000" size="7">Puntatori e Funzioni </font>
+<p><hr> 
+</p>
+<div align="center"><font color="#FF0000" size="6">Funzioni che restituiscono puntatori</font></div>
+<p><font size="6">Il valore di ritorno restituito da una funzione pu&ograve; essere 
+  di qualsiasi tipo, compreso il tipo puntatore.</font></p>
+<table width="605" height="128" border="1" align="center" bgcolor="#FFFF00">
+  <tr> 
+    <td width="843" height="122"> 
+      <p><font color="#009900" size="6">Esempio.</font></p>
+      <p><font size="6"> int* funz();</font></p>
+      <p><font color="#009966" size="6"> dichiara una funzione funz che restituisce un valore 
+        puntatore a int </font></p>
+    </td>
+  </tr>
+</table>
+<p align="justify"><font size="6"><br>
+  Sappiamo che il valore di ritorno, anche se &eacute; un puntatore, viene 
+  trasmesso per valore e quindi ne viene creata una copia nel programma chiamante; 
+  ci&ograve; garantisce che il puntatore sopravviva alla funzione anche se &egrave; 
+  stato creato all'interno del suo ambito. </font></p>
+<p align="justify"><font size="6">Tuttavia la variabile puntata potrebbe non sopravvivere 
+  alla funzione (se &eacute; stata creata nel suo ambito e non dichiarata <font color="#FF0000">static</font>). 
+  Ci&ograve; porterebbe portare ad un errore di <font color="#FF0000">dangling references</font>. Notare l'analogia 
+  con il tipo di errore generato quando un valore di ritorno, trasmesso by reference, 
+  corrisponde a una variabile che cessa di esistere: in quel caso tuttavia, il 
+  compilatore ha il controllo della situazione e quindi pu&ograve; segnalare l'errore 
+  (o almeno un warning); nel caso di un puntatore, invece, il suo contenuto (cio&egrave; 
+  l'indirizzo della variabile puntata) &eacute; determinato in esecuzione e quindi 
+  l'errore non pu&ograve; essere segnalato dal compilatore. Spetta al programmatore 
+  fare la massima attenzione a che ci&ograve; non si verifichi. </font></p>
+<p align="justify"><font size="6">Il pi&ugrave; frequente uso di funzioni che 
+  restituiscono puntatori si ha nel caso di puntatori a char, cio&egrave; di stringhe. 
+  Nella stessa libreria Run-time ci sono molte funzioni che restituiscono stringhe. 
+  </font><br>
+</p>
+<table border="1" width="901" height="128" bgcolor="#FFFF00">
+  <tr> 
+    <td width="823" height="122"> <p><font color="#009900" size="6">Esempiodi 
+        funzione di libreria: </font></p>
+      <p><font size="6"> char* strcat(char* str1, char* str2); </font></p>
+      <p><font color="#009966" size="6"> </font></p>
+      <p align="justify"><font color="#009966" size="6">concatena la stringa str2 
+        alla stringa str1 e restituisce il risultato sia nella stessa str1 che 
+        come valore di ritorno. Notare che in questo caso non c'&egrave; pericolo 
+        di errore, purch&egrave; lo spazio di memoria per str1 sia stato adeguatamente 
+        allocato nel programma chiamante.</font></p>
+    </td>
+  </tr>
+</table>
+<p align="justify">&nbsp;</p>
+<p align="center"><font color="#FF0000" size="6">Puntatori a Funzione </font></p>
+<p align="justify"> </p>
+<p align="justify"><font size="6">In C esistono anche i puntatori a funzione! 
+  Questi servono quando il programma deve scegliere quale funzione chiamare fra 
+  diverse possibili, e la scelta non &eacute; definita a priori ma dipende dai 
+  dati del programma stesso. Questo processo si chiama <font color="#FF0000">late binding</font> (&quot;aggancio 
+  ritardato&quot;): gli indirizzi delle funzioni da chiamare non vengono risolti 
+  al momento della compilazione, come avviene normalmente (<font color="#FF0000">early binding</font>) ma al 
+  momento dell'esecuzione. </font></p>
+<p><font size="6">I puntatori a funzione non devono essere definiti, ma solo dichiarati, 
+  come nel seguente esempio:</font> </p>
+<p align="center"><br>
+  <font color="#FF0000" size="6">int* (*pfunz)(double , char* ); </font></p>
+<p align="justify"><br>
+  <font color="#000000" size="6">dichiara un puntatore a funzione <font color="#FF0000">pfunz</font> 
+  che restituisce un puntatore a int e ha due argomenti: il primo &eacute; di 
+  tipo double, il secondo &eacute; un puntatore a char. Notare le parentesi intorno 
+  al nome della funzione, in assenza delle quali la dichiarazione sarebbe interpretata 
+  in modo diverso (una normale funzione pfunz che restituisce un puntatore a puntatore 
+  a int). </font></p>
+<p align="justify"><font size="6">Nel corso del programma il puntatore a funzione 
+  deve essere assegnato (o inizializzato) con il nome di una funzione &quot;vera&quot;, 
+  che deve essere precedentemente dichiarata con lo stesso tipo del valore di 
+  ritorno e gli stessi argomenti del puntatore</font>. </p>
+<p align="justify"><font size="6">Continuando l'esempio precedente: </font></p>
+<p align="center"> <font color="#FF0000" size="6">int* funz1(double , char* ); <br>
+  int* funz2(double , char* ); <br>
+  if ( ......... ) pfunz = funz1 ; <br>
+  else pfunz = funz2; </font></p>
+<p><font size="6">notare che i nomi delle funzioni e del puntatore vanno indicati 
+  da soli, senza i loro argomenti (e senza le parentesi). </font></p>
+<p>&nbsp;</p>
+<table width="901" height="128" border="1" bgcolor="#FFFF00">
+  <tr> 
+    <td width="823" height="122"> <p><font color="#009900" size="6">Esempio</font></p>
+      <p><font size="5">#include &lt;stdio.h&gt;</font></p>
+      <p><font size="5">double somma(double d1, double d2) { return d1+d2;}<br>
+        double differenza(double d1, double d2) { return d1-d2;}<br>
+        double prodotto(double d1, double d2) { return d1*d2;}<br>
+        double rapporto(double d1, double d2) { return d1/d2;}</font></p>
+      <p><font size="5">double (*calc)(double, double);</font></p>
+      <p><font size="5">int main()<br>
+        {<br>
+        char s;<br>
+        double dati1[] = { 3.4, 1.7, 0.6, 4.3, 3.8 } ;<br>
+        double dati2[] = { 1.6, 7.3, 4.5, 1.7, 3.8 } ;<br>
+        double dati3[5];<br>
+        printf(&quot;Operazione: &quot; );<br>
+        scanf(&quot;%c&quot;,&amp;s);<br>
+        switch(s)<br>
+        {<br>
+        case '-' : calc = differenza; break;<br>
+        case '*' : calc = prodotto; break;<br>
+        case '/' : calc = rapporto; break;<br>
+        default : calc = somma; s = '+' ;<br>
+        }<br>
+        for (int i=0; i &lt; 5; i++)<br>
+        {dati3[i]=calc(dati1[i],dati2[i]);<br>
+        printf(&quot;\t %.1f%c%.1f=%.1f\n&quot;,dati1[i],s,dati2[i],dati3[i]);<br>
+        }<br>
+        return 0;<br>
+        }<br>
+        </font></p>
+      <p></p>
+</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p align="center"><font color="#FF0000" size="6">Array di puntatori a funzione </font></p>
+<p> </p>
+<p><font size="6">In C &egrave; consentito dichiarare array di puntatori a funzione, 
+  nella forma specificata dal seguente esempio: <br>
+  </font> </p>
+<p align="center"> <font color="#FF0000" size="5">double (*apfunz[5])(int); </font></p>
+<p align="justify"><br>
+  <font color="#000000" size="6">dichiara l'array <font color="#FF0000">apfunz</font> di 5 puntatori a funzione, 
+  tutti con valore di ritorno di tipo <font color="#FF0000">double</font> e con un argomento di tipo <font color="#FF0000">int</font>. </font><font size="6">L'array 
+  pu&ograve; essere inizializzato con un elenco di nomi di funzioni, gi&agrave; 
+  dichiarate e condividenti tutte le stesso tipo di valore di ritorno e gli stessi 
+  argomenti:</font> </p>
+<p align="center"><font color="#FF0000" size="5">double (*apfunz[5])(int) = {f1, f2, f3, 
+  f4, f5} ; </font></p>
+<p><font size="6">dove f1 ecc... sono tutte funzioni dichiarate: double f1(int); 
+  ecc... </font></p>
+<p><font size="6">I singoli elementi dell'array possono anche essere assegnati 
+  tramite l'operatore [ ], nel modo consueto: <br>
+</font></p>
+<p align="center"><font color="#FF0000" size="6">apfunz[3]= fn; </font><font size="6"><br>
+  </font></p>
+<p><font size="6">dove <font color="#FFFFFF">fn</font> &eacute; una funzione dichiarata: <font color="#FF0000">double fn(int); </font></font></p>
+<p><font size="6">Nelle chiamate, si usa ancora l'operatore <font color="#FF0000">[ ] </font>per selezionare 
+  l'elemento desiderato: <font color="#FF0000">apfunz[i](n)</font>;</font></p>
+<p align="justify"><font size="6"> Non &eacute; necessario dereferenziare il puntatore pocgh&egrave; l'indice <font color="#FF0000">i</font> permette di accedere alla funzione precedentemente assegnata all'i-esimo 
+  elemento dell'array. </font></p>
+<p align="justify"><font size="6">Gli array di puntatori a funzione possono essere utili, per 
+  esempio, quando la funzione da eseguire &eacute; selezionata da un men&ugrave;: 
+  in questo caso l'indice i, corrispondente a una voce di men&ugrave;, indirizza 
+  direttamente la funzione prescelta, senza bisogno di istruzioni di controllo, 
+  come if o switch, per determinarla. </font></p>
+<p><hr>
+<div align="center"><font color="#FF0000">
+  </p>
+  <font size="6">Funzioni con argomenti puntatori a funzione </font></font>
+</div>
+<p> </p>
+<p align="justify"><font size="6">E' noto che, quando nella chiamata di una funzione 
+  compare come argomento un'altra funzione, questa viene eseguita per prima e 
+  il suo valore di ritorno &eacute; utilizzato come argomento dalla prima funzione. 
+  Quindi il vero argomento della prima funzione non &eacute; la seconda funzione, 
+  ma un normale valore, che pu&ograve; avere qualsiasi origine (variabile, espressione 
+  ecc...), e in particolare in questo caso &egrave; il risultato dell'esecuzione 
+  di un'altra funzione (il cui tipo di valore di ritorno deve coincidere con il 
+  tipo dichiarato dell'argomento). </font></p>
+<p align="justify"><font size="6">Quando invece una funzione dichiara fra i suoi 
+  argomenti un puntatore a funzione, allora sono parametrizzate proprio le funzioni 
+  e non i loro valori di ritorno. Nelle chiamate &eacute; necessario specificare 
+  come argomento il nome di una funzione &quot;vera&quot;, precedentemente dichiarata, 
+  che viene sostituito a quello del puntatore.</font></p>
+<table width="901" height="128" border="1" bgcolor="#FFFF00">
+  <tr> 
+    <td width="823" height="122"> <p align="justify">&nbsp;</p>
+      <p align="justify"><font size="6"> <font color="#FF0000">Es.: dichiarazioni: 
+        </font></font></p>
+      <p align="justify"><font size="6">void fsel(int (*)(float)); <br>
+        int funz1(float);<br>
+        int funz2(float); <br>
+        </font></p>
+      <p align="justify"><font color="#00FF00" size="6">chiamate: </font></p>
+      <p align="justify"><font size="6">fsel(funz1); <br>
+        fsel(funz2); <br>
+        </font></p>
+      <p align="justify"><font color="#FF0000" size="6">definizione fsel:</font></p>
+      <p align="justify"><font size="6"> void fsel(int (*pfunz)(float))<br>
+        { .... n = pfunz(r); .....}<br>
+        <font color="#FF0000">(dove n &eacute; di tipo int e r &eacute; di tipo float) </font></font> 
+      </p>
+      <p></p></td>
+  </tr>
+</table>
+<p align="justify"><font size="6"><br>
+  l'istruzione <font color="#FF0000">n=pfunz(r)</font> viene sostituita la prima volta con <font color="#FF0000">n=funz1(r)</font>, la 
+  seconda volta con <font color="#FF0000">n=funz2(r) </font>. </font></p>
+<p align="justify"><font size="6">Notare che, nelle chiamate, l'argomento-funzione 
+  deve essere a sua volta specificato senza argomenti e senza le parentesi tonde. 
+  </font></p>
+<p align="justify"><font size="6">Nell'esempio abbiamo supposto che la variabile 
+    <font color="#FF0000">r</font>, argomento della <font color="#FF0000">pfunz</font>, sia creata all'interno della <font color="#FF0000">fsel</font>; anche se <font color="#FF0000">r</font> fosse 
+  passato dal programma chiamante, la forma: <font color="#FF0000">fsel(funz1(r))</font> sarebbe comunque errata: 
+  l'unico modo per passare <font color="#FF0000">r</font> potrebbe essere quello di dichiararlo come ulteriore 
+  argomento della <font color="#FF0000">fsel</font>, cio&egrave;: <br>
+  </font></p>
+<blockquote>
+  <blockquote>
+    <p align="justify"><font color="#FF0000" size="6">void fsel(float, int (*pfunz)(float)); </font></p>
+  </blockquote>
+</blockquote>
+<p align="justify"><font size="6">e nelle chiamate specificare: <br>
+  </font></p>
+<blockquote>
+  <blockquote>
+    <p align="justify"><font color="#FF0000" size="6">fsel(r, funz1);</font></p>
+    <p align="justify"><font color="#FF0000" size="6"> fsel(r, funz2); </font></p>
+  </blockquote>
+</blockquote>
+<p align="justify"></p>
+<p align="justify"> 
+</body>
+
+</html>

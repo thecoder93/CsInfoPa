@@ -1,0 +1,134 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Array in C </title>
+</head>
+
+<body>
+<p align="center"><font size="7" color="#FF0000">ARRAY&nbsp;</font></p>
+<p>&nbsp;</p>
+<p><font size="7">In C i vettore mono-dimensionali possono essere dichiarati in
+due modi&nbsp;</font></p>
+<p><font size="7">&nbsp;1. <font color="#FF0000">&lt;tipo semplice&gt; &lt;nome variabile&gt; [intero];</font></font></p>
+<p><font size="7">&nbsp;2. <font color="#FF0000">&lt;tipo semplice&gt; *&lt;nome variabile&gt; ;</font></font></p>
+<p align="justify"><font size="7">nel primo caso il compilatore associa al nome del vettore una
+locazione di memoria iniziale, ed alloca lo spazio per l'intero vettore</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="445" height="176" bordercolor="#FFFF00" bgcolor="#FFFF00">
+    <tr>
+      <td width="445" height="176">
+<font color="#FF0000" size="6">int a[10];</font>
+<p><font color="#FF0000" size="6">float b[50];</font></p>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+<p align="justify"><font size="7">Nel secondo caso il compilatore associa al nome del vettore
+una locazione di memoria iniziale, ma non alloca nessuno spazio per il vettore, quindi per utilizzarlo bisogna prima allocarlo,</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="624" height="215">
+    <tr>
+      <td width="624" height="215" bgcolor="#FFFF00"><font color="#FF0000" size="6">int *a;</font>
+        <p><font color="#FF0000" size="6">a=(int *)malloc(10*sizeof(int));<br></font></p>
+        <p><font color="#FF0000" size="6">float *b;</font></p>
+        <p><font color="#FF0000" size="6">b=(float *) malloc(50*sizeof(float);</font></p>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p></p>
+<div align="justify"><font size="6">In realtà nel secondo caso si stanno dichiarando dei puntatori a
+  intero ed ad float rispettivamente.</font>
+</div>
+<p align="justify"><font size="6">I vettori in C cominciano dall'elemento 0 (zero) quindi
+dichiarando <font color="#FF0000">int&nbsp; a[10] </font>si allocano <font color="#FF0000">10</font> interi , da <font color="#FF0000">0</font> a <font color="#FF0000">9</font>.</font></p>
+<p align="justify"><font size="6">Per accedere all'iesimo elemento di un vettore basta indicare
+l'indice tra parentesi quadre&nbsp;&nbsp;</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="627" height="211">
+    <tr>
+      <td width="627" height="211" bgcolor="#FFFF00"><font size="6">#include &lt;stdio.h><br>
+        void main()<br>
+        {<br>
+        int i,a[10];<br>
+        <br>
+        for(i=0;i&lt;10;i++) a[i]=i*i;<br>
+        for(i=0;i&lt;10;i++) printf("a[%d]=%d",i,a[i]);<br>
+        <br>
+        }</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p><font size="6">Nell'esempio ad ogni  elemento <font color="#FF0000">i</font> di <font color="#FF0000">a</font> si assiocia il
+corrispondente quadrato <font color="#FF0000">i*i</font>.</font>
+</p>
+<div align="center">
+  <center>
+  <table border="1" width="682" height="372">
+    <tr>
+      <td width="682" height="372" bgcolor="#FFFF00"><font size="6">#include &lt;stdio.h><br>
+        #include &lt;malloc.h><br>
+        #include &lt;math.h><br>
+        void main()<br>
+        {<br>
+        int i,*a;<br>
+        a=(int *)malloc(sizeof(int) *10);<br>
+        <br>
+        for(i=0;i&lt;10;i++) a[i]=i*i;<br>
+        for(i=0;i&lt;10;i++) printf("a[%d]=%d",i,a[i]);<br>
+        <br>
+        }</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+<p><font size="6">Lo stesso esempio con una dichiarazione dinamica. </font></p>
+<hr>
+<p>&nbsp;</p>
+<p align="center"><font size="7" color="#FF0000">Gli ARRAY multidimenzionali</font></p>
+<p align="justify"><font size="6">In C i vettore multidimensionali si dichiarano in questa
+maniera&nbsp;</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="579" height="176" bordercolor="#FFFF00" bgcolor="#FFFF00">
+    <tr>
+      <td width="569" height="176">
+<p><font color="#FF0000" size="6">int a[10][5];</font>
+</p>
+<p><font size="5">Ossia una matrice di 10 righe e 5 colonne, naturalmente la stessa cosa si pu&ograve; fare dinamicamente</font></p><p><font color="#FF0000" size="6">int **a,i;&nbsp;<br>
+a=(int **)malloc(10* sizeof(int *));<br>
+for(i=0;i&lt;10;i++)<br>
+&nbsp;&nbsp;*(a+i)=(int *)malloc(5*sizeof(int));<br>
+__________________________________</font></p>
+<p><font color="#FF0000" size="6">float b[50][5];</font></p>
+<p><font size="5">Ossia una matrice di reali di 50 righe e 5 colonne,  dinamicamente</font></p>
+<p><font color="#FF0000" size="6">float **b;<br>
+  int i;<br>
+      b=(int **)malloc(50* sizeof(float *));<br>
+      for(i=0;i&lt;50;i++)<br>
+&nbsp;&nbsp;*(a+i)=(int *)malloc(5*sizeof(float));</font></p>
+</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p><font size="7">&nbsp;</font></p>
+<div align="center">
+  <center>
+  </center>
+</div>
+
+</body>
+
+</html>

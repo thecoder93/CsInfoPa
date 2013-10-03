@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Esecitazione1</title>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<p><font size="3" face="arial">Esercizio 1</font></p>
+<p><font size="3" face="arial">Preparare un programma che dati un vettore di numeri 
+  reali li ordini con una dei algoritmi di sorting</font></p>
+<p>#include &lt;stdio.h><br>
+  #include &lt;malloc.h><br>
+  #include &lt;math.h><br>
+  <br>
+  void main()<br>
+  {<br>
+  int&nbsp;<br>
+  int a[100];<br>
+  int i,j,min_pos,n;&nbsp;<br>
+  int tmp;&nbsp;<br>
+  printf("dai il numero di elementi da digitare ");<br>
+  scanf("%d",&amp;n);<br>
+  for (i=0;i&lt;n; i++)&nbsp;<br>
+  {printf("a[%d]=",i);<br>
+  scanf("%d",&amp;a[i]);<br>
+  }<br>
+  <br>
+  for (i=0; i&lt;n; i++)&nbsp;<br>
+  {<br>
+  min_pos = i;<br>
+  for (j=i+1; j&lt;n; j++)&nbsp;<br>
+  if (a[j] &lt; a[min_pos]) min_pos = j;<br>
+  <br>
+  tmp = a[i];<br>
+  a[i] = a[min_pos];<br>
+  a[min_pos] = tmp;<br>
+  }&nbsp;<br>
+  for (i=0;i&lt;n; i++)&nbsp;<br>
+  printf("a[%d]=%d\n",i,a[i]);<br>
+  <br>
+  }<br>
+</p>
+<hr>
+<p><font size="3" face="arial">Esercizio 2</font></p>
+<p><font size="3" face="arial">Preparare un programma che data una stringa trovi 
+  le occorenze di un dato carattere.</font></p>
+<p>#include &lt;stdio.h&gt;<br>
+  #include &lt;string.h&gt;<br>
+  #include &lt;math.h&gt;</p>
+<p>void main()<br>
+  {char b,a[80];<br>
+  int n=0;<br>
+  printf(&quot;dai la Stringa : &quot;);<br>
+  scanf(&quot;%s&quot;,a);<br>
+  printf(&quot;dai il carattere : &quot;);<br>
+  scanf(&quot;%c&quot;,&amp;b);<br>
+  scanf(&quot;%c&quot;,&amp;b);<br>
+  for(int i=0; a[i]!='\0';i++)<br>
+  {if(b==a[i]) n++;}<br>
+  printf(&quot;%d occrenze di %c in %s\n&quot;,n,b,a);</p>
+<p>}</p>
+<p></p>
+<hr>
+<p><font size="3" face="arial">Esercizio 3</font></p>
+<p><font size="3" face="arial">Preparare un programma che data una matrice 3x3 
+  trovi il determinante.</font></p>
+<p>#include &lt;stdio.h&gt;<br>
+  #include &lt;math.h&gt;<br>
+  void main()<br>
+  {<br>
+  float a[3][3],det;<br>
+  int i,j;<br>
+  printf(&quot;dai la matrice per riga:\n &quot;);<br>
+  for (i=0;i&lt;3;i++)<br>
+  for (j=0;j&lt;3;j++)<br>
+  {printf(&quot;a[%d,%d]=&quot;,i,j);<br>
+  scanf(&quot;%f&quot;,&amp;a[i][j]);<br>
+  <br>
+  }</p>
+<p>for (i=0;i&lt;3;i++)<br>
+  printf(&quot;%f %f %f\n&quot;,a[i][0],a[i][1],a[i][2]);</p>
+<p>det=1;<br>
+  det=det*a[0][0]*a[1][1]*a[2][2];<br>
+  det=det+(a[0][1]*a[1][2]*a[2][0]);<br>
+  det=det+(a[0][2]*a[1][0]*a[2][1]);</p>
+<p>det=det-(a[0][2]*a[1][1]*a[2][0]);<br>
+  det=det-(a[0][1]*a[1][0]*a[2][2]);<br>
+  det=det-(a[0][0]*a[1][2]*a[2][1]);</p>
+<p>printf(&quot;determinatte della matrice e':%f&quot;,det); </p>
+<p>}</p>
+<hr>
+<p align="center">&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><font face="arial" size="7">&nbsp; </font> </p>
+</body>
+</html>

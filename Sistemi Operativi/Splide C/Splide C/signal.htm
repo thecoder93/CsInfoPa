@@ -1,0 +1,444 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>linuxthread</title>
+</head>
+
+<body>
+<ul type="square">
+  <blockquote> 
+    <p align="center"><font color="#FF0000" size="6">Sospensione dei Processi</font></p>
+    <p><font color="#FF0000" size="6">wait <font color="#000000">e</font> waitpid</font><font size="6"> 
+      <br>
+      Uno degli usi pi&ugrave; comuni del multitasking e la creazione di programmi 
+      di tipo server, in cui un processo principale attende le richieste che vengono 
+      poi soddisfatte da una serie di processi figli.I</font><font size="6">n 
+      questo caso &egrave; necessario gestire esplicitamente la conclusione dei 
+      figli onde evitare di riempire di zombie la tabella dei processi; le funzioni 
+      deputate a questo compito sono sostanzialmente due, wait e waitpid.</font></p>
+  </blockquote>
+</ul>
+<blockquote> 
+  <hr>
+  <p align="center"><font color="#FF0000" size="6"> wait </font></p>
+  <p align="justify"><font size="6">La prima, il cui prototipo &egrave;:</font></p>
+  <p align="justify"><font color="#FF0000" size="6"> int wait(int *status) </font></p>
+  <div v:shape="_x0000_s3074"><font size="6">Sospende il processo corrente finch&eacute; 
+    un figlio non &egrave; uscito, o finch&eacute; un segnale termina il processo 
+    o chiama una funzione di gestione. </font></div>
+  <font size="6"> </font> 
+  <div v:shape="_x0000_s3074"></div>
+  <div v:shape="_x0000_s3074"> 
+    <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+      <p><font size="6">La funzione restituisce il pid del figlio in caso di successo 
+        e -1 in caso di errore; </font></p>
+      <p><font size="6">errno pu&ograve; assumere i valori: </font><font color="#FF0000" size="6">EINTR</font><font size="6"> 
+        la funzione &egrave; stata interrotta da un segnale.</font></p>
+    </div>
+  </div>
+  <div v:shape="_x0000_s3074"></div>
+  <div v:shape="_x0000_s3074"> 
+    <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+      <div align="justify"> 
+        <p><font size="6">Al ritorno della funzione lo stato di terminazione del 
+          figlio viene salvato nella variabile puntata da status e tutte le risorse 
+          del kernel relative al processo vengono rilasciate. Nel caso un processo 
+          abbia pi&ugrave; figli il valore di ritorno (il pid del figlio) permette 
+          di identificare qual'&egrave; quello che &egrave; uscito.</font></p>
+        <hr>
+        <p align="center"> <font color="#FF0000" size="6">waitpid</font></p>
+        <p><font color="#FF0000" size="6">int</font><font size="6"> <font color="#FF0000">waitpid(pid_t 
+          pid, int *status, int options) </font><br>
+          Attende la conclusione di un processo figlio. </font><font size="6">La 
+          funzione restituisce il pid del processo che &egrave; uscito, 0 se &egrave; 
+          stata specificata l'opzione WNOHANG e il processo non &egrave; uscito 
+          e -1 per un errore, nel qual caso errno assumer&agrave; i valori: </font></p>
+        <p><font color="#FF0000" size="6">EINTR</font><font size="6"> se non &egrave; 
+          stata specificata l'opzione WNOHANG e la funzione &egrave; stata interrotta 
+          da un segnale. <br>
+          <font color="#FF0000">ECHILD</font> il processo specificato da pid non 
+          esiste o non &egrave; figlio del processo chiamante. </font></p>
+        <hr>
+        <p align="center"><font size="5">Esempio</font></p>
+        <table width="893" height="1264" border="1" align="center" bgcolor="#FFFF00">
+          <tr> 
+            <td width="883" height="1258"><font size="5">#include &lt;stdio.h&gt;/* 
+              printf(), puts(), fprintf(), stderr */<br>
+              #include &lt;unistd.h&gt;/* fork(), execlp(), pid_t */<br>
+              #include &lt;errno.h&gt;/* errno */<br>
+              #include &lt;sys/wait.h&gt;/* waitpid(), WEXITSTATUS() */ </font><font size="6"> 
+              <p><font size="5">int main(void);<br>
+                void child(void);<br>
+                void parent(int pid);</font></p>
+              <p><font size="5">int main(void)<br>
+                {<br>
+                int pid;</font></p>
+              <p><font size="5"> puts(&quot;Il child elenchera' i files presenti 
+                nella directory /etc.&quot;);<br>
+                switch(pid = fork()) {<br>
+                case 0:<br>
+                child();<br>
+                case -1:<br>
+                fprintf(stderr,&quot;Errore %d in fork().\n&quot;,errno);<br>
+                exit(errno);<br>
+                default:<br>
+                parent(pid);<br>
+                }<br>
+                return(0);<br>
+                }</font></p>
+              <p><font size="5">void child(void)<br>
+                {<br>
+                if(execv(&quot;ls&quot;) == -1) {<br>
+                fprintf(stderr,&quot;Errore %d in exec().\n&quot;,errno);<br>
+                exit(errno);<br>
+                }<br>
+                }</font></p>
+              <p><font size="5">void parent(int pid)<br>
+                {<br>
+                int status;</font></p>
+              <p><font size="5"> if(waitpid(pid,&amp;status,0) &lt;= 0) {<br>
+                printf(&quot;Errore %d in waitpid().\n&quot;);<br>
+                exit(errno);<br>
+                }<br>
+                printf(&quot;Il child ha restituito %d.\n&quot;,WEXITSTATUS(status));<br>
+                }</font></p>
+              </font> <p><br>
+              </p></td>
+          </tr>
+        </table>
+        <hr>
+        <p><font color="#FF0000" size="6">I Segnali</font></p>
+        </div>
+    </div>
+  </div>
+</blockquote>
+<ul>
+  <li> 
+    <div align="center" v:shape="_x0000_s3074"> 
+      <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+        <div align="justify"><font size="6">Costituiscono una forma di comunicazione 
+          primitiva tra processi residenti sulla medesima macchina </font></div>
+      </div>
+    </div>
+  </li>
+  <li> 
+    <div align="center" v:shape="_x0000_s3074"> 
+      <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+        <div align="justify"><font size="6">Permettono una comunicazione asincronatra</font></div>
+      </div>
+    </div>
+    <ul>
+      <li> 
+        <div align="center" v:shape="_x0000_s3074"> 
+          <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+            <div align="justify"><font size="6">Processo che invia il segnale:</font></div>
+          </div>
+        </div>
+        <ul>
+          <li> 
+            <div align="center" v:shape="_x0000_s3074"> 
+              <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+                <div align="justify"><font size="6">il processo invia un segnale 
+                  e prosegue il suo avanzamento indisturbato</font></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li> 
+        <div align="center" v:shape="_x0000_s3074"> 
+          <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+            <div align="justify"><font size="6">Processo che riceve il segnale:</font></div>
+          </div>
+        </div>
+        <ul>
+          <li> 
+            <div align="center" v:shape="_x0000_s3074"> 
+              <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+                <div align="justify"><font size="6">il processo catturail segnale</font></div>
+              </div>
+            </div>
+          </li>
+          <li> 
+            <div align="center" v:shape="_x0000_s3074"> 
+              <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+                <div align="justify"><font size="6">interrompe il normale avanzamento</font></div>
+              </div>
+            </div>
+          </li>
+          <li> 
+            <div align="center" v:shape="_x0000_s3074"> 
+              <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+                <div align="justify"><font size="6">gestisce il segnale eseguendo 
+                  opportune funzioni dedicate</font></div>
+              </div>
+            </div>
+          </li>
+          <li> 
+            <div align="center" v:shape="_x0000_s3074"> 
+              <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+                <div align="justify"><font size="6">ritorna al punto in cui era 
+                  stato interrotto</font></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><font size="6">Vengono lanciati attraverso la chiamata </font> 
+    <blockquote> 
+      <p><font color="#FF0000" size="6">#include &lt;sys/types.h&gt;</font></p>
+      <p><font color="#FF0000" size="6">#include &lt;signal.h&gt;</font></p>
+      <p><font color="#FF0000" size="6">int kill(pid_t pid, int sig);</font></p>
+    </blockquote>
+  </li>
+  <li><font size="6">pid indica il numero del processo al quale si vuole inviare 
+    un determinato segnale </font> 
+    <ul>
+      <li><font size="6">pid= 0 per tutti i processi del gruppo di quello corrente</font></li>
+      <li><font size="6">pid=-1per tutti i processi tranne il primo nella tavola 
+        dei processi</font></li>
+      <li><font size="6">pid&lt;-1il segnale &egrave; spedito a tutti i processi 
+        del gruppo -pid</font></li>
+    </ul>
+  </li>
+  <li><font size="6">sig &egrave; il numero del segnale che si vuole inviare</font> 
+    <p><font size="6"></font></p>
+    <hr>
+    <p align="center"><font size="5">Esempio</font></p>
+  </li>
+</ul>
+<blockquote> 
+  <div v:shape="_x0000_s3074"> 
+    <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+      <div align="justify"> 
+        <div v:shape="_x0000_s3074"> 
+          <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+            <table width="893" height="502" border="1" align="center" bgcolor="#FFFF00">
+              <tr> 
+                <td width="883" height="496"> <p><font size="5">#include &lt;stdio.h&gt;<br>
+                    #include &lt;stdlib.h&gt;<br>
+                    #include &lt;signal.h&gt;<br>
+                    #include &lt;sys/wait.h&gt;<br>
+                    #include &lt;sys/types.h&gt;<br>
+                    int main(int argc, char*argv[])<br>
+                    { int pid;<br>
+                    if ((pid = fork()) == 0)<br>
+                    while (1); // il figlio attende per sempre<br>
+                    else {<br>
+                    // il padre attende 10 secondi<br>
+                    sleep(10);<br>
+                    kill(pid, SIGINT); // … e quindi invia il segnale<br>
+                    }<br>
+                    }<br>
+                    </font> </p></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <hr>
+        <p align="center"><font color="#FF0000" size="6">Installare Handler:signal()</font></p>
+        <p><font size="5">L’intercettazione di un segnale avviene installando 
+          una funzione per la sua gestione (handler) con la chiamata signal():</font></p>
+      </div>
+    </div>
+  </div>
+  <blockquote> 
+    <div v:shape="_x0000_s3074"> 
+      <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+        <div align="justify"> 
+          <p><font size="5">#include&lt;signal.h&gt;<br>
+            typedef void (*sighandler_t)(int);<br>
+            sighandler_t signal(int signum,sighandler_thandler);<br>
+            <br>
+            Ritorna il puntatore alla funzione handler precedente o -1 in caso 
+            di errore<br>
+            sig &egrave; il segnale a cui associare il nuovo handler<br>
+            handler pu&ograve; essere:</font></p>
+        </div>
+      </div>
+    </div>
+    <ul>
+      <li> 
+        <div v:shape="_x0000_s3074"> 
+          <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+            <div align="justify"><font size="5">SIG_DFL, un puntatore a SIG_DFL() 
+              fornita dalla libreria per gestire un segnale con il gestore di 
+              default</font></div>
+          </div>
+        </div>
+      </li>
+      <li> 
+        <div v:shape="_x0000_s3074"> 
+          <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+            <div align="justify"><font size="5"> SIG_IGN, un puntatore a SIG_IGN() 
+              fornita dalla libreria per ignorare un segnale</font></div>
+          </div>
+        </div>
+      </li>
+      <li> 
+        <div v:shape="_x0000_s3074"> 
+          <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+            <div align="justify"><font size="5">il puntatore ad una funzione definita 
+              dall’utente </font></div>
+          </div>
+        </div>
+        <div v:shape="_x0000_s3074"> 
+          <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"></div>
+        </div>
+      </li>
+    </ul>
+  </blockquote>
+  <hr>
+  <div align="center"><font size="5">Esempio</font></div>
+</blockquote>
+<blockquote> 
+  <div v:shape="_x0000_s3074"> 
+    <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+      <div align="justify"> 
+        <div v:shape="_x0000_s3074"> 
+          <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+            <table width="893" height="502" border="1" align="center" bgcolor="#FFFF00">
+              <tr> 
+                <td width="883" height="496"> <p><font size="5"><br>
+                    void int_handler(int sig)<br>
+                    {printf(“Ricevuto!\n&quot;);<br>
+                    exit(2);<br>
+                    }<br>
+                    intmain(intargc, char*argv[])<br>
+                    {int pid;<br>
+                    signal(SIGINT, int_handler);<br>
+                    if ((pid = fork()) &lt; 0)<br>
+                    </font><font size="5">{perror(&quot;fork fallita\n&quot;);exit(-1);<br>
+                    }<br>
+                    if(pid== 0) <br>
+                    {while(1) <br>
+                    { sleep(1); printf(“In esecuzione!!!\n&quot;);}<br>
+                    }<br>
+                    sleep(3);<br>
+                    kill(pid, SIGINT);exit(0);<br>
+                    } </font> </p></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</blockquote>
+<p align="center"><img src="signal.jpg" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprolinux/signal.jpg" width="510" height="664">
+<p align="center"><font size="5">Esempio</font>
+<blockquote>
+  <div v:shape="_x0000_s3074">
+    <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369">
+      <div align="justify">
+        <table width="893" height="502" border="1" align="center" bgcolor="#FFFF00">
+          <tr> 
+            <td width="883" height="496"> <p><font size="5"><br>
+                #include&lt;stdio.h&gt;<br>
+                #include &lt;signal.h&gt;<br>
+                int count = 0;<br>
+                void gotCntrlBSlash();<br>
+                void gotINT();<br>
+                main (int argc, char* argv[]) <br>
+                {int i;<br>
+                signal(SIGTSTP,SIG_IGN); // ignora ^Z<br>
+                signal(SIGQUIT,gotCntrlBSlash);// gestore per '^\'<br>
+                signal(SIGINT,gotINT); // gestore per ^C<br>
+                for(i=1;i&lt;100;i++) {sleep(1);printf((i%10==0)?&quot;.\n&quot;:&quot;.&quot;);<br>
+                }<br>
+                } </font></p>
+              <p><font size="5">void gotINT()<br>
+                {switch(++count)<br>
+                {<br>
+                case 1:printf(&quot;Ricevuto Primo SIGINT\n&quot;);signal(SIGINT,gotINT);break;<br>
+                </font><font size="5">case 2:printf(&quot;Ricevuto Secondo SIGINT\n&quot;);signal(SIGINT,gotINT);break;<br>
+                case 3:printf(&quot;Ricevuto Terzo SIGINT\n&quot;);signal(SIGINT,SIG_DFL);break;<br>
+                }<br>
+                }<br>
+                <br>
+                voidgotCntrlBSlash()<br>
+                {signal(SIGQUIT,gotCntrlBSlash);<br>
+                printf(&quot;Ricevuto un SIGQUIT\n&quot;);<br>
+                } </font> </p>
+              </td>
+          </tr>
+        </table>
+        <p>&nbsp;</p>
+        <hr>
+        <p align="center"><font color="#FF0000" size="6">Attesa di un Segnale</font></p>
+        <p align="justify"><font color="#FF0000" size="6">#include &lt;unistd.h&gt;<br>
+          #include &lt;signal.h&gt; <br>
+          int pause(void);</font><font size="6"><br>
+          La funzione pause() sospende il processo chiamante sino alla ricezione 
+          di un segnale Risulta utile per sincronizzazioni interprocesso basate 
+          su segnali.</font></p>
+        <p align="justify"><font color="#FF0000" size="6">#include &lt;unistd.h&gt;<br>
+          #include &lt;signal.h&gt; <br>
+          unsigned int alarm (unsignedintsecs);</font></p>
+        <p align="justify"><font size="6">La funzione alarm() permette di lanciare 
+          un segnale di tipo SIGALRM ad un determinato processo dopo un certo 
+          numero di secondi, ritorna il numero di secondi mancanti all’invio del 
+          segnale.</font></p>
+        <p align="center"><font size="5">Esempio</font> 
+        <blockquote> 
+          <div v:shape="_x0000_s3074"> 
+            <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+              <div align="justify"> 
+                <table width="893" height="424" border="1" align="center" bgcolor="#FFFF00">
+                  <tr> 
+                    <td width="883" height="418"> 
+                      <p><font size="5">#include&lt;signal.h&gt;<br>
+                        void announce();<br>
+                        int main (int argc, char*argv[]) <br>
+                        {if(argc!=2)<br>
+                        {manprintf(”Uso: %s secondi\n”,argv[0]);exit(1);}<br>
+                        signal(SIGALRM,announce);<br>
+                        alarm((unsigned)atoi(argv[1]));<br>
+                        pause(); /* attende un segnale */<br>
+                        }<br>
+                        void announce() <br>
+                        { fprintf(stdout,”Sveglia! \n”);<br>
+                        exit (0);<br>
+                        } </font></p>
+                      </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </blockquote>
+        <p align="justify">&nbsp;</p>
+        </div>
+    </div>
+  </div>
+</blockquote>
+</body>
+
+</html>

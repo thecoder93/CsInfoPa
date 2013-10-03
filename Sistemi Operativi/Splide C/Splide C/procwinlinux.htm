@@ -1,0 +1,160 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>procwinlinux</title>
+<link href="file.css" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/file.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style1 {color: #FF0000}
+.style2 {
+	color: #0000FF;
+	font-size: x-large;
+}
+-->
+</style>
+</head>
+
+<body>
+<p class="titoli">Mecanismi di creazione pocessi comuni a Windows e Unix/Linux in C/C++ </p>
+<hr>
+</p> Esistono varie funzioni che genarano nuovi porcessi a partire da programmi gi&agrave; esisteni
+<ul>
+      <li> <span class="style1">system</span>        
+        <ul>
+          <li>la funzione system() fornisce supporto al lancio di programmi esterni, essa viene invocata passandole come parametro una stringa contenente il comando che si intende eseguire. <span class="style1">System()</span> restituisce -1 in caso di errore; tuttavia la restituzione di 0 non implica che comando sia stato effettivamente eseguito, infatti system() esegue il comando ricevuto come parametro, essa non fa altro che lanciare una copia dell'interprete stesso, proprio come se fosse stato digitato il comando. Quindi system() si limita a restituire 0 nel caso in cui sia riuscita a lanciare correttamente l'interprete, non solo non &egrave; possibile conoscere il valore restituito al sistema dal child, ma non &egrave; neppure possibile sapere se questo sia stato effettivamente eseguito.
+          </li>
+      </ul>
+  
+              <p align="center">Esempio di System</p>
+</ul>
+      <div align="center">
+        <center>
+          <table border="1" width="592" height="271" bgcolor="#FFFF00">
+            <tr>
+              <td width="592" height="265">
+                <p align="left"><font size="5"> #include &lt;stdlib.h&gt;<br>
+                #include &lt;stdio.h&gt;// per fprintf()<br>
+                #include &lt;errno.h&gt;// per errno<br>
+                int main()<br>
+                {<br>
+                if(system(&quot;dir *.c &quot;) == -1)<br>
+                fprintf(stderr,&quot;errore %d in system()\n&quot;, errno);<br>
+                return(0);<br>
+              }</font></td>
+            </tr>
+          </table>
+        </center>
+      </div>
+        <hr>
+     
+        <ul>
+            <li><font size="6" name="bm03t"><A NAME="bm03t"><font color="#FF0000"><span class="style1">_spawn...()</span></A>
+              <ul>
+                <li>Come la <tt>system()</tt>, anche le funzioni della famiglia <tt>spawn...()</tt> consentono di lanciare programmi esterni come se fossero subroutine del parent; tuttavia esse non fanno ricorso all'interprete dei comandi, in quanto si basano sul servizio&nbsp;4Bh dell'interupt&nbsp;21h: di conseguenza, non &egrave; possibile utilizzarle per invocare comandi interni n&eacute; file batch, ma si ha un controllo sull'esito dell'operazione. Esse infatti restituiscono&nbsp;<TT>-1</TT> se l'esecuzione del child non &egrave; riuscita; in caso contrario restituiscono il valore che il programma child ha restituito a sua volta.</li>
+                <li>Tutte le funzioni <TT>spawn...()</TT> richiedono come primo parametro un intero, di solito dichiarato nei prototipi con il nome <TT>mode</TT>, che indica la modalit&agrave; di esecuzione del programma child: in <TT>PROCESS.H</TT> sono definite le costanti manifest: </li>
+              </ul>
+            </li>
+            <ul>
+              <ul>
+                <li><TT>P_WAIT</TT> (il child &egrave; eseguito come una subroutine, quindi il processo chiamante si interrompe e aspetta la terminazione del nuovo processo) </li>
+                <li><TT>P_OVERLAY</TT> (il child &egrave; eseguito sostituendo in memoria il parent, proprio come se fosse chiamata la corrispondente funzione della famiglia <TT>exec...()</TT>).</li>
+                <li><TT>P_NOWAIT </TT> or <TT>_P_NOWAITO </TT>Continua l'esecuzione del processo chiamante  (asynchronous <strong>_ spawn </strong>).</li>
+                <li><TT>P_DETACH </TT>Continua l'esecuzione del processo chiamante; il nuovo processo gira in background sensa  accesso alla  console o alla keyboard.</li>
+              </ul>
+              <li>Il secondo parametro, di tipo <TT>char&nbsp;*</TT>, &egrave; il nome del programma da eseguire: esso, diversamente da quanto visto circa la <TT>system()</TT>, deve essere completo di estensione; </li>
+            </ul>
+            <p>&nbsp;</p>
+            <ul>
+                <div align="center">
+                  <table border="1" width="967" height="271" bgcolor="#FFFF00">
+                    <tr>
+                      <td width="957" height="265">
+                      <p align="justify"><font size="5"> /* SPAWN .C: This program accepts a number in the range * 1-8 from the command line. Based on the number it receives, * it executes one of the eight different procedures that * spawn the process named child. For some of these procedures, * the CHILD.EXE file must be in the same directory; for * others, it only has to be in the same path. */ </font>                      
+                      <p align="justify"><font size="5">#include &lt;stdio.h&gt;<br/> 
+                      #include &lt;process.h&gt; <br />
+                      char *my_env[] = {<br /> 
+                      "THIS=environment will be", "PASSED=to child.exe by the", "_SPAWNLE=and", "_SPAWNLPE=and", "_SPAWNVE=and", "_SPAWNVPE=functions", NULL }; <br />void main( int argc, char *argv[] )<br /> { char *args[4]; /* Set up parameters to be sent: */ <br />&nbsp;&nbsp;args[0] = "child"; args[1] = " spawn ??";<br />&nbsp;&nbsp;args[2] = "two";<br />&nbsp;&nbsp;args[3] = NULL;<br />&nbsp; if (argc &lt;= 2) { printf( "SYNTAX: SPAWN &lt;1-8&gt; &lt;childprogram&gt;\n" ); exit( 1 ); }<br />&nbsp; switch (argv[1][0]) /* Based on first letter of argument */ <br />&nbsp;&nbsp;{case '1': _spawnl( _P_WAIT, argv[2], argv[2], "_spawnl", "two", NULL ); break; <br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;case '2': _spawnle( _P_WAIT, argv[2], argv[2], "_spawnle", "two", NULL, my_env );break; <br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;case '3': _spawnlp( _P_WAIT, argv[2], argv[2], "_spawnlp", "two", NULL ); break;<br />
+                      &nbsp;&nbsp;&nbsp; case '4': _spawnlpe( _P_WAIT, argv[2], argv[2], "_spawnlpe", "two", NULL, my_env ); break;<br />
+                      &nbsp;&nbsp;&nbsp; case '5': _spawnv( _P_OVERLAY, argv[2], args ); break;<br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;case '6': _spawnve( _P_OVERLAY, argv[2], args, my_env ); break; <br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;case '7': _spawnvp( _P_OVERLAY, argv[2], args ); break; <br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;case '8': _spawnvpe( _P_OVERLAY, argv[2], args, my_env ); break; <br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;default: printf( "SYNTAX: SPAWN &lt;1-8&gt; &lt;childprogram&gt;\n" ); exit( 1 ); <br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;} <br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;printf( "from SPAWN !\n" ); <br />
+                      &nbsp;&nbsp;} </font></td>
+                    </tr>
+                  </table>
+                </div>
+              </li>
+            </ul>
+            <li><A NAME="bm06t"><font size="6" name="bm06t"><A NAME="bm06t"><font color="#FF0000">exec...()</font></A></font>
+              </A>
+              <ul>
+                <li><font size="6">Le funzioni della famiglia <TT>exec...()</TT>, a differenza delle <TT>spawn...()</TT>, non trattano il child come una subroutine del parent: esso, al contrario, viene caricato in memoria ed eseguito al posto del parent, sostituendolo  a tutti gli effetti. E' del tutto equivalente utilizzare </font><font size="5"><br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;</font><font size="6"><CODE>spawnv(P_OVERLAY,&quot;myutil.exe&quot;,childArgv);</CODE></font><font size="5"><br />
+                  </font><font size="6">oppure</font><font size="5"><br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;</font><font size="6"> <CODE> execv(&quot;myutil.exe&quot;,childArgv).</CODE></font></li>
+              </ul>
+            </li>
+        </ul>
+        <table border="1" width="1030" height="271" bgcolor="#FFFF00">
+                    <tr>
+                      <td width="1020" height="265">
+                      <p align="justify"> <span class="style2">                        #include &lt;stdio.h&gt; <br>
+ #include &lt;conio.h&gt; <br>
+ #include &lt;process.h&gt;  <br>
+char *my_env[] = /* Environment for exec ?e */  <br>
+{ "THIS=environment will be",  <br>
+"PASSED=to new process by", <br>
+ "the EXEC =functions", NULL };   <br>
+<br>
+void main() {  <br>
+char *args[4], prog[80]; <br>
+ int ch; printf( "Enter name of program to exec : " );  <br>
+gets( prog );  <br>
+printf( " 1. _execl 2. _execle 3. _execlp 4. _execlpe\n" );  <br>
+printf( " 5. _execv 6. _execve 7. _execvp 8. _execvpe\n" );  <br>
+printf( "Type a number from 1 to 8 (or 0 to quit): " ); <br>
+ ch = _getche();  <br>
+if( (ch &lt; '1') || (ch &gt; '8') ) exit( 1 ); <br>
+ printf( "\n\n" ); /* Arguments for _execv? */  <br>
+args[0] = prog; args[1] = " exec ??"; args[2] = "two"; args[3] = NULL;  <br>
+switch( ch )  <br>
+{ case '1': _execl( prog, prog, "_execl", "two", NULL ); break; <br>
+ &nbsp;&nbsp;case '2': _execle( prog, prog, "_execle", "two", NULL, my_env ); break; <br>
+&nbsp; case '3': _execlp( prog, prog, "_execlp", "two", NULL ); break;  <br>
+&nbsp;&nbsp;case '4': _execlpe( prog, prog, "_execlpe", "two", NULL, my_env ); break; <br>
+&nbsp; case '5': _execv( prog, args ); break; <br>
+&nbsp; case '6': _execve( prog, args, my_env ); break;  <br>
+&nbsp;&nbsp;case '7': _execvp( prog, args ); break; <br>
+&nbsp;&nbsp;case '8': _execvpe( prog, args, my_env );  <br>
+&nbsp;&nbsp;break;  <br>
+&nbsp;&nbsp;default: break;  <br>
+&nbsp;&nbsp;} /* This point is reached only if exec fails. */  <br>
+&nbsp;&nbsp;printf( "\nProcess was not execed ." ); exit( 0 ); <br>
+ } </span> </td>
+                    </tr>
+</table>
+                </p>
+        
+        <p>&nbsp;</p>
+        <p align="left">&nbsp;</p>
+<dl>
+  <div align="center">
+    <center>
+    <dt>&nbsp;</dt>
+    </center>
+  </div>
+  <dd>
+    <p align="left"></dd>
+</dl>
+
+</body>
+
+</html>

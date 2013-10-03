@@ -1,0 +1,249 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>PROCESSI WINDOWS</title>
+<link href="file.css" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/file.css" rel="stylesheet" type="text/css">
+ 
+<style type="text/css">
+<!--
+.style1 {color: #00FF00}
+.style2 {
+	color: #FF0000;
+	font-style: italic;
+}
+.style4 {color: #FF0000; font-style: italic; font-weight: bold; }
+.style5 {
+	color: #000000;
+	font-weight: bold;
+}
+.style6 {
+	color: #FF0000;
+	font-weight: bold;
+}
+.style7 {
+	color: #000000;
+	font-style: italic;
+}
+.style8 {color: #FF0000}
+.style9 {font-size: large}
+.style10 {color: #0000FF}
+-->
+</style>
+</head>
+
+<body>
+<p class="titoli">Mecanismi di creazione di processi  di Windows </p>
+<p align="left"><font size="6">In window esistono un meccanismo che genara nuovi porcessi a partire da programmi gi&agrave; esisteni.</font></p>
+<p align="left" class="style8">WinExec  </p>
+<table border="1" width="895" height="55" bgcolor="#FFFF00">
+  <tr>
+    <td width="885" height="55">
+      <p align="left"><code><b><font size="4"><strong>UINT </strong><strong>WinExec</strong>(&nbsp;<br>
+                </font></b><font size="4"><strong>LPCTSTR </strong><span class="style4"> lpCommandLine </span><strong>, </strong><span class="style1">// pointer to command line string</span><font color="#008000"><br>
+                </font> <span class="style5">  <strong> UINT </strong><em> uCmdShow</em></span><font color="#008000"><strong>, </strong>// window style for new application<br>
+                </font> <strong>); </strong></font></code></td>
+  </tr>
+</table>
+<h4>&nbsp;</h4>
+<ul>
+  <li><em class="style4">lpCmdLine </em>Stringa con la riga di comando</li>
+  <li><span class="style6"><em>uCmdShow </em></span>Specifica come mostrare il programma</li>
+</ul>
+Return Values 
+<ul>
+  <li>Se ha succeesso, la funzione ritorna un valore &gt;=31. </li>
+  <li>Viceversa ritorna uno dei seguenti valori:
+    <table width="31%" height="156" cellspacing="4">
+      <tr>
+        <td width="43%"><strong>0 </strong></td>
+      </tr>
+      <tr>
+        <td width="43%"><strong>ERROR_BAD_FORMAT </strong></td>
+      </tr>
+      <tr>
+        <td width="43%"><strong>ERROR_FILE_NOT_FOUND </strong></td>
+      </tr>
+      <tr>
+        <td width="43%"><strong>ERROR_PATH_NOT_FOUND </strong></td>
+      </tr>
+    </table>
+  </li>
+</ul>
+<p class="style6">LoadModule </p>
+<table border="1" width="895" height="55" bgcolor="#FFFF00">
+  <tr>
+    <td width="885" height="55">
+      <p align="left"><code><b><font size="4"><strong>DWORD LoadModule</strong>(&nbsp;<br>
+        </font></b><font size="4"><strong>LPCTSTR </strong><span class="style4"> <em>lpModuleName</em></span><strong>, </strong><span class="style1">// pointer to command line string</span><font color="#008000"><br>
+        </font> <span class="style5"> <strong> LPVOID </strong><span class="style8"><em> lpParameterBlock</em></span></span><font color="#008000"><strong>, </strong>// address of parameter block for new  module<br>
+    </font> <strong>); </strong></font></code></td>
+  </tr>
+</table>
+<ul>
+  <li> <span class="style8"><em>lpModuleName </em></span>Stringa che contiene il filename dell'applicazione.</li>
+  <li><span class="style8"><em>lpParameterBlock </em></span>Punta ad una struttursa <strong>LOADPARMS32 </strong> che definisce i parametri della nuova applicazione.
+    <table border="1" width="895" height="132" bgcolor="#FFFF00">
+      <tr>
+        <td width="885" height="126">
+          <p align="left" class="style9"><code>typedef struct tagLOADPARMS32 {</code>             <br> 
+                      <code>LPSTR lpEnvAddress; // address of environment              <br>
+                      <code></code>strings LPSTR lpCmdLine; // address of command line             <br>
+                      <code></code> LPSTR lpCmdShow; // how to show new program              <br>
+                      <code></code>DWORD dwReserved; // must be zero } LOADPARMS32;</code>            </td>
+      </tr>
+    </table>
+    <br>
+    Return Values
+    <ul>
+      <li>Se ha succeesso, la funzione ritorna un valore &gt;=31. </li>
+      <li>Viceversa ritorna uno dei seguenti valori:
+          <table width="31%" height="156" cellspacing="4">
+            <tr>
+              <td width="43%"><strong>0 </strong></td>
+            </tr>
+            <tr>
+              <td width="43%"><strong>ERROR_BAD_FORMAT </strong></td>
+            </tr>
+            <tr>
+              <td width="43%"><strong>ERROR_FILE_NOT_FOUND </strong></td>
+            </tr>
+            <tr>
+              <td width="43%"><strong>ERROR_PATH_NOT_FOUND </strong></td>
+            </tr>
+          </table>
+      </li>
+    </ul>
+  </li>
+</ul>
+<p align="left" class="style6">CreateProcess </p>
+<p>La funzione <strong>CreateProcess </strong> crea un nuovo processo ed il suo thread primario. Il  nuovo  processo esegue un file eseguibile . </p>
+<table border="1" width="895" height="55" bgcolor="#FFFF00">
+  <tr>
+    <td width="885" height="55">
+      <p align="left"><code><b><font size="4"><strong>BOOL CreateProcess</strong>(&nbsp;<br>
+              <strong>LPCTSTR </strong><span class="style2"> lpApplicationName </span><strong>, </strong><span class="style1">// pointer to name of executable module</span></font></b><font size="4"><font color="#008000"><br>
+              </font><strong>LPTSTR </strong><span class="style4"> lpCommandLine </span><strong>, </strong><span class="style1">// pointer to command line string</span><font color="#008000"><br>
+</font>              <span class="style5">  LPSECURITY_ATTRIBUTES</span> <span class="style6"> lpProcessAttributes </span><font color="#008000"><strong>, </strong>// process security attributes<br>
+</font>    <span class="style5">LPSECURITY_ATTRIBUTES</span> <strong><span class="style2">lpThreadAttributes</span></strong><font color="#008000"><strong> , </strong>// thread security attributes<br>
+</font> <b><strong>BOOL </strong></b><span class="style6"> bInheritHandles </span><b><strong>, </strong></b><span class="style1">// handle inheritance flag</span><font color="#008000"><br>
+</font><strong>DWORD </strong><span class="style4"> dwCreationFlags </span><strong>, </strong><span class="style1">// creation flags  </span><font color="#008000"><br>
+</font> <strong>LPVOID </strong><span class="style4"> lpEnvironment </span><strong>, </strong><span class="style1">// pointer to new environment block  </span><font color="#008000"><br>
+</font> <strong>LPCTSTR </strong><span class="style4"> lpCurrentDirectory </span><strong>, </strong><span class="style1">// pointer to current directory name</span><font color="#008000"><br>
+</font> <b><strong></strong></b> <strong> LPSTARTUPINFO </strong><span class="style4"> lpStartupInfo </span><strong>, </strong><span class="style1">// pointer to STARTUPINFO  </span><font color="#008000"><br>
+</font> <strong>LPPROCESS_INFORMATION </strong><span class="style4"> lpProcessInformation </span> <span class="style1">// pointer to PROCESS_INFORMATION</span> <strong>); </strong></font></code></td>
+  </tr>
+</table>
+
+<ul>
+  <li><span class="style2">lpApplicationName </span>Stringa contenentw il modulo da eseguire. Questo parametro &egrave; NULL  nel caso che <em>il parametro lpCommandLine </em> non sia nullo. Il modulo specifiva una applicazionw  Win32-based  (anche MS-DOS o OS/2)</li>
+  <li><span class="style2">lpCommandLine </span>Stringa con la linea di commando da eseguire. <em>lpCommandLine </em> pu&ograve; essere  NULL, ma in questo  caso deve essere non nullo il parametro <em>lpApplicationName</em></li>
+  <li><span class="style2">lpProcessAttributes </span>Puntatore alla struttura <a href="javascript:if(confirm('http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/accctrl_8gs2.htm  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/accctrl_8gs2.htm'" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/accctrl_8gs2.htm"><strong>SECURITY_ATTRIBUTES </strong></a> che determina se  handle ritornati pu&ograve; essere utilizzato da un processo figlio.</li>
+  <li><span class="style7">lpThreadAttributes </span>PPuntatore alla struttura <a href="javascript:if(confirm('http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/accctrl_8gs2.htm  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/accctrl_8gs2.htm'" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/accctrl_8gs2.htm"><strong>SECURITY_ATTRIBUTES </strong></a> che determina se handle ritornati pu&ograve; essere utilizzato da un thread  figlio.</li>
+  <li><span class="style2">bInheritHandles </span>Indica se il nuovo processo ha ereditato l'handle dal processo chiamnte. Se TRUE, ogni handle aperto nel processo chiamnte pu&ograve; essere richiamato dal nuovo processo.</li>
+  <li><span class="style2">dwCreationFlags </span>Specifica i  flags di controllo , specifica come creare il processo e la priorita del processo </li>
+</ul>
+<table align="center" cellspacing="4">
+  <tr>
+    <td width="184%" class="style4"><div align="justify">CREATE_DEFAULT_ERROR_MODE </div></td>
+  </tr>
+  <tr>
+    <td width="100%" class="style4"><div align="justify">CREATE_NEW_CONSOLE (creato come un anuova console)</div></td>
+  </tr>
+  <tr>
+    <td width="100%" class="style4"><div align="justify">CREATE_NEW_PROCESS_GROUP </div></td>
+  </tr>
+  <tr>
+    <td width="100%" class="style4"><div align="justify">CREATE_SHARED_WOW_VDM </div></td>
+  </tr>
+  <tr>
+    <td width="100%" class="style4"><div align="justify">CREATE_SUSPENDED ( si deve richiamare una <a href="javascript:if(confirm('http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/prothred_59no.htm  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/prothred_59no.htm'" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/prothred_59no.htm"><strong>ResumeThread </strong></a>) </div></td>
+  </tr>
+  <tr>
+    <td width="100%" class="style4"><div align="justify">CREATE_UNICODE_ENVIRONMENT </div></td>
+  </tr>
+  <tr>
+    <td width="100%" class="style4"><div align="justify">DEBUG_PROCESS </div></td>
+  </tr>
+  <tr>
+    <td width="100%" class="style4"><div align="justify">DEBUG_ONLY_THIS_PROCESS </div></td>
+  </tr>
+  <tr>
+    <td width="100%" class="style4"><div align="justify">DETACHED_PROCESS (Per i processi console , Non hanno accesso alla console del chiamante </div></td>
+  </tr>
+  <tr>
+    <td class="style5">Priorit&agrave;</td>
+  </tr>
+  <tr>
+    <td class="style4">HIGH_PRIORITY_CLASS </td>
+  </tr>
+  <tr>
+    <td class="style4">IDLE_PRIORITY_CLASS </td>
+  </tr>
+  <tr>
+    <td class="style4">NORMAL_PRIORITY_CLASS</td>
+  </tr>
+  <tr>
+    <td class="style4">REALTIME_PRIORITY_CLASS</td>
+  </tr>
+</table>
+<ul>
+  <li><span class="style2">lpEnvironment </span>Puntatore ad un environment block. Se NULL, il nuovo  processo usa lp stesso environment del  processo chiamante. Un environment block sono delle stringhe del tipo  name=value </li>
+  <li><span class="style2">lpCurrentDirectory </span>Stringa che  specificala directory del processso</li>
+  <li><span class="style2">lpStartupInfo </span>Puntatore ad una struttura <a href="javascript:if(confirm('http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/prothred_7sdu.htm  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/prothred_7sdu.htm'" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/prothred_7sdu.htm"><strong>STARTUPINFO </strong></a> che specifica come la finestra principale dovr&agrave; apparire</li>
+  <li><span class="style2">lpProcessInformation </span>Puntator ad una struttura <a href="javascript:if(confirm('http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/prothred_71pu.htm  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/prothred_71pu.htm'" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/prothred_71pu.htm"><strong>PROCESS_INFORMATION </strong></a> che riceve le informazione del nuovo processo. </li>
+  <li class="style8">Return Values
+    <ul>
+      <li>se la  funzione ha  succeeso ritorna un valore non zero. </li>
+    </ul>
+  </li>
+  <ul>
+    <li>vicevera ritorna zero, e pe avere informazioni sull'errore bisogna richiamare la funzione <a href="javascript:if(confirm('http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/errors_3uwi.htm  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/errors_3uwi.htm'" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/errors_3uwi.htm"><strong>GetLastError </strong></a>.</li>
+  </ul>
+</ul>
+<p>&nbsp;</p>
+<p><font size="6" align="left">Nel seguente esempio vediamo come creare un processo esterno e aspetta la sua terminazione.</font></p>
+<table border="1" width="952" height="55" bgcolor="#FFFF00">
+  <tr> 
+    <td width="952" height="55"> <p><span class="style10"><font size="+3">#include &lt;afxwin.h&gt; // componenti MFC di base e standard<br>
+        #include &lt;afxext.h&gt; // estensioni MFC<font size="+3"><br>
+        </font></font><font size="+3">#include &lt;afxdisp.h&gt; // classi di automazione MFC<font size="+3"><br>
+              </font>void main( VOID )<br>
+        {<br>
+      STARTUPINFO si;<br>
+      PROCESS_INFORMATION pi;</font>
+              <font size="+3"><br>
+              </font></span>      <span class="style10"><font size="+3">ZeroMemory( &amp;si, sizeof(si) );<br>
+  si.cb = sizeof(si);<font size="+3"><br>
+  </font>// Start the child process. <br>
+  if( !CreateProcess( NULL, // No module name (use command line). <br>
+&nbsp;&nbsp;&quot;c://WINDOWS//notepad.exe&quot;, // Command line. <br>
+&nbsp;&nbsp;NULL, // Process handle not inheritable. <br>
+&nbsp;&nbsp;NULL, // Thread handle not inheritable. <br>
+&nbsp;&nbsp;FALSE, // Set handle inheritance to FALSE. <br>
+&nbsp;&nbsp;0, // No creation flags. <br>
+&nbsp;&nbsp;NULL, // Use parent's environment block. <br>
+&nbsp;&nbsp;NULL, // Use parent's starting directory. <br>
+&nbsp;&nbsp;&amp;si, // Pointer to STARTUPINFO structure.<br>
+&nbsp;&nbsp;&amp;pi ) // Pointer to PROCESS_INFORMATION structure.<br>
+  ) <br>
+  {<br>
+  printf(&quot;CreateProcess failed.&quot; );<br>
+  }</font><font size="+3"></font></span></p>
+      <p class="style10"><font size="+3"> // Wait until child process exits.<br>
+  WaitForSingleObject( pi.hProcess, INFINITE );</font></p>
+      <p><span class="style10"><font size="+3"> // Close process and thread handles. <br>
+  CloseHandle( pi.hProcess );<br>
+  CloseHandle( pi.hThread );<br>
+  }</font></span><font size="+3"></font><font size="+3"><br>
+      </font><font size="+3">
+      </font>    </p>
+    <p></p></td>
+  </tr>
+</table>
+
+</body>
+
+</html>

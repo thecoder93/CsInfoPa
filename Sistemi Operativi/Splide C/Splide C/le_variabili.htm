@@ -1,0 +1,239 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Le variabili</title>
+</head>
+
+<body>
+
+<p><font size="6">Una variabile è un’astrazione di un’area di memoria</font></p>
+<p><font size="6">Una variabile è caratterizzata da</font></p>
+<ul>
+  <li><font size="6">Nome</font></li>
+  <li><font size="6">Tipo: specifica la classe di valori che la variabile può
+    assumere (e quindi gli operatori applicabili al valore in essa contenuto)</font></li>
+  <li><font size="6">Valore (di un determinato tipo)</font></li>
+</ul>
+<p align="justify"><font size="6">In C esistono vari tipi di variabili, questo per venire
+incontro sia all'esigenze di rappresentabilità di grossi numeri sia al maggior
+risparmio di memoria possibile, utilizzando di volta in volta il tipo più
+adeguato ad una specifica situazione. Nella tabella seguente sono mostrati i
+vari tipi, con la parola che in C ne consente l'uso (char per carattere, int per
+intero e così via), una spiegazione sui dati che possono rappresentare ed il
+numero di byte necessari, all'interno del C, per la loro rappresentazione:</font></p>
+<div align="center">
+  <table width="666" border="1" marginheight="0" marginwidth="0">
+    <tbody>
+      <tr>
+        <td class="sfondotab" width="186">
+          <div class="sfondotab" align="center">
+            <font size="6">Tipi di dichiarazione</font>
+          </div>
+        </td>
+        <td class="sfondotab" width="234">
+          <div class="sfondotab" align="center">
+            <font size="6">Rappresentazione</font>
+          </div>
+        </td>
+        <td class="sfondotab" width="224">
+          <div class="sfondotab" align="center">
+            <font size="6">N. di byte</font>
+          </div>
+        </td>
+      <tr>
+        <td width="186">
+          <div class="testo" align="center">
+            <font size="6">char</font>
+          </div>
+        </td>
+        <td width="234">
+          <div class="testo" align="center">
+            <font FACE="TimesNewRoman" size="6">caratteri ASCII, </font>
+            <p><font FACE="TimesNewRoman" size="6">interi da -128 a 127</font>
+          </div>
+        </td>
+        <td width="224">
+          <div class="testo" align="center">
+            <font size="6">1 (8 bit)</font>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td width="186">
+          <div class="testo" align="center">
+            <font size="6">&nbsp;unsigned char</font>
+          </div>
+        </td>
+        <td width="234">
+          <div class="testo" align="center">
+            <font FACE="TimesNewRoman" size="6">set di caratteri esteso</font>
+            <p><font face="TimesNewRoman" size="6">intero da 0 a 255</font>
+          </div>
+        </td>
+        <td width="224">
+          <div class="testo" align="center">
+            <font size="6">1 (8 bit)</font>
+          </div>
+        </td>
+      <tr>
+        <td width="186">
+          <div class="testo" align="center">
+            <font size="6">short int</font>
+          </div>
+        </td>
+        <td width="234">
+          <div class="testo" align="center">
+            <font size="6">&nbsp;intero da -2<sup>15</sup>-1a 2<sup>15</sup></font>
+          </div>
+        </td>
+        <td width="224">
+          <div class="testo" align="center">
+            <font size="6">2 (16 bit)</font>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td width="186">
+          <div class="testo" align="center">
+            <font size="6">unsigned short </font>
+          </div>
+        </td>
+        <td width="234">
+          <div class="testo" align="center">
+            <font size="6">&nbsp;intero da 0 a 2<sup>16</sup></font>
+          </div>
+        </td>
+        <td width="224">
+          <div class="testo" align="center">
+            <font size="6">2 (16 bit)</font>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td width="186">
+          <div class="testo" align="center">
+            <font size="6">int</font>
+          </div>
+        </td>
+        <td width="234">
+          <div class="testo" align="center">
+            <font size="6">&nbsp;intero </font>
+          </div>
+        </td>
+        <td width="224">
+          <div class="testo" align="center">
+            <font size="6">da 2 a 4 (16-32bit)</font>
+          </div>
+        </td>
+      <tr>
+        <td width="186">
+          <div class="testo" align="center">
+            <font size="6">unsigned int </font>
+          </div>
+        </td>
+        <td width="234">
+          <div class="testo" align="center">
+            <font size="6">&nbsp;intero positivo</font>
+          </div>
+        </td>
+        <td width="224">
+          <div class="testo" align="center">
+            <font size="6">da 2 a 4 (16-32bit)</font>
+          </div>
+        </td>
+      <tr>
+        <td width="186">
+          <div class="testo" align="center">
+            <font size="6">long</font>
+          </div>
+        </td>
+        <td width="234">
+          <div class="testo" align="center">
+            <font size="6">intero da da -2<sup>31</sup>-1a 2<sup>31</sup></font>
+          </div>
+        </td>
+        <td width="224">
+          <div class="testo" align="center">
+            <font size="6">4 (32 bit)</font>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td width="186">
+          <div class="testo" align="center">
+            <font size="6">unsigned long</font>
+          </div>
+        </td>
+        <td width="234">
+          <div class="testo" align="center">
+            <font size="6">intero da da 0 a 2<sup>32</sup></font>
+          </div>
+        </td>
+        <td width="224">
+          <div class="testo" align="center">
+            <font size="6">4 (32 bit)</font>
+          </div>
+        </td>
+      <tr>
+        <td width="186">
+          <div class="testo" align="center">
+            <font size="6">float</font>
+          </div>
+        </td>
+        <td width="234">
+          <div class="testo" align="center">
+            <font size="6">Numero reale</font>
+          </div>
+        </td>
+        <td width="224">
+          <div class="testo" align="center">
+            <font size="6">4 (32 bit)</font>
+          </div>
+        </td>
+      <tr>
+        <td width="186">
+          <div class="testo" align="center">
+            <font size="6">double</font>
+          </div>
+        </td>
+        <td width="234">
+          <div class="testo" align="center">
+            <font size="6">Numero reale &quot;lungo&quot;</font>
+          </div>
+        </td>
+        <td width="224">
+          <div class="testo" align="center">
+            <font size="6">8 (64 bit)</font>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<b>
+<p ALIGN="LEFT">&nbsp;</p>
+<p ALIGN="LEFT"><font FACE="TimesNewRoman,Bold" size="6">Per usare una variabile
+si deve</font></p>
+<p ALIGN="LEFT"><font size="6"><font FACE="TimesNewRoman">• </font><b><font FACE="TimesNewRoman,Bold">Dichiarare</font></b></font><font FACE="TimesNewRoman" size="6">:
+si introduce una nuova variabile nel</font> <font FACE="TimesNewRoman" size="6">programma.
+Si dichiara il tipo e si alloca la</font> <font FACE="TimesNewRoman" size="6">memoria.
+Esempi</font></p>
+<p ALIGN="LEFT"><font FACE="CourierNewPSMT" size="6">– <font color="#FF0000">int i, j;</font> /* dati di
+tipo intero */</font></p>
+<p ALIGN="LEFT"><font FACE="CourierNewPSMT" size="6">– <font color="#FF0000">float f;</font> /* dati di
+tipo reale */</font></p>
+<p ALIGN="LEFT"><font size="6"><font FACE="TimesNewRoman">• </font><b><font FACE="TimesNewRoman,Bold">Inizializzare</font></b><font FACE="TimesNewRoman">:</font></font></p>
+<p ALIGN="LEFT"><font FACE="CourierNewPSMT" size="6">– <font color="#FF0000">int i = 0;</font></font></p>
+<p ALIGN="LEFT"><font size="6"><font FACE="TimesNewRoman">• </font><b><font FACE="TimesNewRoman,Bold">Usarla
+</font></b><font FACE="TimesNewRoman">nel corso del programma. Ad esempio,</font></font></p>
+<p ALIGN="LEFT"><font color="#FF0000" size="6">i=2;j=3;</font></p>
+
+<p ALIGN="LEFT">&nbsp;</p>
+<p ALIGN="LEFT">&nbsp;</p>
+
+</body>
+
+</html>

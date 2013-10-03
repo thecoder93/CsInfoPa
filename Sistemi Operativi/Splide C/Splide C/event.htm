@@ -1,0 +1,267 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Mutex</title>
+</head>
+
+<body>
+
+<p align="center"><b><font color="#FF0000" size="7"><span style="font-family: Tahoma; text-shadow: auto; mso-color-index: 3">Event</span></font></b></p>
+<p align="justify"><font size="6">Un'altro oggetto per la sincronizzazione dei&nbsp; 
+  trhead è l'oggetto event. Gli oggetti <strong>Event</strong> sono utilizzati 
+  quando si deve notificare ad un thread in attesa che quel&nbsp; particolare 
+  evento atteso è avvenuto. Gli event sono utilizzati per esempio per operazioni 
+  overlapped di&nbsp; I/O su&nbsp; file,&nbsp; o nell'utilizzo di device di comunicazione 
+  come le porte seriali ect.</font></p>
+<p align="left"><font size="6">Le funzioni per creare e gestire un oggetto event&nbsp;
+sono:</font></p>
+<blockquote>
+  <blockquote>
+    <p align="left"><font size="6" color="#FF0000">CreateEvent</font></p>
+    <p align="left"><font size="6" color="#FF0000">OpenEvent</font></p>
+    <p align="left"><font size="6" color="#FF0000">SetEvent</font></p>
+    <p align="left"><font size="6" color="#FF0000">ResetEvent</font></p>
+    <p align="left"><font size="6" color="#FF0000">PulseEvent</font></p>
+  </blockquote>
+  <p:colorscheme
+ colors="#3399FF,#FFFFFF,#777777,#ECBF00,#00CC99,#3333CC,#9966FF,#FF7C80"/>
+  <hr>
+  <p align="center"><font size="6" color="#FF0000">CreateEvent</font></p>
+</blockquote>
+<p:colorscheme
+ colors="#3399FF,#FFFFFF,#777777,#ECBF00,#00CC99,#3333CC,#9966FF,#FF7C80"/>
+<pre><code><b><font size="5" color="#FF0000">HANDLE CreateEvent( 
+  LPSECURITY_ATTRIBUTES</font></b><font size="5"><font color="#FF0000"><i> <b><font color="#0000FF">lpMutexAttributes</font></b></i><b>,</b>
+<b>          </b></font></font><font size="5" color="#FF0000"><b>             // pointer to security attributes
+  BOOL<i> </i></b><i><b><font color="#0000FF">bManualReset</font></b></i><b>, // flag for manual-reset event 
+  BOOL<i> </i></b><i><b><font color="#0000FF">bInitialState</font></b></i><b>, // flag for initial state
+  LPCTSTR<i> </i></b><i><b><font color="#0000FF">lpName</font></b></i><b> // pointer to event-object name </b></font><font color="#FF0000"><font size="5">
+<b>);</b></font>
+ </font></code></pre>
+<p align="left"><font size="6">Crea un nuovo oggetto Event</font> <font size="6">i parametri sono:</font></p>
+<dl>
+  <dd> 
+    <p align="left"><font color="#FF0000" size="6"><b>lpMutexAttributes</b></font></dd>
+  <dd> 
+    <p align="justify"><font size="6">Puntatore ad una struttura di tipo&nbsp; </font><font color="#0000FF" size="4">SECURITY_ATTRIBUTES</font><font size="6"> 
+      che determina&nbsp; se l'handle restituito può essere passato ad un processo 
+      figlio,se è NULL, l'handle non può essere passato ad un processo figlio.</font> 
+  <dd> 
+    <p align="left"><font color="#FF0000" size="6"><b>bManualReset</b></font></dd>
+  <dd> 
+    <p align="justify"><font size="6">Specifica se si sta creando un event&nbsp;</font> 
+      <font color="#FF0000" size="6">manual-reset</font><font size="6"> o <font color="#FF0000">auto-reset</font>. Se&nbsp; TRUE,allora si deve usare 
+      la funzione&nbsp; <a href="#resetevent">ResetEvent</a> per settare manualmente 
+      lo stato dell'oggetto a non segnalato. Se&nbsp; FALSE, il sistema setta automaticamente 
+      lo stato del event a non segnalato dopo che&nbsp; una funzione di attesa 
+      di un&nbsp; thread è stata rilasciata</font> 
+    <div align="left"> 
+  <dt>&nbsp;</dt>
+  <dd>    <font color="#FF0000" size="6"><b>bInitialState</b></font>  </dd>
+  <dd><font size="6" align="left">Specifica il valore iniziale del event. Se True lo stato iniziale &egrave; segnalato viceversa lo stato &egrave; non segnalato</font></dd>
+  <dd> 
+    <p align="left"><font color="#FF0000" size="6"><b>lpName</b></font></dd>
+  <dd> 
+    <p align="left"><font size="6">Il nome dell'event</font></dd>
+</dl>
+<hr>
+<h1 align="center"><font color="#FF0000">Open</font><font size="6" color="#FF0000">Event</font></h1>
+<pre><code><b><font size="5" color="#FF0000">HANDLE OpenEvent(
+  DWORD<i> <font color="#0000FF">dwDesiredAccess</font></i>, // access flag
+  BOOL<i> <a class="synParam" onclick="showTip(this)" href> </a><font color="#0000FF">bInheritHandle</font></i>, // inherit flag
+  LPCTSTR<i> <font color="#0000FF">lpName</font></i> // object name);
+</font></b></code></pre>
+<p align="left"><font size="6">la funzione Openevent&nbsp;</font><font size="6">
+un&nbsp; handle ad
+un oggetto event esistente, i parametri sono:</font></p>
+<p align="left"><font color="#FF0000" size="6"><b>dwDesiredAccess</b></font></p>
+<dl>
+  <dd> 
+    <p align="left"><font size="6">Specifica l'accesso richiesto per l'oggetto 
+      Semaphore è può essere una combinazione dei seguenti valori</font> 
+    <table cellSpacing="4" cols="2" width="807">
+      <tbody>
+        <tr vAlign="top"> 
+          <th align="left" width="475"> <p align="left"><font size="6">Access</font></p></th>
+          <th align="left" width="314"> <p align="left"><font size="6">Descri</font><font size="6">zione</font></p></th>
+        </tr>
+        <tr vAlign="top"> 
+          <td width="475"> <p align="left"><font size="6">EVENT_ALL_ACCESS</font></p></td>
+          <td width="314"> <p align="left"><font size="6">tutti i flag</font></p></td>
+        </tr>
+        <tr vAlign="top"> 
+          <td width="475"> <p align="left"><font size="6">EVENT</font><font size="6">_MODIFY_STATE</font></p></td>
+          <td width="314"> <p align="left"><font size="6">Abilita l' uso delle 
+              funzioni <a href="#setevent"><b>SetEvent</b></a> and <a href="#resetevent"><b>ResetEvent</b></a> 
+              per modificare il valore.</font></p></td>
+        </tr>
+        <tr vAlign="top"> 
+          <td width="475"> <font size="6">SYNCHRONIZE</font> </td>
+          <td width="314"> <font size="6">Windows NT: abilita l'uso delevent&nbsp; 
+            in una delle&nbsp; <a href="preth.htm" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/preth.htm">wait functions</a>&nbsp;</font> 
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p align="left"> 
+  <dd> 
+    <p align="left"><font color="#FF0000" size="6"><b>bInheritHandle</b></font></dd>
+  <dd> 
+    <p align="left"><font size="6">Specifica&nbsp;se l'handle restituito può essere 
+      passato ad un processo figlio,se è NULL, l'handle non può essere passato 
+      ad un processo figlio.</font> 
+  <dd> 
+    <p align="left"><font color="#FF0000" size="6"><b>lpName</b></font></dd>
+  <dd> 
+    <p align="left"><font size="6">Il nome del event&nbsp;</font></dd>
+  <dd> 
+    <hr>
+    <p align="center"><font size="6" color="#FF0000"><a name="setevent"></a>SetEvent</font></dd>
+  <div align="center"> 
+    <div align="left"> 
+      <pre><code><font size="5"><b>BOOL </b></font><font size="5"><b><font color="#FF0000">SetEvent(</font><font color="#FF0000">HANDLE</font></b><i> <font color="#0000FF">hEvent</font></i> <font color="#FF0000">// handle to event object</font> <b><font color="#FF0000">);</font></b>
+</font></code></pre>
+    </div>
+    <center>
+      <p align="left"><font size="6">La funzione&nbsp; SetEvent setta lo stato 
+        dell' event a segnalato</font></p>
+      <hr>
+    </center>
+  </div>
+  <dd> 
+    <p align="center"><font size="6" color="#FF0000"><a name="resetevent"></a>ResetEvent</font></dd>
+  <div align="center"> 
+    <div align="left"> 
+      <pre><code><font size="5"><b>BOOL <font color="#FF0000">ResetEvent(</font><font color="#FF0000">HANDLE</font></b><i> <font color="#0000FF">hEvent</font></i> <font color="#FF0000">// handle to event object</font> <b><font color="#FF0000">);</font></b>
+</font></code></pre>
+    </div>
+    <center>
+      <p align="left"><font size="6">La funzione&nbsp; ResetEvent setta lo stato 
+        del event a non segnalato</font></p>
+      <hr>
+    </center>
+  </div>
+  <dd> 
+    <p align="center"><font size="6" color="#FF0000">PulseEvent</font></dd>
+  <div align="center"> 
+    <div align="left"> 
+      <pre><code><font size="5"><b>BOOL </b></font><font size="5"><b><font color="#FF0000">PulseEvent(</font><font color="#FF0000">HANDLE</font></b><i> <font color="#0000FF">hEvent</font></i> <font color="#FF0000">// handle to event object</font> <b><font color="#FF0000">);</font></b>
+</font></code></pre>
+    </div>
+    <center>
+      <p align="left"><font size="6">La funzione&nbsp; <b>PulseEvent </b>provvede 
+        ad una singola operazione che setta&nbsp; (a&nbsp; segnalato) lo stato 
+        dell'event, quindi lo risetta (a nonsegnalato) dopo il rilascio di tutti 
+        gli event da parte delle funzione di waiting , una sorta di reset totale</font></p>
+      <hr>
+      <p align="left">&nbsp;</p>
+    </center>
+  </div>
+  <div align="center"> 
+    <center>
+      <p align="left"><font size="6">Nel seguente esempio due thread aspettano 
+        un evento da programma principale per attivarsi</font></p>
+    </center>
+  </div>
+</dl>
+<table border="1" width="952" height="55" bgcolor="#FFFF00">
+  <tr>
+    <td width="952" height="55"> <font size="5">#include &lt;stdio.h><br>
+  #include &lt;windows.h><br>
+      <font color="#008000">/////////////////////////////////////////<br>
+      </font>DWORD ThreadFunc1 (LPDWORD lpdwParam);<br>
+      DWORD ThreadFunc2 (LPDWORD lpdwParam);<br>
+      <font color="#008000">/////////////////////////////////////////</font><br>
+      VOID main (VOID)&nbsp;<br>
+      {HANDLE hEvent, hThreads[2];<br>
+&nbsp; DWORD dwThreadId1, dwThreadId2;<br>
+&nbsp; SECURITY_ATTRIBUTES shouldInherit;<br>
+&nbsp; shouldInherit.nLength = sizeof (SECURITY_ATTRIBUTES);<br>
+&nbsp; shouldInherit.lpSecurityDescriptor = NULL;<br>
+&nbsp; shouldInherit.bInheritHandle = TRUE;<br>
+&nbsp; printf ("Main thread, Creating event object\n");<br>
+&nbsp; hEvent=CreateEvent(&amp;shouldInherit,TRUE,FALSE,&quot;TestEvent&quot;);<br>
+      &nbsp; <font color="#0000FF">if</font> (hEvent==NULL)<br>
+&nbsp;&nbsp; printf ("Main thread: CreateEvent error: %d\n&quot;,
+      GetLastError());<br>
+      &nbsp;<font color="#0000FF">else</font>&nbsp;<br>
+&nbsp; {<font color="#0000FF">if</font> (GetLastError()==ERROR_ALREADY_EXISTS)<br>
+&nbsp;&nbsp;&nbsp;&nbsp; printf ("Main thread: CreateEvent opened existing
+      event\n&quot;);<br>
+&nbsp;&nbsp; <font color="#0000FF">else</font><br>
+&nbsp;&nbsp;&nbsp; printf ("Main thread: CreateEvent created new event\n&quot;);<br>
+&nbsp; }<br>
+&nbsp;printf ("Main thread: Creating secondary thread 0\n");<br>
+&nbsp;hThreads[0]=CreateThread(NULL,0,(LPTHREAD_START_ROUTINE) ThreadFunc1, NULL, 0, &amp;dwThreadId1);<br>
+      &nbsp;<font color="#0000FF">if</font> (hThreads[0]==NULL)<br>
+&nbsp;fprintf(stderr,&quot;Main thread: CreateThread1 error\n");<br>
+printf ("Main thread: Creating secondary thread 1\n");<br>
+hThreads[1]=CreateThread(NULL,0,(LPTHREAD_START_ROUTINE) ThreadFunc2, NULL, 0, &amp;dwThreadId2);<br>
+ if (hThreads[1]==NULL)<br>
+&nbsp;fprintf(stderr,&quot;Main thread: CreateThread2 error\n");<br>
+      <font color="#008000">/* main program, sleeping for 3 seconds */<br>
+      </font>printf ("Main thread, sleeping for 3 seconds\n");<br>
+      Sleep (3000L);<br>
+      <font color="#008000">/* Main program, calling PulseEvent */</font><br>
+      printf ("Main thread, calling PulseEvent\n");<br>
+      PulseEvent (hEvent);<br>
+      printf ("Main thread, waiting for secondary threads to finish\n");<br>
+      WaitForMultipleObjects (2,hThreads, TRUE, INFINITE);<br>
+      Sleep (1000L);<br>
+      printf ("End of event test program\n");<br>
+      }<br>
+      <font color="#008000">/////////////////////////////////////////</font><br>
+      DWORD ThreadFunc2 (LPDWORD lpdwParam)<br>
+      {HANDLE hEvent;<br>
+&nbsp;DWORD dwWaitResult;<br>
+&nbsp;printf ("ThreadFunc2 start\n");<br>
+&nbsp;hEvent=OpenEvent(EVENT_MODIFY_STATE|SYNCHRONIZE, FALSE,&quot;TestEvent&quot;);<br>
+      &nbsp;<font color="#0000FF">if</font> (hEvent==NULL)<br>
+&nbsp; printf ("ThreadFunc2: OpenEvent error:%d\n&quot;,GetLastError());<br>
+      &nbsp;<font color="#0000FF">else</font><br>
+&nbsp; printf(&quot;ThreadFunc2: Successfully opened event object\n&quot;);<br>
+&nbsp;dwWaitResult=WaitForSingleObject(hEvent,INFINITE);<br>
+      &nbsp;<font color="#0000FF">if</font> (dwWaitResult==WAIT_OBJECT_0)<br>
+&nbsp; printf(&quot;ThreadFunc2: event signalled, terminating\n&quot;);<br>
+      &nbsp;<font color="#0000FF">else</font><br>
+&nbsp; printf(&quot;ThreadFunc2: Error in WaitForSingleObject, %d\n&quot;,GetLastError());<br>
+&nbsp;return 0;<br>
+      }</font>
+      <p><font size="5">DWORD ThreadFunc1 (LPDWORD lpdwParam)&nbsp;<br>
+      {HANDLE hEvent;<br>
+&nbsp;DWORD dwWaitResult;<br>
+&nbsp;printf ("ThreadFunc1 start\n");<br>
+&nbsp;hEvent=OpenEvent(EVENT_MODIFY_STATE|SYNCHRONIZE, FALSE,&quot;TestEvent&quot;);<br>
+      &nbsp;<font color="#0000FF">if</font> (hEvent==NULL)<br>
+&nbsp;&nbsp; printf ("ThreadFunc1: OpenEvent error:%d\n&quot;,GetLastError());<br>
+      &nbsp;<font color="#0000FF">else</font><br>
+&nbsp; printf(&quot;ThreadFunc1: Successfully opened event object\n&quot;);<br>
+&nbsp;dwWaitResult=WaitForSingleObject(hEvent,INFINITE);<br>
+      &nbsp;<font color="#0000FF">if</font> (dwWaitResult==WAIT_OBJECT_0)<br>
+&nbsp;&nbsp; printf(&quot;ThreadFunc1: event signalled, terminating\n&quot;);<br>
+      &nbsp;<font color="#0000FF">else</font><br>
+&nbsp;&nbsp; printf(&quot;ThreadFunc1: Error in WaitForSingleObject, %d\n&quot;,GetLastError());<br>
+&nbsp;return 0;<br>
+      }</font><font size="5"><br>
+    </font></td>
+  </tr>
+</table>
+<p align="left">&nbsp;</p>
+<p align="left">&nbsp;</p>
+<p align="left">&nbsp;</p>
+<dl>
+  <div align="center">
+    <center>
+    <dt>&nbsp;</dt>
+    </center>
+  </div>
+  <dd>
+    <p align="left"></dd>
+</dl>
+
+</body>
+
+</html>

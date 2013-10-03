@@ -1,0 +1,421 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>linuxthread</title>
+<style type="text/css">
+<!--
+.style1 {
+	font-size: x-large;
+	color: #FF0000;
+}
+-->
+</style>
+</head>
+
+<body>
+<p align="center"><span class="titoli style1">Sistema Operativo UNIX </span>
+<p align="justify"><font size="6">Il Sistema Operativo Unix &egrave; un S.O multiutente 
+    e multiprogrammato strutturato a livelli ad ognuno dei quali corrisponde una 
+    diversa funzionalit&agrave;.</font> 
+<p align="center"><font color="#FF0000" size="6"><img src="arch.jpg" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprolinux/arch.jpg" width="575" height="407"></font> 
+<p align="justify"><font size="6">nelle maggior parte delle realizzazioni, Unix 
+  &egrave; basato su processi e non prevede il multitheading ossia il processo 
+  Unix prevede un solo thread.</font> 
+<p align="justify"> 
+<hr>
+<p align="center"><font size="6"><b><font color="#FF0000"><span style="font-family: Tahoma; text-shadow: auto; mso-color-index: 3">Processi 
+  Unix </span></font></b></font></p>
+<p align="left"><font size="6">Il S.O. Unix adotta una politica di assegnazione 
+  della CPU ai processi basata sulla divisione di tempo,  il diagramma degli stati 
+  dei processi &egrave; il seguente.</font></p>
+<p align="center"><font size="6"><img src="process.jpg" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprolinux/process.jpg" width="610" height="400"></font></p>
+<p align="left"><font size="6">Esistono vari meccanismi per la creazione di un 
+  nuovo processo all'interno di un programma C</font></p>
+<ul type="square">
+  <blockquote> 
+    <p align="left"><font size="6"> -<font color="#FF0000">system</font> </font></p>
+    <p align="justify"><font size="6">la funzione system() fornisce supporto al 
+      lancio di programmi esterni, essa viene invocata passandole come parametro 
+      una stringa contenente il comando che si intende eseguire.System() restituisce 
+      -1 in caso di errore; tuttavia la restituzione di 0 non implica che comando 
+      sia stato effettivamente eseguito. Infatti system() esegue il comando ricevuto 
+      come parametro, essa non fa altro che lanciare una copia dell'interprete 
+      stesso e scaricargli il barile, proprio come se fosse stato digitato il 
+      comando quindi system() si limita a restituire 0 nel caso in cui sia riuscita 
+      a lanciare correttamente l'interprete, non solo non &egrave; possibile conoscere 
+      il valore restituito al sistema dal child, ma non &egrave; neppure possibile 
+      sapere se questo sia stato effettivamente eseguito. </font></p>
+    <ul type="square">
+      <blockquote> 
+        <p align="center"><font size="6">Esempio di System</font></p>
+      </blockquote>
+    </ul>
+    <div align="center"> 
+      <center>
+        <table border="1" width="592" height="271" bgcolor="#FFFF00">
+          <tr> 
+            <td width="592" height="265"> <p align="left"><font size="5"> #include 
+                &lt;stdlib.h&gt;<br>
+                #include &lt;stdio.h&gt;// per fprintf()<br>
+                #include &lt;errno.h&gt;// per errno<br>
+                int main()<br>
+                {<br>
+                if(system(&quot;ls&quot;) == -1)<br>
+                fprintf(stderr,&quot;errore %d in system()\n&quot;, errno);<br>
+                return(0);<br>
+                }</font></td>
+          </tr>
+        </table>
+      </center>
+    </div>
+    <hr>
+    <p><font size="6"><A NAME="bm03t"><font color="#FF0000">- spawn...()</font></A></font></p>
+    <P align="justify"> <font color="#000000" size="6">Come la <tt>system()</tt>, 
+      anche le funzioni della famiglia <tt>spawn...()</tt> consentono di lanciare 
+      programmi esterni come se fossero subroutine del parent; tuttavia esse non 
+      fanno ricorso all'interprete deicomandi, in quanto si basano sul servizio&nbsp;4Bh 
+      dell'int&nbsp;<A NAME="spawn_21h_4b">21h</A>: di conseguenza, non &egrave; 
+      possibile utilizzarle per invocare comandi interni n&eacute; file batch,ma 
+      si ha un controllo sull'esito dell'operazione. Esse infatti restituiscono&nbsp;<TT>-1</TT> 
+      se l'esecuzione del child non &egrave; riuscita; in caso contrario restituiscono 
+      il valore che il programma child ha restituito a sua volta.Tutte le funzioni 
+      <TT>spawn...()</TT> richiedono come primo parametro un intero, di solito 
+      dichiarato nei prototipi con il nome <TT>mode</TT>, che indica la modalit&agrave; 
+      di esecuzione del programma child:in <TT>PROCESS.H</TT> sono definite le 
+      costanti manifeste</font>
+    <P align="justify"> <font color="#000000" size="6"><TT>P_WAIT</TT> (il child 
+      &egrave; eseguito come una subroutine) </font>
+    <P align="justify"><font color="#000000" size="6"><TT>P_OVERLAY</TT> (il child 
+      &egrave; eseguito sostituendo in memoria il parent, proprio come se fosse 
+      chiamata la corrispondente funzione della famiglia <TT>exec...()</TT>). 
+      </font>
+    <P align="justify"><font color="#000000" size="6">Il secondo parametro, di 
+      tipo <TT>char&nbsp;*</TT>, &egrave; invece il nome del programma da eseguire: 
+      esso, diversamente da quanto visto circa la <TT>system()</TT>, deve essere 
+      completo di estensione; inoltre, se non &egrave; specificato il path, solo 
+      le funzioni <TT>spawnlp()</TT>, <TT>spawnlpe()</TT>, <TT>spawnvp()</TT> 
+      e <TT>spawnvpe()</TT> utilizzano la variabile di environment <TT>PATH</TT> 
+      (la lettera &quot;<TT>p</TT>&quot; presente nel suffisso finale dei nomi 
+      delle funzioni indica proprio detta caratteristica). </font>
+    <p><font size="6"><A NAME="bm06t"><font color="#FF0000">exec...()</font></A></font></p>
+    <P> <font size="6">Le funzioni della famiglia <TT>exec...()</TT>, a differenza 
+      delle <TT>spawn...()</TT>, non trattano il child come una subroutine del 
+      parent: esso, al contrario, viene caricato in memoria ed eseguito in luogo 
+      del parent, sostituendovisi a tutti gli effetti. Se si desidera che il solito 
+      comando degli esempi precedenti sostituisca in memoria il parent e sia eseguito 
+      in luogo di questo, &egrave; del tutto equivalente utilizzare <CODE>spawnv(P_OVERLAY,&quot;myutil.exe&quot;,childArgv); 
+      </CODE>oppure <CODE> execv(&quot;myutil.exe&quot;,childArgv).</CODE></font>
+    <P><font size="6"> Di seguito si presenta una tabella sinottica delle funzioni 
+      <TT>spawn...()</TT> ed <TT>exec...()</TT>. </font>
+    <table border=1 align="center">
+      <tr> 
+        <td width=89><div align="justify"><font size="4"></font></div></td>
+        <td width=127> <div align="justify"><font size="4"><b>Modo</b></font></div></td>
+        <td width=121> <div align="justify"> 
+            <p><font size="4"><b>Nome</b></font><font size="4"><b>del child</b></font></p>
+          </div></td>
+        <td width=159> <div align="justify"><font size="4"><b>Argomenti del child</b></font></div></td>
+        <td width=121> <div align="justify"><font size="4"><b>Environment del 
+            child</b></font></div></td>
+      </tr>
+      <tr> 
+        <td width=89> <div align="justify"><font size="4"><tt> spawnl() </tt> 
+            </font></div></td>
+        <td width=127><div align="justify"><font size="4"><tt>int</tt>:<br>
+            <tt>P_WAIT</tt>,<br>
+            <tt>P_OVERLAY</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char *</tt></font></div></td>
+        <td width=159><div align="justify"><font size="4">lista di <tt>char *</tt><br>
+            il primo &egrave; = child<br>
+            l'ultimo &egrave; <tt>NULL</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"></font></div></td>
+      </tr>
+      <tr> 
+        <td width=89> <div align="justify"><font size="4"><tt>spawnlp() </tt> 
+            </font></div></td>
+        <td width=127><div align="justify"><font size="4"><tt>int</tt>:<br>
+            <tt>P_WAIT</tt>,<br>
+            <tt>P_OVERLAY</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char *</tt><br>
+            (utilizza <tt>PATH</tt>) </font></div></td>
+        <td width=159><div align="justify"><font size="4">lista di <tt>char *</tt><br>
+            il primo &egrave; = child<br>
+            l'ultimo &egrave; <tt>NULL</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"></font></div></td>
+      </tr>
+      <tr> 
+        <td width=89> <div align="justify"><font size="4"><tt>spawnle() </tt> 
+            </font></div></td>
+        <td width=127><div align="justify"><font size="4"><tt>int</tt>:<br>
+            <tt>P_WAIT</tt>,<br>
+            <tt>P_OVERLAY</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char *</tt></font></div></td>
+        <td width=159><div align="justify"><font size="4">lista di <tt>char *</tt><br>
+            il primo &egrave; = child<br>
+            l'ultimo &egrave; <tt>NULL</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char **Env</tt></font></div></td>
+      </tr>
+      <tr> 
+        <td width=89> <div align="justify"><font size="4"><tt>spawnlpe()</tt> 
+            </font></div></td>
+        <td width=127><div align="justify"><font size="4"><tt>int</tt>:<br>
+            <tt>P_WAIT</tt>,<br>
+            <tt>P_OVERLAY</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char *<br>
+            </tt>(utilizza <tt>PATH</tt>) </font></div></td>
+        <td width=159><div align="justify"><font size="4">lista di <tt>char *</tt><br>
+            il primo &egrave; = child<br>
+            l'ultimo &egrave; <tt>NULL</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char **Env</tt></font></div></td>
+      </tr>
+      <tr> 
+        <td width=89> <div align="justify"><font size="4"><tt>spawnv()</tt> </font></div></td>
+        <td width=127><div align="justify"><font size="4"><tt>int</tt>:<br>
+            <tt>P_WAIT</tt>,<br>
+            <tt>P_OVERLAY</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char *</tt></font></div></td>
+        <td width=159><div align="justify"><font size="4"><tt>char **Argv<br>
+            Argv[0] = </tt>child<br>
+            <tt>Argv[</tt>ultimo<tt>] = NULL</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"></font></div></td>
+      </tr>
+      <tr> 
+        <td width=89> <div align="justify"><font size="4"><tt>spawnvp()</tt> </font></div></td>
+        <td width=127><div align="justify"><font size="4"><tt>int</tt>:<br>
+            <tt>P_WAIT</tt>,<br>
+            <tt>P_OVERLAY</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char *</tt><br>
+            (utilizza <tt>PATH</tt>) </font></div></td>
+        <td width=159><div align="justify"><font size="4"><tt>char **Argv<br>
+            Argv[0] = </tt>child<br>
+            <tt>Argv[</tt>ultimo<tt>] = NULL</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"></font></div></td>
+      </tr>
+      <tr> 
+        <td width=89> <div align="justify"><font size="4"><tt>spawnve()</tt> </font></div></td>
+        <td width=127><div align="justify"><font size="4"><tt>int</tt>:<br>
+            <tt>P_WAIT</tt>,<br>
+            <tt>P_OVERLAY</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char *</tt></font></div></td>
+        <td width=159><div align="justify"><font size="4"><tt>char **Argv<br>
+            Argv[0] = </tt>child<br>
+            <tt>Argv[</tt>ultimo<tt>] = NULL</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char **Env</tt></font></div></td>
+      </tr>
+      <tr> 
+        <td width=89> <div align="justify"><font size="4"><tt>spawnvpe()</tt> 
+            </font></div></td>
+        <td width=127><div align="justify"><font size="4"><tt>int</tt>:<br>
+            <tt>P_WAIT</tt>,<br>
+            <tt>P_OVERLAY</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char *</tt><br>
+            (utilizza <tt>PATH</tt>) </font></div></td>
+        <td width=159><div align="justify"><font size="4"><tt>char **Argv<br>
+            Argv[0] = </tt>child<br>
+            <tt>Argv[</tt>ultimo<tt>] = NULL</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char **Env</tt></font></div></td>
+      </tr>
+      <tr> 
+        <td width=89> <div align="justify"><font size="4"><tt>execl()</tt> </font></div></td>
+        <td width=127><div align="justify"><font size="4"></font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char *</tt></font></div></td>
+        <td width=159><div align="justify"><font size="4">lista di <tt>char *</tt><br>
+            il primo &egrave; = child<br>
+            l'ultimo &egrave; <tt>NULL</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"></font></div></td>
+      </tr>
+      <tr> 
+        <td width=89> <div align="justify"><font size="4"><tt>execlp()</tt> </font></div></td>
+        <td width=127><div align="justify"><font size="4"></font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char *</tt><br>
+            (utilizza <tt>PATH</tt>) </font></div></td>
+        <td width=159><div align="justify"><font size="4">lista di <tt>char *</tt><br>
+            il primo &egrave; = child<br>
+            l'ultimo &egrave; <tt>NULL</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"></font></div></td>
+      </tr>
+      <tr> 
+        <td width=89> <div align="justify"><font size="4"><tt>execle()</tt> </font></div></td>
+        <td width=127><div align="justify"><font size="4"></font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char *</tt></font></div></td>
+        <td width=159><div align="justify"><font size="4">lista di <tt>char *</tt><br>
+            il primo &egrave; = child<br>
+            l'ultimo &egrave; <tt>NULL</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char **Env</tt></font></div></td>
+      </tr>
+      <tr> 
+        <td width=89> <div align="justify"><font size="4"><tt>execlpe()</tt> </font></div></td>
+        <td width=127><div align="justify"><font size="4"></font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char *</tt><br>
+            (utilizza <tt>PATH</tt>) </font></div></td>
+        <td width=159><div align="justify"><font size="4">lista di <tt>char *</tt><br>
+            il primo &egrave; = child<br>
+            l'ultimo &egrave; <tt>NULL</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char **Env</tt></font></div></td>
+      </tr>
+      <tr> 
+        <td width=89> <div align="justify"><font size="4"><tt>execv()</tt> </font></div></td>
+        <td width=127><div align="justify"><font size="4"></font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char *</tt></font></div></td>
+        <td width=159><div align="justify"><font size="4"><tt>char **Argv<br>
+            Argv[0] = </tt>child<br>
+            <tt>Argv[</tt>ultimo<tt>] = NULL</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"></font></div></td>
+      </tr>
+      <tr> 
+        <td width=89> <div align="justify"><font size="4"><tt>execp()</tt> </font></div></td>
+        <td width=127><div align="justify"><font size="4"></font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char *</tt><br>
+            (utilizza <tt>PATH</tt>) </font></div></td>
+        <td width=159><div align="justify"><font size="4"><tt>char **Argv<br>
+            Argv[0] = </tt>child<br>
+            <tt>Argv[</tt>ultimo<tt>] = NULL</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"></font></div></td>
+      </tr>
+      <tr> 
+        <td width=89> <div align="justify"><font size="4"><tt>execve()</tt> </font></div></td>
+        <td width=127><div align="justify"><font size="4"></font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char *</tt></font></div></td>
+        <td width=159><div align="justify"><font size="4"><tt>char **Argv<br>
+            Argv[0] = </tt>child<br>
+            <tt>Argv[</tt>ultimo<tt>] = NULL</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char **Env</tt></font></div></td>
+      </tr>
+      <tr> 
+        <td width=89> <div align="justify"><font size="4"><tt>execvpe()</tt> </font></div></td>
+        <td width=127><div align="justify"><font size="4"></font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char *</tt><br>
+            (utilizza <tt>PATH</tt>) </font></div></td>
+        <td width=159><div align="justify"><font size="4"><tt>char **Argv<br>
+            Argv[0] = </tt>child<br>
+            <tt>Argv[</tt>ultimo<tt>] = NULL</tt> </font></div></td>
+        <td width=121><div align="justify"><font size="4"><tt>char **Env</tt></font></div></td>
+      </tr>
+    </table>
+    <ul type="square">
+      <blockquote> 
+        <hr>
+        <p align="center">&nbsp;</p>
+      </blockquote>
+    </ul>
+    <p><font color="#FF0000" size="6" align="left">fork</font><font size="6" align="left"> 
+      , system call che crea un nuovo processo copiando lo spazio del padre.</font></p>
+    <p align="left">&nbsp; </p>
+  </blockquote>
+</ul>
+<ul type="square">
+  <blockquote> 
+    <p align="center"><font size="5">Esempio di Fork </font></p>
+  </blockquote>
+</ul>
+<div align="center">
+  <center>
+  <table border="1" width="753" height="55" bgcolor="#FFFF00">
+    <tr>
+        <td width="743" height="55"> <p align="left"><font size="5">#include&lt;stdio.h&gt;<br>
+            #include&lt;sys/types.h&gt;</font>
+          <p><font size="5">main()<br>
+            {<br>
+            int n;<br>
+            n = fork();<br>
+            if (n == -1)<br>
+            {<br>
+            fprintf(stderr,&quot;fork fallita\n&quot;);<br>
+            fflush(stdout);<br>
+            exit(1);<br>
+            }<br>
+            else<br>
+            if ( n == 0) /* processo figlio */<br>
+            {<br>
+            printf(&quot;\nsono il figlio; risultato della fork = %d\n&quot;,n);<br>
+            printf(&quot;\n(figlio) il mio process-id e` %d\n&quot;,getpid());<br>
+            printf(&quot;\n(figlio) il process-id di mio padre e` %d\n&quot;,getppid());<br>
+            exit(0);<br>
+            }<br>
+            else /* processo padre */<br>
+            {<br>
+            printf(&quot;\nsono il padre; risultato della fork = %d\n&quot;,n);<br>
+            printf(&quot;\n(padre) il mio process-id e` %d\n&quot;,getpid());<br>
+            exit(0);<br>
+            }<br>
+            }</font><br>
+          </p></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<hr>
+<ul type="square">
+  <blockquote> 
+    <ul type="square">
+      <blockquote> 
+        <p align="center"><font size="5">Esempio di fork ed Exec insieme</font></p>
+      </blockquote>
+    </ul>
+    <div align="center"> 
+      <center>
+        <table border="1" width="750" height="55" bgcolor="#FFFF00">
+          <tr> 
+            <td width="740" height="55"> <p align="left"><font size="5">#include 
+                &lt;stdio.h&gt;/* printf(), puts(), fprintf(), stderr */<br>
+                #include &lt;unistd.h&gt;/* fork(), execlp(), pid_t */<br>
+                #include &lt;errno.h&gt;/* errno */<br>
+                #include &lt;sys/wait.h&gt;/* waitpid(), WEXITSTATUS() */</font> 
+              <p><font size="5">int main(void);<br>
+                void child(void);<br>
+                void parent(int pid);</font></p>
+              <p><font size="5">int main(void)<br>
+                {<br>
+                int pid;</font></p>
+              <p><font size="5"> puts(&quot;Il child elenchera' i files presenti 
+                nella directory /etc.&quot;);<br>
+                switch(pid = fork()) {<br>
+                case 0:<br>
+                child();<br>
+                case -1:<br>
+                fprintf(stderr,&quot;Errore %d in fork().\n&quot;,errno);<br>
+                exit(errno);<br>
+                default:<br>
+                parent(pid);<br>
+                }<br>
+                return(0);<br>
+                }</font></p>
+              <p><font size="5">void child(void)<br>
+                {<br>
+                if(execv(&quot;ls&quot;) == -1) {<br>
+                fprintf(stderr,&quot;Errore %d in exec().\n&quot;,errno);<br>
+                exit(errno);<br>
+                }<br>
+                }</font></p>
+              <p><font size="5">void parent(int pid)<br>
+                {<br>
+                int status;</font></p>
+              <p><font size="5"> if(waitpid(pid,&amp;status,0) &lt;= 0) {<br>
+                printf(&quot;Errore %d in waitpid().\n&quot;);<br>
+                exit(errno);<br>
+                }<br>
+                printf(&quot;Il child ha restituito %d.\n&quot;,WEXITSTATUS(status));<br>
+                }<br>
+                </font> </p>
+              <p align="left"><br>
+            </td>
+          </tr>
+        </table>
+      </center>
+    </div>
+  </blockquote>
+</ul>
+<blockquote>
+  <div v:shape="_x0000_s3074">
+    <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369">
+      <div align="justify"></div>
+    </div>
+  </div>
+</blockquote>
+</body>
+
+</html>

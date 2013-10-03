@@ -1,0 +1,424 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>linuxthread</title>
+</head>
+
+<body>
+<ul type="square">
+  <blockquote> 
+    <p align="center"><font color="#FF0000" size="6">Thread per Linux</font></p>
+    <p align="justify"><font size="6">Disponibili da tempo in varie librerie ,una 
+      “LinuxThreads”, &egrave; presente in tutte le distribuzioni. Si sfrutta 
+      la chiamata di sistema clone() che crea un nuovo processo senza cambiare 
+      spazio di indirizzamento e questo ha permesso di implementare i thread relativamente 
+      facilmente, quindi i thread di Linux sono processi che condividono lo spazio 
+      degli indirizzi. Raccomandazioni POSIX aiutano a garantire un certo grado 
+      di uniformit&agrave; nella gestione dei thread di vari SO.</font></p>
+  </blockquote>
+</ul>
+<blockquote> 
+  <hr>
+  <p align="center"><font color="#FF0000" size="6"> POSIX Thread Linux -Creazione 
+    e Terminazione</font></p>
+  <p align="justify"><font size="6">Le funzioni di creazione di un thread in linux 
+    sono:</font></p>
+  <p align="left"><font color="#FF0000" size="6"> pthread_create() <font color="#000000">crea 
+    un thread che esegue la funzione specificata</font></font></p>
+  <p align="left"><font color="#FF0000" size="6">pthread_exit() <font color="#000000">termina 
+    il thread corrente</font></font></p>
+  <p align="left"><font color="#FF0000" size="6">pthread_join() <font color="#000000">termina 
+    il thread corrente sino al termine del thread specificato</font></font></p>
+  <div v:shape="_x0000_s3074"> 
+    <hr>
+    <p><font color="#FF0000" size="6">#include&lt;pthread.h&gt;</font></p>
+    <p><font color="#FF0000" size="6">int pthread_create(pthread_t*tid, pthread_attr_t 
+      *attr, void*(*start_routine)(void*),void *arg);</font></p>
+    <p><font color="#FF0000" size="6">pthread_create</font><font size="6"> crea 
+      un nuovo thread che esegue la funzione <font color="#FF0000">start_routine</font> 
+      a cui passa gli argomenti <font color="#FF0000">arg</font>. </font></p>
+    <p><font size="6">Il nuovo thread pu&ograve; terminare esplicitamente (pthread_exit()),od 
+      implicitamente quando finisce start_routine().</font></p>
+    <p><font color="#FF0000" size="6">attrs</font><font size="6"> pecifica gli 
+      attributi del thread NULL= valori di default; esistono diversi attributi 
+      consultabili digitando il seguente comando <font color="#FF0000">man 3 pthread_attr_init</font> 
+      </font></p>
+    <p><font size="6">I</font><font size="6">n caso di successo tidconterr&agrave; 
+      l’identificatore del thread creato e la funzione ritorna 0; in caso di fallimento 
+      viene restituito un codice di errore.</font></p>
+    <hr>
+    <p><font color="#FF0000" size="6">#include&lt;pthread.h&gt;int</font></p>
+    <p><font color="#FF0000" size="6">pthread_join(pthread_t th, void **thread_return);</font></p>
+    <p><font color="#000000" size="6">Sospende l’esecuzione del thread corrente 
+      fino alla fine del thread</font><font color="#FF0000" size="6"> th. <font color="#000000">Se 
+      thread_return non &egrave; NULL, al ritorno conterr&agrave; il valore che 
+      il thread terminato ha passato a pthread_exit().</font></font></p>
+    <p><font color="#000000" size="6">La fine di un thread pu&ograve; essere attesa 
+      al pi&ugrave; da un solo altro thread </font></p>
+    <hr>
+    <p><font color="#FF0000" size="6">#include&lt;pthread.h&gt;</font></p>
+    <p><font color="#FF0000" size="6">void pthread_exit(void *retval)</font></p>
+    <p><font color="#FF0000" size="6">retval <font color="#000000">specifica un 
+      valore di ritorno consultabile da altri thread con pthread_join</font></font><font size="6">.</font></p>
+  </div>
+  <div v:shape="_x0000_s3074"> 
+    <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+      <div align="justify"> 
+        <hr>
+        <p align="center"><font size="5">Esempio</font></p>
+        <p><font color="#FF0000" size="6"><font color="#000000">per compilare 
+          un programma con le funzioni thread si deve utilizzare il seguente commando 
+          </font></font></p>
+        <p><font color="#000000" size="6">gcc -lpthread nomefile</font></p>
+        <table width="893" height="702" border="1" align="center" bgcolor="#FFFF00">
+          <tr> 
+            <td width="883" height="696"> <p><font size="5">#include&lt;stdlib.h&gt;<br>
+                #include &lt;unistd.h&gt;<br>
+                void *thread_function(void *arg)<br>
+                { int i;<br>
+                &nbsp;for( i=0; i&lt;20; i++ )<br>
+                &nbsp; {printf(&quot;Thread sayshi!\n&quot;);<br>
+                &nbsp;&nbsp; sleep(1);<br>
+                &nbsp;&nbsp; }<br>
+                &nbsp;&nbsp; return NULL;<br>
+                }<br>
+                /****************************************************/<br>
+                int main(void)<br>
+                {&nbsp;pthread_t mythread;<br>
+                &nbsp; if (pthread_create(&amp;mythread,NULL,thread_function,NULL)) 
+                <br>
+                &nbsp;&nbsp; {printf(&quot;error creatingthread.&quot;);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp; abort();<br>
+                &nbsp;&nbsp; }<br>
+                &nbsp; if(pthread_join(mythreadNULL))<br>
+                &nbsp; {printf(&quot;error joiningthread.&quot;);<br>
+                &nbsp;&nbsp; abort();<br>
+                &nbsp; }<br>
+                &nbsp;exit(0);<br>
+                }<br>
+                </font> </p></td>
+          </tr>
+        </table>
+        <p align="center"><font size="5">passaggio di parametri</font></p>
+        <table width="893" height="702" border="1" align="center" bgcolor="#FFFF00">
+          <tr> 
+            <td width="883" height="696"> <p><font size="5">#include &lt;pthread.h&gt;<br>
+                #include &lt;stdio.h&gt; /* Parameters to print_function. */<br>
+                </font><font size="5">struct&nbsp;char_print_parms<br>
+                &nbsp;{char character; // char to print<br>
+                &nbsp;&nbsp;int&nbsp;count; // number of times to print it.<br>
+                &nbsp; };<br>
+                void * char_print(void* parameters) <br>
+                {/* Cast the cookie pointer to the right type. */<br>
+                &nbsp; struct char_print_parms* p = (structchar_print_parms*)parameters;<br>
+                &nbsp; int i;<br>
+                &nbsp; for (i = 0; i &lt; p-&gt;count; ++i)<br>
+                &nbsp; &nbsp;fputc(p-&gt;character, stderr);<br>
+                &nbsp; </font><font size="5">return NULL;<br>
+                }</font></p>
+              <p><font size="5">int main() {<br>
+                &nbsp; pthread_t thread1_id, thread2_id;<br>
+                &nbsp; struct char_print_parms thread1_args, thread2_args;<br>
+                &nbsp; /</font><font size="5">* Create a new thread to print 30000 
+                x's. */<br>
+                &nbsp;&nbsp;thread1_args.character = 'x';<br>
+                &nbsp; thread1_args.count = 30000;<br>
+                &nbsp; pthread_create(&amp;thread1_id,NULL,&amp;char_print,&amp;thread1_args);<br>
+                &nbsp; /* Create a new thread to print 20000 o's. */<br>
+                &nbsp;&nbsp;thread2_args.character = 'o';<br>
+                &nbsp; thread2_args.count = 20000;<br>
+                &nbsp; pthread_create(&amp;thread2_id,NULL,&amp;char_print,&amp;thread2_args);<br>
+                &nbsp; /* Make sure the first thread has finished. */<br>
+                &nbsp; pthread_join(thread1_id, NULL);<br>
+                &nbsp; </font><font size="5">/* Make sure the second thread has 
+                finished. */<br>
+                &nbsp; pthread_join(thread2_id, NULL);<br>
+                &nbsp; return 0;<br>
+                }<br>
+                </font> </p></td>
+          </tr>
+        </table>
+        <p>&nbsp;</p>
+        <hr>
+        <p align="center"><font color="#FF0000" size="6">I MUTEX</font></p>
+        <p align="center">&nbsp;</p>
+      </div>
+    </div>
+  </div>
+</blockquote>
+<ul>
+  <p><font color="#000000" size="6">Le funzioni per la gestione dei mutex su linux 
+    sono :<br>
+    </font><font color="#FF0000" size="6">pthread_mutex_init() </font><font size="6">inizializza 
+    il mutex specificato<br>
+    <font color="#FF0000">pthread_mutex_de</font></font><font color="#FF0000" size="6">stroy()</font><font size="6"> 
+    dealloca tutte le risorse allocate per gestire il mutex specificato<br>
+    <font color="#FF0000">pthread_mutex_lock()</font> blocca il mutex<br>
+    </font><font size="6"><font color="#FF0000">pthread_mutex_unlock()</font> 
+    sblocca il mutex</font></p>
+  <hr>
+  <p><font color="#FF0000" size="5">pthread_mutex_init</font><font size="5">(pthread_mutex_t 
+    *MUTEX, const pthread_mutexattr_t *MUTEXATTR) </font></p>
+  <p><font size="5">Questa funzione consente l'inizializzazione dell'oggetto di 
+    tipo pthread_mutex_t puntato dalla variabile MUTEX con attributi individuati 
+    da MUTEXATTR. Analizziamo meglio il secondo argomento:</font></p>
+  <p><font size="5">MUTEXATTR </font></p>
+  <p></p>
+  <p><font size="5">Gli attributi del mutex possono essere settati utilizzando 
+    per MUTEXATTR uno tra i seguenti valori: </font></p>
+  <p align="center"><font color="#FF0000" size="6"> fast <br>
+    recursive <br>
+    error checking <br>
+    NULL <br>
+    </font></p>
+  <p><font size="5">In particolare se MUTEXATTR viene settato a NULL vengono utilizzati 
+    gli attributi di default ossia quelli che si avrebbero usando fast . <br>
+    Una struttura di tipo pthread_mutex_t pu&ograve; anche essere inizializzata 
+    staticamente utilizzando le seguenti costanti:</font></p>
+  <p align="center"><font size="5"><br>
+    PTHREAD_MUTEX_INITIALIZER <br>
+    PTHREAD_RECURSIVE_MUTEX_INITIALIZER_NP <br>
+    PTHREAD_ADAPTIVE_MUTEX_INITIALIZER_NP <br>
+    PTHREAD_ERRORCHECK_MUTEX_INITIALIZER_NP </font></p>
+</ul>
+<hr>
+<p><font size="6"><font color="#FF0000" size="5">pthread_mutex_de</font></font><font color="#FF0000" size="5">stroy(pthread_mutex_t 
+  *MUTEX) <br>
+  <br>
+  </font><font size="5"> Questa funzione &egrave; utilizzata per eliminare il 
+  mutex passato come parametro e rilasciare le risorse allocate per esso. Occorre 
+  fare attenzione al fatto che la chiamata ha successo solamente se il mutex &egrave; 
+  in stato unlocked ed in questo caso viene restituito 0. In caso contrario la 
+  funzione ritorna l'error code EBUSY </font></p>
+<hr>
+<p><font color="#FF0000" size="5">int pthread_mutex_lock(pthread_mutex_t *mutex);</font><font size="5"><br>
+  blocca un mutex</font></p>
+<ul>
+  <li><font size="5"> se era sbloccato il thread chiamante ne prende possesso<br>
+    bloccandolo immediatamente e la funzione ritorna subito </font></li>
+  <li><font size="5">se era bloccato da un altro thread il thread chiamante viene<br>
+    sospeso sino a quando il possessore non lo rilascia</font></li>
+  <li><font size="5"> se era bloccato dallo stesso thread chiamante dipende dal<br>
+    tipo mutex</font> 
+    <ul>
+      <li><font size="5"> fast: stallo, perch&eacute; il chiamante stesso, che 
+        possiede il mutex, viene sospeso in attesa di un rilascio che non avverr&agrave; 
+        mai</font></li>
+      <li><font size="5"> error checking: la chiamata fallisce</font></li>
+      <li><font size="5">recursive: la chiamata ha successo, ritorna subito, incrementa</font><font size="5">il 
+        contatore del numero di lock eseguiti dal thread chiamant</font></li>
+    </ul>
+  </li>
+</ul>
+<hr>
+<p><font color="#FF0000" size="5">int pthread_mutex_unlock(pthread_mutex_t *mutex);</font><font size="5"><br>
+  </font><font size="5">sblocca un mutex che si assume fosse bloccato. Ad ogni 
+  modo la semantica esatta dipende<br>
+  dal tipo di mutex</font></p>
+<ul>
+  <li><font size="5"> fast: il mutex viene lasciato sbloccato e la chiamata ha 
+    sempre successo</font></li>
+  <li><font size="5"> recursive: si decrementa il contatore del numero di lock 
+    eseguiti dal thread chiamante sul mutex, e lo si sblocca solamente se tale 
+    contatore si azzera</font></li>
+  <li><font size="5"> error checking: sblocca il mutex solo se al momento della 
+    chiamata era bloccato e posseduto dal thread chiamante, in tutti gli altri 
+    casi la chiamata fallisce senza alcun effetto sul mutex</font></li>
+</ul>
+<hr>
+<p><font size="5" align="center">Esempio Problema dei 5 filodofi a cena</font></p>
+<blockquote> 
+  <div v:shape="_x0000_s3074"> 
+    <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+      <div align="justify"> 
+        <div v:shape="_x0000_s3074"> 
+          <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"> 
+            <table width="1160" height="502" border="1" align="center" bgcolor="#FFFF00">
+              <tr> 
+                <td width="1150" height="496"> <p><font size="5"><br>
+                    #include &lt;pthread.h&gt;<br>
+                    #include &lt;stdio.h&gt;<br>
+                    #include &lt;unistd.h&gt;<br>
+                    #include &lt;stdlib.h&gt;</font></p>
+                  <p><font size="5">#define PHILOSOPHERS 5<br>
+                    #define ITERATION 3</font></p>
+                  <p><font size="5">char *progname;</font></p>
+                  <p><font size="5">/* the chopsticks */<br>
+                    pthread_mutex_t chopstick[PHILOSOPHERS];</font></p>
+                  <p><font size="5">/* print error message and die */<br>
+                    void error(char *f)<br>
+                    { extern char *progname;</font></p>
+                  <p><font size="5"> if (progname)<br>
+                    fprintf(stderr, &quot;%s: &quot;, progname);<br>
+                    perror(f);</font></p>
+                  <p><font size="5"> exit(1);<br>
+                    }</font></p>
+                  <p><font size="5">/* suspend execution of the calling thread 
+                    */<br>
+                    void waiting(int min, int max)<br>
+                    { sleep(rand()%(max-min+1) + min);<br>
+                    }</font></p>
+                  <p><font size="5">void rightChopstick(int id)<br>
+                    { if (pthread_mutex_lock(&amp;chopstick[id]))<br>
+                    error(&quot;pthread_mutex_lock&quot;);<br>
+                    printf(&quot;#%d got right chopstick\n&quot;, id);<br>
+                    }</font></p>
+                  <p><font size="5">void leftChopstick(int id)<br>
+                    { if (pthread_mutex_lock(&amp;chopstick[(id+1) % PHILOSOPHERS]))<br>
+                    error(&quot;pthread_mutex_lock&quot;);<br>
+                    printf(&quot;#%d got left chopstick\n&quot;, id);<br>
+                    }</font></p>
+                  <p><font size="5">void *philosopherRoutine(void *idp)<br>
+                    { int id=*(int *)idp, i;</font></p>
+                  <p><font size="5"> for (i=0; i&lt;ITERATION; i++)<br>
+                    { printf(&quot;#%d is thinking\n&quot;, id);<br>
+                    waiting(1, 10);</font></p>
+                  <p><font size="5">printf(&quot;#%d is hungry\n&quot;, id);<br>
+                    if (id % 2)<br>
+                    { rightChopstick(id);<br>
+                    waiting(1,2);<br>
+                    leftChopstick(id);<br>
+                    }<br>
+                    else<br>
+                    { leftChopstick(id);<br>
+                    waiting(1,2);<br>
+                    rightChopstick(id);<br>
+                    }</font></p>
+                  <p><font size="5"><br>
+                    printf(&quot;#%d is eating\n&quot;, id);<br>
+                    waiting(1, 10);</font></p>
+                  <p><font size="5"><br>
+                    if (pthread_mutex_unlock(&amp;chopstick[id]))<br>
+                    error(&quot;pthread_mutex_unlock&quot;);<br>
+                    printf(&quot;#%d left right chopstick\n&quot;, id);<br>
+                    if (pthread_mutex_unlock(&amp;chopstick[(id+1) % PHILOSOPHERS]))<br>
+                    error(&quot;pthread_mutex_unlock&quot;);<br>
+                    printf(&quot;#%d left left chopstick\n&quot;, id);<br>
+                    }</font></p>
+                  <p><font size="5"> return NULL;<br>
+                    }</font></p>
+                  <p><font size="5">int main(int argc, char *argv[])<br>
+                    { int i;</font></p>
+                  <p><font size="5"> struct<br>
+                    { int id;<br>
+                    pthread_t thread_id;<br>
+                    } philosopher[PHILOSOPHERS];</font></p>
+                  <p><font size="5"> progname=argv[0];<br>
+                    srand(time(NULL));</font></p>
+                  <p><font size="5"> /* create mutex semaphores */<br>
+                    for (i=0; i&lt;PHILOSOPHERS; i++)<br>
+                    if (pthread_mutex_init(&amp;chopstick[i], NULL))<br>
+                    error(&quot;pthread_mutex_init&quot;);</font></p>
+                  <p><font size="5"> /* create and run the threads */<br>
+                    for (i=0; i&lt;PHILOSOPHERS; i++)<br>
+                    { philosopher[i].id=i;<br>
+                    if (pthread_create(&amp;philosopher[i].thread_id, NULL,<br>
+                    philosopherRoutine, &amp;philosopher[i].id))<br>
+                    error(&quot;pthread_create&quot;);<br>
+                    }</font></p>
+                  <p><font size="5"> /* wait for the threads to terminate */<br>
+                    for (i=0; i&lt;PHILOSOPHERS; i++)<br>
+                    if (pthread_join(philosopher[i].thread_id, NULL))<br>
+                    error(&quot;pthread_join&quot;);</font></p>
+                  <p><font size="5"> return 0;<br>
+                    }<br>
+                    </font> </p>
+                  <p><font size="5"> </font></p>
+                  <p>&nbsp; </p></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <hr>
+        <p align="center"><font color="#FF0000" size="6">Semafori</font></p>
+        <p align="justify"><font color="#000000" size="6">Tutto quello che finora 
+          abbiamo visto pu&ograve; essere pi&ugrave; semplicemente implementato 
+          attraverso l'uso dei semafori. Un semaforo &egrave; semplicemente un 
+          contatore che, attraverso opportune funzioni offerte al programmatore, 
+          pu&ograve; essere atomicamente incrementato oppure atomicamente decrementato. 
+          <br>
+          Un semaforo &egrave; inizializzato per mezzo della funzione sem_init. 
+          La funzione sem_wait sospende il chiamante secondo le modalit&agrave; 
+          descritte in seguito. Per poter utilizzare le struttuture relative ai 
+          semafori occorre includere nel programma l'header semaphores.h. </font></p>
+        <hr>
+        <p align="justify"><font color="#000000" size="6"> <font color="#FF0000">int 
+          sem_init (sem_t *SEM, int PSHARED, unsigned int VALUE)</font> </font></p>
+        <p><br>
+          <font size="6">Come detto poco sopra questa funzione ha il compito di 
+          inizializzare il semaforo puntato dal primo argomento al valore espresso 
+          dalla variabile VALUE. Il valore PSHARED indica invece se il semaforo 
+          &egrave; utilizzato nell'ambito dello stesso processo (in questo caso 
+          ha valore 0) oppure se utilizzato anche da processi esterni (in questo 
+          caso ha valore diverso da 0). Il valore restituito in caso di successo 
+          &egrave; 0 mentre in caso di errore la variabile ERRNO viene settata 
+          ad uno dei seguenti valori: <br>
+          EINVAL quando il contatore ha raggiunto il massimo espresso dalla variabile 
+          SEM_VALUE_MAX. </font></p>
+        <p><font size="6">ENOSYS quando l'argomento PSHARED &egrave; diverso da 
+          zero. Attualmente infatti Linux non supporta semafori condivisi tra 
+          pi&ugrave; processi. </font></p>
+        <hr>
+        <p> <font color="#FF0000" size="6">int sem_destroy (sem_t * SEM) </font></p>
+        <p></p>
+        <p><font size="6">Questa funzione dealloca le risorse allocate per il 
+          semaforo puntato da SEM. Se la chiamata non ha successo la variabilel 
+          ERRNO viene settata a EBUSY. Occorre tuttavia ricordare che le attuali 
+          implementazioni dei semafori, in Linux, non allocano alcuna risorsa 
+          quindi una chiamata a questa funzione attualmente non sortisce alcun 
+          effetto. </font></p>
+        <hr>
+        <p><font color="#FF0000" size="6">int sem_wait(sem_t *SEM) </font></p>
+        <p><font size="6"> Questa funzione sospende il thread chiamante fintanto 
+          che il valore del semaforo puntato dall'argomento &egrave; diverso da 
+          zero. Viene inoltre decrementato automaticamente, ed atomicamente, il 
+          contatore. Questo significa che settando il valore del semaforo ad 1 
+          ed effettuando questa chiamata il processo non si arrester&agrave;. 
+          </font></p>
+        <hr>
+        <p><font color="#FF0000" size="6">int sem_post(sem_t *SEM)</font><font size="6"><br>
+          Al contrario della precedente questa funzione semplicemente incrementa 
+          il valore del semaforo passato come parametro. Qualora questo semaforo 
+          avesse gi&agrave; raggiunto il massimo numero consentito viene ritornato 
+          -1 mentre la variabile ERRNO viene settata ad EINVAL. In caso di successo, 
+          invece, viene restituito 0. </font></p>
+        <hr>
+        <p><font color="#FF0000" size="6">int sem_getvalue (sem_t * SEM, int * 
+          SVAL) </font></p>
+        <p><font size="6"> Semplicemente questa funzione imposta il valore della 
+          variabile puntata da SVAL al valore corrente del semaforo passato come 
+          primo parametro. </font></p>
+        <hr>
+        <p><font color="#FF0000" size="6">int sem_trywait(sem_t *SEM)</font></p>
+        <p></p>
+        <p><font size="6">Questa funzione &egrave; una variante non bloccante 
+          della precedente ed &egrave; utilizzata principalmente per la decrementazione 
+          del valore del semaforo. Se questo, infatti, non &egrave; gi&agrave; 
+          uguale a zero una chiamata a questa funzione comporta una diminuzione 
+          di un'unit&agrave; del valore del semaforo. In caso di successo viene 
+          ritornato 0, altrimenti (nel caso il valore del semaforo fosse gi&agrave; 
+          0) viene restituito immediatamente -1 ed il valore della variabile ERRNO 
+          viene settato a EAGAIN. </font></p>
+        <p></p>
+        <p><br>
+        </p>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</blockquote>
+<blockquote>
+  <div v:shape="_x0000_s3074">
+    <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369"></div>
+  </div>
+</blockquote>
+</body>
+
+</html>

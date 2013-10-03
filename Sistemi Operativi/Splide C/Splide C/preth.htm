@@ -1,0 +1,510 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>thread</title>
+</head>
+
+<body>
+<p align="center"><b><font color="#FF0000" size="7"><span style="font-family: Tahoma; text-shadow: auto; mso-color-index: 3">Cosa è un Thread?</span></font></b><br>
+<table border="1" width="897" height="76">
+      <tr> 
+        <td width="875" height="1">
+          <p align="left"><font size="7">Un thread è un percorso di esecuzione</font></p>
+        </td>
+      </tr>
+      <tr> 
+        <td width="875" height="1" align="left">
+          <p align="left">
+    <font size="7">Un
+    thread accede a tutte le risorse del processo in cui è contenuto</font>
+        </td>
+      </tr>
+      <tr> 
+        <td width="875" height="1" align="left">
+          <p align="left">
+    <font size="7">Il
+    ThreadID contraddistingue un thread nel sistema operativo, indipendentemente
+    dal processo ospitante</font>
+        </td>
+      </tr>
+      <tr> 
+        <td width="875" height="51">
+          <p align="left">
+    <font size="7">Un thread esiste fino a che</font></p>
+          <ul>
+            <li>
+              <p align="left">
+    <font size="7">il percorso di esecuzione termina</font></li>
+            <li>
+              <p align="left"><font size="7">viene chiuso con ExitThread</font>
+            </li>
+            <li>
+              <p align="left"><font size="7">viene chiuso/distrutto il processo
+              ospitante</font>
+            </li>
+          </ul>
+        </td>
+      </tr>
+</table>
+<hr>
+<p align="center"><b><font color="#FF0000" size="7"><span style="font-family: Tahoma; text-shadow: auto; mso-color-index: 3">Creazione
+di un Thread</span></font></b></p>
+<p align="left"><font size="7">Ogni libreria o ambiente di sviluppo ha delle
+funzioni specifiche per creare un thread:</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="516" height="43">
+    <tr>
+      <td width="243" height="43" align="center">
+      </td>
+      <td width="243" height="43" align="center">
+       <font size="6">
+       Win32</font></td>
+      <td width="257" height="43" align="center"><font size="6">LINUX</font></td>
+    </tr>
+    <tr>
+      <td width="243" height="43" align="center">
+       <font size="6">C/C++</font>
+      </td>
+      <td width="243" height="43" align="center">
+       <font size="6">&nbsp;_beginthread(...)</font>
+       <p><font size="6">CreateThread</font></p>
+      </td>
+      <td width="257" height="43" align="center"><font size="6">fork</font></td>
+    </tr>
+    <tr>
+      <td width="243" height="43" align="center">
+       <font size="6">Windows SDK</font></td>
+      <td width="243" height="43" align="center">
+       <p:colorscheme
+ colors="#3399FF,#FFFFFF,#777777,#ECBF00,#00CC99,#3333CC,#9966FF,#FF7C80"/>
+       
+       <p><font size="6">AfxBeginThread(...)</font></td>
+      <td width="257" height="43" align="center"></td>
+    </tr>
+    <tr>
+      <td width="243" height="43" align="center">
+       <font size="6">java</font></td>
+      <td width="243" height="43" align="center">
+       <font size="6">new thread</font></td>
+      <td width="257" height="43" align="center"><font size="6">new thread</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="left"><font size="7">in c/c++ per creare un&nbsp; thread si usa quindi
+la funzione _beginthread che ha la seguente sintassi</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="592" height="55" bgcolor="#FFFF00">
+    <tr>
+      <td width="592" height="55">
+        <p align="left"><font size="6">unsigned long _beginthread(<br>
+        &nbsp;void( __cdecl *start_address )( void * ),&nbsp;<br>
+        unsigned stack_size, void *arglist );</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="justify"><font size="7">&nbsp;le tre variabili sono rispettivamente<br>
+&nbsp;&nbsp;&nbsp; </font><font size="6">1.</font><font color="#FF0000" size="6">void( __cdecl *start_address
+)( void * ) </font><font size="6">che rappresenta la funzione chiamata&nbsp;<br>
+&nbsp;&nbsp;&nbsp; 2.<font color="#FF0000"> unsigned stack_size</font> che è la grandezza dello stack di
+memoria,&nbsp;</font></p>
+<p align="justify">&nbsp;&nbsp;&nbsp;<font size="6">&nbsp; 3. <font color="#FF0000">void *arglist</font> che
+rappresenta gli argomenti da passare alla funzione</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="715" height="55" bgcolor="#FFFF00">
+    <tr>
+      <td width="715" height="55">
+        <p align="left"><font size="5">#include &lt;process.h> <span style="color: #008080">/*
+        _beginthread, _endthread */</span><br>
+        #include &lt;stdio.h><br>
+        <br>
+        void StartPrimo_THread(void *b);<br>
+        unsigned long  c=0;<br>
+        int fine=0;<br>
+        void main()<br>
+        {char s[2];<br>
+        int err=_beginthread( StartPrimo_THread, 0, NULL);<br>
+        if(err==-1) printf("errore ");<br>
+        else<br>
+        &nbsp;{printf(&quot;sciaccia un tasto per terminare &quot;);<br>
+        &nbsp; scanf(&quot;%s&quot;,s);<br>
+        &nbsp; fine=1;<br>
+        &nbsp; printf(&quot;%d&quot;,c);<br>
+        &nbsp;}<br>
+        }<br>
+        <br>
+        void StartPrimo_THread(void *b)<br>
+        { while(fine==0) c++;<br>
+ _endthread();<br>
+        }<br>
+        </font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="left">&nbsp;</p>
+<p align="left"><font size="6">Nell'esempio si crea un task che aumenta il
+valore di c fino a quando non si preme un tasto qualsiasi;</font></p>
+<p align="left"><font size="6">le variabili</font></p>
+<p align="center"><font size="6" color="#FF0000">unsigned long  c=0;<br>
+int fine=0;</font></p>
+<p align="left"><font size="6">sono dichiarate fuori dal main , questo significa
+che esse sono globali è sono viste da tutte le funzioni main compresa.</font></p>
+<p align="left">&nbsp;</p>
+<p:colorscheme
+ colors="#3399FF,#FFFFFF,#777777,#ECBF00,#00CC99,#3333CC,#9966FF,#FF7C80"/>
+<div align="center">
+  <center>
+  <table border="1" width="829" height="55" bgcolor="#FFFF00">
+    <tr>
+      <td width="829" height="55">
+        <p align="left"><font size="5"><span style="color: #008080">/* Esempio
+        che illustra la creazioni di thread multipli usando le funzioni: *_beginthread            _endthread<br>
+ * Questo programma richiede le librerie multithread quindi selezionare&nbsp;<br>
+ * Multi-Threaded runtime library nel&nbsp; dialog box del&nbsp; compiler Project
+        *Settings */</span><br>
+        <br>
+        <font color="#0000FF">#include &lt;windows.h><br>
+        #include &lt;process.h> /* _beginthread, _endthread */<br>
+        #include &lt;stddef.h><br>
+        #include &lt;stdlib.h><br>
+        #include &lt;conio.h><br>
+        <br>
+        void Bounce( void *ch );<br>
+        void CheckKey( void *dummy );</font><br>
+        <br>
+        <span style="color: #008080">/* funzione randoma tra min and max. */</span><br>
+        <font color="#0000FF">#define GetRandom( min, max ) ((rand() % (int)(((max) + 1) - (min))) + (min))<br>
+        <br>
+        BOOL repeat = TRUE;&nbsp;<br>
+        HANDLE hStdOut; </font>/<span style="color: #008080">* Handle per la&nbsp; console window */</span><br>
+        <font color="#0000FF">CONSOLE_SCREEN_BUFFER_INFO csbi;</font> <span style="color: #008080">    /* Console information structure */</span><br>
+        <br>
+        <font color="#0000FF">void main()<br>
+        {<br>
+    CHAR    ch = 'A';<br>
+    hStdOut = GetStdHandle( STD_OUTPUT_HANDLE );</font><br>
+        <span style="color: #008080">    /* predi le informazioni delle colonne
+        e delle righe della console di testo */</span><br>
+        <font color="#0000FF">GetConsoleScreenBufferInfo( hStdOut, &amp;csbi );<br>
+        _beginthread( CheckKey, 0, NULL );</font><br>
+        <span style="color: #008080">    /* Loop fiinchè&nbsp; CheckKey temina. */</span><br>
+        <font color="#0000FF">while( repeat )<br>
+&nbsp;{_beginthread( Bounce, 0, (void *) (ch++)  );<br>
+&nbsp; Sleep( 1000L );<br>
+&nbsp;}<br>
+        }</font><br>
+        /<span style="color: #008080">* CheckKey&nbsp; */</span><br>
+        v<font color="#0000FF">oid CheckKey( void *dummy )<br>
+        {_getch();<br>
+&nbsp;repeat = 0;</font> <span style="color: #008080">    /* _endthread */</span><br>
+        <font color="#0000FF">}</font><br>
+        /<span style="color: #008080">* Bounce - Thread che crea una letterae la
+        muove nello schermo<br>
+ * Parametro: ch -la lettera<br>
+ */</span><br>
+        <font color="#0000FF">void Bounce( void *ch )<br>
+        {char    blankcell = 0x20;<br>
+&nbsp; char    blockcell = (char) ch;&nbsp;<br>
+&nbsp;&nbsp;BOOL    first = TRUE;<br>
+&nbsp; COORD   oldcoord, newcoord;<br>
+&nbsp;&nbsp;DWORD result;</font><br>
+        &nbsp;<span style="color: #008080">/* Numero random generato a partire
+        da valore del </span> _threadid&nbsp;<span style="color: #008080"> */</span><br>
+        &nbsp;<font color="#0000FF">srand( _threadid );<br>
+&nbsp;newcoord.X = GetRandom( 0, csbi.dwSize.X - 1 );<br>
+&nbsp;newcoord.Y = GetRandom( 0, csbi.dwSize.Y - 1 );&nbsp;<br>
+&nbsp;while( repeat )<br>
+&nbsp;{</font>/<span style="color: #008080">* Pausa. */</span><br>
+        &nbsp; <font color="#0000FF">Sleep( 100L );<br>
+&nbsp; if( first ) first = FALSE;<br>
+&nbsp; else WriteConsoleOutputCharacter( hStdOut, &amp;blankcell, 1, oldcoord, &amp;result );<br>
+        <br>
+&nbsp;WriteConsoleOutputCharacter( hStdOut, &amp;blockcell, 1, newcoord, &amp;result );<br>
+        <br>
+&nbsp;oldcoord.X = newcoord.X;<br>
+&nbsp;oldcoord.Y = newcoord.Y;<br>
+&nbsp;newcoord.X += GetRandom( -1, 1 );<br>
+&nbsp;newcoord.Y += GetRandom( -1, 1 );</font><br>
+        <br>
+        &nbsp;/<span style="color: #008080">* Correzioni nel caso che si vada
+        fuori dallo schermo&nbsp; */</span><br>
+        &nbsp;<font color="#0000FF">if( newcoord.X &lt; 0 ) newcoord.X = 1;<br>
+&nbsp;if( newcoord.X == csbi.dwSize.X ) newcoord.X = csbi.dwSize.X - 2;<br>
+&nbsp;if( newcoord.Y &lt; 0 ) newcoord.Y = 1;<br>
+&nbsp;if( newcoord.Y == csbi.dwSize.Y ) newcoord.Y = csbi.dwSize.Y - 2;<br>
+&nbsp;}<br>
+        _endthread();<br>
+        }</font><br>
+        <br>
+        </font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<hr>
+<div v:shape="_x0000_s3074">
+  <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369">
+    <span style="mso-special-format: bullet; position: absolute; left: -5.95%; top: .1em; font-family: Wingdings; font-size: 90%; text-shadow: auto">u</span>
+  </div>
+  <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369">
+    <p align="left"><font size="7"><a name="CreateThread"></a>In SDK c++ 
+      per creare un&nbsp; thread si può usare anche la funzione </font><font color="#FF0000" size="7">CreateThread&nbsp;</font></p>
+    <div align="center">
+  <center>
+  <table border="1" width="864" height="55" bgcolor="#FFFF00">
+    <tr>
+      <td width="854" height="55">
+        <p align="left"><code><b><font size="4">HANDLE CreateThread(&nbsp;<br>
+        LPSECURITY_ATTRIBUTES</font></b><font size="4"><i> <b><font color="#FF0000">lpThreadAttributes</font></b></i><b>,
+        </b><font color="#008000">// pointer to security attributes<br>
+        </font>&nbsp;<b>DWORD</b><i> </i><font color="#FF0000"><i><b>dwStackSize,</b></i></font><b>
+        </b><font color="#008000">// initial thread stack size<br>
+        &nbsp;</font><b>LPTHREAD_START_ROUTINE</b><i> </i><font color="#FF0000"><i><b>lpStartAddress,</b></i></font><b>
+        </b><font color="#008000">// pointer to thread function</font>&nbsp;<b><br>
+        &nbsp;LPVOID</b><i> </i><font color="#FF0000"><i><b>lpParameter,</b></i></font><b>&nbsp;<br>
+        &nbsp;DWORD</b><i> </i><font color="#FF0000"><i><b>dwCreationFlags,</b></i></font><b>
+        </b><font color="#008000">// creation flags<br>
+        </font>&nbsp;<b>LPDWORD</b><i> </i><font color="#FF0000"><i><b>lpThreadId
+        </b></i></font>// pointer to receive thread ID </font><b><font size="4">)</font>;</b></code></td>
+    </tr>
+  </table>
+  </center>
+</div>
+    <p align="left"><font size="7">Se tutto va bene la funzione restituisce un
+    puntatore Handle al thread , viseversa restituisce NULL &nbsp;</font></p>
+    <p align="left"><font size="7">le variabili sono rispettivamente<br>
+&nbsp;&nbsp; </font><b><font size="6">&nbsp;<font color="#FF0000">lpThreadAttributes</font></font></b></p>
+    <dl>
+      <dd>
+        <p align="left"><font size="6">Puntatore ad una struttura di tipo&nbsp; <a href="file:///D|/biagio/LEZIONI/labso/labso/thread/accctrl_8gs2.htm">SECURITY_ATTRIBUTES</a>
+        che determina&nbsp; se l'handle restituito può essere passato ad un
+        processo figlio.</font>
+        <p align="left"><font size="6">se è NULL, l'handle non può essere
+        passato ad un processo figlio.</font></p>
+    </dl>
+    <p align="left"><font size="6">&nbsp;&nbsp;&nbsp; </font><b><font color="#FF0000" size="6">dwStackSize</font></b></p>
+    <p align="left">&nbsp;&nbsp;&nbsp;<code><font color="#FF0000" size="4"><i><b>&nbsp;
+    </b></i></font></code><font size="6">un DWORD&nbsp; che rappresente&nbsp; la grandezza dello stack di
+memoria,&nbsp;</font></p>
+<p align="left">&nbsp;&nbsp;&nbsp;<font size="6">&nbsp; </font><b><font color="#FF0000" size="6">lpStartAddress</font></b></p>
+    <p align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font size="6">Un
+    puntatore alla funzione chiamata</font></p>
+    <p align="left"><font size="6">&nbsp;&nbsp;&nbsp; </font><b><font color="#FF0000" size="6">lpParameter</font></b></p>
+    <p align="left"><b><font size="6">&nbsp;&nbsp;&nbsp; </font></b><font size="6">Un
+    puntatore a VOID ai parametri della funzione</font></p>
+    <p align="left"><font size="6">&nbsp; </font><b><font color="#FF0000" size="6">dwCreationFlags</font></b></p>
+    <p align="left"><b><font size="6">&nbsp;&nbsp;&nbsp; </font></b><font size="6">Un
+    flag addizionale che specifica come il trhead si comporterà inizialmante,
+    se il suo valore è</font> <font color="#FF0000" size="3"><b>CREATE_SUSPENDED</b></font>
+    <font size="6">il thread è creato in uno stato di attesa, è si attiverà
+    solo quando ci sarà una chiamata alla funzione <a href="file:///D|/biagio/LEZIONI/labso/labso/thread/prothred_59no.htm">ResumeThread</a>
+    . Se è&nbsp; zero, il thread si attiverà immediatamente dopo la sua
+    creazione</font></p>
+    <p align="left"><b><font color="#FF0000" size="6">lpThreadId&nbsp;</font></b></p>
+    <p align="left"><font size="6"><b>&nbsp;&nbsp;&nbsp;</b> Il puntatore che
+    riceverà ID del Thread</font></p>
+      
+    <hr>
+    <p><font size="6">la funzione <font color="#FF0000">TerminateThread</font><br>
+      </font></p>
+    <table width="780" height="120" border="1" bgcolor="#FFFF00">
+      <tr> 
+        <td width="780" height="114"> 
+          <p align="left"><code><b><font size="4">BOOL 
+            TerminateThread(<br>
+            HANDLE hThread, <font color="#00FF00">// handle to the thread</font><br>
+            DWORD dwExitCode <font color="#00FF00">// exit code for the thread</font><br>
+            );<br>
+            <br>
+            </font></b></code></td>
+      </tr>
+    </table>
+    <p align="center"><b><font color="#FF0000"><span style="font-family: Tahoma; text-shadow: auto; mso-color-index: 3"><font size="7"></font></span></font></b></p>
+    <p align="left"><font size="7">le variabili sono rispettivamente</font></p>
+    <p align="left"><code><b><font color="#FF0000" size="5">H</font><font color="#FF0000" size="4"><font size="5">ANDLE 
+      hThread</font></font></b></code><font size="5"> , handle del thread</font></p>
+    <p align="left"><code><b><font color="#FF0000" size="5">DWORD dwExitCode</font></b></code><font color="#FF0000" size="5"> 
+      </font><font size="5">Specifica il codice di uscita del thread. Si Usa la 
+      funzione GetExitCodeThread per ritrovare il valore di uscita.</font></p>
+    <hr>
+<p align="center"><b><font color="#FF0000"><span style="font-family: Tahoma; text-shadow: auto; mso-color-index: 3"><font size="7">Priorità
+di un thread</font></span></font></b></p>
+    <p align="left"><font size="6">Le funzioni che regolano le priorità di un
+    thread sono</font></p>
+    <h1 align="center"><font color="#FF0000">SetThreadPriority&nbsp;</font></h1>
+    <h1 align="center"><font color="#FF0000">GetThreadPriority</font></h1>
+    <p align="left"><font size="6">La funzioni&nbsp; SetThreadPriority assegna
+    una priorità al thread ed ha la seguente sintassi</font></p>
+    <blockquote>
+      <blockquote>
+        <p align="left"><code><font color="#FF0000" size="5"><b>BOOL
+        SetThreadPriority(<br>
+        &nbsp; HANDLE</b><i> hThread</i><b>, </b>// handle to the thread<br>
+        <b>&nbsp; int</b><i> nPriority</i>&nbsp;&nbsp; // thread priority level<br>
+        <b>);</b></font><br>
+        </code></p>
+        <p align="left">&nbsp;</p>
+      </blockquote>
+    </blockquote>
+    <p><font size="6">I parametri sono&nbsp;</font></p>
+    <dl>
+      <dd><i><font color="#FF0000" size="5">hThread&nbsp;</font></i>&nbsp; <font size="6">Handle del thread .</font></dd>
+      <dt><i>&nbsp;&nbsp;&nbsp;</i>
+        &nbsp;&nbsp;&nbsp;<i><font color="#FF0000" size="5">&nbsp;&nbsp; nPriority
+        </font></i><font size="6">Specifica il valore della priorità che può
+        assumere uno dei seguenti&nbsp; valori</font><font size="6">&nbsp;</font></dt>
+      <dd>
+        <div align="center">
+          <center>
+          <table border="1" width="728" height="20">
+            <tr>
+              <td width="287" height="20" align="center">THREAD_PRIORITY_ABOVE_NORMAL</td>
+              <td width="425" height="20" align="center">Indica 1 punto sopra la
+                priorità normale</td>
+            </tr>
+            <tr>
+              <td width="287" height="20" align="center">THREAD_PRIORITY_BELOW_NORMAL</td>
+              <td width="425" height="20" align="center">Indica 1 punto sotto la
+                priorità normale</td>
+            </tr>
+            <tr>
+              <td width="287" height="20" align="center">THREAD_PRIORITY_HIGHEST</td>
+              <td width="425" height="20" align="center">Indica 2 punti sopra la
+                priorità normale</td>
+            </tr>
+            <tr>
+              <td width="287" height="20" align="center">THREAD_PRIORITY_IDLE</td>
+              <td width="425" height="20" align="center">Indica un livello di
+                priorità base di 1 per i processi
+                IDLE_PRIORITY_CLASS, NORMAL_PRIORITY_CLASS, o
+                HIGH_PRIORITY_CLASS e livello di priorità base di 16&nbsp; per
+                i processi REALTIME_PRIORITY_CLASS&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="287" height="20" align="center">THREAD_PRIORITY_LOWEST</td>
+              <td width="425" height="20" align="center">Indica 2 punti sotto la
+                priorità normale</td>
+            </tr>
+            <tr>
+              <td width="287" height="20" align="center">THREAD_PRIORITY_NORMAL</td>
+              <td width="425" height="20" align="center">priorità normale</td>
+            </tr>
+            <tr>
+              <td width="287" height="20" align="center">THREAD_PRIORITY_TIME_CRITICAL</td>
+              <td width="425" height="20" align="center">ndica un livello di
+                priorità base di 15 per i processi
+                IDLE_PRIORITY_CLASS, NORMAL_PRIORITY_CLASS, o
+                HIGH_PRIORITY_CLASS e livello di priorità base di 31&nbsp; per
+                i processi REALTIME_PRIORITY_CLASS&nbsp;</td>
+            </tr>
+          </table>
+          </center>
+        </div>
+        <p></dd>
+      
+    </dl>
+    <p><font size="6">La funzioni&nbsp; GetThreadPriority trova la priorità di thread ed ha la seguente sintassi</font></p>
+<blockquote>
+  <blockquote>
+    <p><code><font color="#FF0000" size="5"><b>Int GetThreadPriority(<br>
+        &nbsp; HANDLE</b><i> hThread</i><b>, </b>// handle to&nbsp; thread<br>
+        <b>&nbsp; );</b></font>
+        </code></p>
+  </blockquote>
+</blockquote>
+  </div>
+</div>
+
+<div v:shape="_x0000_s3074">
+  <div class="O1" style="mso-line-spacing:&quot;100 20 0&quot;;mso-margin-left-alt:658;
+mso-text-indent-alt:369">
+&nbsp;
+<hr>
+<p align="center"><b><font size="7" color="#FF0000"><span style="font-family: Tahoma; text-shadow: auto; mso-color-index: 3"><a name="sosp"></a>Sospensione
+e risveglio di un</span></font><font color="#FF0000"><span style="font-family: Tahoma; text-shadow: auto; mso-color-index: 3"><font size="7">
+thread</font></span></font></b></p>
+<p align="left"><font size="6">Le funzioni che regolano la</font><font size="6">
+Sospensione e risveglio di un
+    thread sono</font></p>
+    <h1 align="center"><font color="#FF0000">SuspendThread</font></h1>
+<h1 align="center"><font color="#FF0000">ResumeThread</font></h1>
+<p align="left"><font size="6">Ogni thread ha un contatore delle sospenzioni
+inizialmente posto a zero , la funzioni&nbsp; SuspendThread </font><font size="6">aumenta
+di uno il contatore è lo interrompe fino a quando i contatore ritorna zero</font></p>
+    <blockquote>
+      <blockquote>
+        <p align="left"><b><font color="#FF0000" size="5"><code>DWORD </code></font></b><code><font color="#FF0000" size="5"><b>SuspendThread(<br>
+        &nbsp; HANDLE</b><i> hThread</i><b>, </b>// handle to the thread<br>
+        <b>&nbsp;);</b></font><br>
+        </code></p>
+        <p align="left">&nbsp;</p>
+      </blockquote>
+    </blockquote>
+    <p><font size="6">La funzione&nbsp; ResumeThread viceversa diminuisce il contatore 
+      e se esso è zero lo riattiva.</font></p>
+    <hr>
+    <p><font size="6">Diamo ora un esempio di utilizzo delle funzioni appena descritte. 
+      </font></p>
+    <p><font size="6">Il programma sottostante genera due processi identici che 
+      stampano i valori da 1 a 1000 con priorit&agrave; distinte.</font></p>
+    <table width="715" height="55" border="1" bgcolor="#FFFF00">
+      <tr> 
+        <td width="715" height="55"> <p align="left"><font color="#0000FF" size="5">#include &lt;windows.h&gt;<br>
+  #include &lt;process.h&gt;<br>
+  #include &lt;stdio.h&gt;<br>
+  #include &lt;conio.h&gt;</font>
+          <p><font color="#0000FF" size="5">DWORD finito (LPDWORD lpdwParam) <br>
+            {int *fine;
+            fine=(int *) lpdwParam;<br>
+&nbsp; _getch();<br>
+&nbsp; *fine=1;<br>
+&nbsp; return 0;<br>
+            }</font></p>
+          <p><font color="#0000FF" size="5">DWORD mythread (LPDWORD lpdwParam) <br>
+            {int *proc;<br>
+&nbsp; proc=(int *) lpdwParam;<br>
+&nbsp; while(1)<br>
+&nbsp;&nbsp;
+            {for(int i=0;i&lt;1000;i++)<br>
+&nbsp;&nbsp; &nbsp;             printf(&quot;sono il thread %d: %d\n&quot;,*proc,i);&nbsp;            <br>
+&nbsp;&nbsp; }<br>
+            }</font></p>
+          <p><font color="#0000FF" size="5">void main ()<br>
+            {int i,j,fine=0;<br>
+&nbsp;&nbsp;HANDLE hThreadT1,hThreadT2,hfineThreads;<br>
+&nbsp;&nbsp;DWORD dwThreadId1,dwThreadId2,dwThreadIdFine; &nbsp;&nbsp; &nbsp;&nbsp;hfineThreads=CreateThread(NULL,0,(LPTHREAD_START_ROUTINE)&nbsp;finito,            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(LPVOID) &amp;fine,0, &amp;dwThreadIdFine);<br>
+&nbsp;&nbsp;if (hfineThreads!=NULL)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{i=1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hThreadT1=CreateThread(NULL,0,(LPTHREAD_START_ROUTINE)mythread, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(LPVOID)&amp;i,CREATE_SUSPENDED , &amp;dwThreadId1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SetThreadPriority(hThreadT1,THREAD_PRIORITY_LOWEST);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j=2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hThreadT2=CreateThread(NULL,0,(LPTHREAD_START_ROUTINE) mythread, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(LPVOID) &amp;j,CREATE_SUSPENDED , &amp;dwThreadId2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;SetThreadPriority(hThreadT2,THREAD_PRIORITY_HIGHEST);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ResumeThread(hThreadT2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ResumeThread(hThreadT1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;while(fine==0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;TerminateThread(hThreadT1,0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;TerminateThread(hThreadT2,0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            }</font></p>
+          <p align="left"><font size="5"><br>
+          </font></td>
+      </tr>
+    </table>
+    <hr>
+  </div>
+</div>
+
+</body>
+
+</html>

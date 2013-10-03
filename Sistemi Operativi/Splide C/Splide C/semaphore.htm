@@ -1,0 +1,230 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Mutex</title>
+</head>
+
+<body>
+
+<p align="center"><b><font color="#FF0000" size="7"><span style="font-family: Tahoma; text-shadow: auto; mso-color-index: 3">Semaphore</span></font></b></p>
+<p align="center">&nbsp;</p>
+<p align="justify"><font size="6">I Mutex sono
+dei flag che
+coordinano l’esecuzione di operazioni mutualmente esclusive
+è assume&nbsp; solo i valori 0 e 1. Nel caso che si debba acquisisce
+una delle n risorse identiche da un pool di risorse disponibili,
+il Mutex non è più efficace in questi casi si usano i&nbsp; 
+<font color="#FF0000">Semaphore</font> che sono
+simili ad dei Mutex con dei contatori.&nbsp;</font></p>
+<p align="left"><font size="6">Le funzioni per creare e gestire un oggetto 
+semaphore
+sono:</font></p>
+<blockquote>
+  <p align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <font size="6" color="#FF0000">CreateSemaphore</font></p>
+  <p:colorscheme
+ colors="#3399FF,#FFFFFF,#777777,#ECBF00,#00CC99,#3333CC,#9966FF,#FF7C80"/>
+  <p align="left"><font size="6" color="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+  OpenSemaphore</font></p>
+  <p align="left"><font size="6" color="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  ReleaseSemaphore</font></p>
+  <hr>
+  <p align="center"><font size="6" color="#FF0000">CreateSemaphore</font></p>
+</blockquote>
+<p:colorscheme
+ colors="#3399FF,#FFFFFF,#777777,#ECBF00,#00CC99,#3333CC,#9966FF,#FF7C80"/>
+<pre><code><b><font size="5" color="#FF0000">HANDLE CreateSemaphore(
+  LPSECURITY_ATTRIBUTES</font></b><font size="5"><font color="#FF0000"><i> lpMutexAttributes</i><b>,</b>
+<b>          </b></font></font><font size="5" color="#FF0000"><b>             // pointer to security attributes
+  LONG lInitialCount, // initial count 
+  LONG lMaximumCount, //maximum count</b></font><font color="#FF0000"><font size="5"><b>
+  LPCTSTR</b><i> lpName</i>       // pointer to mutex-object name
+<b>);</b></font>
+ </font></code></pre>
+<p align="left"><font size="6">Crea un nuovo oggetto </font><font size="6">Semaphore</font>
+<font size="6">i parametri sono:</font></p>
+<dl>
+  <dd>
+    <p align="left"><font color="#0000FF" size="6"><b>lpMutexAttributes</b></font></dd>
+  <dd>
+    <p align="justify"><font size="6">Puntatore ad una struttura di tipo&nbsp; <font color="#0000FF">SECURITY_ATTRIBUTES</font>
+    che determina&nbsp; se l'handle restituito può essere passato ad un
+    processo figlio,s</font> <font size="6">e è NULL, l'handle non può essere passato
+    ad un processo figlio.</font>
+  <dd>
+    <p align="left"><b>             <font color="#0000FF" size="6">lInitialCount</font></b></dd>
+  <dd>
+    <p align="justify"><font size="6">Specifica il valore iniziale de semaforo.
+    Questo valore deve essere maggiore o uguale a <font color="#FF0000">zero</font> e minore o ugulae a <i><font color="#FF0000">lMaximumCount</font></i>.&nbsp;
+    Lo stato del semaforo è attivo quando il proprio valore è maggiore di
+    <font color="#FF0000">zero</font>,non attivo quando è&nbsp; <font color="#FF0000">zero</font>. Il valore è decrementato di uno ogni
+    volta che una funzione di wait rilascia un&nbsp; thread che sta in waiting
+    sul&nbsp; semaforo. Il proprio valore è incrementato di uno specifico
+    valore chiamando la funzione <a href="#releasesem"> <b>ReleaseSemaphore</b>&nbsp;</a></font><a href="#releasesem">
+	</a>
+  <div align="left">
+  <dt>&nbsp;</dt>
+  <dd>
+    <p align="left"><b><font color="#0000FF" size="6">lMaximumCount</font></b>
+    <dl>
+      <dd>
+        <p align="left"><font size="6">Specifica il valore massimo del semaforo
+        . Il suo valore deve essere maggiore di zero.</font></dd>
+    </dl>
+    <p align="left"></dd>
+  <dd>
+    <p align="left"><font color="#0000FF" size="6"><b>lpName</b></font></dd>
+  <dd>
+    <p align="left"><font size="6">Il nome del </font><font size="6">semaforo&nbsp;</font></dd>
+</dl>
+<hr>
+<h1 align="center"><font color="#FF0000">OpenSemaphore</font></h1>
+<pre><code><b><font size="5" color="#FF0000">HANDLE OpenSemaphore(
+  DWORD<i> dwDesiredAccess</i>, // access 
+  BOOL<i>  bInheritHandle</i>, // inheritance option
+  LPCTSTR<i> lpName</i> // object name);
+ </font></b></code></pre>
+<p align="left"><font size="6">la funzione OpenSemaphore</font><font color="#FF0000">
+</font><font size="6">ritorna un&nbsp; handle ad
+un oggetto Semaphore esistente, i parametri sono:</font></p>
+<p align="left"><font color="#0000FF" size="6"><b>dwDesiredAccess</b></font></p>
+<dl>
+  <dd>
+    <p align="left"><font size="6">Specifica l'accesso richiesto per l'oggetto
+    Semaphore è può essere una combinazione dei seguenti valori</font>
+    <table cellSpacing="4" cols="2" width="1074">
+      <tbody>
+        <tr vAlign="top">
+          <th align="left" width="474">
+            <p align="left"><font size="6">Access</font></p>
+          </th>
+          <th align="left" width="582">
+            <p align="left"><font size="6">Descri</font><font size="6">zione</font></p>
+          </th>
+        </tr>
+        <tr vAlign="top">
+          <td width="474">
+            <p align="left"><font color="#FF0000" size="6">SEMAPHORE_ALL_ACCESS</font></p>
+          </td>
+          <td width="582">
+            <p align="left"><font size="6">tutti i flag</font></p>
+          </td>
+        </tr>
+        <tr vAlign="top">
+          <td width="474">
+            <p align="left"><font color="#FF0000" size="6">SEMAPHORE_MODIFY_STATE</font></p>
+          </td>
+          <td width="582">
+            <p align="justify"><font size="6">Abilita l'uso del&nbsp; semaforo
+            nelle funzioni <a href="#releasesem">ReleaseSemaphore</a> per
+            modificare i valore del semaforo.</font></p>
+          </td>
+        </tr>
+        <tr vAlign="top">
+          <td width="474">
+            <font color="#FF0000" size="6">SYNCHRONIZE</font>
+          </td>
+          <td width="582">
+            <font size="6">Windows NT: abilita l'uso del semaforo in una delle&nbsp;
+            <a href="javascript:if(confirm('http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/gestprowin/sincroniz.htm  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/gestprowin/sincroniz.htm'" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/gestprowin/sincroniz.htm">wait functions</a>&nbsp;</font>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p align="left">
+  <dd>
+    <p align="left"><font color="#0000FF" size="6"><b>bInheritHandle</b></font></dd>
+  <dd>
+    <p align="left"><font size="6">Specifica&nbsp;se l'handle restituito può essere passato ad
+    un processo figlio,se è NULL, l'handle non può essere passato
+    ad un processo figlio.</font><dd>
+    <p align="left"><font color="#0000FF" size="6"><b>lpName</b></font></dd>
+  <dd>
+    <p align="left"><font size="6">Il nome del semaforo&nbsp;</font></dd>
+  <dd>
+    <hr>
+    <p align="center"><font size="6" color="#FF0000"><a name="releasesem"></a>ReleaseSemaphore</font></dd>
+</dl>
+<pre><code><font color="#FF0000"><font size="5"><b>BOOL Release</b></font></font></code><font color="#FF0000" size="5"><code><b>Semaphore</b><b>(
+  HANDLE<i> hSemaphore</i>, // handle to semaphore 
+  LONG<i> lReleaseCount</i>, // count increment amount 
+  LPLONG<i> lpPreviousCount</i> // previous count );</b>
+</code></font></pre>
+<p align="left"><font size="6">La funzione&nbsp;
+ReleaseSemaphore incrementa il valore di uno specifico semaforo di una specifica
+quantità, i parametri sono:</font></p>
+<blockquote>
+  <p><b align="left"><font color="#0000FF" size="6">hSemaphore</font>&nbsp;</b><font size="6"><b>&nbsp;&nbsp;&nbsp;&nbsp; </b>l'handle del
+                  semaforo</font></p>
+  <p><b align="left"><font color="#0000FF" size="6">lReleaseCount</font><font size="6">&nbsp;</font></b><font size="6"><b>&nbsp;&nbsp;&nbsp;&nbsp;</b> quanto
+                    incrementare il semaforo</font></p>
+  <p><b align="left"><font color="#0000FF" size="6">lpPreviousCount</font></b><font size="6"><b>&nbsp;&nbsp; </b>Puntatore che riceverà il
+valore precedente</font></p>
+</blockquote>
+<hr>
+<p align="left"><font size="6">Esempio Gestione di tre parcheggi di auto di
+trenta posti ciascuno</font></p>
+<table border="1" width="952" height="55" bgcolor="#FFFF00">
+  <tr>
+    <td width="952" height="55"> <p><font size="5"><font COLOR="#0000ff">
+	#include </font>&lt;windows.h&gt;<font COLOR="#0000ff"><br>
+	#include </font>&lt;time.h&gt;<font COLOR="#0000ff"><br>
+	#include </font>&lt;stddef.h&gt;<font COLOR="#0000ff"><br>
+	#include </font>&lt;stdlib.h&gt;<font COLOR="#0000ff"><br>
+	#include </font>&lt;stdio.h&gt;<font COLOR="#0000ff"><br>
+	#include </font>&lt;conio.h&gt;<font COLOR="#0000ff"><br>
+	</font>void Car(LPDWORD ch);<font COLOR="#0000ff"><br>
+	#define </font>POSTI 30<font COLOR="#0000ff"><br>
+	#define</font> N 3<font COLOR="#0000ff"><br>
+	</font>HANDLE hparcheggio[N];<font COLOR="#008000">//l'array di semafori</font><font COLOR="#0000ff"><br>
+	#define </font>GetRandom( min, max ) ((rand() % (int)(((max) + 1) - (min))) 
+	+ (min))<font COLOR="#0000ff"><br>
+	void </font>main()<font COLOR="#0000ff"><br>
+	{for</font>(<font COLOR="#0000ff">int </font>i=0;i&lt;N;i++) <font COLOR="#0000ff">
+	<br>
+&nbsp; </font>hparcheggio[i] = CreateSemaphore(NULL, POSTI,POSTI,NULL);<br>
+&nbsp; printf(&quot; Digita q per Uscire I per l'arrivo di un'altra automobile :&quot;);<font COLOR="#0000ff"><br>
+	</font><font COLOR="#008000">//il ciclo do crea un thread per ogni 
+	automobile che entra</font><font COLOR="#0000ff"><br>
+&nbsp;do<br>
+&nbsp; </font>{CreateThread(NULL,0,(LPTHREAD_START_ROUTINE)Car ,NULL ,0, NULL);<br>
+&nbsp; }<font COLOR="#0000ff">while </font>(getch()!='q');<font COLOR="#0000ff"><br>
+&nbsp;for </font>( i=0;i&lt;N;i++) <font COLOR="#0000ff"><br>
+	</font>&nbsp;CloseHandle(hparcheggio[i]);<font COLOR="#0000ff"><br>
+	</font>}<font COLOR="#0000ff"><br>
+	</font><font COLOR="#008000">/////////////////</font><font COLOR="#0000ff"><br>
+	void </font>Car(LPDWORD ch)<font COLOR="#0000ff"><br>
+	</font>{DWORD numeropiano,risult;<font COLOR="#0000ff"><br>
+&nbsp;long </font>numeroposto;<font COLOR="#0000ff"><br>
+&nbsp;</font>risult=WaitForMultipleObjects(N,hparcheggio,false, INFINITE);<font COLOR="#0000ff"><br>
+&nbsp;</font>numeropiano=risult-WAIT_OBJECT_0+1;<font COLOR="#0000ff"><br>
+&nbsp;</font>	printf(&quot;la macchina parcheggia al piano %d\n&quot;,numeropiano);<font COLOR="#0000ff"><br>
+&nbsp;</font>	srand( (<font color="#0000FF">unsigned</font>)time( NULL ) );<font size="5"><font COLOR="#0000ff"><br>
+&nbsp;</font></font><font COLOR="#0000ff">
+	int </font>a=GetRandom(500,5000);<font size="5"><font COLOR="#0000ff"><br>
+&nbsp;</font></font><font COLOR="#0000ff">
+	</font>Sleep(a);<font COLOR="#008000">//specificare un tempo di parcheggio 
+	random</font><font COLOR="#0000ff"><br>
+&nbsp;</font>ReleaseSemaphore(hparcheggio[numeropiano-1],1,&amp;numeroposto);<font COLOR="#0000ff"><br>
+&nbsp;</font>printf(&quot;la macchina parcheggia al piano %d lascia il parcheggio dal posto %d\n&quot; 
+	, numeropiano , numeroposto);<br>
+	}<font COLOR="#0000ff"><br>
+&nbsp;</font></font></p></td>
+  </tr>
+</table>
+<dl>
+  <div align="center">
+    <center>
+    <dt>&nbsp;</dt>
+    </center>
+  </div>
+  <dd>
+    <p align="left"></dd>
+</dl>
+
+</body>
+
+</html>

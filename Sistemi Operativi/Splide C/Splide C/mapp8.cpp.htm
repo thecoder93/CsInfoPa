@@ -1,0 +1,110 @@
+<html>// codaproc.cpp : Defines the entry point for the console application.
+//Costruire due liste concatenate che rappresentino una la lista dei processi 
+//(IP,blocco iniziale della memoria, memoria occupata,link al processo successivo) 
+//ed l'altra la lista delle locazioni di memoria libere 
+//( blocco iniziale della memoria libera, lunghezza del blocco,link al blocco successivo)
+//
+
+#include <stdio.h>
+#include <malloc.h>
+#include <math.h>
+
+void Inserisci(unsigned char *mapp,unsigned long mem);
+void InserisciBit(unsigned char *mapp,unsigned long BIni,unsigned long BFine);
+void Elimina(unsigned char *mapp,unsigned long mem);
+void visualizza(unsigned char *mapp,unsigned long mem);
+int controllo(unsigned char *mapp,unsigned long BIni,unsigned long BFine);
+int main(int argc, char* argv[])
+{unsigned long mem;
+ unsigned char *mapp;
+ printf("dai la quantità di memoria disponibile :");
+ scanf("%d",&mem);
+ unsigned long dim=(mem/8)+1;
+ mapp=(unsigned char *)malloc(dim);
+ for(int i=0;i<=dim;i++) mapp[i]=0;
+ char scelta[2];
+ do{
+	 do{printf("Per inserire  un processo nella lista : I\nPer eliminare il processo dalla lista : E\nPer Uscire                            : s\nScelta:");
+        scanf("%s",scelta);
+		if( (scelta[0]!='I') && (scelta[0]!='E') && (scelta[0]!='s')) 
+			printf("Scelta non consentita\n\n");
+		}while( (scelta[0]!='I') && (scelta[0]!='E') && (scelta[0]!='s'));    	
+     if(scelta[0]=='I') Inserisci(mapp,mem);
+     if(scelta[0]=='E') Elimina(mapp,mem);
+ }while(scelta[0]!='s');
+ return 0;
+
+}
+
+void Inserisci(unsigned char *mapp,unsigned long mem)
+{unsigned long BIni,BFine;
+ unsigned long dim=(mem/8)+1;
+ printf("Dai il Blocco Iniziale della memoria occupata dal Processo:");scanf("%d",&BIni);
+ printf("Dai il Blocco Finale della memoria occupata dal Processo:");scanf("%d",&BFine);
+ if( (BFine<BIni) ||(BFine-BIni>mem) ) 
+	printf("Blocco di memoria non consentito!!!! processo non allocabile\n");
+ else
+ {   if(controllo(mapp,BIni,BFine)==0)
+		{ InserisciBit(mapp,BIni,BFine); 
+	      visualizza(mapp,mem);
+		}
+     else
+		{printf("Blocco di memoria occupato da altro processo !!!! processo non allocabile\n");
+		}
+ }
+
+}
+
+
+int controllo(unsigned char *mapp,unsigned long BIni,unsigned long BFine)
+{int inimap=BIni/8;
+ int bitini=7-(BIni%8);
+ unsigned char mask=(unsigned char)pow(2,bitini);
+ unsigned char ris=0;
+ for (int i=BIni;i<=BFine && ris==0;i++)
+	{if( (i!=BIni)&&((i%8)==0)) 
+		{inimap++;mask=128;
+		}
+	 ris=(mapp[inimap]&mask);
+	 mask= mask >> 1;
+     if(ris!=0) return 1;
+	 
+	}
+	 return 0;
+}
+void InserisciBit(unsigned char *mapp,unsigned long BIni,unsigned long BFine)
+{int inimap=BIni/8;
+ int bitini=(BIni%8);
+ int finemap=BFine/8;
+ unsigned char mask=255;
+ mask= mask >> bitini;
+ mapp[inimap]=mask;
+ for(int i=inimap+1; i<=finemap-1;i++) mapp[i]=255;
+ int bitfine=(BFine%8);
+ mask=255;
+ mask= mask << (7-bitfine);
+ mapp[finemap]=mask;
+ 
+}
+
+void Elimina(unsigned char *mapp,unsigned long mem)
+{ 
+
+}
+
+void visualizza(unsigned char *mapp,unsigned long mem)
+{int i;
+ unsigned char mask;
+ for(i=0;i<=mem/8;i++) 
+ {for(int j=0;j<7;j++) 
+	{mask=(unsigned char)pow(2,(7-j));
+	 mask = mask & mapp[i];
+	 int ris=0;
+	 if(mask!=0) ris=1;
+	 printf("%d -> %d\n",(i*8)+j,ris);
+	}
+  
+ }
+
+ 
+}

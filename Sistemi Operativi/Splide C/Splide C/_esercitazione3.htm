@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Esecitazione1</title>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<p><font size="4" face="arial">Esercizio 1</font></p>
+<p><font face="arial" size="5">Preparare un programma che dati due interi
+calcoli il MCD ed il mcm </font></p>
+<p>#include &lt;stdio.h><br>
+#include &lt;math.h><br>
+void main()<br>
+{<br>
+int  a,b;<br>
+printf("a=");scanf("%d",&amp;a);<br>
+printf("b=");scanf("%d",&amp;b);<br>
+int min = (a&lt;b) ? a : b;<br>
+int MCD;<br>
+for(int i=1;i&lt;sqrt(min);i++)<br>
+	{if( ((a%i)==0 ) &amp;&amp; ((b%i)==0) ) MCD=i;<br>
+	}<br>
+printf("MCD tra %d e %d = %d",a,b,MCD);<br>
+}
+</p>
+<p><br>
+int mcm;<br>
+int trovato=0;<br>
+for(int i=min; trovato==0;i++)<br>
+{if( ((i%a)==0 ) &amp;&amp; ((i%b)==0) )&nbsp;<br>
+{mcm=i;trovato=1;}<br>
+}<br>
+printf("mcm tra %d e %d = %d",a,b,mcm);<br>
+}</p>
+<hr>
+<p><font size="5" face="arial">Esercizio 2 </font></p>
+<p><font size="5" face="arial">Preparare un programma che dati due interi a, b positivi &lt;10&nbsp; dia in output i due interi c,d pi&ugrave; piccoli tali che c/d=a/b. </font></p>
+<p><font size="5" face="arial">Ad esempio se a=15, e b=10 allora c=3 e d=2.</font></p>
+<p align="left"> #include &lt;stdio.h&gt;<br>
+  #include &lt;math.h&gt;<br>
+  int MCD(int a,b); 
+<p align="left">void main()<br>
+  {<br>
+  int a,b;<br>
+  printf(&quot;a=&quot;);scanf(&quot;%d&quot;,&amp;a);<br>
+printf(&quot;b=&quot;);scanf(&quot;%d&quot;,&amp;b);<br>
+int c=a/MCD(a,b); int d=b/MCD(a,b); 
+<p align="left">} 
+<p>int function MCD(int a,int b){<br>
+  int ris,min = (a&lt;b) ? a : b;<br>
+  for(int i=1;i&lt;sqrt(min);i++)<br>
+  {if( ((a%i)==0 ) &amp;&amp; ((b%i)==0) ) ris=i;<br>
+  }<br>
+  return(ris);<br>
+  } </p>
+<p></p>
+<p>&nbsp;</p>
+<p><font face="arial" size="7">&nbsp; </font> </p>
+</body>
+</html>

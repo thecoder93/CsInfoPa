@@ -1,0 +1,345 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Istruzioni condizionali</title>
+</head>
+
+<body>
+<p align="center"><b><font size="7" color="#FF0000">File System in C</font></b>
+<p align="justify"><font size="6">Per accedere al file system il C fa uso di un
+particolare tipo di variabile il FILE. Si deve quindi dichiarare una variabile
+puntatore a FILE, ad esempio&nbsp;</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="488" height="96" bordercolor="#FFFF00" bgcolor="#FFFF00">
+    <tr>
+      <td width="488" height="96"><font size="5"><span style="COLOR: #008080">/
+        dichiarazione di puntatore a FILE</span><br>
+        FILE *f;</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="justify"><font size="6">Con questa istruzione si dichiara la variabile
+f come puntatore a FILE.</font></p>
+<p align="justify"><font size="6">Le funzione per agire su di un file sono:</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="470" height="46">
+    <tr>
+      <td width="33" height="46"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></td>
+      <td width="421" height="46"><font size="7"><a href="#fopen">fopen</a></font></td>
+    </tr>
+    <tr>
+      <td width="33" height="46"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></td>
+      <td width="421" height="46"><font size="7"><a href="#getc e putc">getc e
+        putc</a></font></td>
+    </tr>
+    <tr>
+      <td width="33" height="46"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></td>
+      <td width="421" height="46"><font size="7"><a href="#fprintf e fscanf">fprintf
+        e fscanf</a></font></td>
+    </tr>
+    <tr>
+      <td width="33" height="46"><font size="7"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></font></td>
+      <td width="421" height="46"><font size="7"><a href="#fseek">fseek</a></font></td>
+    </tr>
+    <tr>
+      <td width="33" height="46"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></td>
+      <td width="421" height="46"><font size="7"><a href="#fread">fread</a></font></td>
+    </tr>
+    <tr>
+      <td width="33" height="46"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></td>
+      <td width="421" height="46"><font size="7"><a href="#fwrite">fwrite</a></font></td>
+    </tr>
+    <tr>
+      <td width="33" height="46"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></td>
+      <td width="421" height="46"><font size="7"><a href="#fclose">fclose</a></font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<hr>
+<p align="center"><font size="7" color="#FF0000"><a name="fopen"></a>fopen</font></p>
+<p align="justify"><font size="6">Per accedere ad un particolare file lo si deve
+aprire con la funzione fopen definita così:</font></p>
+<p align="justify"><font size="6" color="#FF0000">FILE *fopen( const char *filename,
+const char *mode );</font></p>
+<p align="justify"><font size="6">Questa funzione ritorna un puntatore al file
+aperto. Il valore <font color="#FF0000">NULL</font> pointer indica un errore durante l'apertura del file.</font></p>
+<p align="justify"><font size="6">La prima variabile rappresenta il nome del
+file&nbsp;</font></p>
+<p align="justify"><font size="6">la seconda la modalità di apertura del file
+che può assumere i seguenti valori:</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="399" height="33">
+    <tr>
+      <td width="86" height="33" valign="middle" align="center"><b><font color="#FF0000" size="5">&quot;r&quot;</font></b></td>
+      <td width="297" height="33">
+        <p class="indent"><font size="5">Apre i file in lettura, se il file non
+        esiste o non può essere letto <b>fopen</b> fallisce e ritorna NULL</font></td>
+    </tr>
+    <tr>
+      <td width="86" height="33" valign="middle" align="center"><b><font color="#FF0000" size="5">&quot;w&quot;</font></b>
+        <p></td>
+      <td width="297" height="33">
+        <p class="indent"><font size="5">Apre un file vuoto in scrittura, se
+        esiste il suo contenuto viene distrutto.</font></td>
+    </tr>
+    <tr>
+      <td width="86" height="33" valign="middle" align="center"><b><font color="#FF0000" size="5">&quot;a&quot;</font></b></td>
+      <td width="297" height="33"><font size="5">Apre un file in scrittura
+        iniziando a scrivere alla fine del file, se non esiste lo crea.</font></td>
+    </tr>
+    <tr>
+      <td width="86" height="33" valign="middle" align="center"><b><font color="#FF0000" size="5">&quot;r+&quot;</font></b></td>
+      <td width="297" height="33"><font size="5">Apre i file in lettura e
+        scrittura,se il file non esiste&nbsp; <b>fopen</b> fallisce e ritorna
+        NULL</font></td>
+    </tr>
+    <tr>
+      <td width="86" height="33" valign="middle" align="center"><b><font color="#FF0000" size="5">&quot;w+&quot;</font></b></td>
+      <td width="297" height="33"><font size="5">Apre un file in scrittura e
+        lettura, se esiste il suo contenuto viene distrutto.</font></td>
+    </tr>
+    <tr>
+      <td width="86" height="33" valign="middle" align="center"><b><font color="#FF0000" size="5">&quot;a+&quot;</font></b></td>
+      <td width="297" height="33"><font size="5">Apre un file in scrittura
+        iniziando a scrivere alla fine e in lettura&nbsp;</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="justify"><font size="6">&nbsp;Ad esempio</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="488" height="96" bordercolor="#FFFF00" bgcolor="#FFFF00">
+    <tr>
+      <td width="488" height="96"><font size="5"><span style="COLOR: #008080">/
+        dichiarazione di puntatore a FILE</span><br>
+        FILE *f,*g;</font>
+        <p><font size="5">f=fopen(&quot;c:\\temp\\pippo.txt&quot;,&quot;r&quot;);</font></p>
+        <p><font size="5">g=fopen(&quot;c:\\temp\\pluto.bin&quot;,&quot;w&quot;);</font></p>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<hr>
+<p align="center"><font size="7" color="#FF0000"><a name="getc e putc">getc e
+putc</a></font></p>
+<p align="justify"><font size="7">Le funzioni <font color="#FF0000">getc</font> e <font color="#FF0000">putc</font> hanno lo stesso ruolo
+delle funzioni <font color="#FF0000">getchar</font> e <font color="#FF0000">putchar</font>, solo che hanno un parametro in più che
+rappresenta il file su cui leggere o scrivere.</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="593" height="47">
+    <tr>
+      <td width="338" height="47" valign="middle" align="center"><b><font size="5">int</font></b><font size="5">
+<strong>getc</strong><font color="#ffffff"><b>(</b></font>(<b>FILE</b> <b>*</b><i>stream</i> <b>);</b></font></td>
+      <td width="239" height="47" valign="middle" align="center"><font size="5"><b>int</b>
+        <b>getchar(</b> <b>void</b> <b>);</b></font></td>
+    </tr>
+    <tr>
+      <td width="338" height="47" valign="middle" align="center"><b><font size="5">int
+        putc( int c, FILE *stream );</font></b></td>
+      <td width="239" height="47" valign="middle" align="center"><b><font size="5">int
+        putchar( int c );</font></b></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="left">&nbsp;</p>
+<hr>
+<p align="center"><font size="7" color="#FF0000"><a name="fprintf e fscanf">fprintf
+e fscanf</a></font></p>
+<p align="justify"><font size="7">Le funzioni <font color="#FF0000">fprintf</font> e <font color="#FF0000">fscanf</font>&nbsp; hanno lo
+stesso ruolo delle funzioni <font color="#FF0000">printf</font> e <font color="#FF0000">scanf</font>,solo che hanno un parametro in più
+che rappresenta il file su cui leggere o scrivere.</font></p>
+<div align="center"></div>
+<div align="center">
+  <table border="1" width="902" height="47">
+    <tr>
+      <td width="441" height="47" valign="middle" align="center">
+        <p align="center"><b>int</b> <b>fprintf(</b> <b>FILE</b> <b>*</b><i>stream</i><b>,</b>
+        <b>const</b> <b>char</b> <b>*</b><i>format</i> [, <i>argument</i> ]...<b>);</b></td>
+      <td width="445" height="47" valign="middle" align="center"><b>int</b> <b>printf(</b>
+        <b>const</b> <b>char</b> <b>*</b><i>format</i> [, <i>argument</i> ]...<b>);</b></td>
+    </tr>
+    <tr>
+      <td width="441" height="47" valign="middle" align="center">
+        <p align="center"><b>int</b> <b>fscanf(</b> <b>FILE</b> <b>*</b><i>stream</i><b>,</b>
+        <b>const</b> <b>char</b> <b>*</b><i>format</i> [, <i>argument</i> ]...<b>);</b></td>
+      <td width="445" height="47" valign="middle" align="center"><b>int</b> <b>scanf(</b>
+        <b>const</b> <b>char</b> <b>*</b><i>format</i> [, <i>argument</i> ]...<b>);</b></td>
+    </tr>
+  </table>
+</div>
+<p align="center">&nbsp;</p>
+<hr>
+<p align="center"><font size="7" color="#FF0000"><a name="fseek"></a>fseek</font></p>
+<p align="justify"><font size="6">Per muoversi all'interno di un 
+file si usa la funzione <font color="#FF0000">fseek</font> definita così:</font></p>
+<p align="justify"><font size="6" color="#FF0000">int fseek( FILE *stream, long
+offset, int origin );</font></p>
+<p align="justify"><font size="6">Questa funzione ritorna 0 se&nbsp; <b><font color="#FF0000">fseek</font></b>
+ha avuto successo ,viceversa ritorna un valore nonzero .</font></p>
+<p align="justify"><font size="6">La prima variabile rappresenta il puntatore a
+FILE ritornato da un fopen.&nbsp;</font></p>
+<p align="justify"><font size="6">la seconda di quanti byte ci si deve muovere</font></p>
+<p align="justify"><font size="6">la terza da dove iniziare a muoversi , essa
+può assumere i seguenti valori:</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="554" height="50">
+    <tr>
+      <td width="171" height="50"><b><font color="#FF0000" size="6">SEEK_CUR</font></b></td>
+      <td width="367" height="50"><div align="justify"><font size="6">Ci si </font><font size="6">inizia
+        a muovere dalla posizione corrente</font></div></td>
+    </tr>
+    <tr>
+      <td width="171" height="50"><b><font color="#FF0000" size="6">SEEK_END</font></b></td>
+      <td width="367" height="50"><font size="6">Ci si </font><font size="6">inizia
+        a muovere dalla fine</font><font size="6"> del File</font></td>
+    </tr>
+    <tr>
+      <td width="171" height="50"><b><font color="#FF0000" size="6">SEEK_SET</font></b></td>
+      <td width="367" height="50"><font size="6">Ci si </font><font size="6">inizia
+        a muovere dalla </font><font size="6">l'inizio del File</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<hr>
+<p align="center"><font size="7" color="#FF0000"><a name="fread"></a>fread</font></p>
+<p align="justify"><font size="6">Per leggere dei dati binari da  file si
+usa la funzione <font color="#FF0000">fread</font> definita così:</font></p>
+<p align="justify"><font color="#FF0000" size="5"><b>size_t</b> <b>fread(</b> <b>void</b>
+<b>*</b><i>buffer</i><b>,</b> <b>size_t</b> <i>size</i><b>,</b> <b>size_t</b> <i>count</i><b>,</b>
+<b>FILE</b> <b>*</b><i>stream</i> <b>);</b></font></p>
+<p align="left"><font size="6">Questa funzione ritorna il numero di byte
+effettivamente letti.</font></p>
+<p align="left"><font size="6">La prima variabile </font><font color="#FF0000" size="5"><b>void</b>
+<b>*</b><i>buffer </i></font><font size="6">rappresenta il puntatore ad un
+buffer dove immagazzinare i byte letti.</font></p>
+<p align="left"><font size="6">La seconda variabile </font><font color="#FF0000" size="5"><b>size_t</b>
+<i>size </i></font><font size="6">rappresenta il numero di byte degli elementi
+da leggere.</font></p>
+<p align="left"><font size="6">La terza variabile </font><font color="#FF0000" size="5"><b>size_t</b>
+<i>count </i></font><font size="6">rappresenta il numero massimo di elementi
+da&nbsp; leggere.</font></p>
+<p align="left"><font size="6">La quarta variabile </font><font color="#FF0000" size="5"><b>FILE</b>
+<b>*</b><i>stream</i>&nbsp;</font><font color="#FF0000" size="5"><i> </i></font><font size="6">rappresenta
+il puntatore a FILE ritornato da un fopen.</font></p>
+<hr>
+<p align="center"><font size="7" color="#FF0000"><a name="fwrite">fwrite</a></font></p>
+<p align="justify"><font size="6">Per scrivere all'interno di un particolare
+file si usa la funzione <font color="#FF0000">fwrite</font> definita così:</font></p>
+<p align="justify"><font color="#FF0000" size="5"><b>size_t</b> <b>fwrite(</b> <b>void</b>
+<b>*</b><i>buffer</i><b>,</b> <b>size_t</b> <i>size</i><b>,</b> <b>size_t</b> <i>count</i><b>,</b>
+<b>FILE</b> <b>*</b><i>stream</i> <b>);</b></font></p>
+<p align="left"><font size="6">Questa funzione ritorna il numero di byte
+effettivamente scritti.</font></p>
+<p align="justify"><font size="6">La prima variabile </font><font color="#FF0000" size="5"><b>void</b>
+<b>*</b><i>buffer </i></font><font size="6">rappresenta il puntatore ad un
+buffer dove sono immagazzinati i byte da scrivere.</font></p>
+<p align="left"><font size="6">La seconda variabile </font><font color="#FF0000" size="5"><b>size_t</b>
+<i>size </i></font><font size="6">rappresenta il numero di byte degli elementi
+da scrivere.</font></p>
+<p align="left"><font size="6">La terza variabile </font><font color="#FF0000" size="5"><b>size_t</b>
+<i>count </i></font><font size="6">rappresenta il numero massimo di elementi
+da&nbsp; scrivere.</font></p>
+<p align="left"><font size="6">La quarta variabile </font><font color="#FF0000" size="5"><b>FILE</b>
+<b>*</b><i>stream</i>&nbsp;<i> </i></font><font size="6">rappresenta il
+puntatore a FILE ritornato da un fopen.</font></p>
+<hr>
+<p align="center"><font size="7" color="#FF0000"><a name="fclose">fclose</a></font></p>
+<p align="left"><font size="6">La funzione fclose chiude il file ed ha la
+seguente sintassi</font><font size="7">:</font></p>
+<p align="left"><b><font color="#FF0000" size="5">int</font></b><font color="#FF0000" size="5">
+<b>fclose(</b> <b>FILE</b> <b>*</b><i>stream</i> <b>);</b></font></p>
+<p align="left"><font size="6">Questa funzione ritorna 0 se ha avuto successo</font></p>
+<hr>
+<p align="left">&nbsp;</p>
+<p align="left"><font size="6">Esempio:&nbsp;&nbsp;</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="774" height="247" bordercolor="#FFFF00" bgcolor="#FFFF00">
+    <tr>
+      <td width="764" height="247"><code><font size="4"><font color="#008000">/*Questo
+        programma opre un file chiamato FREAD.OUT e scrive gli untili 25 carateri dell'afabeto nel file.
+        Quindi lo apre FREAD.OUT e li legge 25 . */</font><br>
+        <font color="#0000FF">#include</font> &lt;stdio.h&gt;&nbsp;<br>
+        <font color="#0000FF">void</font> main( <font color="#0000FF">void</font>
+        )<br>
+        {FILE *stream;&nbsp;<br>
+        &nbsp;<font color="#0000FF">char</font> list[30];&nbsp;<br>
+        &nbsp;<font color="#0000FF">int</font> i, numread, numwritten;&nbsp;<br>
+        &nbsp;<font color="#0000FF">if</font>( (stream = fopen( &quot;fread.out&quot;,
+        &quot;w+&quot; )) != NULL )&nbsp;<br>
+        &nbsp; { <font color="#0000FF">for</font> ( i = 0; i &lt; 25; i++ )
+        list[i] = (<font color="#0000FF">char</font>)('z' - i);<br>
+        &nbsp;&nbsp;&nbsp; numwritten = fwrite( list, <font color="#0000FF">sizeof</font>(
+        <font color="#0000FF">char</font> ), 25, stream );<br>
+        &nbsp;&nbsp;&nbsp; printf( &quot;Wrote %d items\n&quot;, numwritten );<br>
+        &nbsp;&nbsp;&nbsp; fclose( stream );&nbsp;<br>
+        &nbsp; }&nbsp;<br>
+        &nbsp;else printf( &quot;Problem opening the file\n&quot; );<br>
+        &nbsp;if( (stream = fopen( &quot;fread.out&quot;, &quot;r+&quot; )) !=
+        NULL )&nbsp;<br>
+        &nbsp; { numread = fread( list, <font color="#0000FF">sizeof</font>( <font color="#0000FF">char</font>
+        ), 25, stream );<br>
+        &nbsp;&nbsp;&nbsp; printf( &quot;Number of items read = %d\n&quot;,
+        numread );&nbsp;<br>
+        &nbsp;&nbsp;&nbsp; printf( &quot;Contents of buffer = %.25s\n&quot;,
+        list );&nbsp;<br>
+        &nbsp;&nbsp; fclose( stream );&nbsp;<br>
+        &nbsp; }&nbsp;<br>
+        &nbsp;else printf( &quot;File could not be opened\n&quot; );&nbsp;<br>
+        }</font></code></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<hr>
+<p align="left"><font size="6">Con <font color="#FF0000">fread</font> e <font color="#FF0000">fwrite</font> e possibile leggere file
+formattati, ad esempio se il file &quot;biblio.dat&quot; ha una formazione del
+genere:</font></p>
+<p align="left"><font size="5">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;char titolo[100];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char autore[50];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int anno_pubblicazione;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float prezzo;</font>
+</p>
+<p align="left"><font size="5">Ecco come si può leggere i primi 10 elementi dal
+file</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="646" height="247" bordercolor="#FFFF00" bgcolor="#FFFF00">
+    <tr>
+      <td width="646" height="247"><code><font size="4"><font color="#008000">/
+        dichiarazione della struct</font><br>
+        typedef struct libro<br>
+        &nbsp;&nbsp;&nbsp;{<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char titolo[100];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char autore[50];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int anno_pubblicazione;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float prezzo;<br>
+        &nbsp;&nbsp;&nbsp;}t_libro;<br>
+        FILE *f;<br>
+        t_libro mylibri[10];<br>
+        if( (f = fopen( &quot;biblio.dat&quot;, &quot;r&quot; )) != NULL ) <br>
+        &nbsp;fread((void *)mylibri,sixeof(libro),10,f);<br>
+        else print(&quot;errore apertura file&quot;);</font></code></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="left">&nbsp;</p>
+
+</body>
+
+</html>

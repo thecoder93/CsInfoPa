@@ -1,0 +1,99 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Mutex</title>
+</head>
+
+<body>
+<p align="center"><b><font color="#FF0000" size="7"><span style="font-family: Tahoma; text-shadow: auto; mso-color-index: 3">Critical 
+  Section </span></font></b></p>
+<p align="justify"><font size="6">Una <b><font color="#FF0000" >critical section</font></b> 
+  un oggetto per la sincronizzazione del tutto simile ai mutex ad eccezione del 
+  fatto che gli oggetto CS possono essere utilizzati solo ed esclusivamente dai 
+  trheads di un unico processo. Come i Mutex un oggetto CS pu&ograve; appartenere 
+  solo ad un thread alla volta.Un processo alloca la memoria utilizzata da una 
+  CS dichiarando delle variabili di tipo</font> <font size="6">CRITICAL_SECTION. 
+  Prima di utilizzare le variabili esse devono essere inizializzate con la funzione 
+  <font color="#FF0000">InitializeCriticalSection</font>.</font></p>
+<p align="justify"><font size="6">Un thread usa la fuzione <font color="#FF0000">EnterCriticalSection</font> 
+  per richiedere la propriet&agrave; esclusiva della critical section, e la funzione 
+  <font color="#FF0000">LeaveCriticalSection</font> per rilasciarla. Se la critical 
+  section &egrave; posseduta da un'altro thread, EnterCriticalSection aspetta 
+  indefinitamente il rilascio della CS, quindi si deve stre attenti a possibili 
+  DeadLock. </font></p>
+<dl>
+  <div align="center"> 
+    <center>
+      <hr>
+      <p align="left"><font size="6">Nel seguente esempio due thread accedono 
+        a due Critical Secton causando un DeadLock.</font></p>
+    </center>
+  </div>
+</dl>
+<table border="1" width="952" height="55" bgcolor="#FFFF00">
+  <tr> 
+    <td width="952" height="55"> <font size="+3">#include &lt;windows.h&gt;<br>
+  #include &lt;stdio.h&gt;<br>
+  #include &lt;conio.h&gt;<br>
+  #include &lt;ctype.h&gt; 
+      </font>      <p><font size="+3"><br>
+        CRITICAL_SECTION cs1,cs2;</font></p>      <p><font size="+3">long WINAPI ThreadF1(long);<br>
+        long WINAPI ThreadF2(long);</font></p>      <p><font size="+3">main()<br>
+        {InitializeCriticalSection(&amp;cs1);<br>
+        InitializeCriticalSection(&amp;cs2);<br>
+        DWORD iThreadID1,iThreadID2;<br>
+        HANDLE thread1,thread2;<br>
+        thread1=CreateThread(NULL,0,(LPTHREAD_START_ROUTINE)ThreadF1, NULL,0,&amp;iThreadID1);<br>
+        thread2=CreateThread(NULL,0,(LPTHREAD_START_ROUTINE)ThreadF2, NULL,0,&amp;iThreadID2);<br>
+        getchar();<br>
+        TerminateThread(thread1,0);<br>
+        TerminateThread(thread2,0);<br>
+        <br>
+        }</font></p>      <p><font size="+3">long WINAPI ThreadF1(long lParam)<br>
+        {</font></p>      <p><font size="+3">while(TRUE)<br>
+        {EnterCriticalSection(&amp;cs1);<br>
+        printf(&quot;\nThread1 has entered Critical Section 1 but not 2.&quot;);<br>
+        EnterCriticalSection(&amp;cs2);<br>
+        printf(&quot;\nThread1 has entered Critical Section 1 and 2!&quot;);<br>
+        LeaveCriticalSection(&amp;cs2);<br>
+        printf(&quot;\nThread1 has left Critical Section 2 but still owns 1.&quot;);<br>
+        LeaveCriticalSection(&amp;cs1);<br>
+        printf(&quot;\nThread1 has left both critical sections...&quot;);<br>
+        Sleep(50);<br>
+        } </font></p>      <p><font size="+3">return(0);<br>
+        }</font></p>      <p><font size="+3">long WINAPI ThreadF2(long lParam)<br>
+        {<br>
+        while(TRUE)<br>
+        {EnterCriticalSection(&amp;cs2);<br>
+        printf(&quot;\nThread2 has entered Critical Section 2 but not 1.&quot;);<br>
+        EnterCriticalSection(&amp;cs1);<br>
+        printf(&quot;\nThread2 has entered Critical Section 2 and 1!&quot;);<br>
+        LeaveCriticalSection(&amp;cs1);<br>
+        printf(&quot;\nThread2 has left Critical Section 1 but still owns 2.&quot;);<br>
+        LeaveCriticalSection(&amp;cs2);<br>
+        printf(&quot;\nThread2 has left both critical sections...&quot;);<br>
+        Sleep(50);<br>
+        }<br>
+        return(0);<br>
+    }</font></p>      <p></p></td>
+  </tr>
+</table>
+<p align="left">&nbsp;</p>
+<p align="left">&nbsp;</p>
+<p align="left">&nbsp;</p>
+<dl>
+  <div align="center">
+    <center>
+    <dt>&nbsp;</dt>
+    </center>
+  </div>
+  <dd>
+    <p align="left"></dd>
+</dl>
+
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Istruzioni condizionali</title>
+</head>
+
+<body>
+<p align="center"><b><font size="7" color="#FF0000">Strutture</font></b>
+<p align="justify"><font size="7" color="#FF0000"><br>
+</font><font size="6">Le strutture del C sono simili ai <b>record</b> del Pascal
+e sostanzialmente permettono un'aggregazione di variabili.</font></p>
+<p align="justify"><font size="6">Per denotare una struttura si usa la parola
+chiave <b>struct</b> seguita dal nome identificativo della struttura, che è
+opzionale. Nell'esempio sottostante si definisce una struttura &quot;libro&quot;
+e si crea un'istanza di essa chiamata &quot;biblio&quot;:</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="488" height="247" bordercolor="#FFFF00" bgcolor="#FFFF00">
+    <tr>
+      <td width="488" height="247"><font size="5"><span style="COLOR: #008080">/
+        dichiarazione della struct</span><br>
+        struct libro<br>
+        &nbsp;&nbsp;&nbsp;{<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char titolo[100];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char autore[50];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int anno_pubblicazione;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float prezzo;<br>
+        &nbsp;&nbsp;&nbsp;};<br>
+        <br>
+        <span style="COLOR: #008080">//dichiarazione dell'istanza biblio</span><br>
+        struct libro biblio;</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p class="codice">&nbsp;</p>
+<font size="6">La variabile &quot;biblio&quot; può essere dichiarata anche
+mettendo il nome stesso dopo la parentesi graffa:</font>
+<div align="center">
+  <center>
+  <table border="1" width="488" height="247" bordercolor="#FFFF00" bgcolor="#FFFF00">
+    <tr>
+      <td width="488" height="247"><font size="5"><span style="COLOR: #008080">/
+        dichiarazione della struct</span><br>
+        struct libro<br>
+        &nbsp;&nbsp;&nbsp;{<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char titolo[100];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char autore[50];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int anno_pubblicazione;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float prezzo;<br>
+        &nbsp;&nbsp;&nbsp;}biblio;<br>
+        </font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+<p class="codice"><font size="6">mentre è possibile pre-inizializzare i valori,
+alla dichiarazione, mettendo i valori (giusti nel tipo) compresi tra parentesi
+graffe:</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="678" height="55" bgcolor="#FFFF00">
+    <tr>
+      <td width="678" height="55"><font size="5">struct libro biblio =
+        {&quot;Guida al C&quot;, &quot;Fabrizio Ciacchi&quot;, 2003, 45.2};</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p class="codice">&nbsp;</p>
+<font size="6">Per accedere alle variabili interne della struttura si usa
+l'operatore &quot;<font color="#00FF00">.</font>&quot;; una volta che si può accedere ad una variabile
+interna questa può essere trattata e/o manipolata come qualsiasi altra
+variabile:</font>
+<div align="center">
+  <center>
+  <table border="1" width="678" height="55" bgcolor="#FFFF00">
+    <tr>
+      <td width="678" height="55"><font size="5"><span style="COLOR: #008080">/
+        assegna un valore al prezzo del libro</span><br>
+        biblio.prezzo = 67.32;<br>
+        <br>
+        <span style="COLOR: #008080">// assegna ad una variabile int l'anno di
+        pubblicazione del libro</span><br>
+        int anno = biblio.anno_pubblicazione;<br>
+        <br>
+        <span style="COLOR: #008080">// stampa il titolo del libro</span><br>
+        printf (&quot;%s \n&quot;, biblio.titolo);</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<hr>
+<p align="center"><font size="6"><b><font color="#FF0000">Nuovi tipi di dato</font></b></font>
+<p align="left"><font size="6"><br>
+Per definire nuovi tipi di dato viene utilizzata la funzione <b>typedef</b>. Con
+typedef e l'uso di struct è possibile creare tipi di dato molto complessi, come
+mostrato nell'esempio seguente:</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="646" height="247" bordercolor="#FFFF00" bgcolor="#FFFF00">
+    <tr>
+      <td width="646" height="247"><font size="5"><span style="COLOR: #008080">/
+        dichiarazione della struct</span><br>
+        typedef struct libro<br>
+        &nbsp;&nbsp;&nbsp;{<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char titolo[100];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char autore[50];<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int anno_pubblicazione;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float prezzo;<br>
+        &nbsp;&nbsp;&nbsp;}t_libro;</font>
+        <p><font size="5"><br>
+        t_libro guida={&quot;Guida al C&quot;, &quot;Fabrizio Ciacchi&quot;,
+        2003, 45.2};</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="left">&nbsp;</p>
+<font size="6">In questo modo abbiamo definito un nuovo tipo di nome &quot;t_libro&quot;,
+che non è altro che una struttura; &quot;guida&quot; è la variabile creata di
+tipo &quot;t_libro&quot;; come per ogni altro tipo di dato, anche con &quot;t_libro&quot;
+si possono creare degli array:</font>
+<p class="codice" align="center"><font color="#FF0000" size="6">t_libro
+raccolta[5000];</font></p>
+<font size="6">e, per accedervi, o per inizializzare i valori, è sufficiente
+utilizzare l'indice per identificare l'elemento dell'array ed il punto (.) per
+accedere alle variabili interne del tipo &quot;t_libro&quot;;</font>
+<p class="codice" align="center"><font size="6" color="#0000FF">// assegna un
+valore al prezzo del 341<sup>o</sup> libro<br>
+</font><font size="6" color="#FF0000">raccolta[340].prezzo = 67.32;<br>
+<br>
+</font><font size="6" color="#0000FF">// assegna ad una variabile int l'anno di
+pubblicazione del 659<sup>o</sup> libro<br>
+</font><font size="6" color="#FF0000">int anno = raccolta[658].anno_pubblicazione;<br>
+<br>
+</font><font size="6" color="#0000FF">// stampa il titolo del 23<sup>o</sup>
+libro<br>
+</font><font size="6" color="#FF0000">printf (&quot;%s \n&quot;,
+raccolta[22].titolo);</font><font size="6"><br>
+</font></p>
+<p align="center"></p>
+
+</body>
+
+</html>

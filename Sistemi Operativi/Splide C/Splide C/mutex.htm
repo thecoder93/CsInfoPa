@@ -1,0 +1,275 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Mutex</title>
+</head>
+
+<body>
+
+<p align="center"><b><font color="#FF0000" size="7"><span style="font-family: Tahoma; text-shadow: auto; mso-color-index: 3">Mutex</span></font></b></p>
+<p align="justify"><font size="6">Per proteggere strutture di
+dati condivise, come code e/o liste in memoria condivisa, dal danneggiamento
+dovuto ad accessi concorrenti si usa l’oggetto <font color="#FF0000">Mutex</font>, che è un flag che
+coordina l’esecuzione di operazioni mutualmente esclusive.</font></p>
+<p align="justify"><font size="6">Solo un <font color="#FF0000">thread</font> può detenere un <font color="#FF0000">Mutex</font>, gli altri
+thread vengono sospesi su una <font color="#FF0000">Wait</font> fino a che il <font color="#FF0000">Mutex</font> non viene rilasciato.</font></p>
+
+<p align="left">&nbsp;</p>
+<p align="left"><font size="6">Le funzioni per creare e gestire un oggetto mutex
+sono:</font></p>
+<blockquote>
+  <p align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <font size="6" color="#FF0000">CreateMutex</font></p>
+  <p align="left"><font size="6" color="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  OpenMutex</font></p>
+  <p align="left"><font size="6" color="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  ReleaseMutex</font></p>
+  <hr>
+  <p align="center"><font size="6" color="#FF0000">CreateMutex</font></p>
+</blockquote>
+<p:colorscheme
+ colors="#3399FF,#FFFFFF,#777777,#ECBF00,#00CC99,#3333CC,#9966FF,#FF7C80"/>
+<pre><code><b><font size="5" color="#FF0000">HANDLE CreateMutex(
+  LPSECURITY_ATTRIBUTES</font></b><font color="#FF0000"><font size="5"><i> lpMutexAttributes</i><b>,</b>
+<b>                       </b>// pointer to security attributes
+<b>  BOOL</b><i> bInitialOwner</i><b>,  </b>// flag for initial ownership
+<b>  LPCTSTR</b><i> lpName</i>       // pointer to mutex-object name
+<b>);</b></font>
+ </font></code></pre>
+<p align="left"><font size="6">Crea un nuovo oggetto Mutex i parametri sono:</font></p>
+<dl>
+  <dd>
+    <p align="left"><font color="#0000FF" size="6"><b>lpMutexAttributes</b></font></dd>
+  <dd>
+    <p align="left"><font size="6">Puntatore ad una struttura di tipo&nbsp; <font color="#0000FF">SECURITY_ATTRIBUTES </font>che determina&nbsp; se l'handle restituito può essere passato ad un
+    processo figlio,se è NULL, l'handle non può essere passato
+    ad un processo figlio.</font>
+  <dd>
+    <p align="left"><font color="#0000FF" size="6"><b>bInitialOwner</b></font></dd>
+  <dd>
+    <p align="left"><font size="6">Specifica il proprietario iniziale
+    dell'oggetto mutex. Se questo valore è <font color="#FF0000">true</font>&nbsp; il thread chiamante
+    ottiene la proprietà del mutex. Altrimenti&nbsp; per ottenere la proprietà
+    del mutex bisognerà effettuare una chiamata alla funzione <font color="#FF0000">ReleaseMutex</font> .</font>
+  <dd>
+    <p align="left"><font color="#0000FF" size="6"><b>lpName</b></font></dd>
+  <dd>
+    <p align="left"><font size="6">Il nome del mutex</font></dd>
+</dl>
+<hr>
+<h1 align="center"><font color="#FF0000">OpenMutex</font></h1>
+<pre><code><b><font size="5" color="#FF0000">HANDLE OpenMutex(
+  DWORD dwDesiredAccess,  // access flag
+  BOOL bInheritHandle,    // inherit flag
+  LPCTSTR lpName          // pointer to mutex-object name
+);
+ </font></b></code></pre>
+<p align="left"><font size="6">la funzione <font color="#FF0000">OpenMutex</font> ritorna un&nbsp; handle ad
+un oggetto mutex esistente, i parametri sono:</font></p>
+<p align="left"><font color="#0000FF" size="6"><b>dwDesiredAccess</b></font></p>
+<dl>
+  <dd>
+    <p align="left"><font size="6">Specifica l'accesso richiesto per l'oggetto
+    mutex è può essere una combinazione dei seguenti valori</font>
+    <table cellSpacing="4" cols="2">
+      <tbody>
+        <tr vAlign="top">
+          <th align="left" width="38%">
+            <p align="left"><font size="6">Access</font></p>
+          </th>
+          <th align="left" width="62%">
+            <p align="left"><font size="6">Descri</font><font size="6">zione</font></p>
+          </th>
+        </tr>
+        <tr vAlign="top">
+          <td width="38%">
+            <p align="left"><font color="#FF0000" size="6">MUTEX_ALL_ACCESS</font></p>
+          </td>
+          <td width="62%">
+            <p align="left"><font size="6">tutti i flag</font></p>
+          </td>
+        </tr>
+        <tr vAlign="top">
+          <td width="38%">
+            <p align="left"><font color="#FF0000" size="6">SYNCHRONIZE</font></p>
+          </td>
+          <td width="62%">
+            <p align="left"><font size="6">Windows NT: abilita l'uso del mutex
+            in una delle&nbsp; <a href="javascript:if(confirm('http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/gestprowin/sincroniz.htm  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/gestprowin/sincroniz.htm'" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/gestprowin/gestprowin/sincroniz.htm">funzioni di wait </a> per
+            acquisire&nbsp; il&nbsp; mutex, o la funzione <font color="#0000FF">ReleaseMutex</font>
+            per rilasciarlo.</font></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p align="left">
+  <dd>
+    <p align="left"><font color="#FF0000" size="6"><b>bInheritHandle</b></font></dd>
+  <dd>
+    <p align="left"><font size="6">Specifica&nbsp;</font>
+<font size="6">se l'handle restituito può essere passato ad
+    un processo figlio.</font>
+    <p align="left"><font size="6">se è NULL, l'handle non può essere passato
+    ad un processo figlio.</font></p>
+  <dd>
+    <p align="left"><font color="#FF0000" size="6"><b>lpName</b></font></dd>
+  <dd>
+    <p align="left"><font size="6">Il nome del mutex</font></dd>
+  <dd>
+    <hr>
+    <p align="center"><font size="6" color="#FF0000">ReleaseMutex</font></dd>
+</dl>
+<pre><code><font color="#FF0000"><font size="5"><b>BOOL ReleaseMutex(
+  HANDLE</b><i> hMutex</i>   // handle to mutex object
+<b>);</b>
+</font></font></code></pre>
+<p align="left"><font size="6">rilascia il mutex&nbsp;</font></p>
+<hr>
+<p align="left"><font size="6">Esempio i due processi somma e sottrai si
+contendono la risorsa <font color="#FF0000">num</font></font></p>
+<table border="1" width="1266" height="55" bgcolor="#FFFF00">
+  <tr>
+    <td width="1256" height="55"> <p align="left"><font color="#0000FF" size="5">#include &lt;stdio.h&gt;<br>
+        #include &lt;time.h&gt;<br>
+        #include &lt;windows.h&gt;<br>
+        #include &lt;conio.h&gt;<br>
+        #include &lt;ctype.h&gt;<br>
+        #define GetRandom( min, max ) ((rand() % (int)(((max) + 1) - (min))) + 
+        (min))</font>
+      <p><font color="#0000FF" size="5">DWORD finito (LPDWORD lpdwParam) <br>
+        {int *fine;<br>
+&nbsp;fine=(int *) lpdwParam;<br>
+&nbsp;        _getch();<br>
+&nbsp;
+        *fine=1;<br>
+&nbsp;return 0;<br>
+        }</font></p>
+      <p><font color="#0000FF" size="5">DWORD Somma (LPDWORD lpdwParam) <br>
+        {int *num,fine=0;<br>
+&nbsp;        num=(int *)lpdwParam;<br>
+&nbsp;
+        HANDLE hMutex;<br>
+&nbsp; hMutex=OpenMutex(EVENT_MODIFY_STATE|SYNCHRONIZE, FALSE,&quot;SommaMutex&quot;);<br>
+&nbsp;        printf (&quot;Somma start\n&quot;);<br>
+&nbsp;        while(fine==0) <br>
+&nbsp;        {WaitForSingleObject(hMutex,INFINITE);<br>
+&nbsp;</font><font color="#0000FF" size="5"> &nbsp;&nbsp;num[0]+=num[1];
+printf (&quot;Somma %d \n&quot;,num[0]);<br>
+&nbsp;</font><font color="#0000FF" size="5"> &nbsp;&nbsp;</font><font color="#0000FF" size="5">ReleaseMutex(hMutex);<br>
+&nbsp;</font><font color="#0000FF" size="5"> &nbsp;&nbsp;</font><font color="#0000FF" size="5"> Sleep(10);<br>
+&nbsp;</font><font color="#0000FF" size="5"> &nbsp;</font><font color="#0000FF" size="5">}return 0;<br>
+}<br>
+/////////////////////////////////////////<br>
+</font><font color="#0000FF" size="5">DWORD Prodotto (LPDWORD lpdwParam) <br>
+{int *num,fine=0;<br>
+&nbsp;</font><font color="#0000FF" size="5"> </font><font color="#0000FF" size="5">num=(int *)lpdwParam;<br>
+&nbsp;</font><font color="#0000FF" size="5"> HANDLE hMutex;<br>
+&nbsp;</font><font color="#0000FF" size="5"> </font><font color="#0000FF" size="5"> hMutex=OpenMutex(EVENT_MODIFY_STATE|SYNCHRONIZE, FALSE,&quot;ProdottoMutex&quot;);<br>
+&nbsp;</font><font color="#0000FF" size="5"> </font><font color="#0000FF" size="5">printf (&quot;Prodotto start\n&quot;);<br>
+&nbsp;</font><font color="#0000FF" size="5"> </font><font color="#0000FF" size="5"> while(fine==0)<br>
+&nbsp;</font><font color="#0000FF" size="5"> </font><font color="#0000FF" size="5">{WaitForSingleObject(hMutex,INFINITE);<br>
+&nbsp;</font><font color="#0000FF" size="5"> &nbsp;&nbsp; </font><font color="#0000FF" size="5"> num[0]*=num[2];<br>
+&nbsp;</font><font color="#0000FF" size="5"> &nbsp;&nbsp;</font><font color="#0000FF" size="5"> printf (&quot;Prodotto %d \n&quot;,num[0]);<br>
+&nbsp;</font><font color="#0000FF" size="5"> &nbsp;&nbsp;</font><font color="#0000FF" size="5"> ReleaseMutex(hMutex);<br>
+&nbsp;</font><font color="#0000FF" size="5"> &nbsp;&nbsp;</font><font color="#0000FF" size="5"> Sleep(10);<br>
+&nbsp;</font><font color="#0000FF" size="5"> &nbsp;</font><font color="#0000FF" size="5">}
+return 0;<br>
+}</font></p>
+      <p><font color="#0000FF" size="5">/////////////////////////////////////////<br>
+        void main () <br>
+        {int i,fine=0;<br>
+&nbsp; int numeri[3];<br>
+&nbsp; HANDLE hMutexsomma,hMutexprodotto, hThreads[2],hfineThreads;<br>
+&nbsp; DWORD dwThreadId0,dwThreadId1, dwThreadId2;<br>
+&nbsp;
+        hMutexsomma=CreateMutex(NULL,TRUE,&quot;SommaMutex&quot;);<br>
+&nbsp;
+        hMutexprodotto=CreateMutex(NULL,TRUE,&quot;ProdottoMutex&quot;);<br>
+&nbsp;
+        if ( (hMutexsomma==NULL) || (hMutexprodotto==NULL) )&nbsp;
+        fprintf(stderr,&quot;Errore CreateMutex\n&quot;);<br>
+&nbsp; else<br>
+&nbsp;
+        {hfineThreads=CreateThread(NULL,0,(LPTHREAD_START_ROUTINE) finito, (LPVOID) 
+    &amp;fine,0, &amp;dwThreadId0);<br>
+&nbsp;&nbsp;&nbsp;
+        if (hfineThreads==NULL)
+        fprintf(stderr,&quot;Errore CreateThread finito error\n&quot;);<br>
+&nbsp;&nbsp; else<br>
+&nbsp;&nbsp;&nbsp;
+        {hThreads[0]=CreateThread(NULL,0,(LPTHREAD_START_ROUTINE) Somma, (LPVOID)<br>
+&nbsp;</font><font color="#0000FF" size="5"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#0000FF" size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#0000FF" size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#0000FF" size="5">&nbsp;</font><font color="#0000FF" size="5">numeri,CREATE_SUSPENDED, &amp;dwThreadId1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        if (hThreads[0]==NULL)&nbsp;
+        fprintf(stderr,&quot;Errore CreateThread Somma error\n&quot;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        {hThreads[1]=CreateThread(NULL,0,(LPTHREAD_START_ROUTINE) Prodotto, (LPVOID) 
+        numeri, CREATE_SUSPENDED, &amp;dwThreadId2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        if (hThreads[1]==NULL)
+        fprintf(stderr,&quot;Errore CreateThread Prodotto error\n&quot;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {i=1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; while(fine==0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {srand( (unsigned)time( NULL ) );<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        WaitForSingleObject(hMutexsomma,INFINITE); /* aspetta che il mutexsomma 
+        sia libero
+        inizialmente il mutex &egrave; libero*/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        WaitForSingleObject(hMutexprodotto,INFINITE); /* aspetta che il mutexprodotto 
+        sia libero
+        inizialmente il mutex &egrave; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#0000FF" size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#0000FF" size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#0000FF" size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#0000FF" size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#0000FF" size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#0000FF" size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#0000FF" size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#0000FF" size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#0000FF" size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#0000FF" size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#0000FF" size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#0000FF" size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#0000FF" size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#0000FF" size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#0000FF" size="5"></font><font color="#0000FF" size="5">libero*/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; numeri[0]=GetRandom( 1, 100 );<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        printf(&quot;primo numero della terna Numero %d e':%d\n&quot;,i,numeri[0]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; numeri[1]=GetRandom( 1, 100 );<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        printf(&quot;secondo numero della terna Numero %d e':%d\n&quot;,i,numeri[1]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; numeri[2]=GetRandom( 1, 100 );<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        printf(&quot;terzo numero della terna Numero %d e':%d\n&quot;,i++,numeri[2]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ResumeThread( hThreads[0]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ReleaseMutex(hMutexsomma);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sleep(5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WaitForSingleObject(hMutexsomma,INFINITE); /* aspetta che il mutexsomma 
+          sia libero*/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SuspendThread( hThreads[0]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ReleaseMutex(hMutexprodotto);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ResumeThread( hThreads[1]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sleep(5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WaitForSingleObject(hMutexprodotto,INFINITE); /* aspetta che il mutexsomma 
+          sia libero*/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SuspendThread( hThreads[1]);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ReleaseMutex(hMutexsomma);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TerminateThread(hThreads[0],0); <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TerminateThread(hThreads[0],1);</font></p>      <p><font color="#0000FF" size="5"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+        &nbsp;&nbsp;&nbsp;
+        }<br>
+        &nbsp;
+        }<br>
+        &nbsp;}<br>
+    }</font></p>	</td>
+  </tr>
+</table>
+<p align="left">&nbsp;</p>
+<p align="left">&nbsp;</p>
+<p align="left">&nbsp;</p>
+<dl>
+  <div align="center">
+    <center>
+    <dt>&nbsp;</dt>
+    </center>
+  </div>
+  <dd>
+    <p align="left"></dd>
+</dl>
+
+</body>
+
+</html>

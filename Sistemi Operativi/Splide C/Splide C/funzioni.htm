@@ -1,0 +1,206 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Istruzioni condizionali</title>
+</head>
+
+<body>
+<p align="center"><font size="7" color="#FF0000">Funzioni&nbsp;</font></p>
+<p>&nbsp;</p>
+<p align="justify"><font face="arial" size="7">Le funzioni esistono più o meno
+in tutti i linguaggi e vengono chiamate anche <b>procedure</b> o <b>subroutine</b>.
+</font>
+<p align="justify"><font face="arial" size="7">Alcuni linguaggi fanno
+distinzione tra funzioni che ritornano un valore e quelle che, invece, non
+ritornano valori;</font></p>
+<p align="justify"><font face="arial" size="7">Il C assume che ogni parametro e
+passato per valore e che ogni funzione
+ritorni un valore, questo accade utilizzando l'istruzione <b>return</b> seguita,
+eventualmente, da un valore; se non si mette l'istruzione return, nessun
+parametro deve essere passato quando si chiama la funzione. </font></p>
+<p align="justify"><font face="arial" size="7">Ad esempio, la definizione di una
+funzione che prende un double ed un int e fa un elevamento a potenza,
+restituendo il risultato:</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="627" height="211">
+    <tr>
+      <td width="627" height="211" bgcolor="#FFFF00"><font face="arial" size="6">double
+        potenza(double valore, int potenza)<br>
+        {<br>
+        &nbsp;&nbsp;&nbsp;double valore_ritorno = 1.0;<br>
+        &nbsp;&nbsp;&nbsp;int i;<br>
+        <br>
+        &nbsp;&nbsp;&nbsp;for(i=0; i&lt;potenza; i++)<br>
+        &nbsp;&nbsp;&nbsp;{<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valore_ritorno *= valore;<br>
+        &nbsp;&nbsp;&nbsp;}<br>
+        return(valore_ritorno);<br>
+        }</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<font face="arial" size="2">&nbsp;</font>
+<p><font face="arial" size="6">Vediamo il&nbsp; codice nel dettaglio:</font></p>
+<p class="codice"><font face="arial" size="6" color="#FF0000">double potenza(double
+valore, int potenza)</font></p>
+<div align="justify"><font face="arial" size="6">Questa è la definizione della funzione, che ci dice
+  il tipo del valore di ritorno (double), il nome della funzione (potenza)
+  e la lista di argomenti usati dalla funzione con il tipo (double e int) ed il
+  nome (valore e potenza) corrispondente;</font>
+</div>
+<p class="codice"><font face="arial" size="6" color="#FF0000">return(valore_ritorno);</font></p>
+<div align="justify"><font face="arial" size="6">Quando si raggiunge un'istruzione &quot;return&quot;, il controllo del programma ritorna a chi ha chiamato la
+  funzione. Il valore ritornato è quello posto dopo la parola return; se si
+  chiude la funzione prima di mettere un'istruzione &quot;return&quot;, la
+  funzione ritorna automaticamente, ed il valore ritornato potrebbe non avere un
+  significato valido. Il valore ritornato può essere manipolato a piacimento,
+  infatti se una funzione restituisce un risultato, possiamo assegnarlo, ad
+  esempio, ad una variabile che poi potremmo usare all'interno del programma come
+  qualsiasi altra variabile ad esempio</font>
+</div>
+<div align="center">
+  <center>
+  <table border="1" width="709" height="211">
+    <tr>
+      <td width="709" height="211" bgcolor="#FFFF00"><font face="arial" size="6">double
+        val = 100.0;<br>
+        int pot = 3;<br>
+        double risultato = potenza(val, pot);</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<font face="arial" size="2">
+<p class="codice">&nbsp;</p>
+</font><font face="arial" size="6">Esistono anche funzioni che non ritornano
+alcun valore, in questo caso si parla di funzioni void, come mostrato di
+seguito:</font>
+<div align="center">
+  <center>
+  <table border="1" width="709" height="211">
+    <tr>
+      <td width="709" height="211" bgcolor="#FFFF00"><font face="arial" size="5">void
+        stampa_errore(int linea)<br>
+        {<br>
+        &nbsp;&nbsp;&nbsp;printf(&quot;Errore: linea %d\n&quot;, linea);<br>
+        }</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<font face="arial" size="2">
+<p class="codice">&nbsp;</p>
+</font>
+<div align="justify"><font face="arial" size="6">Una funzione void non deve avere
+  necessariamente un'istruzione &quot;return&quot;, anche se può essere usata per
+  uscire dalla funzione in maniera opportuna</font><font face="arial" size="2">
+</div>
+<p><font face="arial" size="6">Va fatta una piccola nota riguardante le
+funzioni, in merito alla <b>prototipazione delle funzioni</b>, ovvero la
+creazione di prototipi.</font></p>
+<p align="justify"><font face="arial" size="6">Un prototipo di una funzione non è altro che la
+sua dichiarazione, senza specificare il corpo della funzione stessa;</font><font face="arial" size="6">si scrive, quindi, solo la dichiarazione iniziale
+comprendente il nome ed il tipo restituito dalla funzione, e gli argomenti
+passati come parametro.</font></p>
+<p align="justify"><font face="arial" size="6">questo avviene perché ogni funzione è utilizzabile
+  solamente quanto è stata dichiarata, quindi se in un  codice, prima di
+  dichiarare la funzione, voglio usare tale funzione, non posso farlo, perché &quot;fisicamente&quot; non è ancora stata creata.</font></p>
+<p><font face="arial" size="6">Creando dei prototipi si ovvia a questo
+problema e si hanno dei vantaggi anche in termini di funzionalità ed
+organizzazione del codice stesso. Ecco due esempi, il primo errato, il secondo
+corretto:</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="709" height="121">
+    <tr>
+      <td width="709" height="121" bgcolor="#FFFF00"><font face="arial" size="5"><span style="COLOR: #008080">//
+        questo non funziona</span><br>
+        #include &lt;stdio.h&gt;<br>
+        <br>
+        int main()<br>
+        {<br>
+        &nbsp;&nbsp;&nbsp;int var = 5;<br>
+        &nbsp;&nbsp;&nbsp;stampa_doppio(var);<br>
+        }<br>
+        <br>
+        void stampa_doppio(int variabile)<br>
+        {<br>
+        &nbsp;&nbsp;&nbsp;printf(&quot;Il doppio di %d è %d &quot;, variabile,
+        2*variabile);<br>
+        }</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" width="709" height="121">
+    <tr>
+      <td width="709" height="121" bgcolor="#FFFF00"><font face="arial" size="5"><span style="COLOR: #008080">//
+        questo&nbsp; funziona</span><br>
+        #include &lt;stdio.h&gt;<br>
+        void stampa_doppio(int variabile); <span style="COLOR: #008080">//
+        prototipo della funzione</span><br>
+        <br>
+        int main()<br>
+        {<br>
+        &nbsp;&nbsp;&nbsp;int var = 5;<br>
+        &nbsp;&nbsp;&nbsp;stampa_doppio(var);<br>
+        }<br>
+        <br>
+        void stampa_doppio(int variabile)<br>
+        {<br>
+        &nbsp;&nbsp;&nbsp;printf(&quot;Il doppio di %d è %d &quot;, variabile,
+        2*variabile);<br>
+        }</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="justify"><font face="arial" size="6">In C, quando si passa un array ad una o più dimensioni come  argomento alle funzioni, bisogna prestare attenzione.</font></p>
+<p align="justify"><font face="arial" size="6">La regola dice che la prima dimensione dell'array può non essere
+  specificata, mentre la seconda e le altre devono esserlo. Ad esempio </font></p>
+<div align="center">
+  <center>
+  <table border="1" width="933" height="121">
+    <tr>
+      <td width="933" height="121" bgcolor="#FFFF00">
+        <p class="codice"><font face="arial" size="5">void stampa_array_uni(int
+        dim, <font color="#FF0000">int array_uni[]</font>)<br>
+        {<br>
+        &nbsp;&nbsp;&nbsp;int i;<br>
+        &nbsp;&nbsp;&nbsp;for(i=0; i&lt;dim; i++)<br>
+        &nbsp;&nbsp;&nbsp;{<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(&quot;%d &quot;, array_uni[i]);<br>
+        &nbsp;&nbsp;&nbsp;}<br>
+        }<br>
+        <br>
+        void stampa_array_bid(ind dimx, int dimy, <font color="#FF0000">int array_bid[][6]</font>);<br>
+        {<br>
+        &nbsp;&nbsp;&nbsp;int i, j;<br>
+        &nbsp;&nbsp;&nbsp;for(i=0; i&lt;dimx; i++)<br>
+        &nbsp;&nbsp;&nbsp;{<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(j=0; j&lt;dimy; j++)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(&quot;%d
+        &quot;, array_uni[i][j]);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(&quot;\n&quot;);<br>
+        &nbsp;&nbsp;&nbsp;}<br>
+        }</font></p>
+         </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="center"></p>
+
+</body>
+
+</html>

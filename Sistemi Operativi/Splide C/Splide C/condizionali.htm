@@ -1,0 +1,189 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Istruzioni condizionali</title>
+</head>
+
+<body>
+<p align="center"><font size="7" color="#FF0000">Controlli condizionali:</font></p>
+<p>&nbsp;</p>
+<p><font size="6">Le istruzioni condizionali in C sono:</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="470" height="46">
+    <tr>
+      <td width="33" height="46"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></td>
+      <td width="421" height="46"><font size="7">If-else</font></td>
+    </tr>
+    <tr>
+      <td width="33" height="46"><font size="7"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></font></td>
+      <td width="421" height="46"><font size="7">Operatore ternario ?</font></td>
+    </tr>
+    <tr>
+      <td width="33" height="46"><img border="0" src="punto.gif" tppabs="http://www.cs.unipa.it/corsi/laboratoriosistemioperativi/images/punto.gif" width="12" height="12"></td>
+      <td width="421" height="46"><font size="7">switch</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<hr>
+<p align="center"><font size="7" color="#FF0000">if - else</font></p>
+<p><font size="6">l'istruzione if-else ha la seguente sintassi:</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="445" height="176" bordercolor="#FFFF00" bgcolor="#FFFF00">
+    <tr>
+      <td width="445" height="176">
+<font size="6">if (espressione)<br>
+&nbsp;&nbsp;&nbsp;istruzione<sub>1</sub><br>
+else<br>
+&nbsp;&nbsp;&nbsp;istruzione<sub>2</sub></font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p><font size="6">Facciamo un esempio, assumendo che valore della variabile
+intera &quot;risultato_esame&quot; ha un valore compreso tra 0 e 30:</font></p>
+<p align="center">&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" width="624" height="215">
+    <tr>
+      <td width="624" height="215" bgcolor="#FFFF00"><font color="#0000FF" size="6">if</font><font size="6"> (risultato_esame
+        &gt;=18)<br>
+        &nbsp;&nbsp;&nbsp;printf (&quot;Complimenti hai superato l'esame&quot;);<br>
+        <font color="#0000FF">else</font>&nbsp;<br>
+        &nbsp;&nbsp;&nbsp; <font color="#0000FF">if</font> (risultato_esame &gt;=15)&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        printf (&quot;Devi sostenere l'orale&quot;);<br>
+        <font color="#0000FF">else</font><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf (&quot;Non hai superato l'esame&quot;);</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p></p>
+<font size="6">Dopo un if o un else viene eseguita <b>solo</b> la prima istruzione,
+se si vuole eseguire un blocco di&nbsp; istruzioni esse devono essere racchiuse
+tra una graffa di apertura ( { )ed una graffa di chiusura ( } )</font>
+<p>&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" width="627" height="211">
+    <tr>
+      <td width="627" height="211" bgcolor="#FFFF00"><font color="#0000FF" size="6">int</font><font size="6"> passato;<br>
+          <font color="#0000FF">if</font> (risultato_esame &gt;=18)<br>
+        &nbsp;{&nbsp;printf (&quot;Complimenti hai superato l'esame&quot;);<br>
+&nbsp;&nbsp;&nbsp;passato = 1;<br>
+        &nbsp;}<br>
+        <font color="#0000FF">else</font><br> { printf (&quot;Non hai superato l'esame&quot;);<br>
+&nbsp;&nbsp;&nbsp;passato = 0;<br>
+}</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<font face="arial" size="2">
+<hr>
+</font>
+<p align="center"><font size="6" color="#FF0000">Operatore Ternario</font></p>
+<font size="6">L'operatore ternario &quot;? :&quot; è una forma sintetica
+dell'istruzione if-else,.<br>
+La sintassi dell'operatore è la seguente:</font>
+<div align="center">
+  <center>
+  <table border="1" width="682" height="372">
+    <tr>
+      <td width="682" height="372" bgcolor="#FFFF00"><font color="#0000FF" size="6">espressione1
+        ? espressione2 : espressione3</font>
+        <p><font size="6">// Corrispondente blocco if-else<br>
+            <font color="#0000FF">if</font> (espressione1)<br>
+        &nbsp;{espressione2<br>
+        &nbsp;}<br>
+        <font color="#0000FF">else</font><br>
+        &nbsp;{espressione3<br>
+        &nbsp;}</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+<p align="justify"><font size="6">Quindi se l'espressione1 risulta vera, si esegue
+l'espressione2, altrimenti si esegue l'espressione3. </font></p>
+<p align="justify"><font size="6">Per esempio il seguente codice assegna alla variabile &quot;max&quot;
+il massimo tra &quot;alfa&quot; e &quot;beta&quot;:</font></p>
+<p>&nbsp;</p>
+<div align="center">
+  <center>
+  <table border="1" width="682" height="201">
+    <tr>
+      <td width="682" height="201" bgcolor="#FFFF00"><font color="#0000FF" size="6">if</font><font size="6"> (alfa
+        &gt; beta)<br>
+        &nbsp;&nbsp;&nbsp;max = alfa;<br>
+        <font color="#0000FF">else</font><br>
+        &nbsp;&nbsp;&nbsp;max = beta;<br>
+        <br>
+        // che corrisponde a...<br>
+        max = (alfa&gt;beta) ? alfa : beta;</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<hr>
+<p align="center"><font size="7" color="#FF0000">switch</font></p>
+<p><font size="6">switch può essere usata solo m&igrave;nei casi dove:</font></p>
+<blockquote>
+  <p align="justify"><font size="6">Viene valutata solamente una variabile, tutte le scelte
+            dipenderanno, infatti, da questa variabile. La variabile deve essere un tipo
+            int, short, long o char;</font>
+  </p>
+  <div align="justify"><font size="6">Ogni singolo valore della variabile può controllare solo
+      una scelta. Una scelta finale, chiamata default è incaricata di catturare
+  tutti i valori dei casi non specificati;</font></div>
+</blockquote>
+<font size="6">L'istruzione switch ha la seguente struttura:</font>
+<div align="center">
+  <center>
+  <table border="1" width="556" height="287">
+    <tr>
+      <td width="556" height="287" bgcolor="#FFFF00"><font color="#0000FF" size="6">switch</font><font size="6">        (espressione) {<br>
+        case elem1:istruzione1;break;<br>
+        case elem2:istruzione2;break; <br>
+        ...<br>
+        case elemn:istruzionen;break; <br>
+        <font color="#0000FF">default</font>:istruzione;<font color="#0000FF">break</font>; <br>
+        }</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>&nbsp;</p>
+<div align="justify"><font size="6">Lo <font color="#FF0000">switch</font> ha una struttura&nbsp; a cascata, cioè se eseguo il
+  primo caso (avendo sotto degli altri) e non metto un <font color="#FF0000">break</font> per uscire, continua
+  ad eseguire anche le istruzioni successive che fanno parte di altre casistiche</font>
+</div>
+<p><font size="6">Ad esempio&nbsp; assumendo di avere la variabile intera
+&quot;numero&quot; che può assumere valori maggiori od uguali a zero:</font></p>
+<div align="center">
+  <center>
+  <table border="1" width="622" height="255">
+    <tr>
+      <td width="622" height="255" bgcolor="#FFFF00"><font color="#0000FF" size="6">switch</font><font size="6">        (numero) {<br>
+          <font color="#0000FF">case</font> 0:printf(&quot;Zero&quot;);&nbsp;<font color="#0000FF">break</font>;<br>
+          <font color="#0000FF">case</font> 1:printf(&quot;Uno&quot;);<font color="#0000FF">break</font>;<br>
+          <font color="#0000FF">case</font> 2:printf(&quot;Due&quot;);<font color="#0000FF">break</font>;<br>
+          <font color="#0000FF">case</font> 3:<br>
+          <font color="#0000FF">case</font> 4:<br>
+          <font color="#0000FF">case</font> 5:&nbsp;printf(&quot;Valore positivo piccolo&quot;);<font color="#0000FF">break</font>;<br>
+          <font color="#0000FF">default</font>:&nbsp;printf(&quot;Valore positivo grande&quot;);<font color="#0000FF">break</font>;<br>
+        }</font></td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+</body>
+
+</html>
