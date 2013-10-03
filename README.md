@@ -8,9 +8,9 @@
 #### Potrete persino essere avvisati ogni volta che il repository verrà aggiornato, ogni qual volta verrà inserito qualcosa di nuovo.
 
 # Come si usa ?
-* ## Usufruirne
+## * Usufruirne
 #### Per poter usufruire potrete affrontare la cosa in vari modi:
-1. #### Direttamente online:
+#### 1. Direttamente online:
 #### Cioè poter prendere le risorse vi basterà andare all'[indirizzo principale del repository](http://github.com/DLion/CsInfoPa) e navigare all'interno delle cartelle, selezionare il file che v'interessa e dopo cliccare su "raw" per poterlo scaricare.
 > > > 2. #### Clonando il repository:
 > > > > #### Potrete scaricare l'intero repo sul vostro pc con il semplice comando `git clone http://github.com/DLion/CsInfoPa` dal vostro terminale o se usate un programma di git apposito vi basterà clonare il repo all'interno del vostro pc.
