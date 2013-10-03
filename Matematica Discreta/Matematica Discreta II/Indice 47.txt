@@ -1,0 +1,9 @@
+00)  03  03  gruppi 
+01)  03  06  sottogruppi
+02)  02  08  laterali  
+03)  06  14  Anelli e Campi
+04)  09  23  Complessi  
+05)  02  25  sottoanelli e sottocampi
+06)  07  32  Polinomi
+07)  05  37  Ideali
+08)  10  47  Vettori
