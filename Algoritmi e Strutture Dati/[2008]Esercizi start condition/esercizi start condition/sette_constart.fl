@@ -1,0 +1,41 @@
+/*Programma in lex che converte tutte le lettere maiuscole di un programma in C in minuscole,
+ ad eccezione di quelle in commento */
+%{
+#include<math.h>
+#include<ctype.h>
+#include<string.h>
+%}
+
+maiuscole [A-Z]
+
+%option noyywrap
+
+%x comment
+
+%%
+		
+"/*"	{ECHO;BEGIN(comment);}
+<comment>[^*\n]*  ECHO;	/* stampa tutto ciò che non è ‘*’ */
+<comment>"*"+[^*/\n]* ECHO;     ;
+<comment>\n	ECHO;
+<comment>"*"+"/"   	{ECHO; BEGIN (INITIAL);}
+
+{maiuscole} { printf("%c",tolower(*yytext));}
+
+. ECHO;
+
+%%
+main(int argc,char *argv[])
+{
+    --argc;  /* skip over program name */
+    if ( argc > 0 )
+            yyin = fopen( argv[1], "r" );
+    else
+            yyin = stdin;
+
+    yylex();
+    
+
+}
+
+

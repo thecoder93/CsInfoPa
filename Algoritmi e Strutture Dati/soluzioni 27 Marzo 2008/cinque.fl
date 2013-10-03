@@ -1,0 +1,23 @@
+/*  Trasformare un numero da notazione decimale in esadecimale */  
+ #include <stdlib.h>
+ #include <stdio.h> 
+ int count=0;
+
+/*le dichiarazioni name definition devono iniziare dalla colonna 1 */ 
+digit [0-9]
+number {digit}+
+
+%option noyywrap
+%%
+{number} {int n=atoi(yytext);
+         printf("%x",n);
+         if (n>9) count++;}
+%%
+main()
+  {
+    yylex();
+    printf( "numero di sostituzioni= %d", count);
+    return 0;
+    }
+
+

@@ -1,0 +1,25 @@
+%{
+#include "libreria.c"
+
+pnodo P = NULL;
+int risultato = 0;
+%}
+
+/* COSTRUTTORI */
+intero     [0-9]+
+spazi      [ \t\n]
+vuoti      {spazi}+
+
+/* OPZIONI     */
+%option main
+
+
+%%
+{vuoti}         ;
+{intero}        { push(&P, atoi(yytext));                                      }
+"+"             { risultato = pop(&P) + pop(&P); push(&P,risultato);           }
+"-"             { risultato = pop(&P) - pop(&P); push(&P,risultato);           }
+"*"             { risultato = pop(&P) * pop(&P); push(&P,risultato);           }
+"/"             { risultato = pop(&P) / pop(&P); push(&P,risultato);           }
+"="             { printf("Risultato = %d\n", risultato);                       }
+.               { printf("Errore lessicale \n") ;                               }

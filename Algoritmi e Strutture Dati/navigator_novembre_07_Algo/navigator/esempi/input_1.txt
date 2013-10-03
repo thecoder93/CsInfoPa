@@ -1,0 +1,15 @@
+AX23FF34 
+02/11/2006 
+<! Percorso B !> 
+%% 
+Speed( 3.5 ); 
+Move( 10 M ); 
+Speed( 3); 
+Angle(-2/3PI); 
+Move(12.5 S); 
+if( s > 3.5)[ 
+AcquireData( 34 ); 
+Speed(1); 
+] 
+Angle(0); 
+Move( 3 S);

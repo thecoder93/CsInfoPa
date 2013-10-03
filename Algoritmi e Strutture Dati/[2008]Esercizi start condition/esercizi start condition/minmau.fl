@@ -1,0 +1,33 @@
+%x commento
+%option noyywrap
+%%
+
+
+"{"				BEGIN(commento);ECHO;
+<commento>[^}\n]*   		ECHO;	
+<commento>\n			ECHO;
+<commento>"}"			BEGIN(INITIAL);ECHO;
+[A-Z]				fprintf(yyout,"%c",tolower(*yytext));
+.				ECHO;
+
+
+%%
+main(int argc,char*argv[])
+{
+
+--argc;
+if (argc > 0)
+	yyin=fopen(argv[1],"r");
+else
+	yyin=stdin;
+
+if (argc > 1)
+	yyout=fopen(argv[2],"w");
+else
+	yyout=stdout;
+
+
+yylex();
+
+
+}

@@ -1,0 +1,16 @@
+AX23FF34 
+29/02/2006 
+<! Tanti errori da correggere !> 
+%% 
+Speed( -3.5 ); 
+Move( -10 M );
+if( s > 3.5)[ 
+AcquireData( 34 ); 
+Speed(1); 
+if(s > 3.5)[
+Angle(1);
+Move(10 m);
+]
+] 
+Angle(0); 
+Move( 3 S);

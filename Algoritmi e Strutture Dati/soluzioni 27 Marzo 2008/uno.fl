@@ -1,0 +1,5 @@
+ /* L'opzione -i in flex rende lo scanner case insensitive */
+%option main
+%%
+"ciao mondo" ;
+

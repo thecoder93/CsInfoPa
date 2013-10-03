@@ -1,0 +1,90 @@
+/*  Trasformare un numero da notazione romana in decimale */  
+ int i=0;
+
+/*le dichiarazioni name definition devono iniziare dalla colonna 1 */ 
+mille     M+
+cento     CM|CD|DC+|C+|D+
+dieci	  XC|XL|LX+|X+|L+
+unita     IX|IV|VI+|I+|V+
+
+%option noyywrap
+%%
+{mille}      {if(yyleng<=3) i=i+ yyleng*1000;
+	      else {printf("Numero non corretto!!\n");i=0;}}
+{cento}      {if(strcmp(yytext,"CM")==0) i=i+900;
+              else{if(strcmp(yytext,"CD")==0) i=i+400;
+                   else{if(strcmp(yytext,"DC")==0) i=i+600;
+                        else{if(strcmp(yytext,"DCC")==0) i=i+700;
+                             else{if(strcmp(yytext,"DCCC")==0) i=i+800;
+                                  else{if(strcmp(yytext,"C")==0) i=i+100;
+                                       else{if(strcmp(yytext,"CC")==0) i=i+200;
+                                            else{if(strcmp(yytext,"CCC")==0) i=i+300;
+                                                 else{if(strcmp(yytext,"D")==0) i=i+500;
+						      else {printf("Numero non corretto!!\n");i=0;}
+						      }	
+                                                 } 
+                                            }
+                                       } 
+                                  }
+                             }                
+                        }
+                   }        
+             }
+{dieci}      {if(strcmp(yytext,"XC")==0) i=i+90;
+              else{if(strcmp(yytext,"XL")==0) i=i+40;
+                   else{if(strcmp(yytext,"LX")==0) i=i+60;
+                        else{if(strcmp(yytext,"LXX")==0) i=i+70;
+                             else{if(strcmp(yytext,"LXXX")==0) i=i+80;
+                                  else{if(strcmp(yytext,"X")==0) i=i+10;
+                                       else{if(strcmp(yytext,"XX")==0) i=i+20;
+                                            else{if(strcmp(yytext,"XXX")==0) i=i+30;
+                                                 else{if(strcmp(yytext,"L")==0) i=i+50;
+						      else {printf("Numero non corretto!!\n");i=0;}
+						      }	
+                                                 } 
+                                            }
+                                       } 
+                                  }
+                             }                
+                        }
+                   }        
+             }
+{unita}      {if(strcmp(yytext,"IX")==0) i=i+9;
+              else{if(strcmp(yytext,"IV")==0) i=i+4;
+                   else{if(strcmp(yytext,"VI")==0) i=i+6;
+                        else{if(strcmp(yytext,"VII")==0) i=i+7;
+                             else{if(strcmp(yytext,"VIII")==0) i=i+8;
+                                  else{if(strcmp(yytext,"I")==0) i=i+1;
+                                       else{if(strcmp(yytext,"II")==0) i=i+2;
+                                            else{if(strcmp(yytext,"III")==0) i=i+3;
+                                                 else{if(strcmp(yytext,"V")==0) i=i+5;
+						      else {printf("Numero non corretto!!\n");i=0;} 
+						      }	
+                                                 } 
+                                            }
+                                       } 
+                                  }
+                             }                
+                        }
+                   }        
+             }
+[ \t\n]      {printf("decimale=%d\n",i);i=0;}
+%%
+main(int argc, char *argv[]){
+	--argc;
+	if (argc > 0)
+		yyin = fopen( argv[1], "r");
+	else
+		yyin = stdin;
+	
+	/*if (argc > 1)
+		yyout = fopen(argv[2], "w");
+	else
+		yyout = stdout;*/
+	
+	printf("I numeri romani vanno scritti maiuscoli\n");
+	printf("INIZIO PARSER:\n");
+	yylex();
+	printf("\nFINE PARSER\n");
+	
+}

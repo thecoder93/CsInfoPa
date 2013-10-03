@@ -1,0 +1,54 @@
+%option noyywrap
+
+%{
+int i=1;
+%}
+LETTERA		[A-Za-z]
+DIGIT		[0-9]
+IDENTIFICATORE	{LETTERA}({LETTERA}|{DIGIT})*
+NUMERO		{DIGIT}+
+RELOP		"<"|"<="|">"|">="|"="|"<>"
+OP		"+"|"-"|"/"|"*"
+KEYWORD		"program"|"begin"|"write"|"read"|"if"|"then"|"else"|"repeat"|"until"
+ASSEGNAZIONE	":="
+FINEISTRUZIONE	";"
+SPAZI		[ \t]*
+COMMENTI 	"{"[^}]"}"
+FINERIGA	\n
+
+%%
+
+{KEYWORD}		fprintf(yyout, "%d :%30s \t<KEYWORD>\n",i,yytext);
+{IDENTIFICATORE}	fprintf(yyout, "%d :%30s \t<IDENTIFICATORE>\n",i,yytext);
+{ASSEGNAZIONE}		fprintf(yyout, "%d :%30s \t<ASSEGNAZIONE>\n",i,yytext);
+{NUMERO}		fprintf(yyout, "%d :%30s \t<NUMERO>\n",i,yytext);
+{RELOP}			fprintf(yyout, "%d :%30s \t<RELOP>\n",i,yytext);
+{OP}			fprintf(yyout, "%d :%30s \t<OP>\n",i,yytext);
+{FINEISTRUZIONE}	fprintf(yyout, "%d :%30s \t<FINEISTRUZIONE>\n",i,yytext);
+
+{FINERIGA}		i++;
+
+{COMMENTI}		|
+{SPAZI}			|
+.			;
+
+
+%%
+
+main(int argc, char *argv[]){
+	--argc;
+	if (argc > 0)
+		yyin = fopen( argv[1], "r");
+	else
+		yyin = stdin;
+	
+	if (argc > 1)
+		yyout = fopen(argv[2], "w");
+	else
+		yyout = stdout;
+	
+	printf("INIZIO PARSER : \n");
+	yylex();
+	printf("\nFINE PARSER\n");
+	
+}

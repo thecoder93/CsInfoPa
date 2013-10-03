@@ -1,0 +1,24 @@
+AX23FF34
+29/02/2008
+<! Diversi inputs per Move e Angle !>
+%%
+Speed( 3.5 );
+Move( 10 M );
+Speed( 3);
+Angle(-2/3 PI);
+Move(12.5 S);
+if( s > 3.5)[
+AcquireData( 34 );
+Speed(1);
+]
+if(m < 100)
+[
+Move(1 s);
+Move(1 S);
+Angle(13);
+Speed(1.1);
+Move(1 m);
+Move(1 M);
+]
+
+

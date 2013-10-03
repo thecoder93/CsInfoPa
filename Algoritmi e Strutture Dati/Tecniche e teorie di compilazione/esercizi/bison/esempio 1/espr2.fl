@@ -1,0 +1,39 @@
+/*
+ * Analizzatore lessicale per le espressioni aritmetiche
+ *
+ * Questo file (espr2.fl) e' da usare insieme all'analizzatore sintattico
+ * realizzato con BISON a partire da espr2.y.
+ *
+ * Sequenza di comandi per generare l'analizzatore sintattico:
+ *
+ *     flex espr2.fl
+ *     bison -d espr2.y
+ *     gcc lex.yy.c espr2.tab.c -o espr2
+ */
+
+%{
+#include <stdio.h>
+#include "espr2.tab.h" 
+%}
+
+/* regular definitions */
+
+delim	[ \t\n]
+ws	{delim}+
+digit	[0-9]
+number	{digit}+
+%option noyywrap
+%%
+{number}	{yylval=atoi(yytext); return(NUM); }
+\+           	{ return(PIU); }
+\*		{ return(PER); }
+\(		{ return(PAR_AP); }
+\)		{ return(PAR_CH); }
+\n		{return(NEWL);}
+%% 
+
+
+
+
+
+

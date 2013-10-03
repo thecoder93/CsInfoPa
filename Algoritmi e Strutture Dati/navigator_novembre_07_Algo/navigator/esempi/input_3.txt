@@ -1,0 +1,15 @@
+ R321003D
+21/01/2001
+<! andata e ritorno !>
+%%
+Speed(4);
+Move(3 S);
+Angle(90);
+Speed(1);
+Move(12 M);
+Angle(180);
+Move(24 M);
+Angle(-1/4 PI);
+Move(17 m);
+Angle(3/4 PI);
+Move(0.03 m);

@@ -1,0 +1,138 @@
+/* calcolo espressione in notazione postfissa (polacca) */
+
+%option noyywrap
+
+%{
+
+    // INIZIO IMPLEMENTAZIONE DELLA PILA
+       
+    typedef struct Nodo
+    { int inf; 
+      struct Nodo *next; 
+    }Lista;
+  
+    Lista *L=NULL;
+    
+    Lista *AddHead(Lista *L,int x)
+    {
+    	Lista *paus;
+    	if (L==NULL)
+    	{
+    		L=(Lista *)malloc(sizeof(Lista));
+    		L->inf=x;
+    		L->next=NULL;
+    	} else {
+    		paus=L;
+    		L=(Lista *)malloc(sizeof(Lista));
+    		L->inf=x;
+    		L->next=paus;
+    	}
+    	return L;
+    }
+    
+    Lista *DeleteHead(Lista *L)
+    {
+    	Lista *paus;
+    	if (L!=NULL)
+    	{
+    		paus=L;
+    		L=paus->next;
+    		//free(paus);
+    	}
+    	return L;
+    }
+    
+    Lista *Push(Lista *L,int x)
+    {
+    	L=AddHead(L,x);
+    }
+    
+    Lista *Pop(Lista *L,int *x)
+    {
+    
+    	if (L==NULL)
+    	{
+    		*x=-1;
+    		return NULL;
+    	}
+    	else
+    	{
+    		*x=L->inf;
+    		L=DeleteHead(L);
+    		return L;
+    	}
+    }
+    
+    // FINE IMPLEMENTAZIONE DELLA PILA
+     
+%}
+
+digit   [1-9][0-9]*
+
+%%
+{digit} {  
+             printf("\nAggiunta di %d alla pila.",(int)atoi(yytext) );
+             L=Push(L,(int)atoi(yytext));
+        }
+[+*/-]       {
+         	 printf("\nOperazione ");
+             int a,b;
+             L=Pop(L,&b);
+			 if ( L==NULL  )
+			 {
+			 	printf("Errore...espressione errata\n");
+                //return 0;
+             } else { 
+                    
+                 L=Pop(L,&a);
+    		 
+    			 switch (yytext[0]) {
+                        case '+':  { L=Push(L,a+b);
+    		 	                     printf(" %d + %d = %d",a,b,a+b);
+                                     break;
+                                   }               
+                        case '-':  { L=Push(L,a-b);
+    		 	                     printf(" %d - %d = %d",a,b,a-b);
+                                     break;
+                                   }  
+                        case '*':  { L=Push(L,a*b);
+    		 	                     printf(" %d * %d = %d",a,b,a*b);
+                                     break;
+                                   }  
+                        case '/':  { L=Push(L,a/b);
+    		 	                     printf(" %d / %d = %d",a,b,a/b);
+                                     break;
+                                   }  
+
+                        }
+             }   
+        }
+        
+\n      {
+            int x;
+            if (L==NULL)
+               	{printf("Errore...espressione errata\n");}
+           	else {
+                 L=Pop(L,&x);
+                 printf("\nIl risultato dell'espressione e' %d\n",x);
+            }
+            
+            // RILASCIO DELLA MEMORIA
+            while (L!=NULL)
+            {
+                  L=DeleteHead(L);
+            } 
+            L=NULL;
+        }
+" "	;
+
+.	{printf("Errore...espressione errata\n");}
+
+
+
+%%
+int main(){
+    yylex();
+   
+    
+}

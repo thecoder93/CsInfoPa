@@ -1,0 +1,52 @@
+%option noyywrap
+%{ 
+        int count=1
+}%
+LETTERA [a-zA-Z]
+DIGIT [0-9]
+IDENTIFICATORE {LETTERA}({LETTERA}{DIGIT})
+NUMERO {DIGIT}+ 
+KEYWORD "program"|"begin"|"write"|"read"|"if"|"then"|"else"|"repeat"|"until"
+RELOP "<"|">"|"<="|">="|"="|"<>"
+OP "+"|"-"|"/"|"*"
+ASSEGNAZIONE ":="
+FINEISTRUZIONE ";"
+SPAZI [ \t]*
+FINE \n
+%x comment
+%%
+"/*"  BEGIN(comment)
+<comment>[^*\n]*   ;	/* rimuove tutto ciò che non è ‘*’ */
+<comment>“*”+[^*/\n]*      
+<comment>\n		++linea;
+<comment> “*”+ “/”	BEGIN(INITIAL);
+{KEYWORD}	        {fprintf(yyout,"linea:%d <KEYWORD>  %s",count,yytext);}
+{IDENTIFICATORE}	{fprintf(yyout,"linea:%d <IDENTIFICATORE>  %s",count,yytext);}
+{RELOP}			    {fprintf(yyout,"linea:%d <RELOP>  %s",count,yytext);}
+{NUMERO}            {fprintf(yyout,"linea:%d <NUMERO>  %s",count,yytext);}
+{OP}			    {fprintf(yyout,"linea:%d <OP>  %s",count,yytext);}
+{FINEISTRUZIONE}    {fprintf(yyout,"linea:%d <FINEISTRUZIONE>  %s",count,yytext);}			
+{ASSEGNAZIONE}      {fprintf(yyout,"linea:%d <ASSEGNAZIONE>  %s",count,yytext);}			
+{FINE}              count++;
+{SPAZI}	            |		
+.                   ;
+%%
+
+main(int argc,char *argv[])
+{
+   --argc;
+   if(argc>0)
+       yyin=fopen(argv[1],"r");
+   else
+	   yyin=stdin;
+   
+   if(argc >1)
+       yyout=fopen(argv[2],"w");
+   else
+       yyout=stdout;
+       
+   printf("inizo parser:\n");
+   yylex();
+   printf("\nfine parser");
+}
+

@@ -1,0 +1,36 @@
+
+ digit [0-9]
+ lettera [a-zA-Z] 
+ NUMERO                 {digit}+                                  
+ IDENTIFICATORE    {lettera} ({ lettera }|{digit})*
+ OP                          "+"|"-"|"*"|"/"                        
+ ISTRUZIONI             "program"|"begin"|"write"|"read"|"if"|"then"|"else"|"repeat"|"until"     
+ RELOP                    "<"|"<="|">"|">="|"="|"<>"                                             
+ COMMENTI              "{"[^}\n]*"}"                                                                    
+ SPAZI                      [ \t\n]+                                                                             
+%option noyywrap
+%%
+{NUMERO }                  |
+{ ISTRUZIONI }             |
+{ IDENTIFICATORE}    |
+{OP}                             |
+{ RELOP}                     |
+{COMMENTI }               |
+{ SPAZI}                        |
+";"                                |
+":="                              |
+.   ECHO;
+%%
+
+main(int argc,char *argv[])
+            {
+    --argc;  /* skip over program name */
+    if ( argc > 0 )
+            yyin = fopen( argv[1], "r" );
+    else
+            yyin = stdin;
+    printf("inizio");
+    yylex();
+    printf("fine");
+    }
+

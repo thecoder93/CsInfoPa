@@ -1,0 +1,30 @@
+%{
+#include <stdio.h>
+#include <stdlib.h>
+#include "infix.tab.h"
+
+int line_number = 1;
+
+%}
+
+/* regular definitions */
+
+delim	[ \t]
+ws	{delim}+
+newline \n
+digit	[0-9]
+number {digit}+
+%option noyywrap
+%%
+{ws}		;
+{newline}   { line_number++; printf("newline\n"); return(NEWL);} 
+{number}	{ yylval=atoi(yytext); printf("token NUM %d\n",yylval); return(NUM); }
+\+          { printf("token PIU\n"); return(PIU); }
+\-		{  printf("token MENO\n");return(MENO); }
+\*		{  printf("token PER\n");return(PER); }
+[/]		{ return(DIV); }
+\^		{ return(POT); }
+\(		{ return(PAR_AP); }
+\)		{ return(PAR_CH); }
+.           { printf("UNRECOGNIZED TOKEN on input line %d: %s\n",line_number, yytext); }
+%% 

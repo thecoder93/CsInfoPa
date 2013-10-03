@@ -1,0 +1,27 @@
+%{
+  #include <stdio.h>
+%}
+
+%option noyywrap
+%%
+"{".*"}"	ECHO;
+[A-Z]		fprintf(yyout,"%c",*yytext+32);
+[a-z]		|
+.		ECHO;
+
+%%
+main(int argc, char *argv[])
+{
+	--argc;
+	if (argc>0)
+		yyin=fopen(argv[1],"r");
+	else
+		yyin=stdin;
+	if (argc>1)
+		yyout=fopen(argv[2],"w");
+	else
+		yyout=stdout;
+	fprintf(yyout,"Inizio parser:\n");
+	yylex();
+	fprintf(yyout,"Fine parser!!\n");
+}

@@ -1,0 +1,34 @@
+## RANKING -- Makefile for Microsoft Visual C++
+
+BIN = ranking.exe
+CC = cl
+LEX = flex
+YACC = bison
+CFLAGS = 
+DBGFLAGS = -DDEBUG
+OBJS = lex.yy.c y.tab.c main.c
+OPTFLAGS = -O3
+LEXFLAGS = -v
+YACCFLAGS = -v -d
+BISONFLAGS = $(YACCFLAGS) -y
+RM = del
+
+
+##
+all : ranking
+
+ranking : $(OBJS)
+	$(CC) -o $(BIN) $(OBJS) $(CFLAGS) $(OPTFLAGS)
+
+debug : $(OBJS)
+	$(CC) -o $(BIN) $(OBJS) $(CFLAGS) $(DBGFLAGS)
+
+lex.yy.c : lexer.l 
+	$(LEX) $(LEXFLAGS) lexer.l
+
+y.tab.c : parser.y
+	$(YACC) $(BISONFLAGS) parser.y
+
+clean : 
+	-$(RM) *.o lex.yy.c y.tab.* *.output *.dSYM $(BIN)
+

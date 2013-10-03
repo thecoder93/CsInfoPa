@@ -1,0 +1,11 @@
+%option main
+%x vocale consonante
+%%
+	char c=0;
+
+[aeiou]	{ECHO; BEGIN(vocale);}
+[b-df-hl-np-tv-z] {c=yytext[0]; BEGIN(consonante);}
+<vocale>[a-z]*	{printf("%say",yytext); BEGIN(0);}
+<vocale>[ ]	{printf("%s","ay "); BEGIN(0);}
+<vocale>\n	{printf("%s\n","ay"); BEGIN(0);}
+<consonante>[a-z]*	{printf("%s%cay",yytext,c); BEGIN(0); }

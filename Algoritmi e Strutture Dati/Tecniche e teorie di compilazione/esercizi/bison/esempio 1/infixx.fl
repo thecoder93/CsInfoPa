@@ -1,0 +1,29 @@
+%{
+#include <stdio.h>
+#include <stdlib.h>
+#include "infixx.tab.h"
+
+int line_number = 1;
+
+%}
+
+/* regular definitions */
+
+delim	[ \t]
+ws	{delim}+
+digit	[0-9]
+number {digit}+
+%option noyywrap
+%%
+{ws}		;
+{number}	{ yylval=atoi(yytext); return(NUM); }
+\n		{line_number++; return(yytext[0]);}
+\+      |
+\-		|
+\*		|
+[/]		|
+\^		|
+\(		|
+\)		{return(yytext[0]);}
+.           { printf("UNRECOGNIZED TOKEN on input line %d: %s\n",line_number, yytext); }
+%% 

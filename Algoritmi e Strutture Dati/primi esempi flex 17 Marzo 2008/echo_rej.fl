@@ -1,0 +1,14 @@
+%option noyywrap
+%%
+a	|
+ab	|
+abc	|
+abcd	ECHO; REJECT;
+.|\n	;
+%%
+main()
+{
+    yylex();
+    }
+
+

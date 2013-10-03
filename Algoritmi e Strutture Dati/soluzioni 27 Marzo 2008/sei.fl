@@ -1,0 +1,21 @@
+end_a .*a\n
+beg_a a.*\n
+%option noyywrap
+%%
+{end_a} ECHO;
+{beg_a} ECHO;
+.*\n   ;
+%%
+main(int argc,char *argv[])
+            {
+    --argc;  /* skip over program name */
+    if ( argc > 0 )
+            yyin = fopen( argv[1], "r" );
+    else
+            yyin = stdin;
+
+    yylex();
+
+    }
+
+

@@ -1,0 +1,2 @@
+il professore inoltre ha dato un vettore gia pronto e salvato nel file input.bin,
+dovete infatti solo copiarlo nella stessa cartella dove vi create l'algoritmo.

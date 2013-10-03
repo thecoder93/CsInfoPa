@@ -1,0 +1,39 @@
+%option noyywrap
+
+LETTERA		[A-Za-z]
+DIGIT		[0-9]
+IDENTIFICATORE	{LETTERA}({LETTERA}|{DIGIT})*
+NUMERO		{DIGIT}+
+RELOP		"<"|"<="|">"|">="|"="|"<>"
+OP		"+"|"-"|"/"|"*"
+KEYWORD		"program"|"begin"|"write"|"read"|"if"|"then"|"else"|"repeat"|"until"
+ASSEGNAZIONE	":="
+FINEISTRUZIONE	";"
+SPAZI		[ \t\n]*
+COMMENTI	"{"[^}\n]*"}"
+%%
+
+{KEYWORD}		|
+{IDENTIFICATORE}	|
+{NUMERO}		|
+{RELOP}			|
+{OP}			|
+";"	|
+{SPAZI}			|
+{COMMENTI}		|
+{ASSEGNAZIONE}		;
+.			ECHO;
+
+%%
+
+main(int argc, char *argv[]){
+	--argc;
+	if (argc > 0)
+		yyin = fopen( argv[1], "r");
+	else
+		yyin = stdin;
+	printf("INIZIO PARSER : \n");
+	yylex();
+	printf("\nFINE PARSER\n");
+	
+}

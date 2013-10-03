@@ -1,0 +1,44 @@
+/* escáner para un lenguaje Pascal */
+%option noyywrap
+
+DIGITO	[0-9]
+LETTERA	[a-zA-Z]
+ID	{LETTERA}({LETTERA}|{DIGITO})*
+
+%%
+
+"program"|"begin"|"write"|"read"|"if"|"then"|"else"|"repeat"|"until"|"end"	/*Reconoce las palabras clave*/
+
+{ID}	/*Reconoce los identificadores*/
+
+{DIGITO}+   /*encuentra los digitos enteros*/
+
+"+"|"-"|"*"|"/"	/*Se salta los operadores*/
+
+"<"|"<="|">"|">="|"="|"<>"	/*Se come los comparadores*/
+
+":="	/*Se come las asignaciones*/
+
+";"	/*Se come las finales de instrucciones*/
+
+"{"[^}\n]*"}"     /* se come una linea de comentarios */
+
+[ \t\n]+          /* se come los espacios en blanco */
+
+.           printf("Caracter no reconocido %s\n", yytext );
+
+%%
+
+main( argc, argv )
+int argc;
+char **argv;
+    {
+    ++argv, --argc;
+    if ( argc > 0 )
+            yyin = fopen( argv[0], "r" );
+    else
+            yyin = stdin;
+    printf("\n INIZIO PARSER :\n");		    
+    yylex();
+    printf("\nFINE PARSER :\n");		    
+    }

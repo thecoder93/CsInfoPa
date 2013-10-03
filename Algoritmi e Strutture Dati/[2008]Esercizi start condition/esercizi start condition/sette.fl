@@ -1,0 +1,33 @@
+/*converte tutte le lettere maiuscole di un programma in c in minuscole 
+  ad eccezione di quelle in commento*/
+%option noyywrap
+ #include <stdlib.h>
+ #include <stdio.h>
+ #include <conio.h>
+ #include <string.h>
+
+parole [A-Z]
+
+%%
+
+"/*".*"*/"	ECHO;
+{parole}	fprintf(yyout,"%c",tolower(*yytext));
+
+%%
+main(int argc, char *argv[]){
+	--argc;
+	if (argc > 0)
+		yyin = fopen(argv[1], "r");
+	else
+		yyin = stdin;
+	
+	if (argc > 1)
+		yyout = fopen(argv[2], "w");
+	else
+		yyout = stdout;
+	
+	fprintf(yyout, "INIZIO PARSER : \n");
+	yylex();
+	fprintf(yyout, "\nFINE PARSER\n");
+	
+}

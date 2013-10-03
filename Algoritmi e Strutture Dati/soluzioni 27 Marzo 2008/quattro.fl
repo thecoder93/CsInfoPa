@@ -1,0 +1,31 @@
+/*  ogni linea che non è parte di una regola o di un'azione e che inizia con uno spazio o con un tab viene copiata nel sorgente C */  
+    #include <stdlib.h>
+%{
+#include <stdio.h> /*comincia dalla colonna 1*/
+int cont_read= 0, cont_bread = 0;
+
+%}
+%option noyywrap
+%%
+read      ++cont_read; 
+bread       {++cont_bread; REJECT}
+\n		|
+.		;
+%%
+int ciccio=0;
+
+main(int argc,char *argv[])
+            {
+    --argc;  /* skip over program name */
+    if ( argc > 0 )
+            yyin = fopen( argv[1], "r" );
+    else
+            yyin = stdin;
+
+    yylex();
+    printf( "# of read = %d, # of bread = %d\n",
+                cont_read, cont_bread);
+
+    }
+
+

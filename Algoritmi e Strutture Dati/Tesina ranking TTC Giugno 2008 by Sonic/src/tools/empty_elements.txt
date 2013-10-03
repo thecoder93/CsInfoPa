@@ -1,0 +1,12 @@
+<!ELEMENT base EMPTY>
+<!ELEMENT meta EMPTY>
+<!ELEMENT link EMPTY>
+<!ELEMENT hr EMPTY>
+<!ELEMENT br EMPTY>   <!-- forced line break -->
+<!ELEMENT basefont EMPTY>  <!-- base font size -->
+<!ELEMENT param EMPTY>
+<!ELEMENT img EMPTY>
+<!ELEMENT area EMPTY>
+<!ELEMENT input EMPTY>     <!-- form control -->
+<!ELEMENT isindex EMPTY>
+<!ELEMENT col      EMPTY>

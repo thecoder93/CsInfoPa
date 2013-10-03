@@ -1,0 +1,69 @@
+/*******************************************************************************
+ *                                                                             *
+ *                 TESINA DI TEORIE E TECNICHE DI COMPILAZIONE                 *
+ *                                Novembre 2007                                *
+ *                                                                             *
+ *=============================================================================*
+ *                                  NAVIGATOR                                  *
+ *                           Analizzatore Lessicale                            *
+ *=============================================================================*
+ *                                                                             *
+ *                                             a cura di Gaspare Di Giovanna   *         
+ *                                     relatore prof.ssa Marinella Sciortino   *
+ *                                                                             *
+ ******************************************************************************/
+
+%{
+#include "parser.tab.h"
+%}
+
+/* COSTRUTTORI */
+
+spazi      [ \t\n]
+vuoti      {spazi}+
+lettera    [a-zA-Z]
+digit      [0-9]
+reale      {digit}+("."{digit}+)?
+targa      [A-Z]({lettera}|{digit}){7}
+data       {digit}{2}\/{digit}{2}\/{digit}{4}
+
+reale_neg  "-"{reale}
+reale_pos  "+"?{reale}
+
+commento   \<![^\n]*!\>
+
+metri      [mM]
+secondi    [sS]
+
+/* OPZIONI */
+
+%option noyywrap
+%option yylineno
+
+
+/* AZIONI */
+%%
+{spazi}     ;
+{data}      { check_date(yytext); return(DATA);              }
+{reale_neg} { yylval.real = atof(yytext); return(REALE_NEG); }
+{reale_pos} { yylval.real = atof(yytext); return(REALE_POS); }
+{targa}     { return(TARGA);                                 }
+{commento}  { return(COMMENTO);                              }
+Angle       { return(ANGLE);                                 }
+Speed       { return(SPEED);                                 }
+AcquireData { return(ACQUIREDATA);                           }
+Move        { return(MOVE);                                  }
+if          { return(IF);                                    }
+PI          { return(PI);                                    }
+{metri}     { return(M);                                     }
+{secondi}   { return(S);                                     }
+"%%"        { return('%');                                   }
+"<"         |
+">"         |
+"/"         |
+"["         |
+"]"         |
+"("         |
+")"         |
+";"         { return(yytext[0]);                             }
+.           {printf("ERRORE in riga %d!\n",yylineno);        }
