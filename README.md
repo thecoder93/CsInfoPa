@@ -1,5 +1,5 @@
 # Computer Science InfoPa
-#### Questo è il repository ufficiale delle risorse, degli appunti e di tutto il materiale utile trovato, fornito e messo a disposizione *dagli studenti per gli studenti* della facoltà di Scienze Informatiche di Palermo.
+#### Questo è il repository ufficiale delle risorse, degli appunti e di tutto il materiale utile trovato, fornito e messo a disposizione *dagli studenti per gli studenti* della facoltà di [Scienze Informatiche di Palermo](http://cs.unipa.it).
 
 # A che serve ?
 #### Questo repository è nato con l'esigenza di avere continuamente appunti, esercizi svolti e risorse sempre disponibili a chiunque voglia e a chiunque ne abbia bisogno senza doversi ammazzare la vita per trovare il tutto sull'internet o su pagine di facebook riempite da cose futili.
