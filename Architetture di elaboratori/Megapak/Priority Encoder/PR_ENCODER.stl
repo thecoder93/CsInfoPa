@@ -1,0 +1,24 @@
+* C:\DOCUMENTS AND SETTINGS\MARKUS\DOCUMENTI\ARCHITETTURE\MSI\PRIORITY ENCODER\PR_ENCODER.stl written on Mon May 23 10:12:37 2005
+* by Stimulus Editor -- Serial Number: 0 -- Version 9.1
+;!Stimulus Get
+;! input Digital
+;!Ok
+;!Plot Axis_Settings
+;!Xrange 0s 1ms
+;!AutoUniverse
+;!XminRes 1ns
+;!YminRes 1n
+;!Ok
+.STIMULUS input STIM (8, 11111111) ;! Hex
++   +0s 00000000
++   38.462us 00000001
++   79.121us 00000010
++   158.242us 00000100
++   200us 00001000
++   240.659us 00010000
++   281.319us 00100000
++   319.78us 01000000
++   357.143us 10000000
++   398.901us 10000010
++   439.56us 00010010
++   901.099us 00000000

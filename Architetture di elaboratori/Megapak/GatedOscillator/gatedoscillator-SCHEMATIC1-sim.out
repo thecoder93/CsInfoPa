@@ -1,0 +1,377 @@
+
+**** 05/29/05 18:25:41 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT PROFILES
+
+*Libraries: 
+* Local Libraries :
+* From [PSPICE NETLIST] section of pspice91.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 160us 0 
+.OPTIONS DIGINITSTATE= 0
+.PROBE 
+.INC "gatedoscillator-SCHEMATIC1.net" 
+
+
+**** INCLUDING gatedoscillator-SCHEMATIC1.net ****
+* source GATEDOSCILLATOR
+C_C1         0 N00956  1n  
+R_R1         N00956 N000170  1k  
+U_DSTM3         STIM(1,1)
++ $G_DPWR $G_DGND
++ N01004 
++ IO_STM
++ IO_LEVEL=0
++  0s 0  
++ 10us 1  
++ 20us 0  
++ 30us 0 
++ 40us 1  
++ 50us 1  
++ 60us 0  
++ 70us 0  
++ 80us 1  
++ 100us 1  
++ 110us 1  
++ 120us 0 
++ 130us 1 
++ 140us 0 
++ 150us 0 
+X_GO0_U1A         N000170 N01004 GO0_N00142 $G_DPWR $G_DGND 74HC132 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_GO0_U2         GO0_N00142 $D_HI $D_HI $D_HI $D_HI N00981 M_UN0001 M_UN0002
++  M_UN0003 M_UN0004 M_UN0005 M_UN0006 $G_DPWR $G_DGND 74HC114 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_GO0_U1B         N00956 N00956 N000170 $G_DPWR $G_DGND 74HC132 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+
+**** RESUMING gatedoscillator-SCHEMATIC1-sim.sim.cir ****
+.INC "gatedoscillator-SCHEMATIC1.als"
+
+
+
+**** INCLUDING gatedoscillator-SCHEMATIC1.als ****
+.ALIASES
+C_C1            C1(1=0 2=N00956 )
+R_R1            R1(1=N00956 2=N000170 )
+U_DSTM3          DSTM3(pin1=N01004 )
+_   GO0(EN=N01004 R=N000170 C=N00956 Out=N00981 )
+X_GO0_U1A          GO0.U1A(A=N000170 B=N01004 Y=GO0_N00142 VCC=$G_DPWR
++  GND=$G_DGND )
+X_GO0_U2          GO0.U2(CLK=GO0_N00142 CLRbar=$D_HI 1PREbar=$D_HI 1J=$D_HI
++  1K=$D_HI 1Q=N00981 1Qbar=M_UN0001 2PREbar=M_UN0002 2J=M_UN0003 2K=M_UN0004
++  2Q=M_UN0005 2Qbar=M_UN0006 VCC=$G_DPWR GND=$G_DGND )
+X_GO0_U1B          GO0.U1B(A=N00956 B=N00956 Y=N000170 VCC=$G_DPWR GND=$G_DGND
++  )
+_    _(GO0.C=N00956)
+_    _(GO0.Out=N00981)
+_    _(GO0.R=N000170)
+_    _(GO0.EN=N01004)
+_    _(GO0.VCC=GO0.VCC)
+_    _(GO0.GND=GO0.GND)
+.ENDALIASES
+
+**** RESUMING gatedoscillator-SCHEMATIC1-sim.sim.cir ****
+.END
+
+
+**** Generated AtoD and DtoA Interfaces ****
+
+*
+* Analog/Digital interface for node N00956
+*
+* Moving X_GO0_U1B.U1:IN2 from analog node N00956 to new digital node N00956$AtoD
+X$N00956_AtoD1
++ N00956
++ N00956$AtoD
++ $G_DPWR
++ $G_DGND
++ AtoD_HC_ST
++       PARAMS: CAPACITANCE=   3.5000E-12
+* Moving X_GO0_U1B.U1:IN1 from analog node N00956 to new digital node N00956$AtoD2
+X$N00956_AtoD2
++ N00956
++ N00956$AtoD2
++ $G_DPWR
++ $G_DGND
++ AtoD_HC_ST
++       PARAMS: CAPACITANCE=   3.5000E-12
+*
+* Analog/Digital interface for node N000170
+*
+* Moving X_GO0_U1A.U1:IN1 from analog node N000170 to new digital node N000170$AtoD
+X$N000170_AtoD1
++ N000170
++ N000170$AtoD
++ $G_DPWR
++ $G_DGND
++ AtoD_HC_ST
++       PARAMS: CAPACITANCE=   3.5000E-12
+* Moving X_GO0_U1B.U1:OUT1 from analog node N000170 to new digital node N000170$DtoA
+X$N000170_DtoA1
++ N000170$DtoA
++ N000170
++ $G_DPWR
++ $G_DGND
++ DtoA_HC
++       PARAMS: DRVH=  87     DRVL=  87     CAPACITANCE=   0     
+*
+* Analog/Digital interface power supply subcircuits
+*
+
+X$DIGIFPWR 0 DIGIFPWR
+
+**** 05/29/05 18:25:41 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim 
+
+
+ ****     Digital Input MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               DIN74HC         
+        FILE DSO_DTOA        
+      FORMAT    6            
+    TIMESTEP  100.000000E-12 
+      S0NAME 0               
+       S0TSW    5.000000E-09 
+       S0RLO    1            
+       S0RHI  100.000000E+03 
+      S1NAME 1               
+       S1TSW    5.000000E-09 
+       S1RLO  100.000000E+03 
+       S1RHI    1            
+      S2NAME X               
+       S2TSW    5.000000E-09 
+       S2RLO  110            
+       S2RHI  100            
+      S3NAME R               
+       S3TSW    5.000000E-09 
+       S3RLO  110            
+       S3RHI  100            
+      S4NAME F               
+       S4TSW    5.000000E-09 
+       S4RLO  110            
+       S4RHI  100            
+      S5NAME Z               
+       S5TSW    5.000000E-09 
+       S5RLO  200.000000E+03 
+       S5RHI  200.000000E+03 
+
+
+**** 05/29/05 18:25:41 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim 
+
+
+ ****     Digital Output MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               DO74HC_ST       
+        FILE DSO_ATOD        
+      FORMAT    6            
+     CHGONLY    1            
+    TIMESTEP  100.000000E-12 
+      S0NAME 0               
+       S0VHI     .55         
+       S0VLO   -1.3          
+      S1NAME 1               
+       S1VHI    1.3          
+       S1VLO     .33         
+
+
+**** 05/29/05 18:25:41 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim 
+
+
+ ****     Digital Gate MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D_HC132         D0_GATE         
+      TPLHMN    7.200000E-09    0            
+      TPLHTY   18.000000E-09    0            
+      TPLHMX   31.000000E-09    0            
+      TPHLMN    7.200000E-09    0            
+      TPHLTY   18.000000E-09    0            
+      TPHLMX   31.000000E-09    0            
+
+
+**** 05/29/05 18:25:41 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim 
+
+
+ ****     Digital Edge Triggered FF MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D_HC114         
+  TPCLKQLHMN    7.600000E-09 
+  TPCLKQLHTY   19.000000E-09 
+  TPCLKQLHMX   44.000000E-09 
+  TPCLKQHLMN    7.600000E-09 
+  TPCLKQHLTY   19.000000E-09 
+  TPCLKQHLMX   44.000000E-09 
+   TPPCQLHMN    8.000000E-09 
+   TPPCQLHTY   20.000000E-09 
+   TPPCQLHMX   44.000000E-09 
+   TPPCQHLMN    8.000000E-09 
+   TPPCQHLTY   20.000000E-09 
+   TPPCQHLMX   44.000000E-09 
+    TWCLKLMN    0            
+    TWCLKLTY   25.000000E-09 
+    TWCLKLMX   25.000000E-09 
+    TWCLKHMN    0            
+    TWCLKHTY   25.000000E-09 
+    TWCLKHMX   25.000000E-09 
+     TWPCLMN    0            
+     TWPCLTY   25.000000E-09 
+     TWPCLMX   25.000000E-09 
+   TSUDCLKMN    0            
+   TSUDCLKTY   25.000000E-09 
+   TSUDCLKMX   25.000000E-09 
+ TSUPCCLKHMN    0            
+ TSUPCCLKHTY   25.000000E-09 
+ TSUPCCLKHMX   25.000000E-09 
+    THDCLKMN    0            
+    THDCLKTY    0            
+    THDCLKMX    0            
+  TSUCECLKMN    0            
+  TSUCECLKTY    0            
+  TSUCECLKMX    0            
+   THCECLKMN    0            
+   THCECLKTY    0            
+   THCECLKMX    0            
+
+
+**** 05/29/05 18:25:41 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim 
+
+
+ ****     Digital IO  MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               IO_STM          IO_HC_ST        IO_HC           IO_HC_DTOA      
+        INLD                    3.500000E-12    3.500000E-12                 
+        DRVL    0              87              87                            
+        DRVH    0              87              87                            
+       AtoD1                 AtoD_HC_ST      AtoD_HC                         
+       AtoD2                 AtoD_HC_ST      AtoD_HC_NX                      
+       AtoD3                 AtoD_HC_ST      AtoD_HC                         
+       AtoD4                 AtoD_HC_ST      AtoD_HC_NX                      
+       DtoA1 DtoA_STM        DtoA_HC         DtoA_HC                         
+       DtoA2 DtoA_STM        DtoA_HC         DtoA_HC                         
+       DtoA3 DtoA_STM        DtoA_HC_E       DtoA_HC_E                       
+       DtoA4 DtoA_STM        DtoA_HC_E       DtoA_HC_E                       
+      TSWHL1                    2.742000E-09    2.742000E-09                 
+      TSWHL2                    2.742000E-09    2.742000E-09                 
+      TSWHL3                    2.751000E-09    2.751000E-09                 
+      TSWHL4                    2.751000E-09    2.751000E-09                 
+      TSWLH1                    2.758000E-09    2.758000E-09                 
+      TSWLH2                    2.758000E-09    2.758000E-09                 
+      TSWLH3                    2.763000E-09    2.763000E-09                 
+      TSWLH4                    2.763000E-09    2.763000E-09                 
+       TPWRT  100.000000E+03    2.000000E-09    2.000000E-09  100.000000E+03 
+
+
+WARNING -- X$N000170_DtoA1.N1 forced to X state for bias point
+WARNING -- X$N000170_DtoA1.N1 forced to X state for bias point
+WARNING -- X$N000170_DtoA1.N1 forced to X state for bias point
+WARNING -- X$N000170_DtoA1.N1 forced to X state for bias point
+WARNING -- Unable to converge all DtoA interface devices
+**** 05/29/05 18:25:41 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(N00956)    2.5287 ($G_DGND)    0.0000                   ($G_DPWR)    5.0000    
+
+(N000170)    2.5287                   (X$N00956_AtoD1.NORM)     .5057           
+
+(X$N00956_AtoD2.NORM)     .5057       (X$N000170_AtoD1.NORM)     .5057          
+
+(X$N000170_DtoA1.DGND_OL)     .7163   (X$N000170_DtoA1.DPWR_OH)    4.1762   
+
+
+
+ DGTL NODE : STATE  DGTL NODE : STATE  DGTL NODE : STATE  DGTL NODE : STATE
+
+
+(  N00981) : 0     (M_UN0006) : 1     (M_UN0003) : Z     (N00956$AtoD) : 0      
+
+(   $D_HI) : 1     (M_UN0004) : Z     (M_UN0001) : 1                            
+
+(X_GO0_U2.CLRBAR_BUF) : 1             (N000170$DtoA) : 1                        
+
+(X_GO0_U2.CLK_BUF) : 1                (GO0_N00142) : 1   (X_GO0_U2.1PREB) : 1   
+
+(N000170$AtoD) : 0                    (M_UN0005) : 0     (M_UN0002) : Z         
+
+(  N01004) : 0     (N00956$AtoD2) : 0                    (X_GO0_U2.2PREB) : X   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    X$DIGIFPWR.VDPWR  -1.648E-02
+    X$DIGIFPWR.VDGND  -5.000E-06
+
+    TOTAL POWER DISSIPATION   8.24E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME            3.59
+

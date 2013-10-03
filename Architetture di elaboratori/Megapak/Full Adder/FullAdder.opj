@@ -1,0 +1,89 @@
+(ExpressProject "FullAdder"
+  (ProjectVersion "19981106")
+  (ProjectType "Analog or A/D Mixed Mode")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File "C:\Program Files\OrCAD\CAPTURE\LIBRARY\PSPICE\74hc.olb"
+        (Type "Schematic Library"))
+      (File "C:\Program Files\OrCAD\CAPTURE\LIBRARY\PSPICE\analog.olb"
+        (Type "Schematic Library"))
+      (File "C:\Program Files\OrCAD\CAPTURE\LIBRARY\PSPICE\source.olb"
+        (Type "Schematic Library"))
+      (File "C:\Program Files\OrCAD\CAPTURE\LIBRARY\PSPICE\sourcstm.olb"
+        (Type "Schematic Library"))
+      (File "C:\Program Files\OrCAD\CAPTURE\LIBRARY\PSPICE\special.olb"
+        (Type "Schematic Library")))
+    (NoModify)
+    (File ".\fulladder.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (ANNOTATE_Scope "0")
+    (ANNOTATE_Mode "1")
+    (ANNOTATE_Action "0")
+    (ANNOTATE_Reset_References_to_1 "FALSE")
+    (ANNOTATE_No_Page_Number_Change "FALSE")
+    (ANNOTATE_Property_Combine "{Value}{Source Package}"))
+  (Folder "Outputs"
+    (File ".\fulladder-schematic1.net"
+      (Type "Report")))
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles"
+      (ActiveProfile ".\fulladder-schematic1-simadder.sim")
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\fulladder-schematic1-simadder.sim"
+        (DisplayName "SCHEMATIC1-simAdder")
+        (Type "PSpice Profile")))
+    (Folder "Model Libraries"
+      (Sort User))
+    (Folder "Stimulus Files"
+      (Sort User)
+      (File ".\FULLADDER.stl"
+        (Type "PSpiceLibrary")
+        (DisplayName ".\FULLADDER.stl")))
+    (Folder "Include Files"
+      (Sort User)))
+  (DefaultLibraryBrowseDirectory "library\PSpice")
+  (PartMRUSelector
+    (DigStim8
+      (FullPartName "DigStim8.Normal")
+      (LibraryName "C:\PROGRAM FILES\ORCAD\CAPTURE\LIBRARY\PSPICE\SOURCSTM.OLB")
+      (DeviceIndex "0"))
+    (74HC386
+      (FullPartName "74HC386.Normal")
+      (LibraryName "C:\PROGRAM FILES\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (STIM4
+      (FullPartName "STIM4.Normal")
+      (LibraryName "C:\PROGRAM FILES\ORCAD\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (STIM1
+      (FullPartName "STIM1.Normal")
+      (LibraryName "C:\PROGRAM FILES\ORCAD\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (74HC32
+      (FullPartName "74HC32.Normal")
+      (LibraryName "C:\PROGRAM FILES\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC08
+      (FullPartName "74HC08.Normal")
+      (LibraryName "C:\PROGRAM FILES\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC09
+      (FullPartName "74HC09.Normal")
+      (LibraryName "C:\PROGRAM FILES\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0")))
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources"
+         "\\Moe\markus\Architetture\MSI\Full Adder\fulladder.dsn")
+      (Path "Design Resources"
+         "\\Moe\markus\Architetture\MSI\Full Adder\fulladder.dsn" "SCHEMATIC1")
+      (Path "Outputs"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -4 -23 0 200 0 431"))
+      (Tab 0))))

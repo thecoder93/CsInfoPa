@@ -1,0 +1,303 @@
+(ExpressProject "Bin2Gray"
+  (ProjectVersion "19981106")
+  (ProjectType "Analog or A/D Mixed Mode")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\1_shot.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\7400.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\74ac.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\74act.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\74als.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\74as.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\74f.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\74h.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\74hc.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\74hct.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\74l.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\74ls.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\74s.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\abm.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\adv_lin.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\analog.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\analog_p.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\ana_swit.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\anlg_dev.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\anl_misc.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\apex.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\bipolar.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\breakout.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\burr_brn.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\cd4000.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\cel.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\comlinr.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\darlngtn.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\dataconv.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\dig_ecl.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\dig_gal.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\dig_misc.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\dig_pal.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\dig_prim.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\diode.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\ebipolar.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\ediode.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\elantec.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\epwrbjt.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\filtsub.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\fwbell.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\harris.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\igbt.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\jbipolar.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\jdiode.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\jfet.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\jjfet.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\jopamp.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\jpwrbjt.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\jpwrmos.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\linedriv.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\lin_tech.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\magnetic.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\maxim.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\mix_misc.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\motoramp.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\motormos.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\motorsen.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\motor_rf.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\nat_semi.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\opamp.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\opto.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\phil_bjt.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\phil_fet.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\phil_rf.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\polyfet.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\pwrbjt.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\pwrmos.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\siemens.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\source.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\sourcstm.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\special.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\swit_rav.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\swit_reg.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\tex_inst.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\thyristr.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\tline.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\xtal.olb"
+        (Type "Schematic Library"))
+      (File "U:\Electronic\orcad9.2\Capture\library\pspice\zetex.olb"
+        (Type "Schematic Library")))
+    (NoModify)
+    (File "bin2gray.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (ANNOTATE_Scope "0")
+    (ANNOTATE_Mode "1")
+    (ANNOTATE_Action "1")
+    (ANNOTATE_Reset_References_to_1 "FALSE")
+    (ANNOTATE_No_Page_Number_Change "TRUE")
+    (ANNOTATE_Property_Combine "{Value}{Source Package}")
+    (PSPICE_Regenerate_Netlist_Flag "FALSE"))
+  (Folder "Outputs"
+    (File ".\bin2gray-schematic1.net"
+      (Type "Report")))
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles"
+      (ActiveProfile "bin2gray-schematic1-bias.sim")
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         "bin2gray-schematic1-bias.sim"
+        (DisplayName "SCHEMATIC1-Bias")
+        (Type "PSpice Profile")))
+    (Folder "Model Libraries"
+      (Sort User))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User)))
+  (DefaultLibraryBrowseDirectory "library\PSpice")
+  (PartMRUSelector
+    (74HC04
+      (FullPartName "74HC04.Normal")
+      (LibraryName "U:\ELECTRONIC\ORCAD9.2\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC164
+      (FullPartName "74HC164.Normal")
+      (LibraryName "U:\ELECTRONIC\ORCAD9.2\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (DigClock
+      (FullPartName "DigClock.Normal")
+      (LibraryName "U:\ELECTRONIC\ORCAD9.2\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    ($D_HI
+      (LibraryName "U:\ELECTRONIC\ORCAD9.2\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    ($D_LO
+      (LibraryName "U:\ELECTR~1\ORCAD9.2\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (74HC161
+      (FullPartName "74HC161.Normal")
+      (LibraryName "U:\ELECTRONIC\ORCAD9.2\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC191
+      (FullPartName "74HC191.Normal")
+      (LibraryName "U:\ELECTRONIC\ORCAD9.2\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC194
+      (FullPartName "74HC194.Normal")
+      (LibraryName "U:\ELECTRONIC\ORCAD9.2\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC165
+      (FullPartName "74HC165.Normal")
+      (LibraryName "U:\ELECTRONIC\ORCAD9.2\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC86
+      (FullPartName "74HC86.Normal")
+      (LibraryName "U:\ELECTRONIC\ORCAD9.2\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC08
+      (FullPartName "74HC08.Normal")
+      (LibraryName "U:\ELECTRONIC\ORCAD9.2\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC00
+      (FullPartName "74HC00.Normal")
+      (LibraryName "U:\ELECTRONIC\ORCAD9.2\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC10
+      (FullPartName "74HC10.Normal")
+      (LibraryName "U:\ELECTRONIC\ORCAD9.2\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC11
+      (FullPartName "74HC11.Normal")
+      (LibraryName "U:\ELECTRONIC\ORCAD9.2\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (PORTBOTH-R
+      (LibraryName "D:\ORCAD92\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (74HC107
+      (FullPartName "74HC107.Normal")
+      (LibraryName "U:\ELECTRONIC\ORCAD9.2\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (7400
+      (FullPartName "7400.Normal")
+      (LibraryName "U:\ELECTRONIC\ORCAD9.2\CAPTURE\LIBRARY\PSPICE\7400.OLB")
+      (DeviceIndex "0"))
+    (PORTBOTH-L
+      (LibraryName "..\..\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (R
+      (FullPartName "R.Normal")
+      (LibraryName "..\..\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (C
+      (FullPartName "C.Normal")
+      (LibraryName "..\..\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (L
+      (FullPartName "L.Normal")
+      (LibraryName "..\..\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (VSTIM
+      (FullPartName "VSTIM.Normal")
+      (LibraryName "..\..\LIBRARY\PSPICE\SOURCSTM.OLB")
+      (DeviceIndex "0"))
+    (VDC
+      (FullPartName "VDC.Normal")
+      (LibraryName "..\..\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0")))
+  (LastUsedLibraryBrowseDirectory "LIBRARY\PSPICE")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources"
+         "\\Moe\markus\Architetture\Esercitazioni\Bin2Gray\bin2gray.dsn")
+      (Path "Design Resources"
+         "\\Moe\markus\Architetture\Esercitazioni\Bin2Gray\bin2gray.dsn"
+         "SCHEMATIC1")
+      (Path "Design Resources"
+         "\\Moe\markus\Architetture\Esercitazioni\Bin2Gray\bin2gray.dsn"
+         "SCHEMATIC2")
+      (Path "Outputs")
+      (Select "Design Resources"
+         "\\Moe\markus\Architetture\Esercitazioni\Bin2Gray\bin2gray.dsn"
+         "SCHEMATIC1" "PAGE1"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -4 -23 0 200 0 563"))
+      (Tab 0))))

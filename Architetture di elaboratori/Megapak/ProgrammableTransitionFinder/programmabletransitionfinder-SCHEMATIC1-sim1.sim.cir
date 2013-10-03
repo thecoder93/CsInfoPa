@@ -1,0 +1,19 @@
+** circuit file for profile: sim1 
+
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT PROFILES
+
+*Libraries: 
+* Local Libraries :
+* From [PSPICE NETLIST] section of pspice91.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 100us 0 
+.OPTIONS DIGINITSTATE= 0
+.PROBE 
+.INC "programmabletransitionfinder-SCHEMATIC1.net" 
+
+.INC "programmabletransitionfinder-SCHEMATIC1.als"
+
+
+.END

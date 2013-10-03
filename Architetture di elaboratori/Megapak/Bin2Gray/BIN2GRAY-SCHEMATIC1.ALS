@@ -1,0 +1,70 @@
+.ALIASES
+U_DSTM2          DSTM2(VCC=$G_DPWR GND=$G_DGND 1=CLK )
+_   Bin2Gray_01(CLK_bar=CLK RESET_bar=$D_HI I=N02308 OUT=N06221 )
+X_Bin2Gray_01_U22A          Bin2Gray_01.U22A(A=N02308 B=Bin2Gray_01_QB_BAR
++  Y=Bin2Gray_01_N04370 VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U42A          Bin2Gray_01.U42A(A=Bin2Gray_01_N05437
++  B=Bin2Gray_01_QC_BAR Y=Bin2Gray_01_KB VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U23A          Bin2Gray_01.U23A(A=N02308 B=Bin2Gray_01_QB_BAR
++  Y=Bin2Gray_01_N03736 VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U2A          Bin2Gray_01.U2A(CLK=CLK CLRbar=$D_HI
++  J=Bin2Gray_01_JA K=Bin2Gray_01_KA Q=Bin2Gray_01_QA Qbar=Bin2Gray_01_QA_BAR
++  VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U12A          Bin2Gray_01.U12A(A=N02308 Y=Bin2Gray_01_N02200
++  VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U25A          Bin2Gray_01.U25A(A=Bin2Gray_01_QA_BAR
++  B=Bin2Gray_01_N02200 Y=Bin2Gray_01_N05437 VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U3A          Bin2Gray_01.U3A(CLK=CLK CLRbar=$D_HI
++  J=Bin2Gray_01_JB K=Bin2Gray_01_KB Q=Bin2Gray_01_QB Qbar=Bin2Gray_01_QB_BAR
++  VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U26A          Bin2Gray_01.U26A(A=Bin2Gray_01_N02200
++  B=Bin2Gray_01_JB C=Bin2Gray_01_QB Y=Bin2Gray_01_N03825 VCC=$G_DPWR GND=$G_DGND
++  )
+X_Bin2Gray_01_U4A          Bin2Gray_01.U4A(CLK=CLK CLRbar=$D_HI J=$D_HI K=$D_HI
++  Q=Bin2Gray_01_JB Qbar=Bin2Gray_01_QC_BAR VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U20A          Bin2Gray_01.U20A(A=N02308 B=Bin2Gray_01_QC_BAR
++  Y=Bin2Gray_01_N03784 VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U27A          Bin2Gray_01.U27A(A=Bin2Gray_01_N03736
++  B=Bin2Gray_01_N03784 C=Bin2Gray_01_N03825 Y=Bin2Gray_01_JA VCC=$G_DPWR
++  GND=$G_DGND )
+X_Bin2Gray_01_U43A          Bin2Gray_01.U43A(A=N02308 B=Bin2Gray_01_QA Y=N06221
++  VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U21A          Bin2Gray_01.U21A(A=N02308 B=Bin2Gray_01_QC_BAR
++  Y=Bin2Gray_01_N04416 VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U32A          Bin2Gray_01.U32A(A=Bin2Gray_01_N04370
++  B=Bin2Gray_01_N04416 Y=Bin2Gray_01_KA VCC=$G_DPWR GND=$G_DGND )
+_    _(Bin2Gray_01.OUT=N06221)
+_    _(Bin2Gray_01.RESET_bar=$D_HI)
+_    _(RESET_bar=$D_HI)
+_    _(Bin2Gray_01.I=N02308)
+_    _(Bin2Gray_01.KA=Bin2Gray_01_KA)
+_    _(Bin2Gray_01.KB=Bin2Gray_01_KB)
+_    _(Bin2Gray_01.JA=Bin2Gray_01_JA)
+_    _(Bin2Gray_01.QA_bar=Bin2Gray_01_QA_BAR)
+_    _(Bin2Gray_01.QB=Bin2Gray_01_QB)
+_    _(Bin2Gray_01.QB_bar=Bin2Gray_01_QB_BAR)
+_    _(Bin2Gray_01.QC=Bin2Gray_01_JB)
+_    _(Bin2Gray_01.JB=Bin2Gray_01_JB)
+_    _(Bin2Gray_01.QC_bar=Bin2Gray_01_QC_BAR)
+_    _(Bin2Gray_01.QA=Bin2Gray_01_QA)
+_    _(Bin2Gray_01.CLK_bar=CLK)
+X_U8            U8(CLK=CLK ENP=$D_HI ENT=$D_HI CLRbar=$D_HI LOADbar=N03367
++  A=$D_LO B=$D_LO C=$D_LO D=$D_LO QA=M_UN0001 QB=M_UN0002 QC=N03313 QD=M_UN0003
++  RCO=M_UN0004 VCC=$G_DPWR GND=$G_DGND )
+X_U5            U5(CLK=CLK CLRbar=$D_HI S1=N03313 S0=$D_HI SL=$D_LO SR=$D_LO
++  A=N01989 B=N01906 C=N01823 D=N01740 QA=M_UN0005 QB=M_UN0006 QC=M_UN0007
++  QD=N02308 VCC=$G_DPWR GND=$G_DGND )
+X_U11           U11(CLRbar=$D_HI CLK=CLK_BAR A=N02308 B=N02308 QA=M_UN0008
++  QB=M_UN0009 QC=M_UN0010 QD=M_UN0011 QE=M_UN0012 QF=M_UN0013 QG=M_UN0014
++  QH=M_UN0015 VCC=$G_DPWR GND=$G_DGND )
+X_U9A           U9A(A=N03313 Y=N03367 VCC=$G_DPWR GND=$G_DGND )
+X_U12A          U12A(A=CLK Y=CLK_BAR VCC=$G_DPWR GND=$G_DGND )
+X_U6            U6(CLK=CLK D/Ubar=$D_LO CTENbar=N03367 LOADbar=$D_HI A=$D_LO
++  B=$D_LO C=$D_LO D=$D_LO RCObar=M_UN0016 MAX/MIN=M_UN0017 QA=N01989 QB=N01906
++  QC=N01823 QD=N01740 VCC=$G_DPWR GND=$G_DGND )
+_    _(CLK_bar=CLK_BAR)
+_    _(CLK=CLK)
+_    _(RESET_bar=$D_HI)
+_    _(VCC=VCC)
+_    _(GND=GND)
+.ENDALIASES

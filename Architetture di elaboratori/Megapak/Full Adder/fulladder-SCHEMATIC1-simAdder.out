@@ -1,0 +1,903 @@
+
+**** 07/04/05 15:08:35 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: simAdder 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT PROFILES
+
+*Libraries: 
+* Local Libraries :
+.STMLIB ".\FULLADDER.stl" 
+* From [PSPICE NETLIST] section of pspice91.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 200us 0 
+.PROBE 
+.INC "fulladder-SCHEMATIC1.net" 
+
+
+**** INCLUDING fulladder-SCHEMATIC1.net ****
+* source FULLADDER
+X_FA8bit0_FA4_0_FA0_HA1_U2A         A0 B0 FA8bit0_FA4_0_FA0_N00069 $G_DPWR
++  $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_FA0_HA1_U3A         B0 A0 FA8bit0_FA4_0_FA0_N00105 $G_DPWR
++  $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_FA0_HA1_1_U2A         $D_LO FA8bit0_FA4_0_FA0_N00105
++  FA8bit0_FA4_0_FA0_N00064 $G_DPWR $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_FA0_HA1_1_U3A         FA8bit0_FA4_0_FA0_N00105 $D_LO S0 $G_DPWR
++  $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_FA0_U1A         FA8bit0_FA4_0_FA0_N00064
++  FA8bit0_FA4_0_FA0_N00069 FA8bit0_FA4_0_N00334 $G_DPWR $G_DGND 74HC32 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_FA1_HA1_U2A         A1 B1 FA8bit0_FA4_0_FA1_N00069 $G_DPWR
++  $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_FA1_HA1_U3A         B1 A1 FA8bit0_FA4_0_FA1_N00105 $G_DPWR
++  $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_FA1_HA1_1_U2A         FA8bit0_FA4_0_N00334
++  FA8bit0_FA4_0_FA1_N00105 FA8bit0_FA4_0_FA1_N00064 $G_DPWR $G_DGND 74HC08
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_FA1_HA1_1_U3A         FA8bit0_FA4_0_FA1_N00105
++  FA8bit0_FA4_0_N00334 S1 $G_DPWR $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_FA1_U1A         FA8bit0_FA4_0_FA1_N00064
++  FA8bit0_FA4_0_FA1_N00069 FA8bit0_FA4_0_N00370 $G_DPWR $G_DGND 74HC32 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_FA2_HA1_U2A         A2 B2 FA8bit0_FA4_0_FA2_N00069 $G_DPWR
++  $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_FA2_HA1_U3A         B2 A2 FA8bit0_FA4_0_FA2_N00105 $G_DPWR
++  $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_FA2_HA1_1_U2A         FA8bit0_FA4_0_N00370
++  FA8bit0_FA4_0_FA2_N00105 FA8bit0_FA4_0_FA2_N00064 $G_DPWR $G_DGND 74HC08
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_FA2_HA1_1_U3A         FA8bit0_FA4_0_FA2_N00105
++  FA8bit0_FA4_0_N00370 S2 $G_DPWR $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_FA2_U1A         FA8bit0_FA4_0_FA2_N00064
++  FA8bit0_FA4_0_FA2_N00069 FA8bit0_FA4_0_N00432 $G_DPWR $G_DGND 74HC32 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_FA3_HA1_U2A         A3 B3 FA8bit0_FA4_0_FA3_N00069 $G_DPWR
++  $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_FA3_HA1_U3A         B3 A3 FA8bit0_FA4_0_FA3_N00105 $G_DPWR
++  $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_FA3_HA1_1_U2A         FA8bit0_FA4_0_N00432
++  FA8bit0_FA4_0_FA3_N00105 FA8bit0_FA4_0_FA3_N00064 $G_DPWR $G_DGND 74HC08
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_FA3_HA1_1_U3A         FA8bit0_FA4_0_FA3_N00105
++  FA8bit0_FA4_0_N00432 S3 $G_DPWR $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_FA3_U1A         FA8bit0_FA4_0_FA3_N00064
++  FA8bit0_FA4_0_FA3_N00069 FA8bit0_N03805 $G_DPWR $G_DGND 74HC32 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_U2A         FA8bit0_N03805 FA8bit0_FA4_0_N00432 V $G_DPWR
++  $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_1_FA0_HA1_U2A         A4 B4 FA8bit0_FA4_0_1_FA0_N00069 $G_DPWR
++  $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_1_FA0_HA1_U3A         B4 A4 FA8bit0_FA4_0_1_FA0_N00105 $G_DPWR
++  $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_1_FA0_HA1_1_U2A         FA8bit0_N03805
++  FA8bit0_FA4_0_1_FA0_N00105 FA8bit0_FA4_0_1_FA0_N00064 $G_DPWR $G_DGND 74HC08
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_1_FA0_HA1_1_U3A         FA8bit0_FA4_0_1_FA0_N00105
++  FA8bit0_N03805 S4 $G_DPWR $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_1_FA0_U1A         FA8bit0_FA4_0_1_FA0_N00064
++  FA8bit0_FA4_0_1_FA0_N00069 FA8bit0_FA4_0_1_N00334 $G_DPWR $G_DGND 74HC32
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_1_FA1_HA1_U2A         A5 B5 FA8bit0_FA4_0_1_FA1_N00069 $G_DPWR
++  $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_1_FA1_HA1_U3A         B5 A5 FA8bit0_FA4_0_1_FA1_N00105 $G_DPWR
++  $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_1_FA1_HA1_1_U2A         FA8bit0_FA4_0_1_N00334
++  FA8bit0_FA4_0_1_FA1_N00105 FA8bit0_FA4_0_1_FA1_N00064 $G_DPWR $G_DGND 74HC08
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_1_FA1_HA1_1_U3A         FA8bit0_FA4_0_1_FA1_N00105
++  FA8bit0_FA4_0_1_N00334 S5 $G_DPWR $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_1_FA1_U1A         FA8bit0_FA4_0_1_FA1_N00064
++  FA8bit0_FA4_0_1_FA1_N00069 FA8bit0_FA4_0_1_N00370 $G_DPWR $G_DGND 74HC32
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_1_FA2_HA1_U2A         A6 B6 FA8bit0_FA4_0_1_FA2_N00069 $G_DPWR
++  $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_1_FA2_HA1_U3A         B6 A6 FA8bit0_FA4_0_1_FA2_N00105 $G_DPWR
++  $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_1_FA2_HA1_1_U2A         FA8bit0_FA4_0_1_N00370
++  FA8bit0_FA4_0_1_FA2_N00105 FA8bit0_FA4_0_1_FA2_N00064 $G_DPWR $G_DGND 74HC08
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_1_FA2_HA1_1_U3A         FA8bit0_FA4_0_1_FA2_N00105
++  FA8bit0_FA4_0_1_N00370 S6 $G_DPWR $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_1_FA2_U1A         FA8bit0_FA4_0_1_FA2_N00064
++  FA8bit0_FA4_0_1_FA2_N00069 FA8bit0_FA4_0_1_N00432 $G_DPWR $G_DGND 74HC32
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_1_FA3_HA1_U2A         A7 B7 FA8bit0_FA4_0_1_FA3_N00069 $G_DPWR
++  $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_1_FA3_HA1_U3A         B7 A7 FA8bit0_FA4_0_1_FA3_N00105 $G_DPWR
++  $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_1_FA3_HA1_1_U2A         FA8bit0_FA4_0_1_N00432
++  FA8bit0_FA4_0_1_FA3_N00105 FA8bit0_FA4_0_1_FA3_N00064 $G_DPWR $G_DGND 74HC08
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_1_FA3_HA1_1_U3A         FA8bit0_FA4_0_1_FA3_N00105
++  FA8bit0_FA4_0_1_N00432 S7 $G_DPWR $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_1_FA3_U1A         FA8bit0_FA4_0_1_FA3_N00064
++  FA8bit0_FA4_0_1_FA3_N00069 N03832 $G_DPWR $G_DGND 74HC32 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_FA8bit0_FA4_0_1_U2A         N03832 FA8bit0_FA4_0_1_N00432 N03841 $G_DPWR
++  $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+U_DSTM6         STIM(8,0) $G_DPWR $G_DGND A7 A6 A5 A4 A3 A2 A1 A0 IO_STM
++  STIMULUS=StimA
+U_DSTM7         STIM(8,0) $G_DPWR $G_DGND B7 B6 B5 B4 B3 B2 B1 B0 IO_STM
++  STIMULUS=StimB
+
+**** RESUMING fulladder-schematic1-simadder.sim.cir ****
+.INC "fulladder-SCHEMATIC1.als"
+
+
+
+**** INCLUDING fulladder-SCHEMATIC1.als ****
+.ALIASES
+_   FA8bit0(A0=A0 A1=A1 A2=A2 A3=A3 A4=A4 A5=A5 A6=A6 A7=A7 B0=B0 B1=B1 B2=B2
++  B3=B3 B4=B4 B5=B5 B6=B6 B7=B7 C=N03832 V=N03841 S0=S0 S1=S1 S2=S2 S3=S3 S4=S4
++  S5=S5 S6=S6 S7=S7 )
+_   FA8bit0.FA4_0(A0=H0 A1=H1 A2=H2 A3=H3 B0=I0 B1=I1 B2=I2 B3=I3 S0=L0 S1=L1
++  S2=L2 S3=L3 C=FA8bit0_N03805 Cin=FA8bit0_$D_LO )
+_   FA8bit0.FA4_0.FA0(A=A0 B=B0 Cin=FA8bit0_$D_LO Cout=FA8bit0_FA4_0_N00334
++  Sum=S0 )
+_   FA8bit0.FA4_0.FA0.HA1(A=A0 B=B0 Sum=FA8bit0_FA4_0_FA0_N00105
++  Cout=FA8bit0_FA4_0_FA0_N00069 )
+X_FA8bit0_FA4_0_FA0_HA1_U2A          FA8bit0.FA4_0.FA0.HA1.U2A(A=A0 B=B0
++  Y=FA8bit0_FA4_0_FA0_N00069 VCC=$G_DPWR GND=$G_DGND )
+X_FA8bit0_FA4_0_FA0_HA1_U3A          FA8bit0.FA4_0.FA0.HA1.U3A(A=B0 B=A0
++  Y=FA8bit0_FA4_0_FA0_N00105 VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0.FA0.HA1.A=A0)
+_    _(FA8bit0.FA4_0.FA0.HA1.B=B0)
+_    _(FA8bit0.FA4_0.FA0.HA1.Cout=FA8bit0_FA4_0_FA0_N00069)
+_    _(FA8bit0.FA4_0.FA0.HA1.Sum=FA8bit0_FA4_0_FA0_N00105)
+_   FA8bit0.FA4_0.FA0.HA1_1(A=FA8bit0_$D_LO B=FA8bit0_FA4_0_FA0_N00105 Sum=S0
++  Cout=FA8bit0_FA4_0_FA0_N00064 )
+X_FA8bit0_FA4_0_FA0_HA1_1_U2A          FA8bit0.FA4_0.FA0.HA1_1.U2A(A=$D_LO
++  B=FA8bit0_FA4_0_FA0_N00105 Y=FA8bit0_FA4_0_FA0_N00064 VCC=$G_DPWR GND=$G_DGND
++  )
+X_FA8bit0_FA4_0_FA0_HA1_1_U3A         
++  FA8bit0.FA4_0.FA0.HA1_1.U3A(A=FA8bit0_FA4_0_FA0_N00105 B=$D_LO Y=S0
++  VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0.FA0.HA1_1.A=FA8bit0_$D_LO)
+_    _(A=FA8bit0_$D_LO)
+_    _(FA8bit0.FA4_0.FA0.HA1_1.B=FA8bit0_FA4_0_FA0_N00105)
+_    _(FA8bit0.FA4_0.FA0.HA1_1.Cout=FA8bit0_FA4_0_FA0_N00064)
+_    _(FA8bit0.FA4_0.FA0.HA1_1.Sum=S0)
+X_FA8bit0_FA4_0_FA0_U1A         
++  FA8bit0.FA4_0.FA0.U1A(A=FA8bit0_FA4_0_FA0_N00064 B=FA8bit0_FA4_0_FA0_N00069
++  Y=FA8bit0_FA4_0_N00334 VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0.FA0.B=B0)
+_    _(FA8bit0.FA4_0.FA0.A=A0)
+_    _(FA8bit0.FA4_0.FA0.Sum=S0)
+_    _(FA8bit0.FA4_0.FA0.Cin=FA8bit0_$D_LO)
+_    _(Cin=FA8bit0_$D_LO)
+_    _(FA8bit0.FA4_0.FA0.Cout=FA8bit0_FA4_0_N00334)
+_   FA8bit0.FA4_0.FA1(A=A1 B=B1 Cin=FA8bit0_FA4_0_N00334
++  Cout=FA8bit0_FA4_0_N00370 Sum=S1 )
+_   FA8bit0.FA4_0.FA1.HA1(A=A1 B=B1 Sum=FA8bit0_FA4_0_FA1_N00105
++  Cout=FA8bit0_FA4_0_FA1_N00069 )
+X_FA8bit0_FA4_0_FA1_HA1_U2A          FA8bit0.FA4_0.FA1.HA1.U2A(A=A1 B=B1
++  Y=FA8bit0_FA4_0_FA1_N00069 VCC=$G_DPWR GND=$G_DGND )
+X_FA8bit0_FA4_0_FA1_HA1_U3A          FA8bit0.FA4_0.FA1.HA1.U3A(A=B1 B=A1
++  Y=FA8bit0_FA4_0_FA1_N00105 VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0.FA1.HA1.A=A1)
+_    _(FA8bit0.FA4_0.FA1.HA1.B=B1)
+_    _(FA8bit0.FA4_0.FA1.HA1.Cout=FA8bit0_FA4_0_FA1_N00069)
+_    _(FA8bit0.FA4_0.FA1.HA1.Sum=FA8bit0_FA4_0_FA1_N00105)
+_   FA8bit0.FA4_0.FA1.HA1_1(A=FA8bit0_FA4_0_N00334 B=FA8bit0_FA4_0_FA1_N00105
++  Sum=S1 Cout=FA8bit0_FA4_0_FA1_N00064 )
+X_FA8bit0_FA4_0_FA1_HA1_1_U2A         
++  FA8bit0.FA4_0.FA1.HA1_1.U2A(A=FA8bit0_FA4_0_N00334 B=FA8bit0_FA4_0_FA1_N00105
++  Y=FA8bit0_FA4_0_FA1_N00064 VCC=$G_DPWR GND=$G_DGND )
+X_FA8bit0_FA4_0_FA1_HA1_1_U3A         
++  FA8bit0.FA4_0.FA1.HA1_1.U3A(A=FA8bit0_FA4_0_FA1_N00105 B=FA8bit0_FA4_0_N00334
++  Y=S1 VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0.FA1.HA1_1.A=FA8bit0_FA4_0_N00334)
+_    _(FA8bit0.FA4_0.FA1.HA1_1.B=FA8bit0_FA4_0_FA1_N00105)
+_    _(FA8bit0.FA4_0.FA1.HA1_1.Cout=FA8bit0_FA4_0_FA1_N00064)
+_    _(FA8bit0.FA4_0.FA1.HA1_1.Sum=S1)
+X_FA8bit0_FA4_0_FA1_U1A         
++  FA8bit0.FA4_0.FA1.U1A(A=FA8bit0_FA4_0_FA1_N00064 B=FA8bit0_FA4_0_FA1_N00069
++  Y=FA8bit0_FA4_0_N00370 VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0.FA1.B=B1)
+_    _(FA8bit0.FA4_0.FA1.A=A1)
+_    _(FA8bit0.FA4_0.FA1.Sum=S1)
+_    _(FA8bit0.FA4_0.FA1.Cin=FA8bit0_FA4_0_N00334)
+_    _(FA8bit0.FA4_0.FA1.Cout=FA8bit0_FA4_0_N00370)
+_   FA8bit0.FA4_0.FA2(A=A2 B=B2 Cin=FA8bit0_FA4_0_N00370
++  Cout=FA8bit0_FA4_0_N00432 Sum=S2 )
+_   FA8bit0.FA4_0.FA2.HA1(A=A2 B=B2 Sum=FA8bit0_FA4_0_FA2_N00105
++  Cout=FA8bit0_FA4_0_FA2_N00069 )
+X_FA8bit0_FA4_0_FA2_HA1_U2A          FA8bit0.FA4_0.FA2.HA1.U2A(A=A2 B=B2
++  Y=FA8bit0_FA4_0_FA2_N00069 VCC=$G_DPWR GND=$G_DGND )
+X_FA8bit0_FA4_0_FA2_HA1_U3A          FA8bit0.FA4_0.FA2.HA1.U3A(A=B2 B=A2
++  Y=FA8bit0_FA4_0_FA2_N00105 VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0.FA2.HA1.A=A2)
+_    _(FA8bit0.FA4_0.FA2.HA1.B=B2)
+_    _(FA8bit0.FA4_0.FA2.HA1.Cout=FA8bit0_FA4_0_FA2_N00069)
+_    _(FA8bit0.FA4_0.FA2.HA1.Sum=FA8bit0_FA4_0_FA2_N00105)
+_   FA8bit0.FA4_0.FA2.HA1_1(A=FA8bit0_FA4_0_N00370 B=FA8bit0_FA4_0_FA2_N00105
++  Sum=S2 Cout=FA8bit0_FA4_0_FA2_N00064 )
+X_FA8bit0_FA4_0_FA2_HA1_1_U2A         
++  FA8bit0.FA4_0.FA2.HA1_1.U2A(A=FA8bit0_FA4_0_N00370 B=FA8bit0_FA4_0_FA2_N00105
++  Y=FA8bit0_FA4_0_FA2_N00064 VCC=$G_DPWR GND=$G_DGND )
+X_FA8bit0_FA4_0_FA2_HA1_1_U3A         
++  FA8bit0.FA4_0.FA2.HA1_1.U3A(A=FA8bit0_FA4_0_FA2_N00105 B=FA8bit0_FA4_0_N00370
++  Y=S2 VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0.FA2.HA1_1.A=FA8bit0_FA4_0_N00370)
+_    _(FA8bit0.FA4_0.FA2.HA1_1.B=FA8bit0_FA4_0_FA2_N00105)
+_    _(FA8bit0.FA4_0.FA2.HA1_1.Cout=FA8bit0_FA4_0_FA2_N00064)
+_    _(FA8bit0.FA4_0.FA2.HA1_1.Sum=S2)
+X_FA8bit0_FA4_0_FA2_U1A         
++  FA8bit0.FA4_0.FA2.U1A(A=FA8bit0_FA4_0_FA2_N00064 B=FA8bit0_FA4_0_FA2_N00069
++  Y=FA8bit0_FA4_0_N00432 VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0.FA2.B=B2)
+_    _(FA8bit0.FA4_0.FA2.A=A2)
+_    _(FA8bit0.FA4_0.FA2.Sum=S2)
+_    _(FA8bit0.FA4_0.FA2.Cin=FA8bit0_FA4_0_N00370)
+_    _(FA8bit0.FA4_0.FA2.Cout=FA8bit0_FA4_0_N00432)
+_   FA8bit0.FA4_0.FA3(A=A3 B=B3 Cin=FA8bit0_FA4_0_N00432 Cout=FA8bit0_N03805
++  Sum=S3 )
+_   FA8bit0.FA4_0.FA3.HA1(A=A3 B=B3 Sum=FA8bit0_FA4_0_FA3_N00105
++  Cout=FA8bit0_FA4_0_FA3_N00069 )
+X_FA8bit0_FA4_0_FA3_HA1_U2A          FA8bit0.FA4_0.FA3.HA1.U2A(A=A3 B=B3
++  Y=FA8bit0_FA4_0_FA3_N00069 VCC=$G_DPWR GND=$G_DGND )
+X_FA8bit0_FA4_0_FA3_HA1_U3A          FA8bit0.FA4_0.FA3.HA1.U3A(A=B3 B=A3
++  Y=FA8bit0_FA4_0_FA3_N00105 VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0.FA3.HA1.A=A3)
+_    _(FA8bit0.FA4_0.FA3.HA1.B=B3)
+_    _(FA8bit0.FA4_0.FA3.HA1.Cout=FA8bit0_FA4_0_FA3_N00069)
+_    _(FA8bit0.FA4_0.FA3.HA1.Sum=FA8bit0_FA4_0_FA3_N00105)
+_   FA8bit0.FA4_0.FA3.HA1_1(A=FA8bit0_FA4_0_N00432 B=FA8bit0_FA4_0_FA3_N00105
++  Sum=S3 Cout=FA8bit0_FA4_0_FA3_N00064 )
+X_FA8bit0_FA4_0_FA3_HA1_1_U2A         
++  FA8bit0.FA4_0.FA3.HA1_1.U2A(A=FA8bit0_FA4_0_N00432 B=FA8bit0_FA4_0_FA3_N00105
++  Y=FA8bit0_FA4_0_FA3_N00064 VCC=$G_DPWR GND=$G_DGND )
+X_FA8bit0_FA4_0_FA3_HA1_1_U3A         
++  FA8bit0.FA4_0.FA3.HA1_1.U3A(A=FA8bit0_FA4_0_FA3_N00105 B=FA8bit0_FA4_0_N00432
++  Y=S3 VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0.FA3.HA1_1.A=FA8bit0_FA4_0_N00432)
+_    _(FA8bit0.FA4_0.FA3.HA1_1.B=FA8bit0_FA4_0_FA3_N00105)
+_    _(FA8bit0.FA4_0.FA3.HA1_1.Cout=FA8bit0_FA4_0_FA3_N00064)
+_    _(FA8bit0.FA4_0.FA3.HA1_1.Sum=S3)
+X_FA8bit0_FA4_0_FA3_U1A         
++  FA8bit0.FA4_0.FA3.U1A(A=FA8bit0_FA4_0_FA3_N00064 B=FA8bit0_FA4_0_FA3_N00069
++  Y=FA8bit0_N03805 VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0.FA3.B=B3)
+_    _(FA8bit0.FA4_0.FA3.A=A3)
+_    _(FA8bit0.FA4_0.FA3.Sum=S3)
+_    _(FA8bit0.FA4_0.FA3.Cin=FA8bit0_FA4_0_N00432)
+_    _(FA8bit0.FA4_0.FA3.Cout=FA8bit0_N03805)
+X_FA8bit0_FA4_0_U2A          FA8bit0.FA4_0.U2A(A=FA8bit0_N03805
++  B=FA8bit0_FA4_0_N00432 Y=V VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0.Cin=FA8bit0_$D_LO)
+_    _(Cin=FA8bit0_$D_LO)
+_    _(FA8bit0.FA4_0.S0=S0)
+_    _(FA8bit0.FA4_0.S3=S3)
+_    _(FA8bit0.FA4_0.S2=S2)
+_    _(FA8bit0.FA4_0.S1=S1)
+_    _(FA8bit0.FA4_0.A3=A3)
+_    _(FA8bit0.FA4_0.A0=A0)
+_    _(FA8bit0.FA4_0.A1=A1)
+_    _(FA8bit0.FA4_0.A2=A2)
+_    _(FA8bit0.FA4_0.B3=B3)
+_    _(FA8bit0.FA4_0.B0=B0)
+_    _(FA8bit0.FA4_0.B2=B2)
+_    _(FA8bit0.FA4_0.B1=B1)
+_    _(FA8bit0.FA4_0.V=FA8bit0_FA4_0_V)
+_    _(FA8bit0.FA4_0.OF=FA8bit0_FA4_0_V)
+_    _(FA8bit0.FA4_0.C=FA8bit0_N03805)
+_    _(FA8bit0.FA4_0.Cout=FA8bit0_N03805)
+_   FA8bit0.FA4_0_1(A0=J0 A1=J1 A2=J2 A3=J3 B0=K0 B1=K1 B2=K2 B3=K3 S0=M0 S1=M1
++  S2=M2 S3=M3 C=N03832 V=N03841 Cin=FA8bit0_N03805 )
+_   FA8bit0.FA4_0_1.FA0(A=A4 B=B4 Cin=FA8bit0_N03805
++  Cout=FA8bit0_FA4_0_1_N00334 Sum=S4 )
+_   FA8bit0.FA4_0_1.FA0.HA1(A=A4 B=B4 Sum=FA8bit0_FA4_0_1_FA0_N00105
++  Cout=FA8bit0_FA4_0_1_FA0_N00069 )
+X_FA8bit0_FA4_0_1_FA0_HA1_U2A          FA8bit0.FA4_0_1.FA0.HA1.U2A(A=A4 B=B4
++  Y=FA8bit0_FA4_0_1_FA0_N00069 VCC=$G_DPWR GND=$G_DGND )
+X_FA8bit0_FA4_0_1_FA0_HA1_U3A          FA8bit0.FA4_0_1.FA0.HA1.U3A(A=B4 B=A4
++  Y=FA8bit0_FA4_0_1_FA0_N00105 VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0_1.FA0.HA1.A=A4)
+_    _(FA8bit0.FA4_0_1.FA0.HA1.B=B4)
+_    _(FA8bit0.FA4_0_1.FA0.HA1.Cout=FA8bit0_FA4_0_1_FA0_N00069)
+_    _(FA8bit0.FA4_0_1.FA0.HA1.Sum=FA8bit0_FA4_0_1_FA0_N00105)
+_   FA8bit0.FA4_0_1.FA0.HA1_1(A=FA8bit0_N03805 B=FA8bit0_FA4_0_1_FA0_N00105
++  Sum=S4 Cout=FA8bit0_FA4_0_1_FA0_N00064 )
+X_FA8bit0_FA4_0_1_FA0_HA1_1_U2A         
++  FA8bit0.FA4_0_1.FA0.HA1_1.U2A(A=FA8bit0_N03805 B=FA8bit0_FA4_0_1_FA0_N00105
++  Y=FA8bit0_FA4_0_1_FA0_N00064 VCC=$G_DPWR GND=$G_DGND )
+X_FA8bit0_FA4_0_1_FA0_HA1_1_U3A         
++  FA8bit0.FA4_0_1.FA0.HA1_1.U3A(A=FA8bit0_FA4_0_1_FA0_N00105 B=FA8bit0_N03805
++  Y=S4 VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0_1.FA0.HA1_1.A=FA8bit0_N03805)
+_    _(FA8bit0.FA4_0_1.FA0.HA1_1.B=FA8bit0_FA4_0_1_FA0_N00105)
+_    _(FA8bit0.FA4_0_1.FA0.HA1_1.Cout=FA8bit0_FA4_0_1_FA0_N00064)
+_    _(FA8bit0.FA4_0_1.FA0.HA1_1.Sum=S4)
+X_FA8bit0_FA4_0_1_FA0_U1A         
++  FA8bit0.FA4_0_1.FA0.U1A(A=FA8bit0_FA4_0_1_FA0_N00064
++  B=FA8bit0_FA4_0_1_FA0_N00069 Y=FA8bit0_FA4_0_1_N00334 VCC=$G_DPWR GND=$G_DGND
++  )
+_    _(FA8bit0.FA4_0_1.FA0.B=B4)
+_    _(FA8bit0.FA4_0_1.FA0.A=A4)
+_    _(FA8bit0.FA4_0_1.FA0.Sum=S4)
+_    _(FA8bit0.FA4_0_1.FA0.Cin=FA8bit0_N03805)
+_    _(FA8bit0.FA4_0_1.FA0.Cout=FA8bit0_FA4_0_1_N00334)
+_   FA8bit0.FA4_0_1.FA1(A=A5 B=B5 Cin=FA8bit0_FA4_0_1_N00334
++  Cout=FA8bit0_FA4_0_1_N00370 Sum=S5 )
+_   FA8bit0.FA4_0_1.FA1.HA1(A=A5 B=B5 Sum=FA8bit0_FA4_0_1_FA1_N00105
++  Cout=FA8bit0_FA4_0_1_FA1_N00069 )
+X_FA8bit0_FA4_0_1_FA1_HA1_U2A          FA8bit0.FA4_0_1.FA1.HA1.U2A(A=A5 B=B5
++  Y=FA8bit0_FA4_0_1_FA1_N00069 VCC=$G_DPWR GND=$G_DGND )
+X_FA8bit0_FA4_0_1_FA1_HA1_U3A          FA8bit0.FA4_0_1.FA1.HA1.U3A(A=B5 B=A5
++  Y=FA8bit0_FA4_0_1_FA1_N00105 VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0_1.FA1.HA1.A=A5)
+_    _(FA8bit0.FA4_0_1.FA1.HA1.B=B5)
+_    _(FA8bit0.FA4_0_1.FA1.HA1.Cout=FA8bit0_FA4_0_1_FA1_N00069)
+_    _(FA8bit0.FA4_0_1.FA1.HA1.Sum=FA8bit0_FA4_0_1_FA1_N00105)
+_   FA8bit0.FA4_0_1.FA1.HA1_1(A=FA8bit0_FA4_0_1_N00334
++  B=FA8bit0_FA4_0_1_FA1_N00105 Sum=S5 Cout=FA8bit0_FA4_0_1_FA1_N00064 )
+X_FA8bit0_FA4_0_1_FA1_HA1_1_U2A         
++  FA8bit0.FA4_0_1.FA1.HA1_1.U2A(A=FA8bit0_FA4_0_1_N00334
++  B=FA8bit0_FA4_0_1_FA1_N00105 Y=FA8bit0_FA4_0_1_FA1_N00064 VCC=$G_DPWR
++  GND=$G_DGND )
+X_FA8bit0_FA4_0_1_FA1_HA1_1_U3A         
++  FA8bit0.FA4_0_1.FA1.HA1_1.U3A(A=FA8bit0_FA4_0_1_FA1_N00105
++  B=FA8bit0_FA4_0_1_N00334 Y=S5 VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0_1.FA1.HA1_1.A=FA8bit0_FA4_0_1_N00334)
+_    _(FA8bit0.FA4_0_1.FA1.HA1_1.B=FA8bit0_FA4_0_1_FA1_N00105)
+_    _(FA8bit0.FA4_0_1.FA1.HA1_1.Cout=FA8bit0_FA4_0_1_FA1_N00064)
+_    _(FA8bit0.FA4_0_1.FA1.HA1_1.Sum=S5)
+X_FA8bit0_FA4_0_1_FA1_U1A         
++  FA8bit0.FA4_0_1.FA1.U1A(A=FA8bit0_FA4_0_1_FA1_N00064
++  B=FA8bit0_FA4_0_1_FA1_N00069 Y=FA8bit0_FA4_0_1_N00370 VCC=$G_DPWR GND=$G_DGND
++  )
+_    _(FA8bit0.FA4_0_1.FA1.B=B5)
+_    _(FA8bit0.FA4_0_1.FA1.A=A5)
+_    _(FA8bit0.FA4_0_1.FA1.Sum=S5)
+_    _(FA8bit0.FA4_0_1.FA1.Cin=FA8bit0_FA4_0_1_N00334)
+_    _(FA8bit0.FA4_0_1.FA1.Cout=FA8bit0_FA4_0_1_N00370)
+_   FA8bit0.FA4_0_1.FA2(A=A6 B=B6 Cin=FA8bit0_FA4_0_1_N00370
++  Cout=FA8bit0_FA4_0_1_N00432 Sum=S6 )
+_   FA8bit0.FA4_0_1.FA2.HA1(A=A6 B=B6 Sum=FA8bit0_FA4_0_1_FA2_N00105
++  Cout=FA8bit0_FA4_0_1_FA2_N00069 )
+X_FA8bit0_FA4_0_1_FA2_HA1_U2A          FA8bit0.FA4_0_1.FA2.HA1.U2A(A=A6 B=B6
++  Y=FA8bit0_FA4_0_1_FA2_N00069 VCC=$G_DPWR GND=$G_DGND )
+X_FA8bit0_FA4_0_1_FA2_HA1_U3A          FA8bit0.FA4_0_1.FA2.HA1.U3A(A=B6 B=A6
++  Y=FA8bit0_FA4_0_1_FA2_N00105 VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0_1.FA2.HA1.A=A6)
+_    _(FA8bit0.FA4_0_1.FA2.HA1.B=B6)
+_    _(FA8bit0.FA4_0_1.FA2.HA1.Cout=FA8bit0_FA4_0_1_FA2_N00069)
+_    _(FA8bit0.FA4_0_1.FA2.HA1.Sum=FA8bit0_FA4_0_1_FA2_N00105)
+_   FA8bit0.FA4_0_1.FA2.HA1_1(A=FA8bit0_FA4_0_1_N00370
++  B=FA8bit0_FA4_0_1_FA2_N00105 Sum=S6 Cout=FA8bit0_FA4_0_1_FA2_N00064 )
+X_FA8bit0_FA4_0_1_FA2_HA1_1_U2A         
++  FA8bit0.FA4_0_1.FA2.HA1_1.U2A(A=FA8bit0_FA4_0_1_N00370
++  B=FA8bit0_FA4_0_1_FA2_N00105 Y=FA8bit0_FA4_0_1_FA2_N00064 VCC=$G_DPWR
++  GND=$G_DGND )
+X_FA8bit0_FA4_0_1_FA2_HA1_1_U3A         
++  FA8bit0.FA4_0_1.FA2.HA1_1.U3A(A=FA8bit0_FA4_0_1_FA2_N00105
++  B=FA8bit0_FA4_0_1_N00370 Y=S6 VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0_1.FA2.HA1_1.A=FA8bit0_FA4_0_1_N00370)
+_    _(FA8bit0.FA4_0_1.FA2.HA1_1.B=FA8bit0_FA4_0_1_FA2_N00105)
+_    _(FA8bit0.FA4_0_1.FA2.HA1_1.Cout=FA8bit0_FA4_0_1_FA2_N00064)
+_    _(FA8bit0.FA4_0_1.FA2.HA1_1.Sum=S6)
+X_FA8bit0_FA4_0_1_FA2_U1A         
++  FA8bit0.FA4_0_1.FA2.U1A(A=FA8bit0_FA4_0_1_FA2_N00064
++  B=FA8bit0_FA4_0_1_FA2_N00069 Y=FA8bit0_FA4_0_1_N00432 VCC=$G_DPWR GND=$G_DGND
++  )
+_    _(FA8bit0.FA4_0_1.FA2.B=B6)
+_    _(FA8bit0.FA4_0_1.FA2.A=A6)
+_    _(FA8bit0.FA4_0_1.FA2.Sum=S6)
+_    _(FA8bit0.FA4_0_1.FA2.Cin=FA8bit0_FA4_0_1_N00370)
+_    _(FA8bit0.FA4_0_1.FA2.Cout=FA8bit0_FA4_0_1_N00432)
+_   FA8bit0.FA4_0_1.FA3(A=A7 B=B7 Cin=FA8bit0_FA4_0_1_N00432 Cout=N03832 Sum=S7
++  )
+_   FA8bit0.FA4_0_1.FA3.HA1(A=A7 B=B7 Sum=FA8bit0_FA4_0_1_FA3_N00105
++  Cout=FA8bit0_FA4_0_1_FA3_N00069 )
+X_FA8bit0_FA4_0_1_FA3_HA1_U2A          FA8bit0.FA4_0_1.FA3.HA1.U2A(A=A7 B=B7
++  Y=FA8bit0_FA4_0_1_FA3_N00069 VCC=$G_DPWR GND=$G_DGND )
+X_FA8bit0_FA4_0_1_FA3_HA1_U3A          FA8bit0.FA4_0_1.FA3.HA1.U3A(A=B7 B=A7
++  Y=FA8bit0_FA4_0_1_FA3_N00105 VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0_1.FA3.HA1.A=A7)
+_    _(FA8bit0.FA4_0_1.FA3.HA1.B=B7)
+_    _(FA8bit0.FA4_0_1.FA3.HA1.Cout=FA8bit0_FA4_0_1_FA3_N00069)
+_    _(FA8bit0.FA4_0_1.FA3.HA1.Sum=FA8bit0_FA4_0_1_FA3_N00105)
+_   FA8bit0.FA4_0_1.FA3.HA1_1(A=FA8bit0_FA4_0_1_N00432
++  B=FA8bit0_FA4_0_1_FA3_N00105 Sum=S7 Cout=FA8bit0_FA4_0_1_FA3_N00064 )
+X_FA8bit0_FA4_0_1_FA3_HA1_1_U2A         
++  FA8bit0.FA4_0_1.FA3.HA1_1.U2A(A=FA8bit0_FA4_0_1_N00432
++  B=FA8bit0_FA4_0_1_FA3_N00105 Y=FA8bit0_FA4_0_1_FA3_N00064 VCC=$G_DPWR
++  GND=$G_DGND )
+X_FA8bit0_FA4_0_1_FA3_HA1_1_U3A         
++  FA8bit0.FA4_0_1.FA3.HA1_1.U3A(A=FA8bit0_FA4_0_1_FA3_N00105
++  B=FA8bit0_FA4_0_1_N00432 Y=S7 VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0_1.FA3.HA1_1.A=FA8bit0_FA4_0_1_N00432)
+_    _(FA8bit0.FA4_0_1.FA3.HA1_1.B=FA8bit0_FA4_0_1_FA3_N00105)
+_    _(FA8bit0.FA4_0_1.FA3.HA1_1.Cout=FA8bit0_FA4_0_1_FA3_N00064)
+_    _(FA8bit0.FA4_0_1.FA3.HA1_1.Sum=S7)
+X_FA8bit0_FA4_0_1_FA3_U1A         
++  FA8bit0.FA4_0_1.FA3.U1A(A=FA8bit0_FA4_0_1_FA3_N00064
++  B=FA8bit0_FA4_0_1_FA3_N00069 Y=N03832 VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0_1.FA3.B=B7)
+_    _(FA8bit0.FA4_0_1.FA3.A=A7)
+_    _(FA8bit0.FA4_0_1.FA3.Sum=S7)
+_    _(FA8bit0.FA4_0_1.FA3.Cin=FA8bit0_FA4_0_1_N00432)
+_    _(FA8bit0.FA4_0_1.FA3.Cout=N03832)
+X_FA8bit0_FA4_0_1_U2A          FA8bit0.FA4_0_1.U2A(A=N03832
++  B=FA8bit0_FA4_0_1_N00432 Y=N03841 VCC=$G_DPWR GND=$G_DGND )
+_    _(FA8bit0.FA4_0_1.Cin=FA8bit0_N03805)
+_    _(FA8bit0.FA4_0_1.S0=S4)
+_    _(FA8bit0.FA4_0_1.S3=S7)
+_    _(FA8bit0.FA4_0_1.S2=S6)
+_    _(FA8bit0.FA4_0_1.S1=S5)
+_    _(FA8bit0.FA4_0_1.A3=A7)
+_    _(FA8bit0.FA4_0_1.A0=A4)
+_    _(FA8bit0.FA4_0_1.A1=A5)
+_    _(FA8bit0.FA4_0_1.A2=A6)
+_    _(FA8bit0.FA4_0_1.B3=B7)
+_    _(FA8bit0.FA4_0_1.B0=B4)
+_    _(FA8bit0.FA4_0_1.B2=B6)
+_    _(FA8bit0.FA4_0_1.B1=B5)
+_    _(FA8bit0.FA4_0_1.V=N03841)
+_    _(FA8bit0.FA4_0_1.OF=N03841)
+_    _(FA8bit0.FA4_0_1.C=N03832)
+_    _(FA8bit0.FA4_0_1.Cout=N03832)
+_    _(FA8bit0.B3=B3)
+_    _(FA8bit0.I3=B3)
+_    _(FA8bit0.B2=B2)
+_    _(FA8bit0.I2=B2)
+_    _(FA8bit0.B7=B7)
+_    _(FA8bit0.K3=B7)
+_    _(FA8bit0.B6=B6)
+_    _(FA8bit0.K2=B6)
+_    _(FA8bit0.B1=B1)
+_    _(FA8bit0.I1=B1)
+_    _(FA8bit0.B0=B0)
+_    _(FA8bit0.I0=B0)
+_    _(FA8bit0.B4=B4)
+_    _(FA8bit0.K0=B4)
+_    _(FA8bit0.B5=B5)
+_    _(FA8bit0.K1=B5)
+_    _(FA8bit0.V=N03841)
+_    _(FA8bit0.A4=A4)
+_    _(FA8bit0.J0=A4)
+_    _(FA8bit0.A6=A6)
+_    _(FA8bit0.J2=A6)
+_    _(FA8bit0.A2=A2)
+_    _(FA8bit0.H2=A2)
+_    _(FA8bit0.A5=A5)
+_    _(FA8bit0.J1=A5)
+_    _(FA8bit0.A1=A1)
+_    _(FA8bit0.H1=A1)
+_    _(FA8bit0.A7=A7)
+_    _(FA8bit0.J3=A7)
+_    _(FA8bit0.A0=A0)
+_    _(FA8bit0.H0=A0)
+_    _(FA8bit0.A3=A3)
+_    _(FA8bit0.H3=A3)
+_    _(FA8bit0.S0=S0)
+_    _(FA8bit0.L0=S0)
+_    _(FA8bit0.S2=S2)
+_    _(FA8bit0.L2=S2)
+_    _(FA8bit0.S5=S5)
+_    _(FA8bit0.M1=S5)
+_    _(FA8bit0.S4=S4)
+_    _(FA8bit0.M0=S4)
+_    _(FA8bit0.S1=S1)
+_    _(FA8bit0.L1=S1)
+_    _(FA8bit0.S6=S6)
+_    _(FA8bit0.M2=S6)
+_    _(FA8bit0.S7=S7)
+_    _(FA8bit0.M3=S7)
+_    _(FA8bit0.S3=S3)
+_    _(FA8bit0.L3=S3)
+_    _(FA8bit0.C=N03832)
+U_DSTM6          DSTM6(VCC=$G_DPWR GND=$G_DGND OUT0=A7 OUT1=A6 OUT2=A5 OUT3=A4
++  OUT4=A3 OUT5=A2 OUT6=A1 OUT7=A0 )
+U_DSTM7          DSTM7(VCC=$G_DPWR GND=$G_DGND OUT0=B7 OUT1=B6 OUT2=B5 OUT3=B4
++  OUT4=B3 OUT5=B2 OUT6=B1 OUT7=B0 )
+_    _(GND=GND)
+_    _(VCC=VCC)
+.ENDALIASES
+
+**** RESUMING fulladder-schematic1-simadder.sim.cir ****
+.END
+
+* C:\DOCUMENTS AND SETTINGS\MARKUS\DOCUMENTI\ARCHITETTURE\MSI\FULL ADDER\FULLADDER.stl written on Sun May 29 12:54:31 2005
+* by Stimulus Editor -- Serial Number: 0 -- Version 9.1
+;!Stimulus Get
+;! StimA Digital StimB Digital
+;!Ok
+;!Plot Axis_Settings
+;!Xrange 0s 200us
+;!AutoUniverse
+;!XminRes 1ns
+;!YminRes 1n
+;!Ok
+.STIMULUS StimA STIM (8, 11111111) ;! Hex
++   +0s 00000000
++   10.33us 00111011
++   20.22us 00100111
++   40.22us 11000001
++   54.945us 01000100
++   70.11us 10100111
++   85.934us 11010000
++   100.659us 11100001
++   119.78us 11111111
+.STIMULUS StimB STIM (8, 11111111) ;! Hex
++   +0s 00100000
++   14.725us 01001110
++   30.33us 01010010
++   49.89us 01110110
++   86.154us 00000000
+.STIMULUS StimA STIM (8, 11111111) ;! Hex
++   +0s 00000000
++   10.33us 00111011
++   20.22us 00100111
++   40.22us 11000001
++   54.945us 01000100
++   70.11us 10100111
++   85.934us 11010000
++   100.659us 11100001
++   119.78us 11111111
+
+**** 07/04/05 15:08:35 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: simAdder 
+
+
+ ****     Digital Gate MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D_HC08          D_HC386         D_HC32          
+      TPLHMN    4.000000E-09    4.800000E-09    4.000000E-09 
+      TPLHTY   10.000000E-09   12.000000E-09   10.000000E-09 
+      TPLHMX   25.000000E-09   25.000000E-09   25.000000E-09 
+      TPHLMN    4.000000E-09    4.800000E-09    4.000000E-09 
+      TPHLTY   10.000000E-09   12.000000E-09   10.000000E-09 
+      TPHLMX   25.000000E-09   25.000000E-09   25.000000E-09 
+
+
+**** 07/04/05 15:08:35 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: simAdder 
+
+
+ ****     Digital IO  MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               IO_STM          IO_HC           
+        INLD                    3.500000E-12 
+        DRVL    0              87            
+        DRVH    0              87            
+       AtoD1                 AtoD_HC         
+       AtoD2                 AtoD_HC_NX      
+       AtoD3                 AtoD_HC         
+       AtoD4                 AtoD_HC_NX      
+       DtoA1 DtoA_STM        DtoA_HC         
+       DtoA2 DtoA_STM        DtoA_HC         
+       DtoA3 DtoA_STM        DtoA_HC_E       
+       DtoA4 DtoA_STM        DtoA_HC_E       
+      TSWHL1                    2.742000E-09 
+      TSWHL2                    2.742000E-09 
+      TSWHL3                    2.751000E-09 
+      TSWHL4                    2.751000E-09 
+      TSWLH1                    2.758000E-09 
+      TSWLH2                    2.758000E-09 
+      TSWLH3                    2.763000E-09 
+      TSWLH4                    2.763000E-09 
+       TPWRT  100.000000E+03    2.000000E-09 
+
+
+**** 07/04/05 15:08:35 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: simAdder 
+
+
+ ****     SIMULATION ERRORS
+
+
+******************************************************************************
+
+
+
+
+DIGITAL Message ID#1 (WARNING):
+GLITCH Hazard at time 14.7456us
+  Device: X_FA8bit0_FA4_0_1_FA2_HA1_1_U3A.UY
+  NODEs: FA8bit0_FA4_0_1_FA2_N00105 (IN1),
+         FA8bit0_FA4_0_1_N00370 (IN2) => S6 (OUT1)  
+  Pulse width is  8.200E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.200E-08
+
+
+DIGITAL Message ID#2 (WARNING):
+GLITCH Hazard at time 14.7456us
+  Device: X_FA8bit0_FA4_0_1_FA2_HA1_1_U2A.U1
+  NODEs: FA8bit0_FA4_0_1_N00370 (IN1),
+         FA8bit0_FA4_0_1_FA2_N00105 (IN2) => FA8bit0_FA4_0_1_FA2_N00064 (OUT1)  
+  Pulse width is  8.200E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.020E-08
+
+
+DIGITAL Message ID#3 (WARNING):
+GLITCH Hazard at time 14.7456us
+  Device: X_FA8bit0_FA4_0_FA2_HA1_1_U3A.UY
+  NODEs: FA8bit0_FA4_0_FA2_N00105 (IN1),
+         FA8bit0_FA4_0_N00370 (IN2) => S2 (OUT1)  
+  Pulse width is  8.200E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.200E-08
+
+
+DIGITAL Message ID#4 (WARNING):
+GLITCH Hazard at time 14.7558us
+  Device: X_FA8bit0_FA4_0_1_FA2_U1A.U1
+  NODEs: FA8bit0_FA4_0_1_FA2_N00064 (IN1),
+         FA8bit0_FA4_0_1_FA2_N00069 (IN2) => FA8bit0_FA4_0_1_N00432 (OUT1)  
+  Pulse width is  8.200E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.060E-08
+
+
+DIGITAL Message ID#5 (WARNING):
+GLITCH Hazard at time 14.7664us
+  Device: X_FA8bit0_FA4_0_1_U2A.UY
+  NODEs: N03832 (IN1),
+         FA8bit0_FA4_0_1_N00432 (IN2) => N03841 (OUT1)  
+  Pulse width is  8.200E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.200E-08
+
+
+DIGITAL Message ID#6 (WARNING):
+GLITCH Hazard at time 14.7664us
+  Device: X_FA8bit0_FA4_0_1_FA3_HA1_1_U3A.UY
+  NODEs: FA8bit0_FA4_0_1_FA3_N00105 (IN1),
+         FA8bit0_FA4_0_1_N00432 (IN2) => S7 (OUT1)  
+  Pulse width is  8.200E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.200E-08
+
+
+DIGITAL Message ID#7 (WARNING):
+GLITCH Hazard at time 20.2408us
+  Device: X_FA8bit0_FA4_0_1_FA0_HA1_1_U3A.UY
+  NODEs: FA8bit0_FA4_0_1_FA0_N00105 (IN1),
+         FA8bit0_N03805 (IN2) => S4 (OUT1)  
+  Pulse width is  8.400E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.200E-08
+
+
+DIGITAL Message ID#8 (WARNING):
+GLITCH Hazard at time 30.3508us
+  Device: X_FA8bit0_FA4_0_FA3_HA1_1_U3A.UY
+  NODEs: FA8bit0_FA4_0_FA3_N00105 (IN1),
+         FA8bit0_FA4_0_N00432 (IN2) => S3 (OUT1)  
+  Pulse width is  8.400E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.200E-08
+
+
+DIGITAL Message ID#9 (WARNING):
+GLITCH Hazard at time 40.2406us
+  Device: X_FA8bit0_FA4_0_FA2_HA1_1_U3A.UY
+  NODEs: FA8bit0_FA4_0_FA2_N00105 (IN1),
+         FA8bit0_FA4_0_N00370 (IN2) => S2 (OUT1)  
+  Pulse width is  8.200E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.200E-08
+
+
+DIGITAL Message ID#10 (WARNING):
+GLITCH Hazard at time 40.2408us
+  Device: X_FA8bit0_FA4_0_1_FA3_HA1_1_U3A.UY
+  NODEs: FA8bit0_FA4_0_1_FA3_N00105 (IN1),
+         FA8bit0_FA4_0_1_N00432 (IN2) => S7 (OUT1)  
+  Pulse width is  8.400E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.200E-08
+
+
+DIGITAL Message ID#11 (WARNING):
+GLITCH Hazard at time 70.1306us
+  Device: X_FA8bit0_FA4_0_1_FA2_HA1_1_U3A.UY
+  NODEs: FA8bit0_FA4_0_1_FA2_N00105 (IN1),
+         FA8bit0_FA4_0_1_N00370 (IN2) => S6 (OUT1)  
+  Pulse width is  8.200E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.200E-08
+
+
+DIGITAL Message ID#12 (WARNING):
+GLITCH Hazard at time 70.1308us
+  Device: X_FA8bit0_FA4_0_1_FA3_HA1_1_U3A.UY
+  NODEs: FA8bit0_FA4_0_1_FA3_N00105 (IN1),
+         FA8bit0_FA4_0_1_N00432 (IN2) => S7 (OUT1)  
+  Pulse width is  8.400E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.200E-08
+
+
+DIGITAL Message ID#13 (WARNING):
+GLITCH Hazard at time 70.1308us
+  Device: X_FA8bit0_FA4_0_1_FA3_HA1_1_U2A.U1
+  NODEs: FA8bit0_FA4_0_1_N00432 (IN1),
+         FA8bit0_FA4_0_1_FA3_N00105 (IN2) => FA8bit0_FA4_0_1_FA3_N00064 (OUT1)  
+  Pulse width is  8.400E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.020E-08
+
+
+DIGITAL Message ID#14 (WARNING):
+GLITCH Hazard at time 70.141us
+  Device: X_FA8bit0_FA4_0_1_FA3_U1A.U1
+  NODEs: FA8bit0_FA4_0_1_FA3_N00064 (IN1),
+         FA8bit0_FA4_0_1_FA3_N00069 (IN2) => N03832 (OUT1)  
+  Pulse width is  8.400E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.020E-08
+
+
+DIGITAL Message ID#15 (WARNING):
+GLITCH Hazard at time 70.1512us
+  Device: X_FA8bit0_FA4_0_1_U2A.UY
+  NODEs: N03832 (IN1),
+         FA8bit0_FA4_0_1_N00432 (IN2) => N03841 (OUT1)  
+  Pulse width is  8.400E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.200E-08
+
+
+DIGITAL Message ID#16 (WARNING):
+GLITCH Hazard at time 85.9546us
+  Device: X_FA8bit0_FA4_0_1_FA2_HA1_1_U3A.UY
+  NODEs: FA8bit0_FA4_0_1_FA2_N00105 (IN1),
+         FA8bit0_FA4_0_1_N00370 (IN2) => S6 (OUT1)  
+  Pulse width is  8.200E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.200E-08
+
+
+DIGITAL Message ID#17 (WARNING):
+GLITCH Hazard at time 85.9546us
+  Device: X_FA8bit0_FA4_0_1_FA1_HA1_1_U3A.UY
+  NODEs: FA8bit0_FA4_0_1_FA1_N00105 (IN1),
+         FA8bit0_FA4_0_1_N00334 (IN2) => S5 (OUT1)  
+  Pulse width is  8.200E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.200E-08
+
+
+DIGITAL Message ID#18 (WARNING):
+GLITCH Hazard at time 85.9546us
+  Device: X_FA8bit0_FA4_0_FA2_HA1_1_U3A.UY
+  NODEs: FA8bit0_FA4_0_FA2_N00105 (IN1),
+         FA8bit0_FA4_0_N00370 (IN2) => S2 (OUT1)  
+  Pulse width is  8.200E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.200E-08
+
+
+DIGITAL Message ID#19 (WARNING):
+GLITCH Hazard at time 85.9546us
+  Device: X_FA8bit0_FA4_0_FA2_HA1_1_U2A.U1
+  NODEs: FA8bit0_FA4_0_N00370 (IN1),
+         FA8bit0_FA4_0_FA2_N00105 (IN2) => FA8bit0_FA4_0_FA2_N00064 (OUT1)  
+  Pulse width is  8.200E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.020E-08
+
+
+DIGITAL Message ID#20 (WARNING):
+GLITCH Hazard at time 85.9648us
+  Device: X_FA8bit0_FA4_0_FA2_U1A.U1
+  NODEs: FA8bit0_FA4_0_FA2_N00064 (IN1),
+         FA8bit0_FA4_0_FA2_N00069 (IN2) => FA8bit0_FA4_0_N00432 (OUT1)  
+  Pulse width is  8.200E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.060E-08
+
+
+DIGITAL Message ID#21 (WARNING):
+GLITCH Hazard at time 85.9754us
+  Device: X_FA8bit0_FA4_0_U2A.UY
+  NODEs: FA8bit0_N03805 (IN1),
+         FA8bit0_FA4_0_N00432 (IN2) => V (OUT1)  
+  Pulse width is  8.200E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.200E-08
+
+
+DIGITAL Message ID#22 (WARNING):
+GLITCH Hazard at time 85.9754us
+  Device: X_FA8bit0_FA4_0_FA3_HA1_1_U3A.UY
+  NODEs: FA8bit0_FA4_0_FA3_N00105 (IN1),
+         FA8bit0_FA4_0_N00432 (IN2) => S3 (OUT1)  
+  Pulse width is  8.200E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.200E-08
+
+
+DIGITAL Message ID#23 (WARNING):
+GLITCH Hazard at time 86.1746us
+  Device: X_FA8bit0_FA4_0_1_FA1_HA1_1_U3A.UY
+  NODEs: FA8bit0_FA4_0_1_FA1_N00105 (IN1),
+         FA8bit0_FA4_0_1_N00334 (IN2) => S5 (OUT1)  
+  Pulse width is  8.200E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.200E-08
+
+
+DIGITAL Message ID#24 (WARNING):
+GLITCH Hazard at time 86.1952us
+  Device: X_FA8bit0_FA4_0_1_U2A.UY
+  NODEs: N03832 (IN1),
+         FA8bit0_FA4_0_1_N00432 (IN2) => N03841 (OUT1)  
+  Pulse width is  8.000E-09
+ Noise Margin (tpwrt) is  2.000E-09
+ Propagation Delay is  1.200E-08
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .20
+

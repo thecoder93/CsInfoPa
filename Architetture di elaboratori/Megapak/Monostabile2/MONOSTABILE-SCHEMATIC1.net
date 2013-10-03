@@ -1,0 +1,43 @@
+* source MONOSTABILE
+X_Monostabile_U5         N01089 $D_HI Monostabile_N01188 Monostabile_START
++  $D_LO $D_HI $D_LO $D_LO Monostabile_N06550 M_UN0001 N08529 N08577 N08582
++  N08587 $G_DPWR $G_DGND 74HC191 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Monostabile_U1A         Monostabile_N06550 $D_HI N00313 $D_HI
++  Monostabile_N00431 M_UN0002 $G_DPWR $G_DGND 74HC74 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Monostabile_U1B         $D_HI Monostabile_N00431 N01089 $D_HI N00128
++  Monostabile_N01188 $G_DPWR $G_DGND 74HC74 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Monostabile_U7A         Monostabile_N074400 Monostabile_N07717 $G_DPWR
++  $G_DGND 74HC14 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Monostabile_U11A         N00313 $D_LO Monostabile_N07739 $G_DPWR $G_DGND
++  74HC125 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Monostabile_U15A         Monostabile_N07717 Monostabile_N07739
++  Monostabile_START $G_DPWR $G_DGND 74HC32 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+R_Monostabile_R2         Monostabile_N07739 Monostabile_N074400  1k  
+C_Monostabile_C2         0 Monostabile_N074400  1n  
+U_DSTM4         STIM(1,1) $G_DPWR $G_DGND N01089 IO_STM IO_LEVEL=0 
++ 0 0
++ +0 1
++REPEAT FOREVER
++ +5us 0
++  +5uS 1
++ ENDREPEAT
+U_DSTM8         STIM(1,1) $G_DPWR $G_DGND N03280 IO_STM IO_LEVEL=0 
++ 0 0
++ +0 1
++REPEAT FOREVER
++ +50uS 0
++  +5uS 1
++ ENDREPEAT
+U_DSTM7         STIM(1,1) $G_DPWR $G_DGND N00313 IO_STM IO_LEVEL=0 
++ 0 0
++ +0 1
++REPEAT FOREVER
++ +100us 0
++  +10us 1
++ ENDREPEAT

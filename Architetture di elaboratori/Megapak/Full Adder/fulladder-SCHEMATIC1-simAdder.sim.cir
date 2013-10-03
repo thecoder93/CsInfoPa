@@ -1,0 +1,19 @@
+** circuit file for profile: simAdder 
+
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT PROFILES
+
+*Libraries: 
+* Local Libraries :
+.STMLIB ".\FULLADDER.stl" 
+* From [PSPICE NETLIST] section of pspice91.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 200us 0 
+.PROBE 
+.INC "fulladder-SCHEMATIC1.net" 
+
+.INC "fulladder-SCHEMATIC1.als"
+
+
+.END

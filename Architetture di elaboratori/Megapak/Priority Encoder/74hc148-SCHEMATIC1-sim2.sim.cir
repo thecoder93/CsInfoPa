@@ -1,0 +1,18 @@
+** circuit file for profile: sim2 
+
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT PROFILES
+
+*Libraries: 
+* Local Libraries :
+* From [PSPICE NETLIST] section of pspice91.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 10us 0 
+.PROBE 
+.INC "74hc148-SCHEMATIC1.net" 
+
+.INC "74hc148-SCHEMATIC1.als"
+
+
+.END

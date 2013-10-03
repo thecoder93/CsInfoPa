@@ -1,0 +1,148 @@
+
+**** 05/24/05 11:51:39 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim2 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT PROFILES
+
+*Libraries: 
+* Local Libraries :
+* From [PSPICE NETLIST] section of pspice91.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 10us 0 
+.PROBE 
+.INC "74hc148-SCHEMATIC1.net" 
+
+
+**** INCLUDING 74hc148-SCHEMATIC1.net ****
+* source 74HC148
+U_DSTM3         STIM(1,1) $G_DPWR $G_DGND N32828 IO_STM IO_LEVEL=0 
++ 0 0
++ +2us 1
++REPEAT FOREVER
++ +5uS 0
++  +5uS 1
++ ENDREPEAT
+X_U5         $D_HI $D_HI $D_HI $D_HI $D_HI $D_HI $D_HI $D_HI $D_LO N31009
++  N31017 N31029 N31058 N30660 $G_DPWR $G_DGND 74HC148 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_U6         $D_HI $D_HI $D_HI $D_HI $D_HI $D_HI $D_HI N32828 N30660 N30991
++  N31023 N31035 N31052 EO $G_DPWR $G_DGND 74HC148 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_U3A         N31009 N30991 A0 $G_DPWR $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_U3B         N31017 N31023 A1 $G_DPWR $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_U3C         N31029 N31035 A2 $G_DPWR $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_U3D         N31058 N31052 GS $G_DPWR $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_U4A         N30660 A3 $G_DPWR $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+
+**** RESUMING 74hc148-SCHEMATIC1-sim2.sim.cir ****
+.INC "74hc148-SCHEMATIC1.als"
+
+
+
+**** INCLUDING 74hc148-SCHEMATIC1.als ****
+.ALIASES
+U_DSTM3          DSTM3(VCC=$G_DPWR GND=$G_DGND 1=N32828 )
+X_U5            U5(IN0=$D_HI IN1=$D_HI IN2=$D_HI IN3=$D_HI IN4=$D_HI IN5=$D_HI
++  IN6=$D_HI IN7=$D_HI EI=$D_LO A0=N31009 A1=N31017 A2=N31029 GS=N31058 EO=N30660
++  VCC=$G_DPWR GND=$G_DGND )
+X_U6            U6(IN0=$D_HI IN1=$D_HI IN2=$D_HI IN3=$D_HI IN4=$D_HI IN5=$D_HI
++  IN6=$D_HI IN7=N32828 EI=N30660 A0=N30991 A1=N31023 A2=N31035 GS=N31052 EO=EO
++  VCC=$G_DPWR GND=$G_DGND )
+X_U3A           U3A(A=N31009 B=N30991 Y=A0 VCC=$G_DPWR GND=$G_DGND )
+X_U3B           U3B(A=N31017 B=N31023 Y=A1 VCC=$G_DPWR GND=$G_DGND )
+X_U3C           U3C(A=N31029 B=N31035 Y=A2 VCC=$G_DPWR GND=$G_DGND )
+X_U3D           U3D(A=N31058 B=N31052 Y=GS VCC=$G_DPWR GND=$G_DGND )
+X_U4A           U4A(A=N30660 Y=A3 VCC=$G_DPWR GND=$G_DGND )
+_    _(A0=A0)
+_    _(A3=A3)
+_    _(EO=EO)
+_    _(A2=A2)
+_    _(GS=GS)
+_    _(A1=A1)
+_    _(GND=GND)
+_    _(VCC=VCC)
+.ENDALIASES
+
+**** RESUMING 74hc148-SCHEMATIC1-sim2.sim.cir ****
+.END
+
+**** 05/24/05 11:51:39 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim2 
+
+
+ ****     Digital Gate MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D0_GATE         D_HC08          D_H04C          
+      TPLHMN    0               4.000000E-09    3.600000E-09 
+      TPLHTY    0              10.000000E-09    9.000000E-09 
+      TPLHMX    0              25.000000E-09   24.000000E-09 
+      TPHLMN    0               4.000000E-09    3.600000E-09 
+      TPHLTY    0              10.000000E-09    9.000000E-09 
+      TPHLMX    0              25.000000E-09   24.000000E-09 
+
+
+**** 05/24/05 11:51:39 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim2 
+
+
+ ****     Digital IO  MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               IO_STM          IO_HC           
+        INLD                    3.500000E-12 
+        DRVL    0              87            
+        DRVH    0              87            
+       AtoD1                 AtoD_HC         
+       AtoD2                 AtoD_HC_NX      
+       AtoD3                 AtoD_HC         
+       AtoD4                 AtoD_HC_NX      
+       DtoA1 DtoA_STM        DtoA_HC         
+       DtoA2 DtoA_STM        DtoA_HC         
+       DtoA3 DtoA_STM        DtoA_HC_E       
+       DtoA4 DtoA_STM        DtoA_HC_E       
+      TSWHL1                    2.742000E-09 
+      TSWHL2                    2.742000E-09 
+      TSWHL3                    2.751000E-09 
+      TSWHL4                    2.751000E-09 
+      TSWLH1                    2.758000E-09 
+      TSWLH2                    2.758000E-09 
+      TSWLH3                    2.763000E-09 
+      TSWLH4                    2.763000E-09 
+       TPWRT  100.000000E+03    2.000000E-09 
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .12
+

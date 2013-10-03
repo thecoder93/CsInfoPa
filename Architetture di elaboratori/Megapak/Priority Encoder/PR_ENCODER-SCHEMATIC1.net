@@ -1,0 +1,328 @@
+* source PR_ENCODER
+X_encoder_U7A         X0 $D_HI $D_HI $D_HI encoder_N01004 $G_DPWR $G_DGND
++  74HC20 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_encoder_U7B         X1 encoder_N00472 $D_HI $D_HI encoder_N01007 $G_DPWR
++  $G_DGND 74HC20 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_encoder_U10A         X2 encoder_N00472 encoder_N00475 $D_HI encoder_N01017
++  $G_DPWR $G_DGND 74HC20 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_encoder_U4C         encoder_N009388 T2 $G_DPWR $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_encoder_U4B         X0 encoder_N00472 $G_DPWR $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_encoder_U4D         X1 encoder_N00475 $G_DPWR $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_encoder_U4E         X2 encoder_N00478 $G_DPWR $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_encoder_U11         encoder_N00472 encoder_N00475 encoder_N00478 X3 $D_HI
++  $D_HI $D_HI $D_HI encoder_N01030 $G_DPWR $G_DGND 74HC30 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_encoder_U9A         encoder_N01007 encoder_N01030 N07307 $G_DPWR $G_DGND
++  74HC00 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_encoder_U9B         encoder_N01017 encoder_N01030 N08048 $G_DPWR $G_DGND
++  74HC00 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_encoder_U8         $D_HI encoder_N01004 encoder_N01007 encoder_N01017
++  encoder_N01030 $D_HI $D_HI $D_HI encoder_N009388 $G_DPWR $G_DGND 74HC30
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+U_DSTM7         STIM(1,1)
++ $G_DPWR $G_DGND
++ X5 
++ IO_STM
++ IO_LEVEL=0
++  0s 1  
+X_U1B         N08048 T2 T1 $G_DPWR $G_DGND 74HC125 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+U_DSTM5         STIM(1,1)
++ $G_DPWR $G_DGND
++ X7 
++ IO_STM
++ IO_LEVEL=0
++  0s 0  
+X_U5         $D_HI $D_HI $D_HI $D_HI $D_LO $D_HI $D_HI $D_HI $D_LO N31009
++  N31017 N31029 N31058 N30660 $G_DPWR $G_DGND 74HC148 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_U6         $D_HI $D_HI $D_HI $D_HI $D_HI $D_HI $D_HI $D_HI N30660 N30991
++  N31023 N31035 N31052 EO $G_DPWR $G_DGND 74HC148 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_U2B         A3_946 T2 T1 $G_DPWR $G_DGND 74HC126 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+U_DSTM3         STIM(1,1)
++ $G_DPWR $G_DGND
++ X1 
++ IO_STM
++ IO_LEVEL=0
++  0s 0  
++ 115us 1  
++ 400us 0  
+U_DSTM9         STIM(1,1)
++ $G_DPWR $G_DGND
++ I3 
++ IO_STM
++ IO_LEVEL=0
++  0s 0  
++ 100us 1  
++ 150us 0  
+U_DSTM4         STIM(1,1) $G_DPWR $G_DGND X0 IO_STM IO_LEVEL=0 
++ 0 0
++ +0 1
++REPEAT FOREVER
++ +25uS 0
++  +25uS 1
++ ENDREPEAT
+U_DSTM2         STIM(1,1)
++ $G_DPWR $G_DGND
++ X2 
++ IO_STM
++ IO_LEVEL=0
++  0s 0  
++ 75us 1  
++ 100us 0  
+U_DSTM1         STIM(1,1)
++ $G_DPWR $G_DGND
++ X3 
++ IO_STM
++ IO_LEVEL=0
++  0s 0  
++ 15us 1  
++ 40us 0  
+X_U1A         N07307 T2 T0 $G_DPWR $G_DGND 74HC125 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_U7A         $D_LO $D_HI $D_HI $D_HI Encoder8_encoder_N01004
++  $G_DPWR $G_DGND 74HC20 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_U7B         $D_LO Encoder8_encoder_N00472 $D_HI $D_HI
++  Encoder8_encoder_N01007 $G_DPWR $G_DGND 74HC20 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_U10A         $D_LO Encoder8_encoder_N00472
++  Encoder8_encoder_N00475 $D_HI Encoder8_encoder_N01017 $G_DPWR $G_DGND 74HC20
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_U4C         Encoder8_encoder_N009388 IC12 $G_DPWR $G_DGND
++  74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_U4B         $D_LO Encoder8_encoder_N00472 $G_DPWR $G_DGND
++  74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_U4D         $D_LO Encoder8_encoder_N00475 $G_DPWR $G_DGND
++  74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_U4E         $D_LO Encoder8_encoder_N00478 $G_DPWR $G_DGND
++  74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_U11         Encoder8_encoder_N00472 Encoder8_encoder_N00475
++  Encoder8_encoder_N00478 I3 $D_HI $D_HI $D_HI $D_HI Encoder8_encoder_N01030
++  $G_DPWR $G_DGND 74HC30 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_U9A         Encoder8_encoder_N01007 Encoder8_encoder_N01030
++  Encoder8_N07307 $G_DPWR $G_DGND 74HC00 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_U9B         Encoder8_encoder_N01017 Encoder8_encoder_N01030
++  Encoder8_N08048 $G_DPWR $G_DGND 74HC00 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_U8         $D_HI Encoder8_encoder_N01004
++  Encoder8_encoder_N01007 Encoder8_encoder_N01017 Encoder8_encoder_N01030 $D_HI
++  $D_HI $D_HI Encoder8_encoder_N009388 $G_DPWR $G_DGND 74HC30 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_U1D         Encoder8_N08048 IC12 IC11 $G_DPWR $G_DGND 74HC125
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_U2D         Encoder8_A3 IC12 IC11 $G_DPWR $G_DGND 74HC126 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_U1C         Encoder8_N07307 IC12 IC10 $G_DPWR $G_DGND 74HC125
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_U2C         Encoder8_A2 IC12 IC10 $G_DPWR $G_DGND 74HC126 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_1_U7A         $D_LO $D_HI $D_HI IC12
++  Encoder8_encoder_1_N01004 $G_DPWR $G_DGND 74HC20 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_1_U7B         $D_LO Encoder8_encoder_1_N00472 $D_HI IC12
++  Encoder8_encoder_1_N01007 $G_DPWR $G_DGND 74HC20 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_1_U10A         $D_LO Encoder8_encoder_1_N00472
++  Encoder8_encoder_1_N00475 IC12 Encoder8_encoder_1_N01017 $G_DPWR $G_DGND
++  74HC20 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_1_U4C         Encoder8_encoder_1_N009388 OUT3 $G_DPWR
++  $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_1_U4B         $D_LO Encoder8_encoder_1_N00472 $G_DPWR
++  $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_1_U4D         $D_LO Encoder8_encoder_1_N00475 $G_DPWR
++  $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_1_U4E         $D_LO Encoder8_encoder_1_N00478 $G_DPWR
++  $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_1_U11         Encoder8_encoder_1_N00472
++  Encoder8_encoder_1_N00475 Encoder8_encoder_1_N00478 $D_HI $D_HI $D_HI $D_HI
++  IC12 Encoder8_encoder_1_N01030 $G_DPWR $G_DGND 74HC30 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_1_U9A         Encoder8_encoder_1_N01007
++  Encoder8_encoder_1_N01030 Encoder8_A2 $G_DPWR $G_DGND 74HC00 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_1_U9B         Encoder8_encoder_1_N01017
++  Encoder8_encoder_1_N01030 Encoder8_A3 $G_DPWR $G_DGND 74HC00 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_encoder_1_U8         IC12 Encoder8_encoder_1_N01004
++  Encoder8_encoder_1_N01007 Encoder8_encoder_1_N01017 Encoder8_encoder_1_N01030
++  $D_HI $D_HI $D_HI Encoder8_encoder_1_N009388 $G_DPWR $G_DGND 74HC30 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_U3A         N31009 N30991 A0 $G_DPWR $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_U3B         N31017 N31023 A1 $G_DPWR $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_U2A         A2_946 T2 T0 $G_DPWR $G_DGND 74HC126 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_U3C         N31029 N31035 A2 $G_DPWR $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_U3D         N31058 N31052 GS $G_DPWR $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_U4A         N30660 A3 $G_DPWR $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_U7A         $D_HI $D_HI $D_HI OUT3
++  Encoder8_1_encoder_N01004 $G_DPWR $G_DGND 74HC20 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_U7B         $D_LO Encoder8_1_encoder_N00472 $D_HI OUT3
++  Encoder8_1_encoder_N01007 $G_DPWR $G_DGND 74HC20 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_U10A         $D_HI Encoder8_1_encoder_N00472
++  Encoder8_1_encoder_N00475 OUT3 Encoder8_1_encoder_N01017 $G_DPWR $G_DGND
++  74HC20 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_U4C         Encoder8_1_encoder_N009388 IC22 $G_DPWR
++  $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_U4B         $D_HI Encoder8_1_encoder_N00472 $G_DPWR
++  $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_U4D         $D_LO Encoder8_1_encoder_N00475 $G_DPWR
++  $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_U4E         $D_HI Encoder8_1_encoder_N00478 $G_DPWR
++  $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_U11         Encoder8_1_encoder_N00472
++  Encoder8_1_encoder_N00475 Encoder8_1_encoder_N00478 $D_HI $D_HI $D_HI $D_HI
++  OUT3 Encoder8_1_encoder_N01030 $G_DPWR $G_DGND 74HC30 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_U9A         Encoder8_1_encoder_N01007
++  Encoder8_1_encoder_N01030 Encoder8_1_N07307 $G_DPWR $G_DGND 74HC00 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_U9B         Encoder8_1_encoder_N01017
++  Encoder8_1_encoder_N01030 Encoder8_1_N08048 $G_DPWR $G_DGND 74HC00 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_U8         OUT3 Encoder8_1_encoder_N01004
++  Encoder8_1_encoder_N01007 Encoder8_1_encoder_N01017 Encoder8_1_encoder_N01030
++  $D_HI $D_HI $D_HI Encoder8_1_encoder_N009388 $G_DPWR $G_DGND 74HC30 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_U1D         Encoder8_1_N08048 IC22 IC21 $G_DPWR $G_DGND 74HC125
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_U2D         Encoder8_1_A3 IC22 IC21 $G_DPWR $G_DGND 74HC126
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_U1C         Encoder8_1_N07307 IC22 IC20 $G_DPWR $G_DGND 74HC125
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_U2C         Encoder8_1_A2 IC22 IC20 $G_DPWR $G_DGND 74HC126
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_1_U7A         $D_LO $D_HI $D_HI IC22
++  Encoder8_1_encoder_1_N01004 $G_DPWR $G_DGND 74HC20 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_1_U7B         $D_LO Encoder8_1_encoder_1_N00472 $D_HI IC22
++  Encoder8_1_encoder_1_N01007 $G_DPWR $G_DGND 74HC20 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_1_U10A         $D_LO Encoder8_1_encoder_1_N00472
++  Encoder8_1_encoder_1_N00475 IC22 Encoder8_1_encoder_1_N01017 $G_DPWR $G_DGND
++  74HC20 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_1_U4C         Encoder8_1_encoder_1_N009388 N28840 $G_DPWR
++  $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_1_U4B         $D_LO Encoder8_1_encoder_1_N00472 $G_DPWR
++  $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_1_U4D         $D_LO Encoder8_1_encoder_1_N00475 $G_DPWR
++  $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_1_U4E         $D_LO Encoder8_1_encoder_1_N00478 $G_DPWR
++  $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_1_U11         Encoder8_1_encoder_1_N00472
++  Encoder8_1_encoder_1_N00475 Encoder8_1_encoder_1_N00478 $D_HI $D_HI $D_HI
++  $D_HI IC22 Encoder8_1_encoder_1_N01030 $G_DPWR $G_DGND 74HC30 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_1_U9A         Encoder8_1_encoder_1_N01007
++  Encoder8_1_encoder_1_N01030 Encoder8_1_A2 $G_DPWR $G_DGND 74HC00 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_1_U9B         Encoder8_1_encoder_1_N01017
++  Encoder8_1_encoder_1_N01030 Encoder8_1_A3 $G_DPWR $G_DGND 74HC00 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Encoder8_1_encoder_1_U8         IC22 Encoder8_1_encoder_1_N01004
++  Encoder8_1_encoder_1_N01007 Encoder8_1_encoder_1_N01017
++  Encoder8_1_encoder_1_N01030 $D_HI $D_HI $D_HI Encoder8_1_encoder_1_N009388
++  $G_DPWR $G_DGND 74HC30 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Join_U13A         IC10 OUT3 OUT0 $G_DPWR $G_DGND 74HC125 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Join_U12A         IC20 OUT3 OUT0 $G_DPWR $G_DGND 74HC126 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Join_U12B         IC21 OUT3 OUT1 $G_DPWR $G_DGND 74HC126 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Join_U13B         IC11 OUT3 OUT1 $G_DPWR $G_DGND 74HC125 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Join_U12C         IC22 OUT3 OUT2 $G_DPWR $G_DGND 74HC126 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Join_U13C         IC12 OUT3 OUT2 $G_DPWR $G_DGND 74HC125 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+U_DSTM6         STIM(1,1)
++ $G_DPWR $G_DGND
++ X6 
++ IO_STM
++ IO_LEVEL=0
++  0s 0  
+X_encoder_1_U7A         X4 $D_HI $D_HI T2 encoder_1_N01004 $G_DPWR $G_DGND
++  74HC20 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_encoder_1_U7B         X5 encoder_1_N00472 $D_HI T2 encoder_1_N01007 $G_DPWR
++  $G_DGND 74HC20 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_encoder_1_U10A         X6 encoder_1_N00472 encoder_1_N00475 T2
++  encoder_1_N01017 $G_DPWR $G_DGND 74HC20 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_encoder_1_U4C         encoder_1_N009388 VALIDBAR $G_DPWR $G_DGND 74HC04
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_encoder_1_U4B         X4 encoder_1_N00472 $G_DPWR $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_encoder_1_U4D         X5 encoder_1_N00475 $G_DPWR $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_encoder_1_U4E         X6 encoder_1_N00478 $G_DPWR $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_encoder_1_U11         encoder_1_N00472 encoder_1_N00475 encoder_1_N00478 X7
++  $D_HI $D_HI $D_HI T2 encoder_1_N01030 $G_DPWR $G_DGND 74HC30 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_encoder_1_U9A         encoder_1_N01007 encoder_1_N01030 A2_946 $G_DPWR
++  $G_DGND 74HC00 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_encoder_1_U9B         encoder_1_N01017 encoder_1_N01030 A3_946 $G_DPWR
++  $G_DGND 74HC00 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_encoder_1_U8         T2 encoder_1_N01004 encoder_1_N01007 encoder_1_N01017
++  encoder_1_N01030 $D_HI $D_HI $D_HI encoder_1_N009388 $G_DPWR $G_DGND 74HC30
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+U_DSTM8         STIM(1,1)
++ $G_DPWR $G_DGND
++ X4 
++ IO_STM
++ IO_LEVEL=0
++  0s 0  

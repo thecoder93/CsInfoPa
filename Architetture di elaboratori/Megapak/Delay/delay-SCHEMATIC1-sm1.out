@@ -1,0 +1,237 @@
+
+**** 07/07/05 17:59:57 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sm1 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT PROFILES
+
+*Libraries: 
+* Local Libraries :
+* From [PSPICE NETLIST] section of pspice91.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 100us 0 
+.OPTIONS DIGINITSTATE= 0
+.PROBE 
+.INC "delay-SCHEMATIC1.net" 
+
+
+**** INCLUDING delay-SCHEMATIC1.net ****
+* source DELAY
+X_Delay_U1B         $D_LO Delay_N01828 $G_DPWR $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Delay_U1A         $D_LO Delay_N01830 $G_DPWR $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Delay_U3A         Delay_N00893 $D_HI N00240 $D_HI Delay_N00086 M_UN0001
++  $G_DPWR $G_DGND 74HC74 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Delay_U3B         $D_HI Delay_N00086 N00049 $D_HI Delay_N01424 M_UN0002
++  $G_DPWR $G_DGND 74HC74 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Delay_U1D         $D_HI Delay_N02668 $G_DPWR $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Delay_U4A         Delay_N00086 Delay_N01424 Delay_N00539 $G_DPWR $G_DGND
++  74HC7266 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Delay_U2         N00049 Delay_N00086 $D_HI $D_HI Delay_N00539 Delay_N02668
++  Delay_N02674 Delay_N01828 Delay_N01830 M_UN0003 M_UN0004 M_UN0005 M_UN0006
++  N00064 $G_DPWR $G_DGND 74HC163 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Delay_U1E         N00064 Delay_N00893 $G_DPWR $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Delay_U1C         $D_LO Delay_N02674 $G_DPWR $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+U_DSTM2         STIM(1,1) $G_DPWR $G_DGND N00049 IO_STM IO_LEVEL=0 
++ 0 0
++ +0 1
++REPEAT FOREVER
++ +.5uS 0
++  +.5uS 1
++ ENDREPEAT
+U_DSTM1         STIM(1,1)
++ $G_DPWR $G_DGND
++ N00240 
++ IO_STM
++ IO_LEVEL=0
++  0s 0  
++ 7us 1  
++ 7.2us 0  
++ 17us 1 
++ 17.4us 0  
++ 19us 1  
++ 21us 0  
++ 22.3us 1  
++ 25us 0  
++ 28us 1  
++ 35us 0  
+
+**** RESUMING delay-schematic1-sm1.sim.cir ****
+.INC "delay-SCHEMATIC1.als"
+
+
+
+**** INCLUDING delay-SCHEMATIC1.als ****
+.ALIASES
+_   Delay(Signal=N00240 ck=N00049 D0=$D_HI D1=$D_LO D2=$D_LO D3=$D_LO
++  out=N00064 )
+X_Delay_U1B          Delay.U1B(A=$D_LO Y=Delay_N01828 VCC=$G_DPWR GND=$G_DGND )
+X_Delay_U1A          Delay.U1A(A=$D_LO Y=Delay_N01830 VCC=$G_DPWR GND=$G_DGND )
+X_Delay_U3A          Delay.U3A(CLRbar=Delay_N00893 D=$D_HI CLK=N00240
++  PREbar=$D_HI Q=Delay_N00086 Qbar=M_UN0001 VCC=$G_DPWR GND=$G_DGND )
+X_Delay_U3B          Delay.U3B(CLRbar=$D_HI D=Delay_N00086 CLK=N00049
++  PREbar=$D_HI Q=Delay_N01424 Qbar=M_UN0002 VCC=$G_DPWR GND=$G_DGND )
+X_Delay_U1D          Delay.U1D(A=$D_HI Y=Delay_N02668 VCC=$G_DPWR GND=$G_DGND )
+X_Delay_U4A          Delay.U4A(A=Delay_N00086 B=Delay_N01424 Y=Delay_N00539
++  VCC=$G_DPWR GND=$G_DGND )
+X_Delay_U2          Delay.U2(CLK=N00049 ENP=Delay_N00086 ENT=$D_HI CLRbar=$D_HI
++  LOADbar=Delay_N00539 A=Delay_N02668 B=Delay_N02674 C=Delay_N01828
++  D=Delay_N01830 QA=M_UN0003 QB=M_UN0004 QC=M_UN0005 QD=M_UN0006 RCO=N00064
++  VCC=$G_DPWR GND=$G_DGND )
+X_Delay_U1E          Delay.U1E(A=N00064 Y=Delay_N00893 VCC=$G_DPWR GND=$G_DGND
++  )
+X_Delay_U1C          Delay.U1C(A=$D_LO Y=Delay_N02674 VCC=$G_DPWR GND=$G_DGND )
+_    _(Delay.out=N00064)
+_    _(Delay.ck=N00049)
+_    _(Delay.Signal=N00240)
+_    _(Delay.D2=$D_LO)
+_    _(D2=$D_LO)
+_    _(Delay.D3=$D_LO)
+_    _(D3=$D_LO)
+_    _(Delay.D1=$D_LO)
+_    _(D1=$D_LO)
+_    _(Delay.D0=$D_HI)
+_    _(D0=$D_HI)
+U_DSTM2          DSTM2(VCC=$G_DPWR GND=$G_DGND 1=N00049 )
+U_DSTM1          DSTM1(pin1=N00240 )
+_    _(GND=GND)
+_    _(VCC=VCC)
+.ENDALIASES
+
+**** RESUMING delay-schematic1-sm1.sim.cir ****
+.END
+
+**** 07/07/05 17:59:57 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sm1 
+
+
+ ****     Digital Gate MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D_H04C          D_HC7266        D0_GATE         
+      TPLHMN    3.600000E-09    4.800000E-09    0            
+      TPLHTY    9.000000E-09   12.000000E-09    0            
+      TPLHMX   24.000000E-09   25.000000E-09    0            
+      TPHLMN    3.600000E-09    4.800000E-09    0            
+      TPHLTY    9.000000E-09   12.000000E-09    0            
+      TPHLMX   24.000000E-09   25.000000E-09    0            
+
+
+**** 07/07/05 17:59:57 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sm1 
+
+
+ ****     Digital Edge Triggered FF MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D_HC74          D0_EFF          
+  TPCLKQLHMN    8.000000E-09    0            
+  TPCLKQLHTY   20.000000E-09    0            
+  TPCLKQLHMX   44.000000E-09    0            
+  TPCLKQHLMN    8.000000E-09    0            
+  TPCLKQHLTY   20.000000E-09    0            
+  TPCLKQHLMX   44.000000E-09    0            
+   TPPCQLHMN    8.000000E-09    0            
+   TPPCQLHTY   20.000000E-09    0            
+   TPPCQLHMX   58.000000E-09    0            
+   TPPCQHLMN    8.000000E-09    0            
+   TPPCQHLTY   20.000000E-09    0            
+   TPPCQHLMX   58.000000E-09    0            
+    TWCLKLMN   20.000000E-09    0            
+    TWCLKLTY   20.000000E-09    0            
+    TWCLKLMX   20.000000E-09    0            
+    TWCLKHMN   20.000000E-09    0            
+    TWCLKHTY   20.000000E-09    0            
+    TWCLKHMX   20.000000E-09    0            
+     TWPCLMN   25.000000E-09    0            
+     TWPCLTY   25.000000E-09    0            
+     TWPCLMX   25.000000E-09    0            
+   TSUDCLKMN   25.000000E-09    0            
+   TSUDCLKTY   25.000000E-09    0            
+   TSUDCLKMX   25.000000E-09    0            
+ TSUPCCLKHMN    6.000000E-09    0            
+ TSUPCCLKHTY    6.000000E-09    0            
+ TSUPCCLKHMX    6.000000E-09    0            
+    THDCLKMN    0               0            
+    THDCLKTY    0               0            
+    THDCLKMX    0               0            
+  TSUCECLKMN    0               0            
+  TSUCECLKTY    0               0            
+  TSUCECLKMX    0               0            
+   THCECLKMN    0               0            
+   THCECLKTY    0               0            
+   THCECLKMX    0               0            
+
+
+**** 07/07/05 17:59:57 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sm1 
+
+
+ ****     Digital IO  MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               IO_STM          IO_HC           
+        INLD                    3.500000E-12 
+        DRVL    0              87            
+        DRVH    0              87            
+       AtoD1                 AtoD_HC         
+       AtoD2                 AtoD_HC_NX      
+       AtoD3                 AtoD_HC         
+       AtoD4                 AtoD_HC_NX      
+       DtoA1 DtoA_STM        DtoA_HC         
+       DtoA2 DtoA_STM        DtoA_HC         
+       DtoA3 DtoA_STM        DtoA_HC_E       
+       DtoA4 DtoA_STM        DtoA_HC_E       
+      TSWHL1                    2.742000E-09 
+      TSWHL2                    2.742000E-09 
+      TSWHL3                    2.751000E-09 
+      TSWHL4                    2.751000E-09 
+      TSWLH1                    2.758000E-09 
+      TSWLH2                    2.758000E-09 
+      TSWLH3                    2.763000E-09 
+      TSWLH4                    2.763000E-09 
+       TPWRT  100.000000E+03    2.000000E-09 
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .80
+

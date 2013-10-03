@@ -1,0 +1,123 @@
+(ExpressProject "pr_encoder"
+  (ProjectVersion "19981106")
+  (ProjectType "Analog or A/D Mixed Mode")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File "C:\Program Files\OrCAD\CAPTURE\LIBRARY\PSPICE\74hc.olb"
+        (Type "Schematic Library"))
+      (File "C:\Program Files\OrCAD\CAPTURE\LIBRARY\PSPICE\analog.olb"
+        (Type "Schematic Library"))
+      (File "C:\Program Files\OrCAD\CAPTURE\LIBRARY\PSPICE\dig_misc.olb"
+        (Type "Schematic Library"))
+      (File "C:\Program Files\OrCAD\CAPTURE\LIBRARY\PSPICE\source.olb"
+        (Type "Schematic Library"))
+      (File "C:\Program Files\OrCAD\CAPTURE\LIBRARY\PSPICE\sourcstm.olb"
+        (Type "Schematic Library"))
+      (File "C:\Program Files\OrCAD\CAPTURE\LIBRARY\PSPICE\special.olb"
+        (Type "Schematic Library")))
+    (NoModify)
+    (File ".\pr_encoder.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (ANNOTATE_Scope "0")
+    (ANNOTATE_Mode "1")
+    (ANNOTATE_Action "0")
+    (ANNOTATE_Reset_References_to_1 "FALSE")
+    (ANNOTATE_No_Page_Number_Change "FALSE")
+    (ANNOTATE_Property_Combine "{Value}{Source Package}"))
+  (Folder "Outputs"
+    (File ".\pr_encoder-schematic1.net"
+      (Type "Report")))
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles"
+      (ActiveProfile ".\pr_encoder-schematic1-sim.sim")
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\pr_encoder-schematic1-sim.sim"
+        (DisplayName "SCHEMATIC1-sim")
+        (Type "PSpice Profile")))
+    (Folder "Model Libraries"
+      (Sort User))
+    (Folder "Stimulus Files"
+      (Sort User)
+      (File ".\PR_ENCODER.stl"
+        (Type "PSpiceLibrary")
+        (DisplayName ".\PR_ENCODER.stl")))
+    (Folder "Include Files"
+      (Sort User)))
+  (DefaultLibraryBrowseDirectory "library\PSpice")
+  (PartMRUSelector
+    (74HC04
+      (FullPartName "74HC04.Normal")
+      (LibraryName "C:\PROGRAM FILES\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC08
+      (FullPartName "74HC08.Normal")
+      (LibraryName "C:\PROGRAM FILES\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC148
+      (FullPartName "74HC148.Normal")
+      (LibraryName "C:\PROGRAM FILES\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (STIM1
+      (FullPartName "STIM1.Normal")
+      (LibraryName "C:\PROGRAM FILES\ORCAD\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (74HC126
+      (FullPartName "74HC126.Normal")
+      (LibraryName "C:\PROGRAM FILES\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC125
+      (FullPartName "74HC125.Normal")
+      (LibraryName "C:\PROGRAM FILES\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (DigClock
+      (FullPartName "DigClock.Normal")
+      (LibraryName "C:\PROGRAM FILES\ORCAD\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (STIM4
+      (FullPartName "STIM4.Normal")
+      (LibraryName "C:\PROGRAM FILES\ORCAD\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (DigStim4
+      (FullPartName "DigStim4.Normal")
+      (LibraryName "C:\PROGRAM FILES\ORCAD\CAPTURE\LIBRARY\PSPICE\SOURCSTM.OLB")
+      (DeviceIndex "0"))
+    (DigStim8
+      (FullPartName "DigStim8.Normal")
+      (LibraryName "C:\PROGRAM FILES\ORCAD\CAPTURE\LIBRARY\PSPICE\SOURCSTM.OLB")
+      (DeviceIndex "0"))
+    (STIM8
+      (FullPartName "STIM8.Normal")
+      (LibraryName "C:\PROGRAM FILES\ORCAD\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (74HC00
+      (FullPartName "74HC00.Normal")
+      (LibraryName "C:\PROGRAM FILES\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC30
+      (FullPartName "74HC30.Normal")
+      (LibraryName "C:\PROGRAM FILES\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC20
+      (FullPartName "74HC20.Normal")
+      (LibraryName "C:\PROGRAM FILES\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0")))
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources"
+         "C:\Documents and Settings\Markus\Documenti\Architetture\MSI\Priority Encoder\pr_encoder.dsn")
+      (Path "Design Resources"
+         "C:\Documents and Settings\Markus\Documenti\Architetture\MSI\Priority Encoder\pr_encoder.dsn"
+         "SCHEMATIC1")
+      (Path "Outputs")
+      (Select "Design Resources"
+         "C:\Documents and Settings\Markus\Documenti\Architetture\MSI\Priority Encoder\pr_encoder.dsn"
+         "SCHEMATIC1" "PAGE3"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -4 -23 0 793 0 422"))
+      (Tab 0))))

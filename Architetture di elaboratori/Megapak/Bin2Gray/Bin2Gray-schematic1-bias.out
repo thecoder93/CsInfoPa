@@ -1,0 +1,1031 @@
+
+**** 07/06/05 09:30:25 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: Bias 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT PROFILES
+
+*Libraries: 
+* Local Libraries :
+* From [PSPICE NETLIST] section of pspice91.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 200us 0 
+.OPTIONS DIGINITSTATE= 0
+.OPTIONS DIGMNTYMX= 4
+.PROBE 
+.INC "Bin2Gray-SCHEMATIC1.net" 
+
+
+**** INCLUDING Bin2Gray-SCHEMATIC1.net ****
+* source BIN2GRAY
+U_DSTM2         STIM(1,1) $G_DPWR $G_DGND CLK IO_STM IO_LEVEL=0 
++ 0 0
++ +1us 1
++REPEAT FOREVER
++ +1us 0
++  +1us 1
++ ENDREPEAT
+X_Bin2Gray_01_U22A         N02308 Bin2Gray_01_QB_BAR Bin2Gray_01_N04370 $G_DPWR
++  $G_DGND 74HC00 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Bin2Gray_01_U42A         Bin2Gray_01_N05437 Bin2Gray_01_QC_BAR Bin2Gray_01_KB
++  $G_DPWR $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Bin2Gray_01_U23A         N02308 Bin2Gray_01_QB_BAR Bin2Gray_01_N03736 $G_DPWR
++  $G_DGND 74HC00 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Bin2Gray_01_U2A         CLK $D_HI Bin2Gray_01_JA Bin2Gray_01_KA
++  Bin2Gray_01_QA Bin2Gray_01_QA_BAR $G_DPWR $G_DGND 74HC107 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Bin2Gray_01_U12A         N02308 Bin2Gray_01_N02200 $G_DPWR $G_DGND 74HC04
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Bin2Gray_01_U25A         Bin2Gray_01_QA_BAR Bin2Gray_01_N02200
++  Bin2Gray_01_N05437 $G_DPWR $G_DGND 74HC00 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Bin2Gray_01_U3A         CLK $D_HI Bin2Gray_01_JB Bin2Gray_01_KB
++  Bin2Gray_01_QB Bin2Gray_01_QB_BAR $G_DPWR $G_DGND 74HC107 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Bin2Gray_01_U26A         Bin2Gray_01_N02200 Bin2Gray_01_JB Bin2Gray_01_QB
++  Bin2Gray_01_N03825 $G_DPWR $G_DGND 74HC10 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Bin2Gray_01_U4A         CLK $D_HI $D_HI $D_HI Bin2Gray_01_JB
++  Bin2Gray_01_QC_BAR $G_DPWR $G_DGND 74HC107 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Bin2Gray_01_U20A         N02308 Bin2Gray_01_QC_BAR Bin2Gray_01_N03784 $G_DPWR
++  $G_DGND 74HC00 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Bin2Gray_01_U27A         Bin2Gray_01_N03736 Bin2Gray_01_N03784
++  Bin2Gray_01_N03825 Bin2Gray_01_JA $G_DPWR $G_DGND 74HC10 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Bin2Gray_01_U43A         N02308 Bin2Gray_01_QA N06221 $G_DPWR $G_DGND 74HC86
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Bin2Gray_01_U21A         N02308 Bin2Gray_01_QC_BAR Bin2Gray_01_N04416 $G_DPWR
++  $G_DGND 74HC00 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Bin2Gray_01_U32A         Bin2Gray_01_N04370 Bin2Gray_01_N04416 Bin2Gray_01_KA
++  $G_DPWR $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_U8         CLK $D_HI $D_HI $D_HI N03367 $D_LO $D_LO $D_LO $D_LO M_UN0001
++  M_UN0002 N03313 M_UN0003 M_UN0004 $G_DPWR $G_DGND 74HC161 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_U5         CLK $D_HI N03313 $D_HI $D_LO $D_LO N01989 N01906 N01823 N01740
++  M_UN0005 M_UN0006 M_UN0007 N02308 $G_DPWR $G_DGND 74HC194 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_U11         $D_HI CLK_BAR N02308 N02308 M_UN0008 M_UN0009 M_UN0010 M_UN0011
++  M_UN0012 M_UN0013 M_UN0014 M_UN0015 $G_DPWR $G_DGND 74HC164 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_U9A         N03313 N03367 $G_DPWR $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_U12A         CLK CLK_BAR $G_DPWR $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_U6         CLK $D_LO N03367 $D_HI $D_LO $D_LO $D_LO $D_LO M_UN0016 M_UN0017
++  N01989 N01906 N01823 N01740 $G_DPWR $G_DGND 74HC191 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+
+**** RESUMING bin2gray-schematic1-bias.sim.cir ****
+.INC "Bin2Gray-SCHEMATIC1.als"
+
+
+
+**** INCLUDING Bin2Gray-SCHEMATIC1.als ****
+.ALIASES
+U_DSTM2          DSTM2(VCC=$G_DPWR GND=$G_DGND 1=CLK )
+_   Bin2Gray_01(CLK_bar=CLK RESET_bar=$D_HI I=N02308 OUT=N06221 )
+X_Bin2Gray_01_U22A          Bin2Gray_01.U22A(A=N02308 B=Bin2Gray_01_QB_BAR
++  Y=Bin2Gray_01_N04370 VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U42A          Bin2Gray_01.U42A(A=Bin2Gray_01_N05437
++  B=Bin2Gray_01_QC_BAR Y=Bin2Gray_01_KB VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U23A          Bin2Gray_01.U23A(A=N02308 B=Bin2Gray_01_QB_BAR
++  Y=Bin2Gray_01_N03736 VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U2A          Bin2Gray_01.U2A(CLK=CLK CLRbar=$D_HI
++  J=Bin2Gray_01_JA K=Bin2Gray_01_KA Q=Bin2Gray_01_QA Qbar=Bin2Gray_01_QA_BAR
++  VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U12A          Bin2Gray_01.U12A(A=N02308 Y=Bin2Gray_01_N02200
++  VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U25A          Bin2Gray_01.U25A(A=Bin2Gray_01_QA_BAR
++  B=Bin2Gray_01_N02200 Y=Bin2Gray_01_N05437 VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U3A          Bin2Gray_01.U3A(CLK=CLK CLRbar=$D_HI
++  J=Bin2Gray_01_JB K=Bin2Gray_01_KB Q=Bin2Gray_01_QB Qbar=Bin2Gray_01_QB_BAR
++  VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U26A          Bin2Gray_01.U26A(A=Bin2Gray_01_N02200
++  B=Bin2Gray_01_JB C=Bin2Gray_01_QB Y=Bin2Gray_01_N03825 VCC=$G_DPWR GND=$G_DGND
++  )
+X_Bin2Gray_01_U4A          Bin2Gray_01.U4A(CLK=CLK CLRbar=$D_HI J=$D_HI K=$D_HI
++  Q=Bin2Gray_01_JB Qbar=Bin2Gray_01_QC_BAR VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U20A          Bin2Gray_01.U20A(A=N02308 B=Bin2Gray_01_QC_BAR
++  Y=Bin2Gray_01_N03784 VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U27A          Bin2Gray_01.U27A(A=Bin2Gray_01_N03736
++  B=Bin2Gray_01_N03784 C=Bin2Gray_01_N03825 Y=Bin2Gray_01_JA VCC=$G_DPWR
++  GND=$G_DGND )
+X_Bin2Gray_01_U43A          Bin2Gray_01.U43A(A=N02308 B=Bin2Gray_01_QA Y=N06221
++  VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U21A          Bin2Gray_01.U21A(A=N02308 B=Bin2Gray_01_QC_BAR
++  Y=Bin2Gray_01_N04416 VCC=$G_DPWR GND=$G_DGND )
+X_Bin2Gray_01_U32A          Bin2Gray_01.U32A(A=Bin2Gray_01_N04370
++  B=Bin2Gray_01_N04416 Y=Bin2Gray_01_KA VCC=$G_DPWR GND=$G_DGND )
+_    _(Bin2Gray_01.OUT=N06221)
+_    _(Bin2Gray_01.RESET_bar=$D_HI)
+_    _(RESET_bar=$D_HI)
+_    _(Bin2Gray_01.I=N02308)
+_    _(Bin2Gray_01.KA=Bin2Gray_01_KA)
+_    _(Bin2Gray_01.KB=Bin2Gray_01_KB)
+_    _(Bin2Gray_01.JA=Bin2Gray_01_JA)
+_    _(Bin2Gray_01.QA_bar=Bin2Gray_01_QA_BAR)
+_    _(Bin2Gray_01.QB=Bin2Gray_01_QB)
+_    _(Bin2Gray_01.QB_bar=Bin2Gray_01_QB_BAR)
+_    _(Bin2Gray_01.QC=Bin2Gray_01_JB)
+_    _(Bin2Gray_01.JB=Bin2Gray_01_JB)
+_    _(Bin2Gray_01.QC_bar=Bin2Gray_01_QC_BAR)
+_    _(Bin2Gray_01.QA=Bin2Gray_01_QA)
+_    _(Bin2Gray_01.CLK_bar=CLK)
+X_U8            U8(CLK=CLK ENP=$D_HI ENT=$D_HI CLRbar=$D_HI LOADbar=N03367
++  A=$D_LO B=$D_LO C=$D_LO D=$D_LO QA=M_UN0001 QB=M_UN0002 QC=N03313 QD=M_UN0003
++  RCO=M_UN0004 VCC=$G_DPWR GND=$G_DGND )
+X_U5            U5(CLK=CLK CLRbar=$D_HI S1=N03313 S0=$D_HI SL=$D_LO SR=$D_LO
++  A=N01989 B=N01906 C=N01823 D=N01740 QA=M_UN0005 QB=M_UN0006 QC=M_UN0007
++  QD=N02308 VCC=$G_DPWR GND=$G_DGND )
+X_U11           U11(CLRbar=$D_HI CLK=CLK_BAR A=N02308 B=N02308 QA=M_UN0008
++  QB=M_UN0009 QC=M_UN0010 QD=M_UN0011 QE=M_UN0012 QF=M_UN0013 QG=M_UN0014
++  QH=M_UN0015 VCC=$G_DPWR GND=$G_DGND )
+X_U9A           U9A(A=N03313 Y=N03367 VCC=$G_DPWR GND=$G_DGND )
+X_U12A          U12A(A=CLK Y=CLK_BAR VCC=$G_DPWR GND=$G_DGND )
+X_U6            U6(CLK=CLK D/Ubar=$D_LO CTENbar=N03367 LOADbar=$D_HI A=$D_LO
++  B=$D_LO C=$D_LO D=$D_LO RCObar=M_UN0016 MAX/MIN=M_UN0017 QA=N01989 QB=N01906
++  QC=N01823 QD=N01740 VCC=$G_DPWR GND=$G_DGND )
+_    _(CLK_bar=CLK_BAR)
+_    _(CLK=CLK)
+_    _(RESET_bar=$D_HI)
+_    _(VCC=VCC)
+_    _(GND=GND)
+.ENDALIASES
+
+**** RESUMING bin2gray-schematic1-bias.sim.cir ****
+.END
+
+**** 07/06/05 09:30:25 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: Bias 
+
+
+ ****     Digital Gate MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D_HC00          D_HC08          D_H04C          D_HC10          
+      TPLHMN    3.600000E-09    4.000000E-09    3.600000E-09    4.000000E-09 
+      TPLHTY    9.000000E-09   10.000000E-09    9.000000E-09   10.000000E-09 
+      TPLHMX   23.000000E-09   25.000000E-09   24.000000E-09   24.000000E-09 
+      TPHLMN    3.600000E-09    4.000000E-09    3.600000E-09    4.000000E-09 
+      TPHLTY    9.000000E-09   10.000000E-09    9.000000E-09   10.000000E-09 
+      TPHLMX   23.000000E-09   25.000000E-09   24.000000E-09   24.000000E-09 
+
+
+               D_HC86          D0_GATE         
+      TPLHMN    4.800000E-09    0            
+      TPLHTY   12.000000E-09    0            
+      TPLHMX   25.000000E-09    0            
+      TPHLMN    4.800000E-09    0            
+      TPHLTY   12.000000E-09    0            
+      TPHLMX   25.000000E-09    0            
+
+
+**** 07/06/05 09:30:25 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: Bias 
+
+
+ ****     Digital Edge Triggered FF MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D_HC107         D0_EFF          
+  TPCLKQLHMN    8.000000E-09    0            
+  TPCLKQLHTY   20.000000E-09    0            
+  TPCLKQLHMX   32.000000E-09    0            
+  TPCLKQHLMN    8.000000E-09    0            
+  TPCLKQHLTY   20.000000E-09    0            
+  TPCLKQHLMX   32.000000E-09    0            
+   TPPCQLHMN   10.000000E-09    0            
+   TPPCQLHTY   25.000000E-09    0            
+   TPPCQLHMX   39.000000E-09    0            
+   TPPCQHLMN   10.000000E-09    0            
+   TPPCQHLTY   25.000000E-09    0            
+   TPPCQHLMX   39.000000E-09    0            
+    TWCLKLMN    0               0            
+    TWCLKLTY   20.000000E-09    0            
+    TWCLKLMX   20.000000E-09    0            
+    TWCLKHMN    0               0            
+    TWCLKHTY   20.000000E-09    0            
+    TWCLKHMX   20.000000E-09    0            
+     TWPCLMN    0               0            
+     TWPCLTY   25.000000E-09    0            
+     TWPCLMX   25.000000E-09    0            
+   TSUDCLKMN    0               0            
+   TSUDCLKTY   25.000000E-09    0            
+   TSUDCLKMX   25.000000E-09    0            
+ TSUPCCLKHMN    0               0            
+ TSUPCCLKHTY   25.000000E-09    0            
+ TSUPCCLKHMX   25.000000E-09    0            
+    THDCLKMN    0               0            
+    THDCLKTY    0               0            
+    THDCLKMX    0               0            
+  TSUCECLKMN    0               0            
+  TSUCECLKTY    0               0            
+  TSUCECLKMX    0               0            
+   THCECLKMN    0               0            
+   THCECLKTY    0               0            
+   THCECLKMX    0               0            
+
+
+**** 07/06/05 09:30:25 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: Bias 
+
+
+ ****     Digital IO  MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               IO_STM          IO_HC           
+        INLD                    3.500000E-12 
+        DRVL    0              87            
+        DRVH    0              87            
+       AtoD1                 AtoD_HC         
+       AtoD2                 AtoD_HC_NX      
+       AtoD3                 AtoD_HC         
+       AtoD4                 AtoD_HC_NX      
+       DtoA1 DtoA_STM        DtoA_HC         
+       DtoA2 DtoA_STM        DtoA_HC         
+       DtoA3 DtoA_STM        DtoA_HC_E       
+       DtoA4 DtoA_STM        DtoA_HC_E       
+      TSWHL1                    2.742000E-09 
+      TSWHL2                    2.742000E-09 
+      TSWHL3                    2.751000E-09 
+      TSWHL4                    2.751000E-09 
+      TSWLH1                    2.758000E-09 
+      TSWLH2                    2.758000E-09 
+      TSWLH3                    2.763000E-09 
+      TSWLH4                    2.763000E-09 
+       TPWRT  100.000000E+03    2.000000E-09 
+
+
+**** 07/06/05 09:30:25 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: Bias 
+
+
+ ****     SIMULATION ERRORS
+
+
+******************************************************************************
+
+
+
+
+DIGITAL Message ID#1 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 4.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#2 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 10.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#3 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 12.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#4 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 18.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#5 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 20.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#6 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 26.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#7 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 26.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#8 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 28.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#9 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 28.012us
+  Device: X_Bin2Gray_01_U42A.U1
+  NODEs: Bin2Gray_01_N05437 (IN1),
+         Bin2Gray_01_QC_BAR (IN2) => Bin2Gray_01_KB (OUT1)  
+
+DIGITAL Message ID#10 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 34.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#11 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 34.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#12 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 36.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#13 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 36.012us
+  Device: X_Bin2Gray_01_U42A.U1
+  NODEs: Bin2Gray_01_N05437 (IN1),
+         Bin2Gray_01_QC_BAR (IN2) => Bin2Gray_01_KB (OUT1)  
+
+DIGITAL Message ID#14 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 42.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#16 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 44.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#15 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 44.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#17 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 46.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#18 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 46.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#19 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 48.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#20 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 48.012us
+  Device: X_Bin2Gray_01_U42A.U1
+  NODEs: Bin2Gray_01_N05437 (IN1),
+         Bin2Gray_01_QC_BAR (IN2) => Bin2Gray_01_KB (OUT1)  
+
+DIGITAL Message ID#21 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 58.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#22 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 60.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#23 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 62.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#24 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 62.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#25 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 64.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#26 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 64.012us
+  Device: X_Bin2Gray_01_U42A.U1
+  NODEs: Bin2Gray_01_N05437 (IN1),
+         Bin2Gray_01_QC_BAR (IN2) => Bin2Gray_01_KB (OUT1)  
+
+DIGITAL Message ID#27 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 66.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#28 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 66.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#29 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 68.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#30 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 68.012us
+  Device: X_Bin2Gray_01_U42A.U1
+  NODEs: Bin2Gray_01_N05437 (IN1),
+         Bin2Gray_01_QC_BAR (IN2) => Bin2Gray_01_KB (OUT1)  
+
+DIGITAL Message ID#31 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 74.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#32 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 74.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#33 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 76.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#34 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 76.012us
+  Device: X_Bin2Gray_01_U42A.U1
+  NODEs: Bin2Gray_01_N05437 (IN1),
+         Bin2Gray_01_QC_BAR (IN2) => Bin2Gray_01_KB (OUT1)  
+
+DIGITAL Message ID#35 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 82.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#36 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 82.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#38 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 84.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#37 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 84.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#39 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 86.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#40 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 86.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#41 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 88.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#42 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 88.012us
+  Device: X_Bin2Gray_01_U42A.U1
+  NODEs: Bin2Gray_01_N05437 (IN1),
+         Bin2Gray_01_QC_BAR (IN2) => Bin2Gray_01_KB (OUT1)  
+
+DIGITAL Message ID#43 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 90.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#44 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 90.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#45 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 92.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#46 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 92.012us
+  Device: X_Bin2Gray_01_U42A.U1
+  NODEs: Bin2Gray_01_N05437 (IN1),
+         Bin2Gray_01_QC_BAR (IN2) => Bin2Gray_01_KB (OUT1)  
+
+DIGITAL Message ID#47 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 98.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#49 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 100.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#48 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 100.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#50 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 102.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#51 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 104.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#52 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 106.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#53 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 106.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#54 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 108.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#55 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 108.012us
+  Device: X_Bin2Gray_01_U42A.U1
+  NODEs: Bin2Gray_01_N05437 (IN1),
+         Bin2Gray_01_QC_BAR (IN2) => Bin2Gray_01_KB (OUT1)  
+
+DIGITAL Message ID#56 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 110.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#57 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 110.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#58 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 112.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#59 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 112.012us
+  Device: X_Bin2Gray_01_U42A.U1
+  NODEs: Bin2Gray_01_N05437 (IN1),
+         Bin2Gray_01_QC_BAR (IN2) => Bin2Gray_01_KB (OUT1)  
+
+DIGITAL Message ID#60 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 114.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#61 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 114.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#62 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 116.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#63 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 116.012us
+  Device: X_Bin2Gray_01_U42A.U1
+  NODEs: Bin2Gray_01_N05437 (IN1),
+         Bin2Gray_01_QC_BAR (IN2) => Bin2Gray_01_KB (OUT1)  
+
+DIGITAL Message ID#64 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 126.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#65 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 126.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#66 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 128.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#67 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 128.012us
+  Device: X_Bin2Gray_01_U42A.U1
+  NODEs: Bin2Gray_01_N05437 (IN1),
+         Bin2Gray_01_QC_BAR (IN2) => Bin2Gray_01_KB (OUT1)  
+
+DIGITAL Message ID#68 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 130.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#69 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 130.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#71 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 132.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#70 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 132.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#72 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 134.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#73 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 136.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#74 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 142.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#75 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 142.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#76 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 144.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#77 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 144.012us
+  Device: X_Bin2Gray_01_U42A.U1
+  NODEs: Bin2Gray_01_N05437 (IN1),
+         Bin2Gray_01_QC_BAR (IN2) => Bin2Gray_01_KB (OUT1)  
+
+DIGITAL Message ID#78 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 146.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#79 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 146.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#80 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 148.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#81 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 148.012us
+  Device: X_Bin2Gray_01_U42A.U1
+  NODEs: Bin2Gray_01_N05437 (IN1),
+         Bin2Gray_01_QC_BAR (IN2) => Bin2Gray_01_KB (OUT1)  
+
+DIGITAL Message ID#82 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 150.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#83 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 150.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#85 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 152.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#84 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 152.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#86 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 154.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#87 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 154.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#88 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 156.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#89 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 156.012us
+  Device: X_Bin2Gray_01_U42A.U1
+  NODEs: Bin2Gray_01_N05437 (IN1),
+         Bin2Gray_01_QC_BAR (IN2) => Bin2Gray_01_KB (OUT1)  
+
+DIGITAL Message ID#90 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 162.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#91 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 162.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#93 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 164.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#92 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 164.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#94 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 166.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#95 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 166.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#96 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 168.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#97 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 168.012us
+  Device: X_Bin2Gray_01_U42A.U1
+  NODEs: Bin2Gray_01_N05437 (IN1),
+         Bin2Gray_01_QC_BAR (IN2) => Bin2Gray_01_KB (OUT1)  
+
+DIGITAL Message ID#98 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 174.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#99 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 176.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#100 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 182.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#101 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 184.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#102 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 186.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#103 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 186.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#104 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 188.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#105 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 188.012us
+  Device: X_Bin2Gray_01_U42A.U1
+  NODEs: Bin2Gray_01_N05437 (IN1),
+         Bin2Gray_01_QC_BAR (IN2) => Bin2Gray_01_KB (OUT1)  
+
+DIGITAL Message ID#106 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 194.0124us
+  Device: X_Bin2Gray_01_U32A.U1
+  NODEs: Bin2Gray_01_N04370 (IN1),
+         Bin2Gray_01_N04416 (IN2) => Bin2Gray_01_KA (OUT1)  
+
+DIGITAL Message ID#107 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 194.0124us
+  Device: X_Bin2Gray_01_U27A.U1
+  NODEs: Bin2Gray_01_N03736 (IN1),
+         Bin2Gray_01_N03784 (IN2),
+         Bin2Gray_01_N03825 (IN3) => Bin2Gray_01_JA (OUT1)  
+
+DIGITAL Message ID#108 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 196.0084us
+  Device: X_Bin2Gray_01_U26A.U1
+  NODEs: Bin2Gray_01_N02200 (IN1),
+         Bin2Gray_01_JB (IN2),
+         Bin2Gray_01_QB (IN3) => Bin2Gray_01_N03825 (OUT1)  
+
+DIGITAL Message ID#109 (WARNING):
+AMBIGUITY CONVERGENCE Hazard at time 196.012us
+  Device: X_Bin2Gray_01_U42A.U1
+  NODEs: Bin2Gray_01_N05437 (IN1),
+         Bin2Gray_01_QC_BAR (IN2) => Bin2Gray_01_KB (OUT1)  
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .17
+

@@ -1,0 +1,258 @@
+
+**** 07/07/05 13:25:41 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim1 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT PROFILES
+
+*Libraries: 
+* Local Libraries :
+* From [PSPICE NETLIST] section of pspice91.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 100us 0 
+.OPTIONS DIGINITSTATE= 0
+.PROBE 
+.INC "graycounter-SCHEMATIC1.net" 
+
+
+**** INCLUDING graycounter-SCHEMATIC1.net ****
+* source GRAYCOUNTER
+U_DSTM2         STIM(1,1) $G_DPWR $G_DGND N020670 IO_STM IO_LEVEL=0 
++ 0 0
++ +0 1
++REPEAT FOREVER
++ +.5uS 0
++  +.5uS 1
++ ENDREPEAT
+X_Gray_U5C         N02359 N02364 Gray_N009692 $G_DPWR $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Gray_U5D         Gray_N009692 Gray_N00318 Gray_JD $G_DPWR $G_DGND 74HC386
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Gray_U2A         N020670 $D_HI Gray_JC Gray_KC N02369 Gray_N00318 $G_DPWR
++  $G_DGND 74HC73 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Gray_U7A         N02359 N02364 Gray_N009742 $G_DPWR $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Gray_U2B         N020670 $D_HI Gray_JD Gray_KD N02374 Gray_N00325 $G_DPWR
++  $G_DGND 74HC73 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Gray_U7B         Gray_N009742 N02369 Gray_KD $G_DPWR $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Gray_U5B         N02359 N02364 Gray_N00756 $G_DPWR $G_DGND 74HC386 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Gray_U6B         Gray_N00756 N02374 Gray_KC $G_DPWR $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Gray_U1B         N020670 $D_HI Gray_JB Gray_KB N02364 Gray_N00311 $G_DPWR
++  $G_DGND 74HC73 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Gray_U3C         Gray_N00304 N02369 Gray_N00325 Gray_JB $G_DPWR $G_DGND
++  74HC11 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Gray_U4A         N02359 N02369 Gray_N00325 Gray_KB $G_DPWR $G_DGND 74HC11
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Gray_U1A         N020670 $D_HI Gray_JA Gray_KA N02359 Gray_N00304 $G_DPWR
++  $G_DGND 74HC73 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Gray_U3A         N02364 Gray_N00318 Gray_N00325 Gray_JA $G_DPWR $G_DGND
++  74HC11 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Gray_U3B         Gray_N00311 Gray_N00318 Gray_N00325 Gray_KA $G_DPWR $G_DGND
++  74HC11 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Gray_U5A         Gray_N00304 N02364 Gray_N00677 $G_DPWR $G_DGND 74HC386
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Gray_U6A         Gray_N00677 N02374 Gray_JC $G_DPWR $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+
+**** RESUMING graycounter-SCHEMATIC1-sim1.sim.cir ****
+.INC "graycounter-SCHEMATIC1.als"
+
+
+
+**** INCLUDING graycounter-SCHEMATIC1.als ****
+.ALIASES
+U_DSTM2          DSTM2(VCC=$G_DPWR GND=$G_DGND 1=N020670 )
+_   Gray(ck=N020670 reset=$D_HI A=N02359 B=N02364 C=N02369 D=N02374 )
+X_Gray_U5C          Gray.U5C(A=N02359 B=N02364 Y=Gray_N009692 VCC=$G_DPWR
++  GND=$G_DGND )
+X_Gray_U5D          Gray.U5D(A=Gray_N009692 B=Gray_N00318 Y=Gray_JD VCC=$G_DPWR
++  GND=$G_DGND )
+X_Gray_U2A          Gray.U2A(CLK=N020670 CLRbar=$D_HI J=Gray_JC K=Gray_KC
++  Q=N02369 Qbar=Gray_N00318 VCC=$G_DPWR GND=$G_DGND )
+X_Gray_U7A          Gray.U7A(A=N02359 B=N02364 Y=Gray_N009742 VCC=$G_DPWR
++  GND=$G_DGND )
+X_Gray_U2B          Gray.U2B(CLK=N020670 CLRbar=$D_HI J=Gray_JD K=Gray_KD
++  Q=N02374 Qbar=Gray_N00325 VCC=$G_DPWR GND=$G_DGND )
+X_Gray_U7B          Gray.U7B(A=Gray_N009742 B=N02369 Y=Gray_KD VCC=$G_DPWR
++  GND=$G_DGND )
+X_Gray_U5B          Gray.U5B(A=N02359 B=N02364 Y=Gray_N00756 VCC=$G_DPWR
++  GND=$G_DGND )
+X_Gray_U6B          Gray.U6B(A=Gray_N00756 B=N02374 Y=Gray_KC VCC=$G_DPWR
++  GND=$G_DGND )
+X_Gray_U1B          Gray.U1B(CLK=N020670 CLRbar=$D_HI J=Gray_JB K=Gray_KB
++  Q=N02364 Qbar=Gray_N00311 VCC=$G_DPWR GND=$G_DGND )
+X_Gray_U3C          Gray.U3C(A=Gray_N00304 B=N02369 C=Gray_N00325 Y=Gray_JB
++  VCC=$G_DPWR GND=$G_DGND )
+X_Gray_U4A          Gray.U4A(A=N02359 B=N02369 C=Gray_N00325 Y=Gray_KB
++  VCC=$G_DPWR GND=$G_DGND )
+X_Gray_U1A          Gray.U1A(CLK=N020670 CLRbar=$D_HI J=Gray_JA K=Gray_KA
++  Q=N02359 Qbar=Gray_N00304 VCC=$G_DPWR GND=$G_DGND )
+X_Gray_U3A          Gray.U3A(A=N02364 B=Gray_N00318 C=Gray_N00325 Y=Gray_JA
++  VCC=$G_DPWR GND=$G_DGND )
+X_Gray_U3B          Gray.U3B(A=Gray_N00311 B=Gray_N00318 C=Gray_N00325
++  Y=Gray_KA VCC=$G_DPWR GND=$G_DGND )
+X_Gray_U5A          Gray.U5A(A=Gray_N00304 B=N02364 Y=Gray_N00677 VCC=$G_DPWR
++  GND=$G_DGND )
+X_Gray_U6A          Gray.U6A(A=Gray_N00677 B=N02374 Y=Gray_JC VCC=$G_DPWR
++  GND=$G_DGND )
+_    _(Gray.reset=$D_HI)
+_    _(reset=$D_HI)
+_    _(Gray.ck=N020670)
+_    _(Gray.A=N02359)
+_    _(Gray.B=N02364)
+_    _(Gray.KA=Gray_KA)
+_    _(Gray.KC=Gray_KC)
+_    _(Gray.JB=Gray_JB)
+_    _(Gray.JD=Gray_JD)
+_    _(Gray.JA=Gray_JA)
+_    _(Gray.JC=Gray_JC)
+_    _(Gray.KB=Gray_KB)
+_    _(Gray.KD=Gray_KD)
+_    _(Gray.C=N02369)
+_    _(Gray.D=N02374)
+_    _(GND=GND)
+_    _(VCC=VCC)
+.ENDALIASES
+
+**** RESUMING graycounter-SCHEMATIC1-sim1.sim.cir ****
+.END
+
+**** 07/07/05 13:25:41 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim1 
+
+
+ ****     Digital Gate MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D_HC386         D_HC08          D_HC11          
+      TPLHMN    4.800000E-09    4.000000E-09    4.000000E-09 
+      TPLHTY   12.000000E-09   10.000000E-09   10.000000E-09 
+      TPLHMX   25.000000E-09   25.000000E-09   25.000000E-09 
+      TPHLMN    4.800000E-09    4.000000E-09    4.000000E-09 
+      TPHLTY   12.000000E-09   10.000000E-09   10.000000E-09 
+      TPHLMX   25.000000E-09   25.000000E-09   25.000000E-09 
+
+
+**** 07/07/05 13:25:41 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim1 
+
+
+ ****     Digital Edge Triggered FF MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D_HC73          
+  TPCLKQLHMN    5.200000E-09 
+  TPCLKQLHTY   13.000000E-09 
+  TPCLKQLHMX   32.000000E-09 
+  TPCLKQHLMN    5.200000E-09 
+  TPCLKQHLTY   13.000000E-09 
+  TPCLKQHLMX   32.000000E-09 
+   TPPCQLHMN    6.400000E-09 
+   TPPCQLHTY   16.000000E-09 
+   TPPCQLHMX   39.000000E-09 
+   TPPCQHLMN    6.400000E-09 
+   TPPCQHLTY   16.000000E-09 
+   TPPCQHLMX   39.000000E-09 
+    TWCLKLMN    0            
+    TWCLKLTY   20.000000E-09 
+    TWCLKLMX   20.000000E-09 
+    TWCLKHMN    0            
+    TWCLKHTY   20.000000E-09 
+    TWCLKHMX   20.000000E-09 
+     TWPCLMN    0            
+     TWPCLTY   20.000000E-09 
+     TWPCLMX   20.000000E-09 
+   TSUDCLKMN    0            
+   TSUDCLKTY   30.000000E-09 
+   TSUDCLKMX   30.000000E-09 
+ TSUPCCLKHMN    0            
+ TSUPCCLKHTY   30.000000E-09 
+ TSUPCCLKHMX   30.000000E-09 
+    THDCLKMN    0            
+    THDCLKTY    0            
+    THDCLKMX    0            
+  TSUCECLKMN    0            
+  TSUCECLKTY    0            
+  TSUCECLKMX    0            
+   THCECLKMN    0            
+   THCECLKTY    0            
+   THCECLKMX    0            
+
+
+**** 07/07/05 13:25:41 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim1 
+
+
+ ****     Digital IO  MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               IO_STM          IO_HC           
+        INLD                    3.500000E-12 
+        DRVL    0              87            
+        DRVH    0              87            
+       AtoD1                 AtoD_HC         
+       AtoD2                 AtoD_HC_NX      
+       AtoD3                 AtoD_HC         
+       AtoD4                 AtoD_HC_NX      
+       DtoA1 DtoA_STM        DtoA_HC         
+       DtoA2 DtoA_STM        DtoA_HC         
+       DtoA3 DtoA_STM        DtoA_HC_E       
+       DtoA4 DtoA_STM        DtoA_HC_E       
+      TSWHL1                    2.742000E-09 
+      TSWHL2                    2.742000E-09 
+      TSWHL3                    2.751000E-09 
+      TSWHL4                    2.751000E-09 
+      TSWLH1                    2.758000E-09 
+      TSWLH2                    2.758000E-09 
+      TSWLH3                    2.763000E-09 
+      TSWLH4                    2.763000E-09 
+       TPWRT  100.000000E+03    2.000000E-09 
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .84
+

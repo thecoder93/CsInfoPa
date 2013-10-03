@@ -1,0 +1,215 @@
+
+**** 07/08/05 11:40:47 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT PROFILES
+
+*Libraries: 
+* Local Libraries :
+* From [PSPICE NETLIST] section of pspice91.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 100us 0 
+.OPTIONS DIGINITSTATE= 0
+.PROBE 
+.INC "symmetricdecadecounter-SCHEMATIC1.net" 
+
+
+**** INCLUDING symmetricdecadecounter-SCHEMATIC1.net ****
+* source SYMMETRICDECADECOUNTER
+X_CNT_U2A         N012701 $D_HI CNT_JC CNT_JC CNT_JB CNT_N00137 $G_DPWR $G_DGND
++  74HC73 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_CNT_U1B         N012701 $D_HI CNT_JB CNT_JB CNT_N00099 CNT_N00130 $G_DPWR
++  $G_DGND 74HC73 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_CNT_U3A         CNT_N00099 CNT_JB CNT_JA $G_DPWR $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_CNT_U3B         CNT_N00130 CNT_N00137 CNT_KA $G_DPWR $G_DGND 74HC08 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_CNT_U1A         N012701 $D_HI CNT_JA CNT_KA CNT_N00092 CNT_JC $G_DPWR $G_DGND
++  74HC73 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_CNT_U4A         CNT_N00092 CNT_N00130 CNT_N00137 CNT_TD $G_DPWR $G_DGND
++  74HC11 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_CNT_U2B         N012701 $D_HI CNT_TD CNT_TD N01284 M_UN0001 $G_DPWR $G_DGND
++  74HC73 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+U_DSTM2         STIM(1,1) $G_DPWR $G_DGND N012701 IO_STM IO_LEVEL=0 
++ 0 0
++ +0 1
++REPEAT FOREVER
++ +.5uS 0
++  +.5uS 1
++ ENDREPEAT
+
+**** RESUMING symmetricdecadecounter-SCHEMATIC1-sim.sim.cir ****
+.INC "symmetricdecadecounter-SCHEMATIC1.als"
+
+
+
+**** INCLUDING symmetricdecadecounter-SCHEMATIC1.als ****
+.ALIASES
+_   CNT(out=N01284 ck=N012701 reset_BAR=$D_HI )
+X_CNT_U2A          CNT.U2A(CLK=N012701 CLRbar=$D_HI J=CNT_JC K=CNT_JC Q=CNT_JB
++  Qbar=CNT_N00137 VCC=$G_DPWR GND=$G_DGND )
+X_CNT_U1B          CNT.U1B(CLK=N012701 CLRbar=$D_HI J=CNT_JB K=CNT_JB
++  Q=CNT_N00099 Qbar=CNT_N00130 VCC=$G_DPWR GND=$G_DGND )
+X_CNT_U3A          CNT.U3A(A=CNT_N00099 B=CNT_JB Y=CNT_JA VCC=$G_DPWR
++  GND=$G_DGND )
+X_CNT_U3B          CNT.U3B(A=CNT_N00130 B=CNT_N00137 Y=CNT_KA VCC=$G_DPWR
++  GND=$G_DGND )
+X_CNT_U1A          CNT.U1A(CLK=N012701 CLRbar=$D_HI J=CNT_JA K=CNT_KA
++  Q=CNT_N00092 Qbar=CNT_JC VCC=$G_DPWR GND=$G_DGND )
+X_CNT_U4A          CNT.U4A(A=CNT_N00092 B=CNT_N00130 C=CNT_N00137 Y=CNT_TD
++  VCC=$G_DPWR GND=$G_DGND )
+X_CNT_U2B          CNT.U2B(CLK=N012701 CLRbar=$D_HI J=CNT_TD K=CNT_TD Q=N01284
++  Qbar=M_UN0001 VCC=$G_DPWR GND=$G_DGND )
+_    _(CNT.out=N01284)
+_    _(CNT.ck=N012701)
+_    _(CNT.reset_BAR=$D_HI)
+_    _(reset_BAR=$D_HI)
+_    _(CNT.reset=$D_HI)
+_    _(reset=$D_HI)
+_    _(CNT.JA=CNT_JA)
+_    _(CNT.TD=CNT_TD)
+_    _(CNT.KB=CNT_JB)
+_    _(CNT.JB=CNT_JB)
+_    _(CNT.JC=CNT_JC)
+_    _(CNT.KC=CNT_JC)
+_    _(CNT.KA=CNT_KA)
+U_DSTM2          DSTM2(VCC=$G_DPWR GND=$G_DGND 1=N012701 )
+_    _(VCC=VCC)
+_    _(GND=GND)
+.ENDALIASES
+
+**** RESUMING symmetricdecadecounter-SCHEMATIC1-sim.sim.cir ****
+.END
+
+**** 07/08/05 11:40:47 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim 
+
+
+ ****     Digital Gate MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D_HC08          D_HC11          
+      TPLHMN    4.000000E-09    4.000000E-09 
+      TPLHTY   10.000000E-09   10.000000E-09 
+      TPLHMX   25.000000E-09   25.000000E-09 
+      TPHLMN    4.000000E-09    4.000000E-09 
+      TPHLTY   10.000000E-09   10.000000E-09 
+      TPHLMX   25.000000E-09   25.000000E-09 
+
+
+**** 07/08/05 11:40:47 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim 
+
+
+ ****     Digital Edge Triggered FF MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D_HC73          
+  TPCLKQLHMN    5.200000E-09 
+  TPCLKQLHTY   13.000000E-09 
+  TPCLKQLHMX   32.000000E-09 
+  TPCLKQHLMN    5.200000E-09 
+  TPCLKQHLTY   13.000000E-09 
+  TPCLKQHLMX   32.000000E-09 
+   TPPCQLHMN    6.400000E-09 
+   TPPCQLHTY   16.000000E-09 
+   TPPCQLHMX   39.000000E-09 
+   TPPCQHLMN    6.400000E-09 
+   TPPCQHLTY   16.000000E-09 
+   TPPCQHLMX   39.000000E-09 
+    TWCLKLMN    0            
+    TWCLKLTY   20.000000E-09 
+    TWCLKLMX   20.000000E-09 
+    TWCLKHMN    0            
+    TWCLKHTY   20.000000E-09 
+    TWCLKHMX   20.000000E-09 
+     TWPCLMN    0            
+     TWPCLTY   20.000000E-09 
+     TWPCLMX   20.000000E-09 
+   TSUDCLKMN    0            
+   TSUDCLKTY   30.000000E-09 
+   TSUDCLKMX   30.000000E-09 
+ TSUPCCLKHMN    0            
+ TSUPCCLKHTY   30.000000E-09 
+ TSUPCCLKHMX   30.000000E-09 
+    THDCLKMN    0            
+    THDCLKTY    0            
+    THDCLKMX    0            
+  TSUCECLKMN    0            
+  TSUCECLKTY    0            
+  TSUCECLKMX    0            
+   THCECLKMN    0            
+   THCECLKTY    0            
+   THCECLKMX    0            
+
+
+**** 07/08/05 11:40:47 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim 
+
+
+ ****     Digital IO  MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               IO_STM          IO_HC           
+        INLD                    3.500000E-12 
+        DRVL    0              87            
+        DRVH    0              87            
+       AtoD1                 AtoD_HC         
+       AtoD2                 AtoD_HC_NX      
+       AtoD3                 AtoD_HC         
+       AtoD4                 AtoD_HC_NX      
+       DtoA1 DtoA_STM        DtoA_HC         
+       DtoA2 DtoA_STM        DtoA_HC         
+       DtoA3 DtoA_STM        DtoA_HC_E       
+       DtoA4 DtoA_STM        DtoA_HC_E       
+      TSWHL1                    2.742000E-09 
+      TSWHL2                    2.742000E-09 
+      TSWHL3                    2.751000E-09 
+      TSWHL4                    2.751000E-09 
+      TSWLH1                    2.758000E-09 
+      TSWLH2                    2.758000E-09 
+      TSWLH3                    2.763000E-09 
+      TSWLH4                    2.763000E-09 
+       TPWRT  100.000000E+03    2.000000E-09 
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .29
+

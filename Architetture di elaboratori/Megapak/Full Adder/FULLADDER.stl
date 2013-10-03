@@ -1,0 +1,27 @@
+* C:\DOCUMENTS AND SETTINGS\MARKUS\DOCUMENTI\ARCHITETTURE\MSI\FULL ADDER\FULLADDER.stl written on Sun May 29 12:54:31 2005
+* by Stimulus Editor -- Serial Number: 0 -- Version 9.1
+;!Stimulus Get
+;! StimA Digital StimB Digital
+;!Ok
+;!Plot Axis_Settings
+;!Xrange 0s 200us
+;!AutoUniverse
+;!XminRes 1ns
+;!YminRes 1n
+;!Ok
+.STIMULUS StimA STIM (8, 11111111) ;! Hex
++   +0s 00000000
++   10.33us 00111011
++   20.22us 00100111
++   40.22us 11000001
++   54.945us 01000100
++   70.11us 10100111
++   85.934us 11010000
++   100.659us 11100001
++   119.78us 11111111
+.STIMULUS StimB STIM (8, 11111111) ;! Hex
++   +0s 00100000
++   14.725us 01001110
++   30.33us 01010010
++   49.89us 01110110
++   86.154us 00000000

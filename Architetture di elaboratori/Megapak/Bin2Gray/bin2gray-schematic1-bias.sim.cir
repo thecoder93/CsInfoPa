@@ -1,0 +1,20 @@
+** circuit file for profile: Bias 
+
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT PROFILES
+
+*Libraries: 
+* Local Libraries :
+* From [PSPICE NETLIST] section of pspice91.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 200us 0 
+.OPTIONS DIGINITSTATE= 0
+.OPTIONS DIGMNTYMX= 4
+.PROBE 
+.INC "Bin2Gray-SCHEMATIC1.net" 
+
+.INC "Bin2Gray-SCHEMATIC1.als"
+
+
+.END

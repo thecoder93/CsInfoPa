@@ -1,0 +1,134 @@
+(ExpressProject "Monostabile"
+  (ProjectVersion "19981106")
+  (ProjectType "Analog or A/D Mixed Mode")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File "C:\PROGRA~2\OrCAD\CAPTURE\LIBRARY\PSPICE\74hc.olb"
+        (Type "Schematic Library"))
+      (File "C:\PROGRA~2\OrCAD\CAPTURE\LIBRARY\PSPICE\analog.olb"
+        (Type "Schematic Library"))
+      (File "C:\PROGRA~2\OrCAD\CAPTURE\LIBRARY\PSPICE\source.olb"
+        (Type "Schematic Library"))
+      (File "C:\PROGRA~2\OrCAD\CAPTURE\LIBRARY\PSPICE\sourcstm.olb"
+        (Type "Schematic Library"))
+      (File "C:\PROGRA~2\OrCAD\CAPTURE\LIBRARY\PSPICE\special.olb"
+        (Type "Schematic Library")))
+    (NoModify)
+    (File ".\monostabile.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x"))
+  (Folder "Outputs"
+    (File ".\monostabile-schematic1.net"
+      (Type "Report")))
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles"
+      (ActiveProfile ".\monostabile-schematic1-simulation.sim")
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\monostabile-schematic1-simulation.sim"
+        (DisplayName "SCHEMATIC1-simulation")
+        (Type "PSpice Profile")))
+    (Folder "Model Libraries"
+      (Sort User))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User)))
+  (DefaultLibraryBrowseDirectory "library\PSpice")
+  (PartMRUSelector
+    (74HC32
+      (FullPartName "74HC32.Normal")
+      (LibraryName "C:\PROGRA~2\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC00
+      (FullPartName "74HC00.Normal")
+      (LibraryName "C:\PROGRA~2\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC02
+      (FullPartName "74HC02.Normal")
+      (LibraryName "C:\PROGRA~2\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (DigClock
+      (FullPartName "DigClock.Normal")
+      (LibraryName "C:\PROGRA~2\ORCAD\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (74HC125
+      (FullPartName "74HC125.Normal")
+      (LibraryName "C:\PROGRA~2\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC08
+      (FullPartName "74HC08.Normal")
+      (LibraryName "C:\PROGRA~2\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC14
+      (FullPartName "74HC14.Normal")
+      (LibraryName "C:\PROGRA~2\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (C
+      (FullPartName "C.Normal")
+      (LibraryName "C:\PROGRA~2\ORCAD\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (R
+      (FullPartName "R.Normal")
+      (LibraryName "C:\PROGRA~2\ORCAD\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (STIM1
+      (FullPartName "STIM1.Normal")
+      (LibraryName "C:\PROGRA~2\ORCAD\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (74HC04
+      (FullPartName "74HC04.Normal")
+      (LibraryName "C:\PROGRA~2\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC191
+      (FullPartName "74HC191.Normal")
+      (LibraryName "C:\PROGRA~2\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC161
+      (FullPartName "74HC161.Normal")
+      (LibraryName "C:\PROGRA~2\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0"))
+    (74HC74
+      (FullPartName "74HC74.Normal")
+      (LibraryName "C:\PROGRA~2\ORCAD\CAPTURE\LIBRARY\PSPICE\74HC.OLB")
+      (DeviceIndex "0")))
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources"
+         "C:\Documents and Settings\Markus\Documenti\Architetture\Safe\Monostabile\monostabile.dsn")
+      (Path "Design Resources"
+         "C:\Documents and Settings\Markus\Documenti\Architetture\Safe\Monostabile\monostabile.dsn"
+         "SCHEMATIC1")
+      (Path "Outputs")
+      (Select "Design Resources"
+         "C:\Documents and Settings\Markus\Documenti\Architetture\Safe\Monostabile\monostabile.dsn"
+         "SCHEMATIC1" "PAGE1"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -4 -23 0 200 0 425"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -4 -23 44 870 44 466")
+        (Scroll "0 0")
+        (Zoom "100")
+        (Occurrence "/"))
+      (Path
+         "C:\DOCUMENTS AND SETTINGS\MARKUS\DOCUMENTI\ARCHITETTURE\SAFE\MONOSTABILE\MONOSTABILE.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE1"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -4 -23 66 863 66 488")
+        (Scroll "0 0")
+        (Zoom "100")
+        (Occurrence "/Monostabile"))
+      (Path
+         "C:\DOCUMENTS AND SETTINGS\MARKUS\DOCUMENTI\ARCHITETTURE\SAFE\MONOSTABILE\MONOSTABILE.DSN")
+      (Schematic "mono")
+      (Page "PAGE1"))))

@@ -1,0 +1,18 @@
+** circuit file for profile: odd_sim 
+
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT PROFILES
+
+*Libraries: 
+* Local Libraries :
+* From [PSPICE NETLIST] section of pspice91.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 500us 0 
+.PROBE 
+.INC "oddparitychecker-SCHEMATIC1.net" 
+
+.INC "oddparitychecker-SCHEMATIC1.als"
+
+
+.END

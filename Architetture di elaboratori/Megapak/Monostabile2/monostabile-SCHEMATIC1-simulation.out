@@ -1,0 +1,499 @@
+
+**** 07/06/05 09:33:24 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: simulation 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT PROFILES
+
+*Libraries: 
+* Local Libraries :
+* From [PSPICE NETLIST] section of pspice91.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 1000us 0 
+.OPTIONS DIGINITSTATE= 0
+.OPTIONS DIGMNTYMX= 4
+.PROBE 
+.INC "monostabile-SCHEMATIC1.net" 
+
+
+**** INCLUDING monostabile-SCHEMATIC1.net ****
+* source MONOSTABILE
+X_Monostabile_U5         N01089 $D_HI Monostabile_N01188 Monostabile_START
++  $D_LO $D_HI $D_LO $D_LO Monostabile_N06550 M_UN0001 N08529 N08577 N08582
++  N08587 $G_DPWR $G_DGND 74HC191 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Monostabile_U1A         Monostabile_N06550 $D_HI N00313 $D_HI
++  Monostabile_N00431 M_UN0002 $G_DPWR $G_DGND 74HC74 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Monostabile_U1B         $D_HI Monostabile_N00431 N01089 $D_HI N00128
++  Monostabile_N01188 $G_DPWR $G_DGND 74HC74 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Monostabile_U7A         Monostabile_N074400 Monostabile_N07717 $G_DPWR
++  $G_DGND 74HC14 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Monostabile_U11A         N00313 $D_LO Monostabile_N07739 $G_DPWR $G_DGND
++  74HC125 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_Monostabile_U15A         Monostabile_N07717 Monostabile_N07739
++  Monostabile_START $G_DPWR $G_DGND 74HC32 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+R_Monostabile_R2         Monostabile_N07739 Monostabile_N074400  1k  
+C_Monostabile_C2         0 Monostabile_N074400  1n  
+U_DSTM4         STIM(1,1) $G_DPWR $G_DGND N01089 IO_STM IO_LEVEL=0 
++ 0 0
++ +0 1
++REPEAT FOREVER
++ +5us 0
++  +5uS 1
++ ENDREPEAT
+U_DSTM8         STIM(1,1) $G_DPWR $G_DGND N03280 IO_STM IO_LEVEL=0 
++ 0 0
++ +0 1
++REPEAT FOREVER
++ +50uS 0
++  +5uS 1
++ ENDREPEAT
+U_DSTM7         STIM(1,1) $G_DPWR $G_DGND N00313 IO_STM IO_LEVEL=0 
++ 0 0
++ +0 1
++REPEAT FOREVER
++ +100us 0
++  +10us 1
++ ENDREPEAT
+
+**** RESUMING monostabile-schematic1-simulation.sim.cir ****
+.INC "monostabile-SCHEMATIC1.als"
+
+
+
+**** INCLUDING monostabile-SCHEMATIC1.als ****
+.ALIASES
+_   Monostabile(ck=N01089 trigger=N00313 out=N00128 T0=$D_LO T1=$D_HI T2=$D_LO
++  T3=$D_LO )
+X_Monostabile_U5          Monostabile.U5(CLK=N01089 D/Ubar=$D_HI
++  CTENbar=Monostabile_N01188 LOADbar=Monostabile_START A=$D_LO B=$D_HI C=$D_LO
++  D=$D_LO RCObar=Monostabile_N06550 MAX/MIN=M_UN0001 QA=N08529 QB=N08577
++  QC=N08582 QD=N08587 VCC=$G_DPWR GND=$G_DGND )
+X_Monostabile_U1A          Monostabile.U1A(CLRbar=Monostabile_N06550 D=$D_HI
++  CLK=N00313 PREbar=$D_HI Q=Monostabile_N00431 Qbar=M_UN0002 VCC=$G_DPWR
++  GND=$G_DGND )
+X_Monostabile_U1B          Monostabile.U1B(CLRbar=$D_HI D=Monostabile_N00431
++  CLK=N01089 PREbar=$D_HI Q=N00128 Qbar=Monostabile_N01188 VCC=$G_DPWR
++  GND=$G_DGND )
+X_Monostabile_U7A          Monostabile.U7A(A=Monostabile_N074400
++  Y=Monostabile_N07717 VCC=$G_DPWR GND=$G_DGND )
+X_Monostabile_U11A          Monostabile.U11A(A=N00313 Gbar=$D_LO
++  Y=Monostabile_N07739 VCC=$G_DPWR GND=$G_DGND )
+X_Monostabile_U15A          Monostabile.U15A(A=Monostabile_N07717
++  B=Monostabile_N07739 Y=Monostabile_START VCC=$G_DPWR GND=$G_DGND )
+R_Monostabile_R2          Monostabile.R2(1=Monostabile_N07739
++  2=Monostabile_N074400 )
+C_Monostabile_C2          Monostabile.C2(1=0 2=Monostabile_N074400 )
+_    _(Monostabile.ck=N01089)
+_    _(Monostabile.T0=$D_LO)
+_    _(T0=$D_LO)
+_    _(Monostabile.T1=$D_HI)
+_    _(T1=$D_HI)
+_    _(Monostabile.T2=$D_LO)
+_    _(T2=$D_LO)
+_    _(Monostabile.T3=$D_LO)
+_    _(T3=$D_LO)
+_    _(Monostabile.out=N00128)
+_    _(Monostabile.trigger=N00313)
+_    _(Monostabile.start=Monostabile_START)
+U_DSTM4          DSTM4(VCC=$G_DPWR GND=$G_DGND 1=N01089 )
+U_DSTM8          DSTM8(VCC=$G_DPWR GND=$G_DGND 1=N03280 )
+U_DSTM7          DSTM7(VCC=$G_DPWR GND=$G_DGND 1=N00313 )
+_    _(VCC=VCC)
+_    _(GND=GND)
+_    _(Monostabile.0=Monostabile.0)
+.ENDALIASES
+
+**** RESUMING monostabile-schematic1-simulation.sim.cir ****
+.END
+
+
+**** Generated AtoD and DtoA Interfaces ****
+
+*
+* Analog/Digital interface for node Monostabile_N07739
+*
+* Moving X_Monostabile_U15A.U1:IN2 from analog node Monostabile_N07739 to new digital node Monostabile_N07739$AtoD
+X$Monostabile_N07739_AtoD1
++ Monostabile_N07739
++ Monostabile_N07739$AtoD
++ $G_DPWR
++ $G_DGND
++ AtoD_HC
++       PARAMS: CAPACITANCE=   3.5000E-12
+* Moving X_Monostabile_U11A.U1:OUT from analog node Monostabile_N07739 to new digital node Monostabile_N07739$DtoA
+X$Monostabile_N07739_DtoA1
++ Monostabile_N07739$DtoA
++ Monostabile_N07739
++ $G_DPWR
++ $G_DGND
++ DtoA_HC_BUS
++       PARAMS: DRVH=  57     DRVL=  57     CAPACITANCE=   6.0000E-12
+*
+* Analog/Digital interface for node Monostabile_N074400
+*
+* Moving X_Monostabile_U7A.U1:IN1 from analog node Monostabile_N074400 to new digital node Monostabile_N074400$AtoD
+X$Monostabile_N074400_AtoD1
++ Monostabile_N074400
++ Monostabile_N074400$AtoD
++ $G_DPWR
++ $G_DGND
++ AtoD_HC_ST
++       PARAMS: CAPACITANCE=   3.5000E-12
+*
+* Analog/Digital interface power supply subcircuits
+*
+
+X$DIGIFPWR 0 DIGIFPWR
+
+**** 07/06/05 09:33:24 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: simulation 
+
+
+ ****     Digital Input MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               DIN74HC         
+        FILE DSO_DTOA        
+      FORMAT    6            
+    TIMESTEP  100.000000E-12 
+      S0NAME 0               
+       S0TSW    5.000000E-09 
+       S0RLO    1            
+       S0RHI  100.000000E+03 
+      S1NAME 1               
+       S1TSW    5.000000E-09 
+       S1RLO  100.000000E+03 
+       S1RHI    1            
+      S2NAME X               
+       S2TSW    5.000000E-09 
+       S2RLO  110            
+       S2RHI  100            
+      S3NAME R               
+       S3TSW    5.000000E-09 
+       S3RLO  110            
+       S3RHI  100            
+      S4NAME F               
+       S4TSW    5.000000E-09 
+       S4RLO  110            
+       S4RHI  100            
+      S5NAME Z               
+       S5TSW    5.000000E-09 
+       S5RLO  200.000000E+03 
+       S5RHI  200.000000E+03 
+
+
+**** 07/06/05 09:33:24 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: simulation 
+
+
+ ****     Digital Output MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               DO74HC          DO74HC_ST       
+        FILE DSO_ATOD        DSO_ATOD        
+      FORMAT    6               6            
+     CHGONLY    1               1            
+    TIMESTEP  100.000000E-12  100.000000E-12 
+      S0NAME X               0               
+       S0VHI     .7              .55         
+       S0VLO     .2            -1.3          
+      S1NAME 0               1               
+       S1VHI     .2             1.3          
+       S1VLO    -.3              .33         
+      S2NAME R                               
+       S2VHI     .55                         
+       S2VLO     .2                          
+      S3NAME R                               
+       S3VHI     .7                          
+       S3VLO     .45                         
+      S4NAME X                               
+       S4VHI     .7                          
+       S4VLO     .2                          
+      S5NAME 1                               
+       S5VHI    1.3                          
+       S5VLO     .7                          
+      S6NAME F                               
+       S6VHI     .7                          
+       S6VLO     .45                         
+      S7NAME F                               
+       S7VHI     .55                         
+       S7VLO     .2                          
+
+
+**** 07/06/05 09:33:24 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: simulation 
+
+
+ ****     Digital Gate MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D0_GATE         D_HC14          D_HC32          
+      TPLHMN    0               4.800000E-09    4.000000E-09 
+      TPLHTY    0              12.000000E-09   10.000000E-09 
+      TPLHMX    0              31.000000E-09   25.000000E-09 
+      TPHLMN    0               4.800000E-09    4.000000E-09 
+      TPHLTY    0              12.000000E-09   10.000000E-09 
+      TPHLMX    0              31.000000E-09   25.000000E-09 
+
+
+**** 07/06/05 09:33:24 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: simulation 
+
+
+ ****     Digital Tri Gate MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D_HC125         
+      TPLHMN    5.600000E-09 
+      TPLHTY   14.000000E-09 
+      TPLHMX   30.000000E-09 
+      TPHLMN    5.600000E-09 
+      TPHLTY   14.000000E-09 
+      TPHLMX   30.000000E-09 
+      TPZHMN    5.600000E-09 
+      TPZHTY   14.000000E-09 
+      TPZHMX   30.000000E-09 
+      TPZLMN    5.600000E-09 
+      TPZLTY   14.000000E-09 
+      TPZLMX   30.000000E-09 
+      TPLZMN    6.000000E-09 
+      TPLZTY   15.000000E-09 
+      TPLZMX   30.000000E-09 
+      TPHZMN    6.000000E-09 
+      TPHZTY   15.000000E-09 
+      TPHZMX   30.000000E-09 
+
+
+**** 07/06/05 09:33:24 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: simulation 
+
+
+ ****     Digital Edge Triggered FF MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D0_EFF          D_HC74          
+  TPCLKQLHMN    0               8.000000E-09 
+  TPCLKQLHTY    0              20.000000E-09 
+  TPCLKQLHMX    0              44.000000E-09 
+  TPCLKQHLMN    0               8.000000E-09 
+  TPCLKQHLTY    0              20.000000E-09 
+  TPCLKQHLMX    0              44.000000E-09 
+   TPPCQLHMN    0               8.000000E-09 
+   TPPCQLHTY    0              20.000000E-09 
+   TPPCQLHMX    0              58.000000E-09 
+   TPPCQHLMN    0               8.000000E-09 
+   TPPCQHLTY    0              20.000000E-09 
+   TPPCQHLMX    0              58.000000E-09 
+    TWCLKLMN    0              20.000000E-09 
+    TWCLKLTY    0              20.000000E-09 
+    TWCLKLMX    0              20.000000E-09 
+    TWCLKHMN    0              20.000000E-09 
+    TWCLKHTY    0              20.000000E-09 
+    TWCLKHMX    0              20.000000E-09 
+     TWPCLMN    0              25.000000E-09 
+     TWPCLTY    0              25.000000E-09 
+     TWPCLMX    0              25.000000E-09 
+   TSUDCLKMN    0              25.000000E-09 
+   TSUDCLKTY    0              25.000000E-09 
+   TSUDCLKMX    0              25.000000E-09 
+ TSUPCCLKHMN    0               6.000000E-09 
+ TSUPCCLKHTY    0               6.000000E-09 
+ TSUPCCLKHMX    0               6.000000E-09 
+    THDCLKMN    0               0            
+    THDCLKTY    0               0            
+    THDCLKMX    0               0            
+  TSUCECLKMN    0               0            
+  TSUCECLKTY    0               0            
+  TSUCECLKMX    0               0            
+   THCECLKMN    0               0            
+   THCECLKTY    0               0            
+   THCECLKMX    0               0            
+
+
+**** 07/06/05 09:33:24 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: simulation 
+
+
+ ****     Digital IO  MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               IO_STM          IO_HC           IO_HC_ST        IO_HC_BUS       
+        INLD                    3.500000E-12    3.500000E-12    3.500000E-12 
+       OUTLD                                                    6.000000E-12 
+        DRVL    0              87              87              57            
+        DRVH    0              87              87              57            
+       AtoD1                 AtoD_HC         AtoD_HC_ST      AtoD_HC         
+       AtoD2                 AtoD_HC_NX      AtoD_HC_ST      AtoD_HC_NX      
+       AtoD3                 AtoD_HC         AtoD_HC_ST      AtoD_HC         
+       AtoD4                 AtoD_HC_NX      AtoD_HC_ST      AtoD_HC_NX      
+       DtoA1 DtoA_STM        DtoA_HC         DtoA_HC         DtoA_HC_BUS     
+       DtoA2 DtoA_STM        DtoA_HC         DtoA_HC         DtoA_HC_BUS     
+       DtoA3 DtoA_STM        DtoA_HC_E       DtoA_HC_E       DtoA_HC_BUS_E   
+       DtoA4 DtoA_STM        DtoA_HC_E       DtoA_HC_E       DtoA_HC_BUS_E   
+      TSWHL1                    2.742000E-09    2.742000E-09    2.954000E-09 
+      TSWHL2                    2.742000E-09    2.742000E-09    2.954000E-09 
+      TSWHL3                    2.751000E-09    2.751000E-09    2.947000E-09 
+      TSWHL4                    2.751000E-09    2.751000E-09    2.947000E-09 
+      TSWLH1                    2.758000E-09    2.758000E-09    3.039000E-09 
+      TSWLH2                    2.758000E-09    2.758000E-09    3.039000E-09 
+      TSWLH3                    2.763000E-09    2.763000E-09    2.964000E-09 
+      TSWLH4                    2.763000E-09    2.763000E-09    2.964000E-09 
+       TPWRT  100.000000E+03    2.000000E-09    2.000000E-09    2.000000E-09 
+
+
+               IO_HC_DTOA      
+       TPWRT  100.000000E+03 
+
+
+**** 07/06/05 09:33:24 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: simulation 
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+($G_DGND)    0.0000                   ($G_DPWR)    5.0000                       
+
+(Monostabile_N07739)    4.9983        (Monostabile_N074400)    4.9983           
+
+(X$Monostabile_N07739_AtoD1.NORM)     .9997                                     
+
+(X$Monostabile_N074400_AtoD1.NORM)     .9997                                    
+
+(X$Monostabile_N07739_DtoA1.DGND_OL)     .0015                                  
+
+(X$Monostabile_N07739_DtoA1.DPWR_OH)    4.9983           
+
+
+
+ DGTL NODE : STATE  DGTL NODE : STATE  DGTL NODE : STATE  DGTL NODE : STATE
+
+
+(X_Monostabile_U5.RC) : 1             (  N03280) : 1                            
+
+(X_Monostabile_U5.MXMNOUT) : 1        (X_Monostabile_U11A.G) : 1                
+
+(Monostabile_N074400$AtoD) : 1        (X_Monostabile_U5.QC) : 0                 
+
+(X_Monostabile_U5.QCBAR) : 1          (X_Monostabile_U5.DD) : 0                 
+
+(X_Monostabile_U5.DA) : 0             (  N08577) : 0     (   $D_HI) : 1         
+
+(  N08587) : 0     (X_Monostabile_U5.DB) : 0                                    
+
+(Monostabile_START) : 1               (X_Monostabile_U5.RCOBAR) : 1             
+
+(X_Monostabile_U5.CLK) : 1            (M_UN0001) : 1                            
+
+(X_Monostabile_U5.QDBAR) : 1          (Monostabile_N06550) : 1                  
+
+(  N08529) : 0     (X_Monostabile_U5.SD) : 1             (  N00128) : 0         
+
+(X_Monostabile_U5.SA) : 1             (Monostabile_N07739$AtoD) : 1             
+
+(X_Monostabile_U5.D) : 0              (X_Monostabile_U5.SB) : 1                 
+
+(  N01089) : 1     (X_Monostabile_U5.DC) : 0                                    
+
+(X_Monostabile_U5.A) : 0              (   $D_LO) : 0                            
+
+(X_Monostabile_U5.RD) : 1             (X_Monostabile_U5.B) : 1                  
+
+(X_Monostabile_U5.CTENBAR) : 1        (X_Monostabile_U5.DUBAR) : 1              
+
+(  N08582) : 0     (X_Monostabile_U5.RA) : 1                                    
+
+(X_Monostabile_U5.LOADBAR) : 1        (X_Monostabile_U5.QABAR) : 1              
+
+(X_Monostabile_U5.RB) : 1             (Monostabile_N00431) : 0                  
+
+(M_UN0002) : 1     (X_Monostabile_U5.QD) : 0                                    
+
+(Monostabile_N07717) : 0              (X_Monostabile_U5.QA) : 0                 
+
+(X_Monostabile_U5.QB) : 0             (  N00313) : 1                            
+
+(X_Monostabile_U5.SC) : 1             (Monostabile_N07739$DtoA) : 1             
+
+(X_Monostabile_U5.QBBAR) : 1          (X_Monostabile_U5.C) : 0                  
+
+(Monostabile_N01188) : 1              
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    X$DIGIFPWR.VDPWR  -5.497E-05
+    X$DIGIFPWR.VDGND  -5.000E-06
+
+    TOTAL POWER DISSIPATION   2.75E-04  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .47
+

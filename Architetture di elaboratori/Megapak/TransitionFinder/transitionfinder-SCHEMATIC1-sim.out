@@ -1,0 +1,206 @@
+
+**** 06/01/05 15:38:57 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT PROFILES
+
+*Libraries: 
+* Local Libraries :
+* From [PSPICE NETLIST] section of pspice91.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 1000us 0 
+.OPTIONS DIGINITSTATE= 0
+.PROBE 
+.INC "transitionfinder-SCHEMATIC1.net" 
+
+
+**** INCLUDING transitionfinder-SCHEMATIC1.net ****
+* source TRANSITIONFINDER
+U_DSTM2         STIM(1,1) $G_DPWR $G_DGND CLK IO_STM IO_LEVEL=0 
++ 0 0
++ +0 1
++REPEAT FOREVER
++ +.5uS 0
++  +.5uS 1
++ ENDREPEAT
+U_DSTM1         STIM(1,1) $G_DPWR $G_DGND DATA IO_STM IO_LEVEL=0 
++ 0 0
++ +0 1
++REPEAT FOREVER
++ +7uS 0
++  +25uS 1
++ ENDREPEAT
+X_TF1_U2B         $D_HI TF1_N4087053 CLK $D_HI TF1_N4512807 TF1_N4512686
++  $G_DPWR $G_DGND 74HC74 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_TF1_U2A         $D_HI DATA CLK $D_HI TF1_N4087053 TF1_N4512956 $G_DPWR
++  $G_DGND 74HC74 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_TF1_U6B         TF1_N4512686 TF1_N4087053 N4510972 $G_DPWR $G_DGND 74HC08
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_TF1_U6A         TF1_N4512956 TF1_N4512807 N4510977 $G_DPWR $G_DGND 74HC08
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+
+**** RESUMING transitionfinder-schematic1-sim.sim.cir ****
+.INC "transitionfinder-SCHEMATIC1.als"
+
+
+
+**** INCLUDING transitionfinder-SCHEMATIC1.als ****
+.ALIASES
+U_DSTM2          DSTM2(VCC=$G_DPWR GND=$G_DGND 1=CLK )
+U_DSTM1          DSTM1(VCC=$G_DPWR GND=$G_DGND 1=DATA )
+_   TF1(DATA=DATA CLK=CLK RESET_bar=$D_HI LEADING_EDGE=N4510972
++  TRAILING_EDGE=N4510977 )
+X_TF1_U2B          TF1.U2B(CLRbar=$D_HI D=TF1_N4087053 CLK=CLK PREbar=$D_HI
++  Q=TF1_N4512807 Qbar=TF1_N4512686 VCC=$G_DPWR GND=$G_DGND )
+X_TF1_U2A          TF1.U2A(CLRbar=$D_HI D=DATA CLK=CLK PREbar=$D_HI
++  Q=TF1_N4087053 Qbar=TF1_N4512956 VCC=$G_DPWR GND=$G_DGND )
+X_TF1_U6B          TF1.U6B(A=TF1_N4512686 B=TF1_N4087053 Y=N4510972 VCC=$G_DPWR
++  GND=$G_DGND )
+X_TF1_U6A          TF1.U6A(A=TF1_N4512956 B=TF1_N4512807 Y=N4510977 VCC=$G_DPWR
++  GND=$G_DGND )
+_    _(TF1.DATA=DATA)
+_    _(TF1.RESET_bar=$D_HI)
+_    _(RESET_bar=$D_HI)
+_    _(TF1.CLK=CLK)
+_    _(TF1.TRAILING_EDGE=N4510977)
+_    _(TF1.LEADING_EDGE=N4510972)
+_    _(DATA=DATA)
+_    _(CLK=CLK)
+_    _(VCC=VCC)
+_    _(GND=GND)
+.ENDALIASES
+
+**** RESUMING transitionfinder-schematic1-sim.sim.cir ****
+.END
+
+**** 06/01/05 15:38:57 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim 
+
+
+ ****     Digital Gate MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D_HC08          
+      TPLHMN    4.000000E-09 
+      TPLHTY   10.000000E-09 
+      TPLHMX   25.000000E-09 
+      TPHLMN    4.000000E-09 
+      TPHLTY   10.000000E-09 
+      TPHLMX   25.000000E-09 
+
+
+**** 06/01/05 15:38:57 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim 
+
+
+ ****     Digital Edge Triggered FF MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D_HC74          
+  TPCLKQLHMN    8.000000E-09 
+  TPCLKQLHTY   20.000000E-09 
+  TPCLKQLHMX   44.000000E-09 
+  TPCLKQHLMN    8.000000E-09 
+  TPCLKQHLTY   20.000000E-09 
+  TPCLKQHLMX   44.000000E-09 
+   TPPCQLHMN    8.000000E-09 
+   TPPCQLHTY   20.000000E-09 
+   TPPCQLHMX   58.000000E-09 
+   TPPCQHLMN    8.000000E-09 
+   TPPCQHLTY   20.000000E-09 
+   TPPCQHLMX   58.000000E-09 
+    TWCLKLMN   20.000000E-09 
+    TWCLKLTY   20.000000E-09 
+    TWCLKLMX   20.000000E-09 
+    TWCLKHMN   20.000000E-09 
+    TWCLKHTY   20.000000E-09 
+    TWCLKHMX   20.000000E-09 
+     TWPCLMN   25.000000E-09 
+     TWPCLTY   25.000000E-09 
+     TWPCLMX   25.000000E-09 
+   TSUDCLKMN   25.000000E-09 
+   TSUDCLKTY   25.000000E-09 
+   TSUDCLKMX   25.000000E-09 
+ TSUPCCLKHMN    6.000000E-09 
+ TSUPCCLKHTY    6.000000E-09 
+ TSUPCCLKHMX    6.000000E-09 
+    THDCLKMN    0            
+    THDCLKTY    0            
+    THDCLKMX    0            
+  TSUCECLKMN    0            
+  TSUCECLKTY    0            
+  TSUCECLKMX    0            
+   THCECLKMN    0            
+   THCECLKTY    0            
+   THCECLKMX    0            
+
+
+**** 06/01/05 15:38:57 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim 
+
+
+ ****     Digital IO  MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               IO_STM          IO_HC           
+        INLD                    3.500000E-12 
+        DRVL    0              87            
+        DRVH    0              87            
+       AtoD1                 AtoD_HC         
+       AtoD2                 AtoD_HC_NX      
+       AtoD3                 AtoD_HC         
+       AtoD4                 AtoD_HC_NX      
+       DtoA1 DtoA_STM        DtoA_HC         
+       DtoA2 DtoA_STM        DtoA_HC         
+       DtoA3 DtoA_STM        DtoA_HC_E       
+       DtoA4 DtoA_STM        DtoA_HC_E       
+      TSWHL1                    2.742000E-09 
+      TSWHL2                    2.742000E-09 
+      TSWHL3                    2.751000E-09 
+      TSWHL4                    2.751000E-09 
+      TSWLH1                    2.758000E-09 
+      TSWLH2                    2.758000E-09 
+      TSWLH3                    2.763000E-09 
+      TSWLH4                    2.763000E-09 
+       TPWRT  100.000000E+03    2.000000E-09 
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .10
+

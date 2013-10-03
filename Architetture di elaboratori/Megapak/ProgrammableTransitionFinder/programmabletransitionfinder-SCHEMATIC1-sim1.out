@@ -1,0 +1,242 @@
+
+**** 07/08/05 10:15:18 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim1 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT PROFILES
+
+*Libraries: 
+* Local Libraries :
+* From [PSPICE NETLIST] section of pspice91.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 100us 0 
+.OPTIONS DIGINITSTATE= 0
+.PROBE 
+.INC "programmabletransitionfinder-SCHEMATIC1.net" 
+
+
+**** INCLUDING programmabletransitionfinder-SCHEMATIC1.net ****
+* source PROGRAMMABLETRANSITIONFINDER
+U_DSTM1         STIM(1,1) $G_DPWR $G_DGND N01732 IO_STM IO_LEVEL=0 
++ 0 0
++ +.2us 1
++REPEAT FOREVER
++ +.5uS 0
++  +.5uS 1
++ ENDREPEAT
+U_DSTM2         STIM(1,1)
++ $G_DPWR $G_DGND
++ N01774 
++ IO_STM
++ IO_LEVEL=0
++  0s 0  
++ 2us 1  
++ 12us 0  
++ 14us 1 
+X_PTF_U1C         PTF_N00280 PTF_N01283 $G_DPWR $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_PTF_U6B         $D_HI PTF_N00134 N01732 $D_HI PTF_N00125 M_UN0001 $G_DPWR
++  $G_DGND 74HC74 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_PTF_U4B         $D_HI N01771 N01732 $D_HI PTF_N00087 M_UN0002 $G_DPWR $G_DGND
++  74HC74 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_PTF_U1A         $D_HI PTF_CBAR0 $G_DPWR $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_PTF_U1B         $D_LO PTF_CBAR1 $G_DPWR $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_PTF_U1D         $D_LO PTF_CBAR2 $G_DPWR $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_PTF_U5A         PTF_N00134 PTF_N00125 PTF_N00270 $G_DPWR $G_DGND 74HC7266
++  PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_PTF_U6A         $D_HI N01774 N01732 $D_HI PTF_N00134 M_UN0003 $G_DPWR $G_DGND
++  74HC74 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_PTF_U1E         $D_LO PTF_CBAR3 $G_DPWR $G_DGND 74HC04 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_PTF_U4A         PTF_N01283 $D_HI PTF_N00134 $D_HI N01771 M_UN0004 $G_DPWR
++  $G_DGND 74HC74 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+X_PTF_U3         N01732 PTF_N00087 $D_HI $D_HI PTF_N00270 PTF_CBAR0 PTF_CBAR1
++  PTF_CBAR2 PTF_CBAR3 M_UN0005 M_UN0006 M_UN0007 M_UN0008 PTF_N00280 $G_DPWR
++  $G_DGND 74HC161 PARAMS:
++ IO_LEVEL=0 MNTYMXDLY=0
+
+**** RESUMING programmabletransitionfinder-SCHEMATIC1-sim1.sim.cir ****
+.INC "programmabletransitionfinder-SCHEMATIC1.als"
+
+
+
+**** INCLUDING programmabletransitionfinder-SCHEMATIC1.als ****
+.ALIASES
+U_DSTM1          DSTM1(VCC=$G_DPWR GND=$G_DGND 1=N01732 )
+U_DSTM2          DSTM2(pin1=N01774 )
+_   PTF(ck=N01732 signal=N01774 C0=$D_HI C1=$D_LO C2=$D_LO C3=$D_LO out=N01771
++  )
+X_PTF_U1C          PTF.U1C(A=PTF_N00280 Y=PTF_N01283 VCC=$G_DPWR GND=$G_DGND )
+X_PTF_U6B          PTF.U6B(CLRbar=$D_HI D=PTF_N00134 CLK=N01732 PREbar=$D_HI
++  Q=PTF_N00125 Qbar=M_UN0001 VCC=$G_DPWR GND=$G_DGND )
+X_PTF_U4B          PTF.U4B(CLRbar=$D_HI D=N01771 CLK=N01732 PREbar=$D_HI
++  Q=PTF_N00087 Qbar=M_UN0002 VCC=$G_DPWR GND=$G_DGND )
+X_PTF_U1A          PTF.U1A(A=$D_HI Y=PTF_CBAR0 VCC=$G_DPWR GND=$G_DGND )
+X_PTF_U1B          PTF.U1B(A=$D_LO Y=PTF_CBAR1 VCC=$G_DPWR GND=$G_DGND )
+X_PTF_U1D          PTF.U1D(A=$D_LO Y=PTF_CBAR2 VCC=$G_DPWR GND=$G_DGND )
+X_PTF_U5A          PTF.U5A(A=PTF_N00134 B=PTF_N00125 Y=PTF_N00270 VCC=$G_DPWR
++  GND=$G_DGND )
+X_PTF_U6A          PTF.U6A(CLRbar=$D_HI D=N01774 CLK=N01732 PREbar=$D_HI
++  Q=PTF_N00134 Qbar=M_UN0003 VCC=$G_DPWR GND=$G_DGND )
+X_PTF_U1E          PTF.U1E(A=$D_LO Y=PTF_CBAR3 VCC=$G_DPWR GND=$G_DGND )
+X_PTF_U4A          PTF.U4A(CLRbar=PTF_N01283 D=$D_HI CLK=PTF_N00134
++  PREbar=$D_HI Q=N01771 Qbar=M_UN0004 VCC=$G_DPWR GND=$G_DGND )
+X_PTF_U3          PTF.U3(CLK=N01732 ENP=PTF_N00087 ENT=$D_HI CLRbar=$D_HI
++  LOADbar=PTF_N00270 A=PTF_CBAR0 B=PTF_CBAR1 C=PTF_CBAR2 D=PTF_CBAR3 QA=M_UN0005
++  QB=M_UN0006 QC=M_UN0007 QD=M_UN0008 RCO=PTF_N00280 VCC=$G_DPWR GND=$G_DGND )
+_    _(PTF.ck=N01732)
+_    _(PTF.C3=$D_LO)
+_    _(C3=$D_LO)
+_    _(PTF.C1=$D_LO)
+_    _(C1=$D_LO)
+_    _(PTF.signal=N01774)
+_    _(PTF.out=N01771)
+_    _(PTF.C2=$D_LO)
+_    _(C2=$D_LO)
+_    _(PTF.C0=$D_HI)
+_    _(C0=$D_HI)
+_    _(PTF.cbar0=PTF_CBAR0)
+_    _(PTF.cbar1=PTF_CBAR1)
+_    _(PTF.cbar2=PTF_CBAR2)
+_    _(PTF.cbar3=PTF_CBAR3)
+_    _(VCC=VCC)
+_    _(GND=GND)
+.ENDALIASES
+
+**** RESUMING programmabletransitionfinder-SCHEMATIC1-sim1.sim.cir ****
+.END
+
+**** 07/08/05 10:15:18 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim1 
+
+
+ ****     Digital Gate MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D_H04C          D_HC7266        D0_GATE         
+      TPLHMN    3.600000E-09    4.800000E-09    0            
+      TPLHTY    9.000000E-09   12.000000E-09    0            
+      TPLHMX   24.000000E-09   25.000000E-09    0            
+      TPHLMN    3.600000E-09    4.800000E-09    0            
+      TPHLTY    9.000000E-09   12.000000E-09    0            
+      TPHLMX   24.000000E-09   25.000000E-09    0            
+
+
+**** 07/08/05 10:15:18 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim1 
+
+
+ ****     Digital Edge Triggered FF MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               D_HC74          D0_EFF          
+  TPCLKQLHMN    8.000000E-09    0            
+  TPCLKQLHTY   20.000000E-09    0            
+  TPCLKQLHMX   44.000000E-09    0            
+  TPCLKQHLMN    8.000000E-09    0            
+  TPCLKQHLTY   20.000000E-09    0            
+  TPCLKQHLMX   44.000000E-09    0            
+   TPPCQLHMN    8.000000E-09    0            
+   TPPCQLHTY   20.000000E-09    0            
+   TPPCQLHMX   58.000000E-09    0            
+   TPPCQHLMN    8.000000E-09    0            
+   TPPCQHLTY   20.000000E-09    0            
+   TPPCQHLMX   58.000000E-09    0            
+    TWCLKLMN   20.000000E-09    0            
+    TWCLKLTY   20.000000E-09    0            
+    TWCLKLMX   20.000000E-09    0            
+    TWCLKHMN   20.000000E-09    0            
+    TWCLKHTY   20.000000E-09    0            
+    TWCLKHMX   20.000000E-09    0            
+     TWPCLMN   25.000000E-09    0            
+     TWPCLTY   25.000000E-09    0            
+     TWPCLMX   25.000000E-09    0            
+   TSUDCLKMN   25.000000E-09    0            
+   TSUDCLKTY   25.000000E-09    0            
+   TSUDCLKMX   25.000000E-09    0            
+ TSUPCCLKHMN    6.000000E-09    0            
+ TSUPCCLKHTY    6.000000E-09    0            
+ TSUPCCLKHMX    6.000000E-09    0            
+    THDCLKMN    0               0            
+    THDCLKTY    0               0            
+    THDCLKMX    0               0            
+  TSUCECLKMN    0               0            
+  TSUCECLKTY    0               0            
+  TSUCECLKMX    0               0            
+   THCECLKMN    0               0            
+   THCECLKTY    0               0            
+   THCECLKMX    0               0            
+
+
+**** 07/08/05 10:15:18 ********* PSpice 9.1 (Mar 1999) ******** ID# 0 ********
+
+ ** circuit file for profile: sim1 
+
+
+ ****     Digital IO  MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               IO_STM          IO_HC           
+        INLD                    3.500000E-12 
+        DRVL    0              87            
+        DRVH    0              87            
+       AtoD1                 AtoD_HC         
+       AtoD2                 AtoD_HC_NX      
+       AtoD3                 AtoD_HC         
+       AtoD4                 AtoD_HC_NX      
+       DtoA1 DtoA_STM        DtoA_HC         
+       DtoA2 DtoA_STM        DtoA_HC         
+       DtoA3 DtoA_STM        DtoA_HC_E       
+       DtoA4 DtoA_STM        DtoA_HC_E       
+      TSWHL1                    2.742000E-09 
+      TSWHL2                    2.742000E-09 
+      TSWHL3                    2.751000E-09 
+      TSWHL4                    2.751000E-09 
+      TSWLH1                    2.758000E-09 
+      TSWLH2                    2.758000E-09 
+      TSWLH3                    2.763000E-09 
+      TSWLH4                    2.763000E-09 
+       TPWRT  100.000000E+03    2.000000E-09 
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .22
+

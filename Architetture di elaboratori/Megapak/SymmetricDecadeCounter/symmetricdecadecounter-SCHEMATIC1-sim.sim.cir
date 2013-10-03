@@ -1,0 +1,19 @@
+** circuit file for profile: sim 
+
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT PROFILES
+
+*Libraries: 
+* Local Libraries :
+* From [PSPICE NETLIST] section of pspice91.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 100us 0 
+.OPTIONS DIGINITSTATE= 0
+.PROBE 
+.INC "symmetricdecadecounter-SCHEMATIC1.net" 
+
+.INC "symmetricdecadecounter-SCHEMATIC1.als"
+
+
+.END
