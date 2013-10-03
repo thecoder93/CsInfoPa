@@ -1,0 +1,159 @@
+object FmRubrica: TFmRubrica
+  Left = 173
+  Top = 172
+  Width = 638
+  Height = 480
+  Caption = 'Rubrica persistente'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  Position = poDefaultPosOnly
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  PixelsPerInch = 96
+  TextHeight = 13
+  object GdRubrica: TDBGrid
+    Left = 0
+    Top = 0
+    Width = 630
+    Height = 434
+    Align = alClient
+    DataSource = DsRubrica
+    Options = [dgEditing, dgAlwaysShowEditor, dgTitles, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'Nome'
+        Width = 123
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Indirizzo'
+        Width = 199
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'EMail'
+        Width = 144
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Telefono'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Cellulare'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CAP'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Localita'
+        Width = 190
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Provincia'
+        Visible = True
+      end>
+  end
+  object MainMenu1: TMainMenu
+    Left = 176
+    Top = 32
+    object File1: TMenuItem
+      Caption = '&File'
+      object Esci1: TMenuItem
+        Caption = '&Esci'
+        OnClick = Esci1Click
+      end
+    end
+    object Indirizzo1: TMenuItem
+      Caption = '&Indirizzo'
+      object Aggiungi1: TMenuItem
+        Caption = '&Aggiungi'
+        OnClick = Aggiungi1Click
+      end
+      object Elimina1: TMenuItem
+        Caption = '&Elimina'
+        OnClick = Elimina1Click
+      end
+      object EliminaTutti1: TMenuItem
+        Caption = 'Elimina &Tutti'
+        OnClick = EliminaTutti1Click
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object Stampa1: TMenuItem
+        Caption = '&Stampa'
+        OnClick = Stampa1Click
+      end
+      object StampaTutti1: TMenuItem
+        Caption = 'Sta&mpa Tutti'
+        OnClick = StampaTutti1Click
+      end
+    end
+  end
+  object CdsRubrica: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 280
+    Top = 96
+    object CdsRubricaNome: TStringField
+      FieldName = 'Nome'
+      Size = 40
+    end
+    object CdsRubricaIndirizzo: TStringField
+      FieldName = 'Indirizzo'
+      Size = 80
+    end
+    object CdsRubricaEMail: TStringField
+      FieldName = 'EMail'
+      Size = 40
+    end
+    object CdsRubricaTelefono: TStringField
+      FieldName = 'Telefono'
+    end
+    object CdsRubricaCellulare: TStringField
+      FieldName = 'Cellulare'
+    end
+    object CdsRubricaCAP: TStringField
+      FieldName = 'CAP'
+      Size = 5
+    end
+    object CdsRubricaLocalita: TStringField
+      DisplayWidth = 40
+      FieldName = 'Localita'
+      Size = 40
+    end
+    object CdsRubricaProvincia: TStringField
+      FieldName = 'Provincia'
+      Size = 2
+    end
+  end
+  object DsRubrica: TDataSource
+    DataSet = CdsRubrica
+    Left = 336
+    Top = 96
+  end
+end

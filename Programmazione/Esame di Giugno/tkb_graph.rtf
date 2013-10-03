@@ -1,0 +1,164 @@
+{\rtf1\ansi\uc0 \deff1{\fonttbl{\f1\fmodern\fprq1\fcharset0 Courier New;}}{\colortbl;\red00\green00\blue00;\red255\green00\blue00;\red41\green40\blue255;\red131\green129\blue131;\red131\green129\blue131;\red255\green00\blue255;\red00\green130\blue00;\red129\green129\blue00;\red85\green85\blue85;\red00\green00\blue00;\red00\green00\blue00;\red131\green00\blue00;\red00\green00\blue00;\red01\green01\blue129;}
+\paperw11905\paperh16837\margl1134\margr1134\margt1134\margb1134\sectd\plain\f1\fs20
+\pard {\cf1{}}{\cf11{\b unit\b0 }} {\cf1{tkb_graph}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf5{\i \{Graph - Grafi liste concatenate di adiacenza - by TheKaneB\i0 }}\par\pard
+{\cf5{\i \i0 }}\par\pard
+{\cf5{\i Questa Unit implementa una versione modificata della BFS per\i0 }}\par\pard
+{\cf5{\i risolvere il problema dei "Pedaggi" della sessione di esami di\i0 }}\par\pard
+{\cf5{\i Giugno {2}{0}{0}{7}\}\i0 }}{\cf1{}}\par\pard
+\par\pard
+{\cf11{\b interface\b0 }}\par\pard
+{\cf1{}}\par\pard
+{\cf11{\b uses\b0 }} {\cf1{tkb_pri_queue}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b type\b0 }}\par\pard
+{\cf1{    adj_list}} {\cf10{=}} {\cf1{^adj_list_node}}{\cf10{;}}\par\pard
+{\cf1{    adj_list_node}} {\cf10{=}} {\cf1{}}{\cf11{\b record\b0 }}\par\pard
+{\cf1{                  node}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{                  next}}{\cf10{:}} {\cf1{adj_list}}{\cf10{;}}\par\pard
+{\cf1{}}                  {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{    graph_node_type}} {\cf10{=}} {\cf1{}}{\cf12{boolean}}{\cf1{}}{\cf10{;}} {\cf1{}}{\cf5{\i \{true = città -\\\\--> false = villaggio\}\i0 }}{\cf1{\par\pard
+    graph_node_type_v}} {\cf10{=}} {\cf1{}}{\cf11{\b array of\b0 }} {\cf1{graph_node_type}}{\cf10{;}}\par\pard
+{\cf1{    t_graph}} {\cf10{=}} {\cf1{}}{\cf11{\b record\b0 }}\par\pard
+{\cf1{            matrix}}{\cf10{:}} {\cf1{}}{\cf11{\b array of\b0 }} {\cf1{adj_list}}{\cf10{;}}\par\pard
+{\cf1{            t}}{\cf10{:}} {\cf1{graph_node_type_v}}{\cf10{;}}\par\pard
+{\cf1{}}            {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{graph_init_nodes}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{g}}{\cf10{:}} {\cf1{t_graph}}{\cf10{;}} {\cf1{n}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{graph_set_arc}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{g}}{\cf10{:}} {\cf1{t_graph}}{\cf10{;}} {\cf1{i}}{\cf10{,}}{\cf1{j}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{graph_set_node_type}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{g}}{\cf10{:}} {\cf1{t_graph}}{\cf10{;}} {\cf1{i}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}} {\cf1{t}}{\cf10{:}} {\cf1{graph_node_type}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{graph_dispose}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{g}}{\cf10{:}} {\cf1{t_graph}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b function\b0 }} {\cf1{}}{\cf14{graph_get_node_type}}{\cf1{}}{\cf10{(}}{\cf1{g}}{\cf10{:}} {\cf1{t_graph}}{\cf10{;}} {\cf1{i}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{):}} {\cf1{graph_node_type}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b function\b0 }} {\cf1{}}{\cf14{graph_get_best_path}}{\cf1{}}{\cf10{(}}{\cf1{g}}{\cf10{:}} {\cf1{t_graph}}{\cf10{;}} {\cf1{i}}{\cf10{,}}{\cf1{j}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}} {\cf1{n}}{\cf10{:}}{\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{):}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf11{\b implementation\b0 }}\par\pard
+{\cf1{}}\par\pard
+{\cf5{\i \{Inizializzazione del grafo, n è il numero dei nodi\}\i0 }}{\cf1{}}\par\pard
+{\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{graph_init_nodes}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{g}}{\cf10{:}} {\cf1{t_graph}}{\cf10{;}} {\cf1{n}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b var\b0 }} {\cf1{i}}{\cf10{,}}{\cf1{j}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b begin\b0 }}\par\pard
+{\cf1{}}     {\cf14{setlength}}{\cf1{}}{\cf10{(}}{\cf1{g.matrix}}{\cf10{,}} {\cf1{n}}{\cf10{);}}\par\pard
+{\cf1{}}     {\cf14{setlength}}{\cf1{}}{\cf10{(}}{\cf1{g.t}}{\cf10{,}} {\cf1{n}}{\cf10{);}}\par\pard
+{\cf1{}}     {\cf11{\b for\b0 }} {\cf1{i}}{\cf10{:=}}{\cf1{}}{\cf3{{0}}} {\cf1{}}{\cf11{\b to\b0 }} {\cf1{n}}{\cf10{-}}{\cf1{}}{\cf3{{1}}} {\cf1{}}{\cf11{\b do begin\b0 }}\par\pard
+{\cf1{         g.t}}{\cf10{[}}{\cf1{i}}{\cf10{] :=}} {\cf1{}}{\cf12{false}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{         g.matrix}}{\cf10{[}}{\cf1{i}}{\cf10{] :=}} {\cf1{}}{\cf11{\b nil\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}     {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf5{\i \{Questo grafo è sempre NON orientato, secondo le specifiche dell'esercizio\}\i0 }}{\cf1{}}\par\pard
+{\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{graph_set_arc}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{g}}{\cf10{:}} {\cf1{t_graph}}{\cf10{;}} {\cf1{i}}{\cf10{,}} {\cf1{j}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b var\b0 }} {\cf1{aux}}{\cf10{:}} {\cf1{adj_list}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b begin\b0 }}\par\pard
+{\cf1{}}     {\cf5{\i \{Arco i --> j\}\i0 }}{\cf1{}}\par\pard
+     {\cf14{new}}{\cf1{}}{\cf10{(}}{\cf1{aux}}{\cf10{);}}\par\pard
+{\cf1{     aux^.node}} {\cf10{:=}} {\cf1{j}}{\cf10{;}}\par\pard
+{\cf1{     aux^.next}} {\cf10{:=}} {\cf1{g.matrix}}{\cf10{[}}{\cf1{i}}{\cf10{];}}\par\pard
+{\cf1{     g.matrix}}{\cf10{[}}{\cf1{i}}{\cf10{] :=}} {\cf1{aux}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+     {\cf5{\i \{Arco j --> i\}\i0 }}{\cf1{}}\par\pard
+     {\cf14{new}}{\cf1{}}{\cf10{(}}{\cf1{aux}}{\cf10{);}}\par\pard
+{\cf1{     aux^.node}} {\cf10{:=}} {\cf1{i}}{\cf10{;}}\par\pard
+{\cf1{     aux^.next}} {\cf10{:=}} {\cf1{g.matrix}}{\cf10{[}}{\cf1{j}}{\cf10{];}}\par\pard
+{\cf1{     g.matrix}}{\cf10{[}}{\cf1{j}}{\cf10{] :=}} {\cf1{aux}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf5{\i \{Imposta il nodo come città o come villaggio\}\i0 }}{\cf1{}}\par\pard
+{\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{graph_set_node_type}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{g}}{\cf10{:}} {\cf1{t_graph}}{\cf10{;}} {\cf1{i}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}} {\cf1{t}}{\cf10{:}} {\cf1{graph_node_type}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b begin\b0 }}\par\pard
+{\cf1{     g.t}}{\cf10{[}}{\cf1{i}}{\cf10{] :=}} {\cf1{t}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf5{\i \{Pulizia dell'heap\}\i0 }}{\cf1{}}\par\pard
+{\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{graph_dispose}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{g}}{\cf10{:}} {\cf1{t_graph}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b var\b0 }} {\cf1{i}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+    {\cf5{\i \{Procedura ricorsiva interna\}\i0 }}{\cf1{}}\par\pard
+    {\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{_dispose}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{l}}{\cf10{:}} {\cf1{adj_list}}{\cf10{);}}\par\pard
+{\cf1{}}    {\cf11{\b begin\b0 }}\par\pard
+{\cf1{}}         {\cf11{\b if\b0 }} {\cf1{l}}{\cf10{<>}}{\cf1{}}{\cf11{\b nil then begin\b0 }}\par\pard
+{\cf1{}}            {\cf14{_dispose}}{\cf1{}}{\cf10{(}}{\cf1{l^.next}}{\cf10{);}}\par\pard
+{\cf1{}}            {\cf14{dispose}}{\cf1{}}{\cf10{(}}{\cf1{l}}{\cf10{);}}\par\pard
+{\cf1{            l}}{\cf10{:=}}{\cf1{}}{\cf11{\b nil\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}         {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}    {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf11{\b begin\b0 }}\par\pard
+{\cf1{}}     {\cf5{\i \{Scorre tutte le liste di adiacenza\}\i0 }}{\cf1{}}\par\pard
+     {\cf11{\b for\b0 }} {\cf1{i}}{\cf10{:=}}{\cf1{}}{\cf3{{0}}} {\cf1{}}{\cf11{\b to\b0 }} {\cf1{}}{\cf14{length}}{\cf1{}}{\cf10{(}}{\cf1{g.matrix}}{\cf10{)-}}{\cf1{}}{\cf3{{1}}} {\cf1{}}{\cf11{\b do\b0 }}\par\pard
+{\cf1{}}         {\cf14{_dispose}}{\cf1{}}{\cf10{(}}{\cf1{g.matrix}}{\cf10{[}}{\cf1{i}}{\cf10{]);}}\par\pard
+{\cf1{     g.matrix}} {\cf10{:=}} {\cf1{}}{\cf11{\b nil\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{     g.t}} {\cf10{:=}} {\cf1{}}{\cf11{\b nil\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf5{\i \{Restituisce il tipo di nodo\}\i0 }}{\cf1{}}\par\pard
+{\cf11{\b function\b0 }} {\cf1{}}{\cf14{graph_get_node_type}}{\cf1{}}{\cf10{(}}{\cf1{g}}{\cf10{:}} {\cf1{t_graph}}{\cf10{;}} {\cf1{i}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{):}} {\cf1{graph_node_type}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b begin\b0 }}\par\pard
+{\cf1{     graph_get_node_type}} {\cf10{:=}} {\cf1{g.t}}{\cf10{[}}{\cf1{i}}{\cf10{];}}\par\pard
+{\cf1{}}{\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf5{\i \{Funzione di ricerca del cammino minimo. Si tratta essenzialmente di\i0 }}\par\pard
+{\cf5{\i una BFS modificata. Per i dettagli dell'implementazione vedere la relazione.\}\i0 }}{\cf1{}}\par\pard
+{\cf11{\b function\b0 }} {\cf1{}}{\cf14{graph_get_best_path}}{\cf1{}}{\cf10{(}}{\cf1{g}}{\cf10{:}} {\cf1{t_graph}}{\cf10{;}} {\cf1{i}}{\cf10{,}} {\cf1{j}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}} {\cf1{n}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{):}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b var\b0 }} {\cf1{Q}}{\cf10{:}} {\cf1{t_pri_queue}}{\cf10{;}}\par\pard
+{\cf1{    dist}}{\cf10{:}} {\cf1{}}{\cf11{\b array of\b0 }} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{    idx}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{    adj}} {\cf10{:}} {\cf1{adj_list}}{\cf10{;}}\par\pard
+{\cf1{    last_node}}{\cf10{:}} {\cf1{}}{\cf12{boolean}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+    {\cf5{\i \{Funzione peso\}\i0 }}{\cf1{}}\par\pard
+    {\cf11{\b function\b0 }} {\cf1{}}{\cf14{_p}}{\cf1{}}{\cf10{(}}{\cf1{x}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{):}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}    {\cf11{\b begin\b0 }}\par\pard
+{\cf1{}}         {\cf11{\b if\b0 }} {\cf1{}}{\cf14{graph_get_node_type}}{\cf1{}}{\cf10{(}}{\cf1{g}}{\cf10{,}} {\cf1{i}}{\cf10{)}} {\cf1{}}{\cf11{\b then begin\b0 }}    {\cf1{}}{\cf5{\i \{Città\}\i0 }}{\cf1{}}\par\pard
+            {\cf11{\b if\b0 }} {\cf1{}}{\cf10{(}}{\cf1{x}} {\cf11{\b mod\b0 }} {\cf1{}}{\cf3{{1}{9}}}{\cf1{}}{\cf10{) =}} {\cf1{}}{\cf3{{0}}} {\cf1{}}{\cf11{\b then\b0 }}\par\pard
+{\cf1{               _p}} {\cf10{:=}} {\cf1{x}} {\cf10{+ (}}{\cf1{x}} {\cf11{\b div\b0 }} {\cf1{}}{\cf3{{1}{9}}}{\cf1{}}{\cf10{)}}\par\pard
+{\cf1{}}            {\cf11{\b else\b0 }}\par\pard
+{\cf1{               _p}} {\cf10{:=}} {\cf1{x}} {\cf10{+ (}}{\cf1{x}} {\cf11{\b div\b0 }} {\cf1{}}{\cf3{{1}{9}}}{\cf1{}}{\cf10{) +}} {\cf1{}}{\cf3{{1}}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}         {\cf11{\b end\b0 }}\par\pard
+{\cf1{}}         {\cf11{\b else\b0 }}                                       {\cf1{}}{\cf5{\i \{Villaggio\}\i0 }}{\cf1{\par\pard
+             _p}} {\cf10{:=}} {\cf1{x}} {\cf10{+}} {\cf1{}}{\cf3{{1}}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}    {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf11{\b begin\b0 }}\par\pard
+{\cf1{}}     {\cf5{\i \{Inizializzazione\}\i0 }}{\cf1{}}\par\pard
+     {\cf14{setlength}}{\cf1{}}{\cf10{(}}{\cf1{dist}}{\cf10{,}} {\cf1{}}{\cf14{length}}{\cf1{}}{\cf10{(}}{\cf1{g.matrix}}{\cf10{));}}\par\pard
+{\cf1{}}     {\cf11{\b for\b0 }} {\cf1{idx}} {\cf10{:=}} {\cf1{}}{\cf3{{0}}} {\cf1{}}{\cf11{\b to\b0 }} {\cf1{}}{\cf14{length}}{\cf1{}}{\cf10{(}}{\cf1{dist}}{\cf10{)-}}{\cf1{}}{\cf3{{1}}} {\cf1{}}{\cf11{\b do\b0 }}\par\pard
+{\cf1{         dist}}{\cf10{[}}{\cf1{idx}}{\cf10{]:=}}{\cf1{MAXINT}}{\cf10{;}}\par\pard
+{\cf1{}}     {\cf14{pri_queue_init}}{\cf1{}}{\cf10{(}}{\cf1{Q}}{\cf10{);}}\par\pard
+{\cf1{     last_node}} {\cf10{:=}} {\cf1{}}{\cf12{FALSE}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+     {\cf5{\i \{Inserisco il nodo di arrivo in coda\}\i0 }}{\cf1{\par\pard
+     dist}}{\cf10{[}}{\cf1{i}}{\cf10{] :=}} {\cf1{n}}{\cf10{;}}\par\pard
+{\cf1{}}     {\cf14{pri_queue_push}}{\cf1{}}{\cf10{(}}{\cf1{Q}}{\cf10{,}} {\cf1{i}}{\cf10{,}} {\cf1{n}}{\cf10{);}}\par\pard
+{\cf1{}}\par\pard
+     {\cf5{\i \{BFS\}\i0 }}{\cf1{}}\par\pard
+     {\cf11{\b while\b0 }} {\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b not\b0 }} {\cf1{}}{\cf14{pri_queue_empty}}{\cf1{}}{\cf10{(}}{\cf1{Q}}{\cf10{))}} {\cf1{}}{\cf11{\b and\b0 }} {\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b not\b0 }} {\cf1{last_node}}{\cf10{)}} {\cf1{}}{\cf11{\b do begin\b0 }}\par\pard
+{\cf1{}}\par\pard
+           {\cf5{\i \{Prelevo un nodo dalla coda\}\i0 }}{\cf1{\par\pard
+           i}} {\cf10{:=}} {\cf1{}}{\cf14{pri_queue_pop}}{\cf1{}}{\cf10{(}}{\cf1{Q}}{\cf10{);}}\par\pard
+{\cf1{}}	   {\cf11{\b if\b0 }} {\cf1{i}}{\cf10{=}}{\cf1{j}} {\cf11{\b then\b0 }} {\cf1{last_node}} {\cf10{:=}} {\cf1{}}{\cf12{TRUE}}{\cf1{}}{\cf10{;}}	{\cf1{}}{\cf4{\i // Colorazione parziale. Vedi relazione.\i0 }}\par\pard
+{\cf1{           adj}} {\cf10{:=}} {\cf1{g.matrix}}{\cf10{[}}{\cf1{i}}{\cf10{];}}\par\pard
+{\cf1{}}\par\pard
+           {\cf5{\i \{Scorro la lista degli adiacenti\}\i0 }}{\cf1{}}\par\pard
+           {\cf11{\b while\b0 }} {\cf1{adj}}{\cf10{<>}}{\cf1{}}{\cf11{\b nil do begin\b0 }}\par\pard
+{\cf1{}}                 {\cf11{\b if\b0 }} {\cf1{dist}}{\cf10{[}}{\cf1{adj^.node}}{\cf10{] >}} {\cf1{}}{\cf14{_p}}{\cf1{}}{\cf10{(}}{\cf1{dist}}{\cf10{[}}{\cf1{i}}{\cf10{])}} {\cf1{}}{\cf11{\b then begin\b0 }}\par\pard
+{\cf1{}}\par\pard
+                   {\cf5{\i \{Aggiorna il peso del nodo adiacente\}\i0 }}{\cf1{\par\pard
+                   dist}}{\cf10{[}}{\cf1{adj^.node}}{\cf10{] :=}} {\cf1{}}{\cf14{_p}}{\cf1{}}{\cf10{(}}{\cf1{dist}}{\cf10{[}}{\cf1{i}}{\cf10{]);}}\par\pard
+{\cf1{}}\par\pard
+                   {\cf5{\i \{Inserisco il nodo adiacente in coda\}\i0 }}{\cf1{}}\par\pard
+                   {\cf14{pri_queue_push}}{\cf1{}}{\cf10{(}}{\cf1{Q}}{\cf10{,}} {\cf1{adj^.node}}{\cf10{,}} {\cf1{dist}}{\cf10{[}}{\cf1{adj^.node}}{\cf10{]);}}\par\pard
+{\cf1{}}                 {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+                 {\cf5{\i \{Passo al successivo adiacente di i\}\i0 }}{\cf1{\par\pard
+                 adj}} {\cf10{:=}} {\cf1{adj^.next}}{\cf10{;}}\par\pard
+{\cf1{}}           {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}     {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+     {\cf5{\i \{Pulisco la coda e restituisco la distanza del nodo di partenza j\}\i0 }}{\cf1{}}\par\pard
+     {\cf14{pri_queue_dispose}}{\cf1{}}{\cf10{(}}{\cf1{Q}}{\cf10{);}}\par\pard
+{\cf1{     graph_get_best_path}} {\cf10{:=}} {\cf1{dist}}{\cf10{[}}{\cf1{j}}{\cf10{];}}\par\pard
+{\cf1{}}{\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf11{\b end\b0 }}{\cf1{.}}\par\pard
+\par\pard
+}}

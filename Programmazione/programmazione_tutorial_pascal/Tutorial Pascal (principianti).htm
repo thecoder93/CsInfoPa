@@ -1,0 +1,233 @@
+<html>
+
+<head>
+<title>Tutorial Pascal</title>
+</head>
+
+<body text="#000000">
+
+<blockquote>
+  <p align="center"><font size="1" face="Verdana"><b>Tutorial Pascal</b></font></p>
+  <p align="left"><font face="Verdana" size="1">Il pascal è solitamente il
+  primo linguaggio di programmazione che si impara per poi riuscire a capire
+  tutti gli altri. Infatti seppure molto antiquato, ha in se tutte le basi per
+  capire tutta la programmazione. Perciò dopo aver letto e capito questa guida
+  e aver fatto dell'esercizio, avrete tutto quello che vi serve per passare ad
+  HTML (che è davvero molto facile, probabilmente potreste capirlo senza alcuna
+  base) (un giorno scriverò un tutorial sull'HTML) (contenti?), Visual Basic,
+  JavaScript, C, Delphi e tutti gli altri. Se avete bisogno, sarò sempre
+  disponibile.</font></p>
+  <p align="center"><font face="Verdana" size="1">[ <a href="#Occorrente">Occorrente</a>
+  | <a href="#Iniziamo">Iniziamo</a> | <a href="#Il primo programma">Il primo
+  programma</a> | <a href="#Le variabili">Le variabili</a> | <a href="#Le funzioni">Le
+  funzioni</a> | <a href="#Conclusione">Conclusione</a> ]</font></p>
+  <p align="left">&nbsp;</p>
+  <p align="left"><font face="Verdana" size="1"><u><a name="Occorrente">Occorrente</a></u></font></p>
+  <p align="left"><font face="Verdana" size="1">Ciò che vi serve per
+  programmare in Pascal è un compilatore, ovvero un programma che controlli gli
+  errori del codice sorgente (quello che scrivete voi) e crea il .EXE che può
+  essere eseguito dalla macchina (eseguibile). Il compilatore più famoso e
+  usato è il Turbo Pascal della Borland. Non credo avrete difficoltà a
+  reperirne una copia a scuola o su Internet. Ma in giro ce ne sono tanti, vi basterà fare una ricerca. Se
+  non riuscite proprio a trovarne uno potete comunque iniziare a scrivere sul
+  blocco note di windows salvando i files in .pas (l'estensione dei sorgenti in
+  pascal e delphi). Quando avrete un compilatore potrete creare i programmi.
+  (sinceramente vi sconsiglio di utilizzare quest'ultimo metodo)</font></p>
+  <p align="left">&nbsp;</p>
+  <p align="left"><font face="Verdana" size="1"><u><a name="Iniziamo">Iniziamo</a></u></font></p>
+  <p align="left"><font face="Verdana" size="1">La struttura di un programma
+  in pascal è questa:</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>program nomeprogramma;</b></font></p>
+  <p align="left"><font face="Verdana" size="1"><b><i>PARTE DICHIARATIVA</i></b></font></p>
+  <p align="left"><font face="Verdana" size="1"><b>begin</b></font></p>
+  <p align="left"><font face="Verdana" size="1"><b><i>ISTRUZIONI</i></b></font></p>
+  <p align="left"><font face="Verdana" size="1"><b>end.</b></font></p>
+  <p align="left"><font face="Verdana" size="1">Come potete vedere, la prima
+  cosa da scrivere è <b>program nomeprogramma</b>, dove <b>nomeprogramma</b> è
+  una specie di identificativo da dare al programma. Niente di importante,
+  questa istruzione infatti può anche essere omessa. Notate che la riga termina
+  con un <b>; </b>. Questo vale per quasi tutti i comandi (non tutti, per
+  esempio il begin no). Notate che alla fine dell'ultimo end ci va SEMPRE il
+  punto. La parte dichiarativa inizia così. I comandi da inserire in quest'area
+  servono a dire al compilatore le librerie e gli altri oggetti che dovrà
+  utilizzare nel programma. Dunque inizia la parte relativa alle istruzioni.
+  Begin infatti vuol dire in inglese inizio, iniziare e end vuol dire fine
+  (questo proprio per i più asini). Approfitto per dire anche che il pascal è
+  case-insensitive ovvero non importano le lettere maiuscole o minuscole
+  (CaCcHiO e cAcChIo sono la stessa cosa). Inoltre in pascal, tutto quello che
+  viene scritto all'interno di (* e *) o fra { e } non viene considerato. Questo
+  serve in programmi molto lunghi in cui c'è bisogno di fare delle annotazioni
+  o quando per esempio bisogna passare i propri sorgenti ad un altro
+  programmatore in modo da fargli capire meglio quello che si sta facendo. Più
+  avanti farò degli esempi di commento all'interno dei programmi.</font></p>
+  <p align="left">&nbsp;</p>
+  <p align="left"><font face="Verdana" size="1"><u><a name="Il primo programma">Il primo programma</a></u></font></p>
+  <p align="left"><font face="Verdana" size="1"><b>program primo;<br>uses crt;<br>begin<br>clrscr;<br>write ('Hello World!');<br>readkey;<br>end.</b></font></p>
+  <p align="left"><font face="Verdana" size="1">Provate a scrivere questo e a
+  fare il comando RUN nel compilatore. Sullo schermo apparirà la scritta &quot;Hello
+  World!&quot; e non se ne andrà finché non premerete un tasto qualunque.
+  Fantastico! Procediamo al commento...</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>program primo;</b></font></p>
+  <p align="left"><font face="Verdana" size="1">(* Ok, è solo il nome del
+  programma *)</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>uses crt;</b></font></p>
+  <p align="left"><font face="Verdana" size="1">(* Ovvero, includiamo nel
+  programma la libreria (crt) che permette di svolgere alcuni funzioni grafiche
+  *)</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>begin</b></font></p>
+  <p align="left"><font face="Verdana" size="1">(* Inizio *)</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>clrscr;</b></font></p>
+  <p align="left"><font face="Verdana" size="1">(* Il comando clrscr
+  (abbreviazione di &quot;clear screen&quot;) serve a pulire lo schermo da tutte
+  le scritte presenti in quel momento. Voi direte, come fa ad esserci già
+  scritto qualcosa, abbiamo appena iniziato! Se voi runnate due volte il
+  programma, vi accorgerete che cio che era venuto scritto al primo runnaggio,
+  è ancora lì. Pulendo lo schermo lo abbiamo tolto dai piedi. *)</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>write ('Hello World!');</b></font></p>
+  <p align="left"><font face="Verdana" size="1">(* Il comando write serve a
+  scrivere qualcosa sullo schermo. Questo qualcosa va messo tra (' e '). Se
+  dovete scrivere qualche parola che necessita di un apostrofo, dovete scrivere
+  due volte l'apostrofo. Perciò da &quot;l<b>'</b>uccellino&quot; diventa
+  &quot;l<b>''</b>uccellino&quot;. Se non fate questo il compilatore vi darò
+  l'errore. *)</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>readkey;</b></font></p>
+  <p align="left"><font face="Verdana" size="1">(* Questo serve a dire al
+  programma: non fare nient'altro finché l'utente non preme un tasto (key)
+  qualsiasi *)</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>end.</b></font></p>
+  <p align="left"><font face="Verdana" size="1">(* Chiusura programma *)</font></p>
+  <p align="left"><font face="Verdana" size="1">Ecco, ora avete scritto e
+  capito il vostro primo programma! Siete soddisfatti? Spero proprio di no! Non
+  serve assolutamente a nulla un programma che scriva sullo schermo una stupida
+  scritta. Bisogna fare un programma UTILE! Questo è un buon motivo per
+  introdurre l'argomento de:</font></p>
+  <p align="left">&nbsp;</p>
+  <p align="left"><u><font face="Verdana" size="1"><a name="Le variabili">Le variabili</a></font></u></p>
+  <p align="left"><font face="Verdana" size="1">In un programma alcuni
+  elementi possono variare: un numero, una frase. Per esempio: quando inserite
+  un numero nella calcolatrice, tutto il resto diventa in funzione a quel
+  numero. Quel numero è una variabile. In una addizione di 2 numeri le
+  variabili sono 3: i due addendi e la somma. Ma perche non proviamo subito a
+  fare un programma che calcoli la somma di 2 numeri!</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>program somma;<br>uses crt;<br>var
+  a,b,c:integer;</b></font></p>
+  <p align="left"><font face="Verdana" size="1">(* Ecco, così si diachiarano
+  le variabili:&nbsp;</font></p>
+  <p align="left"><font face="Verdana" size="1"> var [nomevariabile],...,...: tipovaribile;&nbsp;</font></p>
+  <p align="left"><font face="Verdana" size="1">In questo caso le varibili
+  saranno 3 numeri interi perciò il tipo della variabile sarà &quot;INTEGER&quot;.
+  Il compilatore deve sapere prima il tipo di variabile che si userà, per
+  questo vengono messe nella parte dichiarativa. Se avessimo avuto del testo,
+  dei caratteri il tipo di variabile sarebbe stato &quot;STRING&quot; *)</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>begin<br>clrscr;<br>write ('Inserisci il 1 numero: ');<br>readln (a);</b></font></p>
+  <p align="left"><font face="Verdana" size="1">(* Il comando READLN serve a
+  leggere un dato dall'esterno e poi mettere i cursore a capo (READ invece legge
+  un dato ma lascia il cursore sulla stssa riga) (vale anche per WRITELN e WRITE).
+  In questo caso il dato variabile da leggere è a. *)</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>
+  write ('Inserisci il 2 numero: ');<br>readln (b);</b></font></p>
+  <p align="left"><font face="Verdana" size="1">(* Questa volta abbiamo letto
+  la variabile b *)</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>c := a + b;</b></font></p>
+  <p align="left"><font face="Verdana" size="1">(* Operazione:</font></p>
+  <p align="left"><font face="Verdana" size="1">Risultato := primo numero + |
+  - | * | div secondo numero;</font></p>
+  <p align="left"><font face="Verdana" size="1">*)</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>write ('Il la somma tra ',a,' e ',b,' è ',c,'!');</b></font></p>
+  <p align="left"><font face="Verdana" size="1">(* Per includere delle
+  varibili all'interno di un testo le dobbiamo racchiudere tra ', e ,'. In quel
+  punto apparirà la variabile in mezzo al testo *)</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>readkey;<br>end.</b></font></p>
+  <p align="left"><font face="Verdana" size="1">Senza commenti:</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>program somma;<br>uses crt;<br>var
+  a,b,c:integer;<br>begin<br>clrscr;<br>write ('Inserisci il 1 numero: ');<br>readln (a);<br>
+  write ('Inserisci il 2 numero: ');<br>readln (b);<br>c := a + b;<br>write ('Il la somma tra ',a,' e ',b,' è ',c,'!');<br>readkey;<br>end.</b></font></p>
+  <p align="left"><font face="Verdana" size="1">Perciò se invece della somma
+  avessimo voluto fare una sottrazione, una moltiplicazione o una divisione
+  avremmo dovuto usare &quot;-&quot; o &quot;*&quot; o &quot;div&quot;. Provate
+  a fare qualche programma usando questi altri segni e sperimantate il più
+  possibile nuove cose, anche se non siete sicuri, è un ottimo modo per
+  imparare.</font></p>
+  <p align="left"><font face="Verdana" size="1">Proviamo ad usare adesso una
+  variabile di testo:</font></p>
+  <p align="left"><font face="Verdana" size="1">&nbsp;<b>program nomi;<br></b></font><b><font face="Verdana" size="1">uses crt;<br>var nome1,nome2:string;<br>begin<br>clrscr;<br>write ('Metti il tuo nome:
+  ');<br>readln (nome1);<br>write ('Metti il nome di
+  una tipa che ti piace: ');<br>readln (nome2);<br>write ('',nome1,' ama
+  ',nome2,' ma ',nome2,' non la dara'' mai a ',nome1,'');<br>readkey;<br>end.</font></b></p>
+  <p align="left"><font face="Verdana" size="1"><b>&nbsp; </b>Come potete
+  vedere il funzionamento è analogo a quello usato per i numeri.</font></p>
+  <p align="left">&nbsp;</p>
+  <p align="left"><font face="Verdana" size="1"><u><a name="Le funzioni">Le
+  funzioni</a></u></font></p>
+  <p align="left">&nbsp;</p>
+  <p align="left"><font face="Verdana" size="1"><u>La funzione IF, THEN, ELSE</u></font></p>
+  <p align="left"><font face="Verdana" size="1">Eccoci arrivati ad una delle
+  funzioni più importanti del pascal presente in quasi tutti i linguaggi: SE,
+  ALLORA, ALTRIMENTI ovvero</font></p>
+  <p align="left"><font face="Verdana" size="1">IF [si verifica un evento
+  particolare] THEN </font></p>
+  <p align="left"><font face="Verdana" size="1">[fai questo]</font></p>
+  <p align="left"><font face="Verdana" size="1">ELSE [fai quest'altro]</font></p>
+  <p align="left"><font face="Verdana" size="1">IF e THEN sono sempre
+  obbligatori, ELSE può anche essere omesso.<br>Facciamo subito un'esempio
+  senza l'else:</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>program prova;<br>uses crt;<br>var a:integer;<br>begin<br>clrscr;<br>write ('Metti il numero del
+  mese attuale');<br>readln (a);<br>if a &gt; 12 then<br>write ('Accipicchia! Dove
+  vivi?');<br>readkey;<br>end.</b></font></p>
+  <p align="left"><font face="Verdana" size="1">Nel caso che l'utente metta un
+  numero superiore a 12 il programma gli scriverà che è un beota, altrimenti
+  passera direttamente all'istruzione successiva ovvero readkey;. Se avessimo
+  voluto mettere una serie di istruzioni al verificarsi dell'evento avremmo
+  dovuto mettere:</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>if a &gt; 12 then<br>begin<br>write ('Accipicchia! Dove
+  vivi?');<br>altre istruzioni;<br>altre istruzioni;<br>end;</b></font></p>
+  <p align="left"><font face="Verdana" size="1">Ora passiamo ad un programma
+  che invece utilizza anche l'else.&nbsp;</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>program prova;<br>uses crt;<br>var a:integer;<br>begin<br>clrscr;<br>write ('Quanti hanni hai?:
+  ');<br>readln (a);<br>if a &gt; 18 then<br>begin<br>write ('PUOI VOTARE!');<br>end<br>else<br>write ('NON PUOI VOTARE, MI
+  SPIACE');<br>end;<br>end.</b></font></p>
+  <p align="left"><font face="Verdana" size="1">Nel primo end dopo l'if then
+  non ci va nulla. Abbiamo aperto una nuova sessione (che va da begin a end) per
+  introdurre contenere ciò che deve essere svolto se si verifica l'evento e la
+  seconda sessione (da else a end;) per ciò che deve essere eseguito se NON si
+  verifica l'evento. E con questo abbiamo chiuso l'argomento.</font></p>
+  <p align="left">&nbsp;</p>
+  <p align="left"><font face="Verdana" size="1"><u>La funzione REPEAT UNTIL</u></font></p>
+  <p align="left"><font face="Verdana" size="1">Con questa utile funzione del
+  pascal avremo la possibilità di ripetere una serie di istruzioni fino al
+  verificarsi di un evento prestabilito.</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>repeat<br>ISTRUZIONE<br>until [evento];</b></font></p>
+  <p align="left"><font face="Verdana" size="1">Ecco un esempio:</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>repeat<br>write ('Dimmi quanto fa
+  3+3!: ');<br>readln (varibile)<br>until varibile=6;</b></font></p>
+  <p align="left">&nbsp;</p>
+  <p align="left"><font face="Verdana" size="1"><u>Altre funzioni:</u></font></p>
+  <p align="left"><font face="Verdana" size="1"><b>variabile:= random(max);</b></font></p>
+  <p align="left"><font face="Verdana" size="1">Genera un numero a casoda 0
+  alla cifra indicata tra parentesi.</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>delay(ms)</b></font></p>
+  <p align="left"><font face="Verdana" size="1">Mette in attesa il programma
+  per il tempo indicato tra parentesi in millisecondi (1sec=1000 ms)</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>sound(frequenza); delay(durata);
+  nosound;</b></font></p>
+  <p align="left"><font face="Verdana" size="1">Emana un suono della frequenza
+  indicata, per il tempo indicato. Se omettete il nosound il suono continuerà
+  fino alla chiusura del programma. Per più suoni successivi scrivete:</font></p>
+  <p align="left"><font face="Verdana" size="1"><b>sound(frequenza); delay(durata);<br>sound(frequenza); delay(durata);<br>sound(frequenza); delay(durata);<br>sound(frequenza); delay(durata);<br>nosound;</b></font></p>
+  <p align="left">&nbsp;</p>
+  <p align="left"><font face="Verdana" size="1"><u><a name="Conclusione">Conclusione</a></u></font></p>
+  <p align="left"><font face="Verdana" size="1">E con questo ho finito di
+  descrivere le basi del Pascal. Probabilmente vi starete chiedendo cosa
+  farvene.. uhm, provate a pensare a qualcosa di divertente o utile. Io per
+  esempio una volta avevo trovato in un libro di matematica un programma che
+  generava un numero a caso e io dovevo indovinarlo. Davvero idiota, ma con
+  qualche accorgimento può diventare divertente. E poi se volete davvero
+  diventare programmatori il pascal sarebbe un po' come l'asilo. Imparatelo solo
+  per passare poi a linguaggi più utili e soprattutto che usino una interfaccia
+  grafica! </font></p>
+  <p align="left"><font face="Verdana" size="1">Dr. DooM</font></p>
+</blockquote>
+
+</body>
+
+</html>

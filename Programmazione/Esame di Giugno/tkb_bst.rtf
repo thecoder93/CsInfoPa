@@ -1,0 +1,117 @@
+{\rtf1\ansi\uc0 \deff1{\fonttbl{\f1\fmodern\fprq1\fcharset0 Courier New;}}{\colortbl;\red00\green00\blue00;\red255\green00\blue00;\red41\green40\blue255;\red131\green129\blue131;\red131\green129\blue131;\red255\green00\blue255;\red00\green130\blue00;\red129\green129\blue00;\red85\green85\blue85;\red00\green00\blue00;\red00\green00\blue00;\red131\green00\blue00;\red00\green00\blue00;\red01\green01\blue129;}
+\paperw11905\paperh16837\margl1134\margr1134\margt1134\margb1134\sectd\plain\f1\fs20
+\pard {\cf1{}}{\cf11{\b unit\b0 }} {\cf1{tkb_bst}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf5{\i \{Binary Search Tree - by TheKaneB\i0 }}\par\pard
+{\cf5{\i Versione modificata per l'esercizio "Il Pedaggio"\}\i0 }}{\cf1{}}\par\pard
+\par\pard
+{\cf11{\b interface\b0 }}\par\pard
+{\cf1{}}\par\pard
+{\cf11{\b type\b0 }} {\cf1{bst_inf}} {\cf10{=}} {\cf1{}}{\cf12{char}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{    t_bst}} {\cf10{=}} {\cf1{^bst_node}}{\cf10{;}}\par\pard
+{\cf1{     bst_node}} {\cf10{=}} {\cf1{}}{\cf11{\b record\b0 }}\par\pard
+{\cf1{          id}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{          inf}}{\cf10{:}} {\cf1{bst_inf}}{\cf10{;}}\par\pard
+{\cf1{          sx}}{\cf10{:}} {\cf1{t_bst}}{\cf10{;}}\par\pard
+{\cf1{          dx}}{\cf10{:}} {\cf1{t_bst}}{\cf10{;}}\par\pard
+{\cf1{}}          {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{bst_insert}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{a}}{\cf10{:}} {\cf1{t_bst}}{\cf10{;}} {\cf1{x}}{\cf10{:}} {\cf1{bst_inf}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{bst_dispose}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{a}}{\cf10{:}} {\cf1{t_bst}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{bst_print}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{:}} {\cf1{t_bst}}{\cf10{);}}  {\cf1{}}{\cf4{\i // Utile per il debugging\i0 }}\par\pard
+{\cf1{}}{\cf11{\b function\b0 }} {\cf1{}}{\cf14{bst_assign_ids}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{:}} {\cf1{t_bst}}{\cf10{):}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b function\b0 }} {\cf1{}}{\cf14{bst_get_id_from_inf}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{:}} {\cf1{t_bst}}{\cf10{;}} {\cf1{x}}{\cf10{:}} {\cf1{bst_inf}}{\cf10{):}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf11{\b implementation\b0 }}\par\pard
+{\cf1{}}\par\pard
+{\cf5{\i \{Inserisco un nodo nell'albero in ordine alfabetico crescente\}\i0 }}{\cf1{}}\par\pard
+{\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{bst_insert}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{a}}{\cf10{:}} {\cf1{t_bst}}{\cf10{;}} {\cf1{x}}{\cf10{:}} {\cf1{bst_inf}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b begin\b0 }}\par\pard
+{\cf1{}}     {\cf11{\b if\b0 }} {\cf1{a}}{\cf10{<>}}{\cf1{}}{\cf11{\b nil then begin\b0 }}{\cf1{}}{\cf5{\i \{Visito l'albero per cercare la posizione di inserimento\}\i0 }}{\cf1{}}\par\pard
+        {\cf11{\b if\b0 }} {\cf1{x}} {\cf10{<}} {\cf1{a^.inf}} {\cf11{\b then\b0 }} {\cf1{}}{\cf14{bst_insert}}{\cf1{}}{\cf10{(}}{\cf1{a^.sx}}{\cf10{,}} {\cf1{x}}{\cf10{)}}\par\pard
+{\cf1{}}        {\cf11{\b else if\b0 }} {\cf1{x}} {\cf10{>}} {\cf1{a^.inf}} {\cf11{\b then\b0 }} {\cf1{}}{\cf14{bst_insert}}{\cf1{}}{\cf10{(}}{\cf1{a^.dx}}{\cf10{,}} {\cf1{x}}{\cf10{)}}\par\pard
+{\cf1{}}     {\cf11{\b end\b0 }}\par\pard
+{\cf1{}}          {\cf5{\i \{Non inserirsco duplicati\}\i0 }}{\cf1{}}\par\pard
+     {\cf11{\b else begin\b0 }} {\cf1{}}{\cf5{\i \{Inserisco l'elemento al posto giusto\}\i0 }}{\cf1{}}\par\pard
+        {\cf14{new}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{);}}\par\pard
+{\cf1{        a^.inf}} {\cf10{:=}} {\cf1{x}}{\cf10{;}}\par\pard
+{\cf1{        a^.id}} {\cf10{:=}} {\cf1{}}{\cf3{{0}}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{        a^.sx}} {\cf10{:=}} {\cf1{}}{\cf11{\b nil\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{        a^.dx}} {\cf10{:=}} {\cf1{}}{\cf11{\b nil\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}     {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf5{\i \{In questo albero modificato gli ID servono a creare una corrispondenza\i0 }}\par\pard
+{\cf5{\i tra i nodi dell'albero etichettati come char e i nodi del grafo etichettati\i0 }}\par\pard
+{\cf5{\i come numeri interi. Gli ID sono numeri progressivi da {0} a #nodi - {1}.\i0 }}\par\pard
+{\cf5{\i Restituisce il numero di nodi dell'albero.\}\i0 }}{\cf1{}}\par\pard
+{\cf11{\b function\b0 }} {\cf1{}}{\cf14{bst_assign_ids}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{:}} {\cf1{t_bst}}{\cf10{):}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b var\b0 }} {\cf1{id}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+    {\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{_assign_ids}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{:}} {\cf1{t_bst}}{\cf10{);}}\par\pard
+{\cf1{}}    {\cf11{\b begin\b0 }}\par\pard
+{\cf1{}}         {\cf11{\b if\b0 }} {\cf1{a}}{\cf10{<>}}{\cf1{}}{\cf11{\b nil then begin\b0 }}\par\pard
+{\cf1{}}            {\cf14{_assign_ids}}{\cf1{}}{\cf10{(}}{\cf1{a^.sx}}{\cf10{);}}\par\pard
+{\cf1{            a^.id}} {\cf10{:=}} {\cf1{id}}{\cf10{;}}\par\pard
+{\cf1{}}            {\cf14{inc}}{\cf1{}}{\cf10{(}}{\cf1{id}}{\cf10{);}}\par\pard
+{\cf1{}}            {\cf14{_assign_ids}}{\cf1{}}{\cf10{(}}{\cf1{a^.dx}}{\cf10{);}}\par\pard
+{\cf1{}}         {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}    {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf11{\b begin\b0 }}\par\pard
+{\cf1{     id}} {\cf10{:=}} {\cf1{}}{\cf3{{0}}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}     {\cf14{_assign_ids}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{);}}\par\pard
+{\cf1{     bst_assign_ids}} {\cf10{:=}} {\cf1{id}} {\cf10{+}} {\cf1{}}{\cf3{{1}}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf5{\i \{Un po' di pulizia ;)\}\i0 }}{\cf1{}}\par\pard
+{\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{bst_dispose}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{a}}{\cf10{:}} {\cf1{t_bst}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b begin\b0 }}\par\pard
+{\cf1{}}     {\cf11{\b if\b0 }} {\cf1{a}}{\cf10{<>}}{\cf1{}}{\cf11{\b nil then begin\b0 }}\par\pard
+{\cf1{}}        {\cf14{bst_dispose}}{\cf1{}}{\cf10{(}}{\cf1{a^.sx}}{\cf10{);}}\par\pard
+{\cf1{}}        {\cf14{bst_dispose}}{\cf1{}}{\cf10{(}}{\cf1{a^.dx}}{\cf10{);}}\par\pard
+{\cf1{}}        {\cf14{dispose}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{);}}\par\pard
+{\cf1{        a}}{\cf10{:=}}{\cf1{}}{\cf11{\b nil\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}     {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf5{\i \{Cerca un'etichetta e ne restituisce il corrispondente ID.\i0 }}\par\pard
+{\cf5{\i Serve per creare gli archi nel grafo, etichettati nel file di input\i0 }}\par\pard
+{\cf5{\i come coppie di char.\}\i0 }}{\cf1{}}\par\pard
+{\cf11{\b function\b0 }} {\cf1{}}{\cf14{bst_get_id_from_inf}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{:}} {\cf1{t_bst}}{\cf10{;}} {\cf1{x}}{\cf10{:}} {\cf1{bst_inf}}{\cf10{):}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b begin\b0 }}\par\pard
+{\cf1{}}     {\cf11{\b if\b0 }} {\cf1{a}}{\cf10{=}}{\cf1{}}{\cf11{\b nil then\b0 }} {\cf1{bst_get_id_from_inf}} {\cf10{:= -}}{\cf1{}}{\cf3{{1}}}    {\cf1{}}{\cf5{\i \{Albero vuoto, elemento non trovato\}\i0 }}{\cf1{}}\par\pard
+     {\cf11{\b else\b0 }}\par\pard
+{\cf1{}}         {\cf11{\b if\b0 }} {\cf1{a^.inf}} {\cf10{=}} {\cf1{x}} {\cf11{\b then\b0 }} {\cf1{bst_get_id_from_inf}} {\cf10{:=}} {\cf1{a^.id}}   {\cf5{\i \{Elemento trovato\}\i0 }}{\cf1{}}\par\pard
+         {\cf11{\b else\b0 }}\par\pard
+{\cf1{}}             {\cf11{\b if\b0 }} {\cf1{x}} {\cf10{<}} {\cf1{a^.inf}} {\cf11{\b then\b0 }}\par\pard
+{\cf1{}}                {\cf11{\b if\b0 }} {\cf1{a^.sx}} {\cf10{<>}} {\cf1{}}{\cf11{\b nil then\b0 }}\par\pard
+{\cf1{}}                   {\cf5{\i \{Cerca a sinistra\}\i0 }}{\cf1{\par\pard
+                   bst_get_id_from_inf}} {\cf10{:=}} {\cf1{}}{\cf14{bst_get_id_from_inf}}{\cf1{}}{\cf10{(}}{\cf1{a^.sx}}{\cf10{,}} {\cf1{x}}{\cf10{)}}\par\pard
+{\cf1{}}                {\cf11{\b else\b0 }} {\cf1{bst_get_id_from_inf}} {\cf10{:= -}}{\cf1{}}{\cf3{{1}}}\par\pard
+{\cf1{}}             {\cf11{\b else\b0 }}\par\pard
+{\cf1{}}                {\cf11{\b if\b0 }} {\cf1{a^.dx}} {\cf10{<>}} {\cf1{}}{\cf11{\b nil then\b0 }}\par\pard
+{\cf1{}}                   {\cf5{\i \{Cerca a destra\}\i0 }}{\cf1{\par\pard
+                   bst_get_id_from_inf}} {\cf10{:=}} {\cf1{}}{\cf14{bst_get_id_from_inf}}{\cf1{}}{\cf10{(}}{\cf1{a^.dx}}{\cf10{,}} {\cf1{x}}{\cf10{)}}\par\pard
+{\cf1{}}                {\cf11{\b else\b0 }} {\cf1{bst_get_id_from_inf}} {\cf10{:= -}}{\cf1{}}{\cf3{{1}}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf5{\i \{Stampa in ordine dell'albero. Serve solo in fase di debugging,\i0 }}\par\pard
+{\cf5{\i per controllare che l'albero sia stato creato correttamente\}\i0 }}{\cf1{}}\par\pard
+{\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{bst_print}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{:}} {\cf1{t_bst}}{\cf10{);}}\par\pard
+{\cf1{}}          {\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{_print}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{:}} {\cf1{t_bst}}{\cf10{);}}\par\pard
+{\cf1{}}          {\cf11{\b begin\b0 }}\par\pard
+{\cf1{}}               {\cf11{\b if\b0 }} {\cf1{a}}{\cf10{<>}}{\cf1{}}{\cf11{\b nil then begin\b0 }}\par\pard
+{\cf1{}}               {\cf14{_print}}{\cf1{}}{\cf10{(}}{\cf1{a^.sx}}{\cf10{);}}\par\pard
+{\cf1{}}               {\cf14{writeln}}{\cf1{}}{\cf10{(}}{\cf1{a^.inf}}{\cf10{,}} {\cf1{}}{\cf2{' '}}{\cf1{}}{\cf10{,}} {\cf1{a^.id}}{\cf10{);}}\par\pard
+{\cf1{}}               {\cf14{_print}}{\cf1{}}{\cf10{(}}{\cf1{a^.dx}}{\cf10{);}}\par\pard
+{\cf1{}}               {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}          {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b begin\b0 }}\par\pard
+{\cf1{}}     {\cf14{_print}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{);}}\par\pard
+{\cf1{}}     {\cf14{writeln}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf2{'End'}}{\cf1{}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf11{\b end\b0 }}{\cf1{.}}\par\pard
+\par\pard
+}}

@@ -1,0 +1,2771 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="it">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Guida al linguaggio PASCAL per principianti</title>
+<style>
+<!--
+P    {text-align: justify;}
+
+-->
+</style>
+</head>
+
+<body vlink="#6699FF">
+<center>
+<div style="width: 762; height: 29; background-color: #000080">
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      <b><font size="5" face="Arial" color="#FFFFFF">Guida al linguaggio </font>
+      <font size="5" face="Arial" color="#00FF00">PASCAL</font><font size="5" face="Arial" color="#FFFFFF"> 
+      per principianti</font></b></p>
+      </div></center>
+<hr color="#0000FF">
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      <font face="Verdana" size="2"><b><span style="background-color: #FFFF00">L'origine del linguaggio Pascal</span></b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font FACE="MS Reference Sans Serif" SIZE="2">Il <b>Pascal</b> è un 
+      linguaggio di programmazione ad alto livello, per elaboratori elettronici, 
+      progettato nel 1969 da <b>Niklaus Wirth</b>, docente presso il Politecnico di 
+      Zurigo. Esso prende il nome da Blaise Pascal, un matematico francese, che 
+      fu il primo ad inventare una macchina calcolatrice: la Pascalina. Il 
+      Pascal che è un linguaggio standard per i PC, si è rivelato utile a 
+      livello didattico, per l'insegnamento dei metodi di programmazione. Esso 
+      si diffuse dapprima negli ambienti scientifici ma, successivamente, grazie 
+      alla sua semplicità si diffuse dappertutto. Il linguaggio C oggi è 
+      maggiormente usato rispetto al Pascal, in quanto permette di sfruttare 
+      meglio le potenzialità del sistema operativo.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <hr>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      <b><font face="Verdana" size="2"><span style="background-color: #FFFF00">
+      La struttura di base</span></font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">La struttura di base di un programma scritto 
+      in <b>Pascal</b> è costituita da un'<i>intestazione</i>, da una riga che dichiara le 
+      <i>variabili</i>, da un'istruzione che dichiara <i>l'inizio del programma</i>, dal 
+      <i>corpo 
+      del programma</i> e da un'istruzione che dichiara <i>la fine del programma.</i> Ogni 
+      riga di un programma scritto in Pascal, poi, deve necessariamente 
+      terminare con un punto e virgola (;), tranne istruzioni particolari 
+      illustrate successivamente in questa guida. Tutto il testo del programma 
+      può essere scritto, indipendentemente, sia in maiuscolo che in minuscolo. 
+      Tutta la struttura di un programma viene anche chiamata &quot;codice sorgente&quot;.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <b>
+      <font face="Verdana" size="2">Struttura base:</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <font face="Verdana" size="2" color="#000080"><b>Program NOMEDELPROGRAMMA;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b></font><font face="Verdana" size="2" color="#FF0000"><i>intestazione</i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <font face="Verdana" size="2" color="#000080"><b>var VARIABILI:TIPOVARIABILI;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b></font><i><font face="Verdana" color="#FF0000" size="2">riga che 
+      dichiara le variabili</font></i></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <b><font face="Verdana" size="2" color="#000080">begin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></b><i><font face="Verdana" size="2" color="#FF0000">istruzione che 
+      dichiara l'inizio del programma</font></i></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <b><font face="Verdana" size="2" color="#000080">CORPO DEL PROGRAMMA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <b><font face="Verdana" size="2" color="#000080">readln;&nbsp;&nbsp;&nbsp;
+      </font></b><font face="Verdana" size="2" color="#FF0000"><i>istruzione che 
+      serve a bloccare lo schermo per l'esecuzione del programma</i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <b><font face="Verdana" size="2" color="#000080">end.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></b><i><font face="Verdana" size="2" color="#FF0000">istruzione che 
+      dichiara la fine del programma</font></i></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      &nbsp;</p>
+      <a name=paroleriser>
+      <hr>
+      </a>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      <b><font face="Verdana" size="2"><span style="background-color: #FFFF00">
+      L'intestazione</span></font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">L'<i>intestazione</i> di un programma in <b>Pascal</b> è 
+      costituita dalla &quot;parola&quot; <b>PROGRAM</b> seguita da uno spazio e dal nome del 
+      programma. Il nome del programma non viene letto dal compilatore, quindi 
+      può essere un nome qualunque; pur tuttavia questa riga è omettibile.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <table border="1" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber3" VALIGN=top>
+        <tr>
+          <td width="100%" colspan="2" VALIGN=top>
+          <p align="center" style="text-align: center; margin-top: 0; margin-bottom: 0">
+          <b><i><font face="Verdana" size="2" color="#FF0000">Il nome del 
+          programma</font></i></b></td>
+        </tr>
+        <tr>
+          <td width="50%" VALIGN=top>
+          <p style="margin-top: 0; margin-bottom: 0"><u><b>
+          <font face="Verdana" size="2">DEVE:</font></b></u></p>
+          <p style="margin-top: 0; margin-bottom: 0">
+      <font face="Verdana" size="2">essere inserito senza spazi</font></td>
+          <td width="50%">
+          <p style="margin-top: 0; margin-bottom: 0"><u><b>
+          <font face="Verdana" size="2">NON DEVE:</font></b></u></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">essere una &quot;parola riservata&quot; </font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">contenere lettere accentate </font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">contenere segni di punteggiatura e simboli</font></p>
+          </td>
+        </tr>
+      </table>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Se si vogliono inserire degli spazi 
+      all'interno del nome del programma si possono usare le lineette (_):</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">Program 
+      hfdjdh_kjeijie_ijeiie;</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#000080"><b>...</b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#FF0000"><i>Il nome non viene letto 
+      dal compilatore,</i></font><font face="Verdana" size="2"> </font>
+      <font face="Verdana" size="2" color="#FF0000"><i>quindi può essere formato 
+      anche da&nbsp; un'insieme</i></font><font face="Verdana" size="2"> </font>
+      <i><font face="Verdana" size="2" color="#FF0000">di lettere alla rinfusa. 
+      In questo caso ho</font></i><font color="#FF0000" face="Verdana" size="2">
+      <i>usato le lineette per &quot;simulare&quot; gli spazi.</i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <hr>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      <b><font face="Verdana" size="2"><span style="background-color: #FFFF00">
+      Le parole riservate</span></font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font size="2" face="Verdana">Le &quot;<i>parole riservate</i>&quot; sono parole che non 
+      possono esser usate né come nome di un programma, né come nome di 
+      variabili, siccome sono parole che vengono &quot;lette&quot; dal compilatore come 
+      istruzioni che dichiarano qualcosa.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <font face="Verdana" size="2">Alcune parole riservate sono:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      &nbsp;</p>
+      <div align="center">
+        <center>
+      <table border="1" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" width="47%" id="AutoNumber4" height="55">
+        <tr>
+          <td width="31%" VALIGN=top height="90">
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Absolute</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">And</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Array</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Asm</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Begin</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Case </span></font>
+          </i>
+          </p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Const</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Destructor </span>
+          </font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Div</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Do</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Downto</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Else</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">End</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">File </span></font>
+          </i>
+          </p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">For</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Forward</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          &nbsp;</p>
+          </td>
+          <td width="36%" VALIGN=top height="93">
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Funtion</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Goto</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">If</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Implementation</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">In</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Interface</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Label</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Mod</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Nil</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Not </span></font>
+          </i>
+          </p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Object</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Of </span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Or</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Packed</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Private</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Procedure</span></font></i></p>
+          </td>
+          <td width="81%" VALIGN=top height="93">
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Program</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Record</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Repeat</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Set</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Shr</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">String</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font size="2" face="Verdana">Then</font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">To</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Type</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Until</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Uses</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Var</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">While</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Whit</span></font></i></p>
+          <p class="MsoNormal" style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2"><span lang="EN-GB">Xor</span></font></i></p>
+          <p>&nbsp;</td>
+        </tr>
+      </table>
+        </center>
+      </div>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      &nbsp;</p>
+      <hr>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      <b>
+      <font face="Verdana" size="2"><span style="background-color: #FFFF00">Le variabili</span></font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font size="2" face="Verdana">Le <i>variabili</i> sono composte da &quot;<i>identificatori</i>&quot; ai quali 
+      vengono assegnati dei dati. Questi identificatori non sono altro che dei 
+      nomi che possono essere assegnati 
+      liberamente, ma <b>non</b> debbono:</font></p>
+      <ol>
+        <li>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <i><font face="Verdana" size="2">contenere spazi</font></i></p>
+        </li>
+        <li>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <i><font face="Verdana" size="2">contenere segni di punteggiatura</font></i></p>
+        </li>
+        <li>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <i><font face="Verdana" size="2">essere dei simboli o dei numeri</font></i></p>
+        </li>
+        <li>
+      <a name=intesta>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <i><font face="Verdana" size="2">essere una &quot;parola riservata&quot;</font></i></p>
+        </li>
+        <li>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <i>
+      <font face="Verdana" size="2">contenere lettere accentate</font></i></p>
+        </li>
+      </ol>
+      </a>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Le <i>variabili</i> possono avere anche lo stesso 
+      nome del programma, e come quest'ultimo non vengono lette dal compilatore, 
+      il quale legge solo i dati che esse contengono. Se vi sono più variabili, 
+      i vari <i>identificatori</i> vengono separati virgole (,).</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Si è detto che le variabili
+      </font>
+      <a name=variabili>
+      <font size="2" face="Verdana">sono composte da &quot;identificatori&quot; ai quali 
+      vengono assegnati dei dati;</font></a><font face="Verdana" size="2"> questi dati 
+      possono essere di diverso tipo: testo, numeri 
+      interi, numeri reali ecc. Il tipo delle variabili deve essere indicato 
+      dopo la dichiarazione delle stesse, facendo precedere all'ultima variabile 
+      dichiarata i due punti (:) e scrivendo il tipo della variabile. Esempio:
+      </font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <font face="Verdana" size="2" color="#000080"><b>... </b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <font face="Verdana" size="2" color="#000080"><b>var identificatore,...,...,identificatore: 
+      tipo; </b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <font face="Verdana" size="2" color="#000080"><b>...</b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <font face="Verdana" size="2">I tipi delle variabili sono:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      &nbsp;</p>
+      <table border="1" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber5" height="141">
+        <tr>
+          <td width="6%" VALIGN=top height="32">
+          <p style="text-align: center; margin-top: 0; margin-bottom: 0"><b>
+          <font face="Verdana" size="2">TIPO DI VARIABILE</font></b></td>
+          <td width="58%" height="32">
+          <p style="text-align: center; margin-top: 0; margin-bottom: 0"><b>
+          <font size="2" face="Verdana">DESCRIZIONE</font></b></td>
+        </tr>
+        <tr>
+          <td width="6%" VALIGN=top height="102">
+          <p style="margin-top: 0; margin-bottom: 0">
+          <font face="Verdana" size="2">Integer</font></p>
+          <p style="margin-top: 0; margin-bottom: 0">
+          <font face="Verdana" size="2">Real</font></p>
+          <p style="margin-top: 0; margin-bottom: 0">
+          <font face="Verdana" size="2">String</font></p>
+          <p style="margin-top: 0; margin-bottom: 0">
+          <font face="Verdana" size="2">Boolean</font></p>
+          <p style="margin-top: 0; margin-bottom: 0">
+          <font face="Verdana" size="2">Char</font></p>
+          <p style="margin-top: 0; margin-bottom: 0">
+          <font face="Verdana" size="2">Byte</font></p>
+          <p style="margin-top: 0; margin-bottom: 0">
+          <font face="Verdana" size="2">Float</font></p>
+          <p style="margin-top: 0; margin-bottom: 0">
+          <font face="Verdana" size="2">Shortint</font></p>
+          <p style="margin-top: 0; margin-bottom: 0">
+          <font face="Verdana" size="2">Longint</font></td>
+          <td width="58%" VALIGN=top height="102">
+          <p style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2">La variabile è un numero intero da 
+          -32768 a +32767.</font></i></p>
+          <p style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2">La variabile è un numero reale da 
+          2.9E-39 a 1.7E38.</font></i></p>
+          <p style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2">La variabile è di tipo testuale.</font></i></p>
+          <p style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2">La variabile rinchiude i valori <b>TRUE</b> o 
+          <b>FALSE</b>.</font></i></p>
+          <p style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2">La variabile è un singolo carattere 
+          della tabella <b>ASCII</b>.</font></i></p>
+          <p style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2">La variabile è un numero intero da 0 a 
+          255.</font></i></p>
+          <p style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2">La variabile è un valore in virgola 
+          mobile.</font></i></p>
+          <p style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2">La variabile è un numero intero da -127 
+          a 127.</font></i></p>
+          <p style="margin-top: 0; margin-bottom: 0">
+          <i>
+          <font face="Verdana" size="2">La variabile è un numero intero da 
+          -2147483648 a +2147483648.</font></i></td>
+        </tr>
+      </table>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">&nbsp;</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Quando le variabili sono molteplici e di 
+      diverso tipo la sintassi è la seguante:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#000080"><b>... </b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#000080"><b>var 
+      identificatore1,...,...,identificatore2: tipo; </b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#000080"><b>var 
+      identificatore3,...,...,identificatore4: tipo; </b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#000080"><b>...</b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Quando le variabili non sono dichiarate 
+      nella seconda riga del programma, o, quando debbono essere richiamate 
+      all'interno del programma stesso, vengono dichiarate con la seguante 
+      sintassi:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font size="2" face="Verdana" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">Identificatore:=valore 
+      variabile;</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">In questo caso se la variabile è di tipo 
+      numerico si scriverà per es.:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#000080"><b>... </b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#000080"><b>x:=1234;</b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <a name=variabili>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Se la variabile è di tipo testuale si 
+      scriverà per es.:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#000080"><b>... </b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">y:='parola';</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <a name=Struttura>
+      <a name=paroleriser>
+      <hr>
+      </a>
+      <p style="text-align: center; margin-top: 0; margin-bottom: 0">
+      <b>
+      <font face="Verdana" size="2"><span style="background-color: #FFFF00">Le 
+      librerie</span></font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Le <i>librerie</i> sono un insieme di 
+      istruzioni necessarie al funzionamento di un programma. A volte i programmi, necessitano di 
+      istruzioni particolari talvolta sono molto lunghe nella loro sintassi. Le
+      <i>librerie</i> contengono queste istruzioni e dichiarando solo il loro 
+      nome in un programma, provvedono a diminuire il &quot;codice sorgente&quot; del 
+      programma stesso. Una volta dichiarate, le <i>librerie</i> vengono 
+      utilizzate dal programma per operazioni particolari, ma <i>non sono 
+      obbligatorie</i>. In <b>Pascal</b> le 
+      librerie sono chiamate <b>UNIT</b> e sono formate da procedure e funzioni; 
+      esse vengono eseguite creando un file con estensione &quot;<i>.tpu</i>&quot;. Le 
+      principali librerie sono:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <b>-<font face="Verdana" size="2">CRT</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <b><font face="Verdana" size="2">-DOS</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <b><font face="Verdana" size="2">-GRAPH</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <b><font face="Verdana" size="2">-OVERLAY</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <b><font face="Verdana" size="2">-PRINTER</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <b><font face="Verdana" size="2">-SYSTEM</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Per dichiarare un libreria, si scrive 
+      immediatamente sotto l'intestazione <b>USES nomelibreria;</b> se le 
+      librerie sono più di una vengono separate da una virgola:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font size="2" face="Verdana" color="#000080">Program esempio;</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font size="2" face="Verdana" color="#000080">uses crt,graph;</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font size="2" face="Verdana" color="#000080">var a,x,y:integer;</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font size="2" face="Verdana" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <i><font face="Verdana" size="2" color="#FF0000">Con la riga <b>USES CRT,GRAPH;</b> 
+      il compilatore &quot;capisce&quot; che le librerie usate sono <b>USES</b> e 
+      <b>GRAPH</b>.</font></i></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font size="2" face="Verdana">Nella libreria <b>CRT</b> vi è una 
+      particolare <i>procedura</i> che, nel codice sorgente di un programma, può 
+      essere richiamata col comando: <b>CLRSCR </b>(<i>dall'ingl.:<b>CL</b>eaR
+      <b>SCR</b>een, pulisci schermo</i>). Questo comando va inserito subito 
+      dopo il <b>BEGIN</b> (che dichiara l'inizio del programma) seguito da un 
+      punto e virgola <i>obbligatorio</i>, e, per il suo corretto funzionamento, 
+      è necessario dichiarare la libreria <b>CRT</b>. Il comando <b>CLRSCR</b> 
+      permette di eseguire un programma su schermo vuoto da qualsiasi scritta (<i>pulito</i>); 
+      è usato per avere una migliore visuale di ciò che deve apparire a video, 
+      ma <i>non è obbligatorio</i>. Esempio:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">Program esempio;</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">Uses </font>
+      <font face="Verdana" size="2" color="#0033CC">CRT</font><font face="Verdana" size="2" color="#000080">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></b><i><font face="Verdana" size="2" color="#FF0000">dichiarazione 
+      della libreria <b>CRT</b>, è <b>OBBLIGATORIO</b></font></i></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">begin</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#0033CC"><b>CLRSCR;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b></font><font face="Verdana" size="2" color="#FF0000"><i>punto e 
+      virgola <b>OBBLIGATORIO</b></i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">writeln('Un saluto a 
+      tutti i programmatori!');</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">readln;</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">end.</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#FF0000"><i>Questo programma </i>
+      stampa a video<i>, il messaggio &quot;<b>Un saluto a tutti i programmatori!</b>&quot; 
+      sullo schermo privo di ulteriori testi. Il programma scritto senza il 
+      comando <b>CLRSCR</b>, avrebbe </i>stampato a video<i> lo stesso 
+      messaggio, ma con altri testi che lo precedevano (generalmente gli </i>
+      altri testi<i> sono informazioni relative al </i>compilatore<i>, oppure 
+      messaggi di programmi precedenti; questi </i>altri testi<i> non 
+      influiscono sul programma quindi anche se non si usa il comando <b>CLRSCR</b> 
+      il programma viene eseguito lo stesso, perciò questo comando non è 
+      obbligatorio).</i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <a name=libre>
+      <hr>
+      <p style="text-align: center; margin-top: 0; margin-bottom: 0">
+      </a>
+      <font face="Verdana" size="2">
+      <span style="font-weight: 700; background-color: #FFFF00">Il corpo del 
+      programma</span></font></p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      <font size="2" face="Verdana">Il <i>corpo del programma</i> è la parte del 
+      programma stesso che contiene le tutte le istruzioni necessarie al 
+      funzionamento dell'algoritmo. Esso è compreso tra le istruzioni <b>BEGIN
+      </b>(<i>dall'ingl.: inizio</i>) e <b>END </b>(<i>dall'ingl.: fine</i>). Ad 
+      ogni BEGIN corrisponde un END. Se in un programma è &quot;aperto&quot; un BEGIN e 
+      non è chiuso da un relativo END, al momento della compilazione si 
+      visualizzerà un messaggio di errore. Esempio:</font></p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      &nbsp;</p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      <b><font face="Verdana" size="2" color="#000080">Program esempio;</font></b></p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      <b><font face="Verdana" size="2" color="#000080">var x,y:real;</font></b></p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      <b><font face="Verdana" size="2" color="#000080">begin</font></b></p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      <b><font face="Verdana" size="2" color="#000080">write('CIAO');</font></b></p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      <b><font face="Verdana" size="2" color="#000080">end.</font></b></p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      &nbsp;</p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      <font face="Verdana" size="2" color="#FF0000"><i>Questo programma non fa 
+      altro che &quot;stampare a video&quot;, cioè scriver sullo schermo, la scritta <b>
+      CIAO</b>. La riga delle variabili <b>(</b></i><b>var x,y:real</b><i><b>)</b> 
+      è omettibile, in quanto le due variabili dichiarate <b>(</b></i><b>x,y</b><i><b>)</b> 
+      non sono usate dal programma; quindi tutto il programma senza la riga 
+      delle variabili verrebbe lo stesso eseguito. Il corpo del programma è 
+      contenuto tra &quot;unici&quot; </i><b>BEGIN</b><i> ed </i><b>END</b><i> ed è 
+      costituito dalla sola riga: </i><b>WRITE('CAIO');</b>.<b> </b>Se il 
+      programma fosse stato scritto senza la riga <b>end.</b>,<b> </b>
+      all'esecuzione si sarebbe visualizzato un messaggio di errore.</font></p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0">
+      <font face="Verdana" size="2">I <b>commenti</b> sono <i>indicazioni che 
+      spiegano il funzionamento di un programma con delle righe inserite nel 
+      programma stesso. </i>Per inserire un <i>commento </i>all'interno di un 
+      programma si può usare una delle <b>2</b> sintassi corrette:</font></p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      &nbsp;</p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      <b><font face="Verdana" size="2" color="#000080">(*tra parentesi tonde e 
+      asterischi*)</font></b></p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      <b><font face="Verdana" size="2" color="#000080">{tra parentesi graffe}</font></b></p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      &nbsp;</p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      <font face="Verdana" size="2">Esempio (con il programma di prima):</font></p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      &nbsp;</p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      <b><font face="Verdana" size="2" color="#000080">Program esempio;</font></b></p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      <b><font face="Verdana" size="2" color="#000080">var x,y:real;</font></b></p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      <b><font face="Verdana" size="2" color="#000080">begin</font></b></p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      <b><font face="Verdana" size="2" color="#000080">(*inizio del programma*)</font></b></p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      <b><font face="Verdana" size="2" color="#000080">write('CIAO');</font></b></p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      <b><font face="Verdana" size="2" color="#000080">end.</font></b></p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      <b><font face="Verdana" size="2" color="#000080">{fine del programma}</font></b></p>
+      <a name=Struttura>
+      <a name=paroleriser>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      &nbsp;</p>
+      <a name=corpo>
+      <hr>
+      <p style="text-align: center; margin-top: 0; margin-bottom: 0"><b>
+      <a name=write>
+      <font face="Verdana" size="2"><span style="background-color: #FFFF00">
+      L'istruzione &quot;WRITE&quot;</span></font></a></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      Le <i>istruzioni</i> di un programma in <b>Pascal</b> sono delle righe che 
+      permettono al compilatore di eseguire determinate operazioni, allo scopo 
+      di ottenere un corretto funzionamento da parte del <i>programma</i>. Molte 
+      sono le istruzioni che nel linguaggio <b>Pascal</b> servono per scrivere 
+      un programma, ma non tutte debbono necessariamente essere utilizzate. Una 
+      di queste è <i>l'istruzione</i> <b>WRITE </b><i>(dall'ingl.: scrivi</i>), che è la più usata per 
+      comunicare con l'utente. Questa istruzione permette di &quot;<i>stampare a 
+      video</i>&quot;, cioè di scrivere sullo schermo, qualsiasi scritta, indicata 
+      fra gli <i>apici</i> (apostrofi) della sua sintassi:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">WRITE(</font><font face="Verdana" size="2" color="#FF0000">'</font><font face="Verdana" size="2" color="#000080">qui 
+      può essere inserito qualsiasi testo</font><font face="Verdana" size="2" color="#FF0000">'</font><font face="Verdana" size="2" color="#000080">);</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0">
+      <font face="Verdana" size="2">Per esempio, se si vuole creare un programma 
+      che stampi a video la scritta &quot;CIAO io sono un terrestre&quot;, si dovrà 
+      scrivere il seguente codice:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0">
+      &nbsp;</p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      <b><font face="Verdana" size="2" color="#000080">Program esempio;</font></b></p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      <b><font face="Verdana" size="2" color="#000080">begin</font></b></p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      <b><font face="Verdana" size="2" color="#000080">write('CIAO io sono un 
+      terreste');</font></b></p>
+      <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+      <b><font face="Verdana" size="2" color="#000080">end.</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      Gli <i>apici</i> indicano l'inizio e la fine del testo da <i>stampare a 
+      video</i>. Il testo fra gli apici non può però contenere altri <i>apici</i>, 
+      cioè <b>apostrofi</b>, altrimenti si crea confusione tra il testo che 
+      inizia e il teso che finisce. Per scrivere due o più testi in un'unica 
+      istruzione <b>WRITE</b>, si deve sempre iniziare ogni testo con un apice e 
+      finire con un altro apice, separando i due &quot;insiemi&quot; di testo con una 
+      virgola (altrimenti un apice verrà incluso nel testo); poi, è preferibile 
+      far iniziare il secondo &quot;insieme&quot; di testo e i seguenti, con uno spazio, 
+      altrimenti i due testi verranno attaccati. Esempio:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      <font color="#000080"><b>Program retta;<br>
+      begin<br>
+      write('PRIMO TESTO',' SECONDO TESTO', ' TERZO TESTO');<br>
+      end.</b></font><br>
+&nbsp;</font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><i>
+      <font face="Verdana" size="2" color="#FF0000">Questo programma stampa a 
+      video la scritta:</font></i></p>
+      <p style="margin-top: 0; margin-bottom: 0"><i>
+      <font face="Verdana" size="2" color="#FF0000">PRIMO TESTO SECONDO TESTO 
+      TERZO TESTO</font></i></p>
+      <p style="margin-top: 0; margin-bottom: 0"><i>
+      <font face="Verdana" size="2" color="#FF0000"><br>
+      Se il secondo e il terzo &quot;insieme&quot; di testo non fossero iniziati con uno 
+      spazio, cioè così:</font></i></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0">
+      <font color="#FF0000" face="Verdana" size="2"><b>Program retta;<br>
+      begin<br>
+      writeln('PRIMO TESTO','SECONDO TESTO', 'TERZO TESTO');<br>
+      end.</b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><i>
+      <font face="Verdana" size="2" color="#FF0000">il programma avrebbe 
+      stampato a video:</font></i></p>
+      <p style="margin-top: 0; margin-bottom: 0"><i>
+      <font face="Verdana" size="2" color="#FF0000">PRIMO TESTOSECONDO 
+      TESTOTERZO TESTO</font></i></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <a name=paroleriser>
+      <hr>
+      <p style="text-align: center; margin-top: 0; margin-bottom: 0">
+      <a name=read>
+      <b>
+      <font face="Verdana" size="2"><span style="background-color: #FFFF00">
+      L'istruzione &quot;READ&quot;</span></font></b></p>
+      </a>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      <b>READ </b>(<i>dall'ingl.: leggi</i>) è un'altra istruzione 
+      &quot;fondamentale&quot;, come <b>WRITE</b>, per scriver un programma in Pascal. 
+      Mentre <b>WRITE</b> si occupa di &quot;comunicare con l'utente&quot; il quale deve 
+      inserire dei dati, <b>READ </b>serve per leggere i dati inseriti 
+      dall'utente e inserirli nelle variabili che l'istruzione stessa indica. 
+      Sintassi:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">read(NOMEVARIABILE);</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      Esempio:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">write('Scrivi un numero');</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">read(a);</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">A 
+      video, eseguendo il programma, si visualizzerà:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      <b>Scrivi il numero_</b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      Il numero che verrà inserito verrà scritto sulla lineetta (che, in questo 
+      caso fa da cursore), quindi verrà scritto attaccato alla &quot;o&quot; di &quot;numero&quot;; 
+      per evitare questo inconveniente si usa &quot;l'istruzione aggiuntiva-estetica&quot; LN che è 
+      spiegata di seguito. Dopo aver inserito la la variabile da tastiera si 
+      deve premente INVIO per indicare che la si vuole far leggere. L'istruzione
+      <b>READ </b>usata senza parentesi e dichiarazione di una variabile, nel 
+      seguente modo:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">READ;</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      aspetta che si prema un tasto per passare all'operazione successiva.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      In questo caso l'utente riceve, &quot;stampato a video&quot;, il messaggio &quot;<b>Scrivi 
+      un numero</b>&quot;; dopo l'inserimento del numero da tastiera, l'istruzione <b>
+      READ</b>, legge il numero inserito e lo &quot;colloca&quot; nelle variabile &quot;<b>a</b>&quot;, 
+      cioè assegna ad &quot;<b>a</b>&quot; un dato, che in questo caso è il numero. La 
+      variabile &quot;<b>a</b>&quot;, naturalmente, deve essere dichiarata nella riga 
+      delle variabili come si è visto precedentemente:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      <font color="#000080"><b>var a:integer; </b>&nbsp;</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <i><font color="#FF0000">(se la variabile è un numero intero, quindi <b>
+      INTEGER</b>)</font></i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      Quando vi sono più dati da inserire si può ripetere l'istruzione <b>READ</b>, 
+      ogni volta che si deve leggere un dato; per velocizzare quest'azione, e 
+      accorciare il codice sorgente, si può usare <b>READ</b> una sola volta:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">write('Scrivi il primo 
+      numero');</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">write('Scrivi il secondo 
+      numero');</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">read(a,b);</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      Separando con una virgola le due variabili che debbono essere lette, si 
+      usa una solamente <b>READ</b>.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      Programma esempio:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font color="#000080" face="Verdana" size="2">Program esempio;</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font color="#000080" face="Verdana" size="2">var a,b:integer;</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">begin</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">write('Scrivi il primo 
+      numero');</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">write('Scrivi il secondo 
+      numero');</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">read(a,b);</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">end.</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><i>
+      <font face="Verdana" size="2" color="#FF0000">Questo programma non fa 
+      altro che stampare a video i messaggi:</font></i></p>
+      <p style="margin-top: 0; margin-bottom: 0"><i><b>
+      <font face="Verdana" size="2" color="#FF0000">Scrivi il primo numeroScrivi 
+      il secondo numero</font></b></i></p>
+      <p style="margin-top: 0; margin-bottom: 0"><i>
+      <font face="Verdana" size="2" color="#FF0000">e aspetta che l'utente 
+      inserisca due numeri, e dopo aver premuto INVIO, termina. </font></i></p>
+      <p style="margin-top: 0; margin-bottom: 0"><i>
+      <font face="Verdana" size="2" color="#FF0000">I messaggi sono scritti 
+      attaccati perché non viene usata l'istruzione LN che è spiegata di 
+      seguito.</font></i></p>
+      <a name=Struttura>
+      <a name=paroleriser>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      &nbsp;</p>
+      <a name=read>
+      <hr>
+      <p style="text-align: center; margin-top: 0; margin-bottom: 0">
+      <a name=ln>
+      <b>
+      <font face="Verdana" size="2"><span style="background-color: #FFFF00">
+      L'istruzione &quot;LN&quot;</span></font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      L'istruzione <b>LN</b><i> (dall'ingl. &quot;line&quot;: linea) </i>è del tipo 
+      &quot;estetico&quot;: cioè serve per organizzare meglio ciò che compare a video per 
+      &quot;dialogare&quot; con l'utente. La sua funzione è simile all'<i>INVIO</i> della 
+      tastiera, cioè permette di andare a capo; può essere usata insieme alle 
+      istruzioni <b>WRITE</b> e <b>READ</b> nelle sintassi:</font></p>
+      </a>
+      <p style="margin-top: 0; margin-bottom: 0"><font color="#000080"><b>...</b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">
+      <font face="Verdana" size="2" color="#000080"><b>WRITE</b></font><b><font face="Verdana" size="2" color="#0033CC">LN</font></b><font face="Verdana" size="2" color="#000080"><b>('testotestotesto');</b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0">
+      <font face="Verdana" size="2" color="#000080"><b>READ</b></font><b><font face="Verdana" size="2" color="#0033CC">LN</font></b><font face="Verdana" size="2" color="#000080"><b>(variabile);</b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      L'istruzione <b>WRITELN</b> permette di scrivere da capo il testo inserito 
+      negli apici; usata senza testo tra apici (<font color="#000080"><b>...writeln;...</b></font>) 
+      permette di inserire un'interlinea bianca. L'istruzione <b>READLN </b>
+      permette di far leggere una variabile in un'altra riga. Esempio:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0">
+      <font face="Verdana" size="2" color="#000080"><b>Program ESEMPIO;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b></font><font face="Verdana" size="2" color="#FF0000"><i>intestazione 
+      con nome del programma</i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">
+      <font face="Verdana" size="2" color="#000080"><b>var a:integer;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b></font><i><font face="Verdana" size="2" color="#FF0000">&nbsp;riga 
+      delle variabili</font></i></p>
+      <p style="margin-top: 0; margin-bottom: 0">
+      <font face="Verdana" size="2" color="#000080"><b>begin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b></font><font face="Verdana" size="2" color="#FF0000"><i>istruzione di 
+      inizio del programma</i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">writeln('TESTO1');</font></b><font face="Verdana" size="2" color="#000080"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+      </b></font><font face="Verdana" size="2" color="#FF0000"><i>&nbsp;istruzione 
+      che stampa a video la scritta tra gli apici</i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">
+      <font face="Verdana" size="2" color="#000080"><b>writeln('Scrivi un 
+      numero');&nbsp;&nbsp; </b></font>
+      <font face="Verdana" size="2" color="#FF0000"><i>istruzione che stampa a 
+      video la scritta tra gli apici(<b>1</b>)</i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">
+      <font face="Verdana" size="2" color="#000080"><b>readln(a);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b></font><i><font face="Verdana" size="2" color="#FF0000">istruzione di 
+      lettura delle variabili(<b>2</b>)</font></i></p>
+      <p style="margin-top: 0; margin-bottom: 0">
+      <font face="Verdana" size="2" color="#000080"><b>end.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b></font><font face="Verdana" size="2" color="#FF0000"><i>istruzione 
+      finale del programma</i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0">
+      <font face="Verdana" size="2" color="#FF0000"><i>Questo programma &quot;stampa 
+      a video&quot; il testo &quot;</i><b>TESTO 1</b><i>&quot; e da capo il messaggio <b>Scrivi 
+      un numero</b></i>. <i>Come di vede eseguendo il programma il numero viene 
+      scritto sotto la riga &quot;<b>Scrivi un numero</b></i>&quot;,<i> questo è il 
+      risultato dell'istruzione </i><b>LN</b><i> applicata a </i><b>WRITE</b><i> 
+      (<b>1</b>) che ha permesso di scrivere la variabile da capo. Se si omette
+      <b>LN</b> dell'istruzione <b>READ </b>(<b>2</b>)si otterrà lo stesso 
+      risultato.</i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      L'ultimo esempio della lezione precedente adesso potrà essere riscritto, 
+      con maggiore organizzazione dei dati da stampare a video, in questo modo:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font color="#000080" face="Verdana" size="2">Program esempio;</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font color="#000080" face="Verdana" size="2">var a,b:integer;</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">begin</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">write</font><font face="Verdana" size="2" color="#0033CC">ln</font><font face="Verdana" size="2" color="#000080">('Scrivi il primo 
+      numero');</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">write</font><font face="Verdana" size="2" color="#0033CC">ln</font><font face="Verdana" size="2" color="#000080">('Scrivi il secondo 
+      numero');</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">read(a,b);</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">end.</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><i>
+      <font face="Verdana" size="2" color="#FF0000">Adesso questo programma 
+      &quot;stamperà a video&quot; i messaggi scritti in questo modo:</font></i></p>
+      <p style="margin-top: 0; margin-bottom: 0"><i><b>
+      <font face="Verdana" size="2" color="#FF0000">Scrivi il primo numero</font></b></i></p>
+      <p style="margin-top: 0; margin-bottom: 0"><i><b>
+      <font face="Verdana" size="2" color="#FF0000">Scrivi 
+      il secondo numero</font></b></i></p>
+      <p style="margin-top: 0; margin-bottom: 0"><i>
+      <font face="Verdana" size="2" color="#FF0000">e attenderà l'inserimento 
+      delle due variabili (A e B). Il secondo messaggio è stato scritto da capo 
+      grazie all'istruzione <b>LN</b> applicata alla prima istruzione <b>WRITE.</b></font></i></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <a name=Struttura>
+      <a name=paroleriser>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      &nbsp;</p>
+      <a name=ln>
+      <hr align="left">
+      <p style="text-align: center; margin-top: 0; margin-bottom: 0">
+      <a name=fortodo>
+      <b>
+      <font face="Verdana" size="2"><span style="background-color: #FFFF00">Il ciclo &quot;FOR...TO...DO&quot;</span></font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">A 
+      volte i programmatori, scrivendo programmi in qualsiasi linguaggio, hanno 
+      bisogno di &quot;<i>un'applicazione</i>&quot; che ripeta più volte delle operazioni, 
+      per non riscrivere inutilmente il codice di quelle operazioni e provvedere 
+      allo stesso tempo ad accorciare il <i>codice sorgente</i>. In <b>Pascal
+      </b>quest'<i>applicazione </i>è chiamata &quot;<b>ciclo</b>&quot;, proprio perché 
+      raccoglie in se una serie di operazioni eseguite ciclicamente. </font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      Esistono nel linguaggio <b>Pascal</b> diversi <i>cicli, </i>tra questi c'è 
+      il ciclo &quot;<b>FOR...TO...DO</b>&quot; (<i>dall'ingl.: per...a...fai</i>) che 
+      serve per ripetere una serie di operazioni un certo numero di volte. La 
+      sua sintassi è:</font></p>
+      </a>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0">
+      <font face="Verdana" size="2" color="#000080"><b>FOR </b>nomevariabile<b>:=</b>variabile1<b> 
+      TO </b>variabile2<b> DO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b></font><font face="Verdana" size="2" color="#FF0000"><i>&nbsp; <b>
+      senza punto e virgola</b></i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><i>
+      <font face="Verdana" size="2" color="#000080">sintassi delle operazioni da 
+      ripetere</font></i></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      <b>FOR</b> &quot;introduce&quot; il nome della variabile del ciclo; &quot;<b>:=</b>&quot; 
+      stabilisce i &quot;termini&quot; del ciclo insieme a <b>TO</b>; infine, <b>DO</b>, 
+      indica l'inizio delle operazioni (o dell'operazione) da ripetere; è una 
+      norma molto importante <u>non</u> finire la riga del ciclo con il punto e 
+      virgola (;), altrimenti si interromperebbe il ciclo e il compilatore al 
+      momento dell'esecuzione visualizzerebbe u messaggio d'errore. Esempio:</font></p>
+      <a name=fortodo>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0">
+      <font color="#000080" size="2" face="Verdana"><b>Program esempio;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b></font><font size="2" face="Verdana" color="#FF0000"><i>intestazione 
+      con il nome del programma</i></font><font color="#000080" size="2" face="Verdana"><b><br>
+      var a:integer;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b></font><font size="2" face="Verdana" color="#FF0000"><i>riga delle 
+      variabili</i></font><font color="#000080" size="2" face="Verdana"><b><br>
+      begin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b></font><font size="2" face="Verdana" color="#FF0000"><i>istruzione di 
+      inizio del programma</i></font><b><font color="#000080" size="2" face="Verdana"><br>
+      </font><font color="#0033CC" size="2" face="Verdana">for</font><font color="#000080" size="2" face="Verdana"> a:=1 to 
+      50 </font><font color="#0033CC" size="2" face="Verdana">do</font><font color="#000080" size="2" face="Verdana">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+      </b><i><font size="2" face="Verdana" color="#FF0000">riga di 
+      dichiarazione del ciclo (<b>1</b>)</font></i><font color="#000080" size="2" face="Verdana"><b><br>
+      writeln(a);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b></font>
+      <font face="Verdana" size="2" color="#FF0000"><i>istruzione che stampa a 
+      video la scritta tra gli apici</i></font><font color="#000080" size="2" face="Verdana"><b><br>
+      end.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b></font><font size="2" face="Verdana" color="#FF0000"><i>istruzione 
+      finale del programma</i></font><font color="#000080" size="2" face="Verdana"><b><br>
+      </b></font><font face="Verdana" size="2"><br>
+      <font color="#FF0000"><i>Eseguendo questo programma il compilatore 
+      stamperà a video, uno sotto l'altro, i numeri da 1 a 50. Nel punto <b>1
+      </b>il ciclo viene dichiarato, cioè la variabile <b>a</b> con il ciclo <b>
+      FOR...TO...DO</b> assume i valori tra 1 e 50, quindi scrivendola assume 1, 
+      poi 2, poi 3 e così via; in questo caso si ripete la sua scrittura da 1 a 
+      50 (quindi 50 volte) e l'istruzione<b> LN</b>, dopo l'unico <b>WRITE</b>, 
+      contribuisce a scrivere tutti in numeri uno sotto l'altro. Naturalmente i 
+      numeri 1 e 5o possono essere anche variabili-lettere; esempio:</i></font></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0">
+      <font face="Verdana" size="2" color="#FF0000"><b>Program esempio;<br>
+      var a,b,c:integer;<br>
+      begin</b></font></p>
+      </a>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">b:=1;</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">c:=50;</font></b><a name=fortodo><b><font face="Verdana" size="2" color="#FF0000"><br>
+      for a:=</font><font face="Verdana" size="2" color="#000080">b</font><font face="Verdana" size="2" color="#FF0000"> 
+      to </font><font face="Verdana" size="2" color="#000080">c </font>
+      <font face="Verdana" size="2" color="#FF0000">do<br>
+      writeln(a);<br>
+      end.</font></b><font face="Verdana" size="2" color="#FF0000"><i><br>
+&nbsp;</i></font></p>
+      </a>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      Quando si debbono ripetere delle operazioni si usano strutture simili alla 
+      seguente:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font size="2" face="Verdana" color="#000080">Program esempio;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></b><font size="2" face="Verdana" color="#FF0000"><i>&nbsp;intestazione 
+      con il nome del programma</i></font><font size="2" face="Verdana" color="#000080"><b><br>
+      var a,b:integer;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b></font><font size="2" face="Verdana" color="#FF0000"><i>riga delle 
+      variabili</i></font><font size="2" face="Verdana" color="#000080"><b><br>
+      begin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b></font><font size="2" face="Verdana" color="#FF0000"><i>riga di inizio 
+      del programma</i></font><b><font size="2" face="Verdana" color="#000080"><br>
+      </font>
+      <font size="2" face="Verdana" color="#0033CC">for</font><font size="2" face="Verdana" color="#000080"> a:=1 to 
+      5 </font>
+      <font size="2" face="Verdana" color="#0033CC">do</font><font size="2" face="Verdana" color="#0000FF">&nbsp; </font>
+      <font size="2" face="Verdana" color="#000080">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+      </b>
+      <a name=fortodo>
+      <i><font size="2" face="Verdana" color="#FF0000">riga di dichiarazione del 
+      ciclo </font></i></a><b><font size="2" face="Verdana" color="#000080"><br>
+&nbsp;</font><font size="2" face="Verdana" color="#0033CC">begin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></b><font size="2" face="Verdana" color="#0033CC"><i>riga di inizio 
+      dell'operazione del ciclo</i><b><br>
+&nbsp;</b></font><b><font size="2" face="Verdana" color="#0033CC">b:=12+34;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></b><font size="2" face="Verdana" color="#0033CC"><i>corpo delle 
+      operazione del ciclo</i></font><b><font size="2" face="Verdana" color="#0033CC"><br>
+&nbsp;writeln(b);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></b><font size="2" face="Verdana" color="#0033CC"><i>corpo delle 
+      operazioni del ciclo</i><b><br>
+&nbsp;</b></font><b><font size="2" face="Verdana" color="#0033CC">end;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></b><font size="2" face="Verdana" color="#0033CC"><i>riga finale 
+      del ciclo</i></font><font size="2" face="Verdana" color="#000080"><b><br>
+      end.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b></font><font size="2" face="Verdana" color="#FF0000"><i>riga finale 
+      del programma</i></font><br>
+&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><i>
+      <font face="Verdana" size="2" color="#FF0000">In questo programma è la 
+      scrittura di una somma </font></i>
+      <font face="Verdana" size="2" color="#000080">(b:=12+34;)</font><font face="Verdana" size="2" color="#FF0000"><i><b>
+      </b>da ripetere per 5 volte. Quando si debbono ripetere delle operazioni 
+      (e non delle scritture, come accadeva nel programma precedente) si debbono 
+      &quot;aprire&quot; un altro <b>begin&nbsp; </b>e un altro<b> end</b>, i quali 
+      segnalano l'inizio di una nuova operazione. L'insieme delle istruzioni 
+      racchiuse nel secondo <b>BEGIN</b> e secondo <b>END</b> sono un tipico 
+      esempio di </i><b>sottoprogramma</b>.</font></p>
+      <a name=fortodo>
+      <a name=Struttura>
+      <a name=paroleriser>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      &nbsp;</p>
+      <hr>
+      <p style="text-align: center; margin-top: 0; margin-bottom: 0">
+      <a name=ifthenelse>
+      <b>
+      <font face="Verdana" size="2"><span style="background-color: #FFFF00">
+      L'istruzione &quot;IF...THEN...ELSE&quot;</span></font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <font size="2" face="Verdana">L'istruzione <b>IF...THEN...ELSE</b> (<i>dall'ingl.: 
+      se...allora...altrimenti</i>) serve per specificare una condizione nel 
+      programma. La sua sintassi è:</font></p>
+      </a>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <font face="Verdana" size="2" color="#000080"><b>IF </b>condizione<b> THEN
+      </b>operazioni N1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font><i><font face="Verdana" size="2" color="#FF0000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      senza punto e virgola</b></font></i></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <font face="Verdana" size="2" color="#000080"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      ELSE </b>operazioni N2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <a name=ifthenelse>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      &nbsp;</p>
+      </a>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Cioè: &quot;<i>se</i>&quot; la condizione espressa tra
+      <b>IF</b> e <b>THEN</b> sarà <i>vera</i>, il programma eseguirà le 
+      &quot;operazioni N1&quot;, &quot;<i>altrimenti</i>&quot; eseguirà le &quot;operazioni N2&quot; 
+      introdotte da <b>ELSE</b>. </font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Se il programma eseguirà le &quot;operazioni N1&quot;, 
+      naturalmente, le &quot;operazioni N2&quot; non verranno eseguite; e viceversa, se il 
+      programma eseguirà le &quot;operazioni N1&quot;, le &quot;operazioni N2&quot; non verranno 
+      eseguite. Dopo aver eseguito le operazioni secondo la condizione, il 
+      programma &quot;salta&quot; le altre espresse nell'istruzione <b>IF...THEN..ELSE </b>
+      passando alle istruzioni successive. E' importante <u>non</u> mettere il 
+      punto e virgola alla fine della prima riga dell'istruzione. Nella sintassi 
+      ELSE è sotto THEN per motivi di organizzazione del codice ma è lo stesso 
+      se si scrive così:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <font face="Verdana" size="2" color="#000080"><b>IF </b>condizione<b> THEN
+      </b>operazioni N1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font><i><font face="Verdana" size="2" color="#FF0000"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      senza punto e virgola</b></font></i></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <font face="Verdana" size="2" color="#000080"><b>ELSE </b>operazioni N2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Esempio di programma con l'istruzione <b>IF...THEN...ELSE</b>:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">Program esempio;<br>
+      var a,b:integer;<br>
+      begin<br>
+      writeln('Scrivi i due numeri');<br>
+      readln(a,b);<br>
+      </font><font face="Verdana" size="2" color="#0033CC">if </font>
+      <font face="Verdana" size="2" color="#000080">a&gt;b</font><font face="Verdana" size="2" color="#0033CC"> then </font>
+      <font face="Verdana" size="2" color="#000080">writeln('Primo 
+      numero maggiore del secondo')</font><font face="Verdana" size="2" color="#0033CC"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else  </font>
+      <font face="Verdana" size="2" color="#000080">writeln('Secondo 
+      numero maggiore del primo');</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#000080"><b>readln;<br>
+      end.</b></font><font face="Verdana" size="2" color="#FF0000"><br>
+&nbsp;</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <i><font face="Verdana" size="2" color="#FF0000">Questo programma, dopo 
+      aver inserito 2 numeri verifica la condizione (</font></i><font face="Verdana" size="2" color="#000080">a&gt;b</font><font face="Verdana" size="2" color="#FF0000"><i>); 
+      se essa è <b>vera</b> (cioè se <b>a</b> è maggiore di <b>b</b>) stampa a 
+      video &quot;<b>Primo numero maggiore del secondo</b>&quot;,altrimenti, se è <b>falsa</b> 
+      (cioè se <b>b</b> è maggiore di <b>a</b>) stampa a video &quot;<b>Secondo 
+      numero maggiore del primo</b>&quot;. Se i numeri inseriti sono uguali o si 
+      blocca o stampa a video &quot;<b>Secondo numero maggiore del primo</b>&quot;; questo 
+      &quot;inaspettato comportamento&quot; del compilatore è dovuto all'impossibilità da 
+      parte dell'istruzione IF...THEN...ELSE di integrare più condizioni (la 
+      cosiddetta &quot;<b>scelta multipla</b>&quot; spiegata di seguito).</i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Esempio con variabile &quot;STRING&quot;:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b>
+      <font face="Verdana" size="2" color="#000080">Program esempio;<br>
+      var a:string;<br>
+      begin<br>
+      writeln('Sei maschio?');<br>
+      readln(a);<br>
+      </font>
+      <font face="Verdana" size="2" color="#0033CC">if</font><font face="Verdana" size="2" color="#000080"> a='si'  </font>
+      <font face="Verdana" size="2" color="#0033CC">then</font><font face="Verdana" size="2" color="#000080"> writeln('INDIVIDUO MASCHILE')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+       
+      </font>
+      <font face="Verdana" size="2" color="#0033CC">else</font><font face="Verdana" size="2" color="#000080"> writeln('INDIVIDUO FEMMINILE');<br>
+      readln;<br>
+      end.</font></b><font face="Verdana" size="2" color="#FF0000"><i><br>
+&nbsp;</i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <i><font face="Verdana" size="2" color="#FF0000">Una variabile di tipo <b>
+      STRING</b> è di tipo testuale. In questo caso la variabile <b>a</b> è 
+      testuale. Questo programma, dopo aver letta la variabile <b>a</b> (cioè 
+      dopo aver risposto alla domanda &quot;<b>Sei maschio?</b>&quot; con <b>si </b>o 
+      qualche altra scritta), verifica la condizione (</font></i><font face="Verdana" size="2" color="#000080">a='si'</font><i><font face="Verdana" size="2" color="#FF0000">); 
+      se essa è <b>vera</b> (cioè se <b>a</b> è uguale a <b>si</b>), stampa a 
+      video &quot;INDIVIDUO MASCHILE&quot;, altrimenti, se è <b>falsa </b>(cioè se a è 
+      uguale <b>a</b> qualsiasi altra scritta), stampa a video &quot;INDIVIDUO 
+      FEMMINILE&quot;.</font></i></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Quando nell'istruzione <b>IF...THEN...ELSE</b> 
+      le parole &quot;<b>THEN</b>&quot; e &quot;<b>ELSE</b>&quot; introducono delle operazioni più 
+      complesse, si usa racchiudere le operazioni stesse tra un altro <b>BEGIN</b> 
+      e un altro <b>END; </b>in modo da organizzare meglio l'esecuzione del 
+      programma, a volte, infatti il malfunzionamento del programma dipende 
+      proprio da questo fattore. Esempio:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2"><b><font color="#000080">Program esempio;<br>
+      var a,b,c:integer;<br>
+      begin<br>
+      writeln('Scrivi due numeri');<br>
+      readln(a,b);<br>
+      </font><font color="#0033CC">if </font><font color="#000080">a=b </font>
+      <font color="#0033CC">then</font><font color="#000080"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+      <font color="#FF9933">begin</font><font color="#000080"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c:=a*b;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; writeln('Numeri 
+      UGUALI - Prodotto=',c);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+      <font color="#FF9933">end&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font><font color="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      senza punto e virgola</font><font color="#000080"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+      <font color="#0033CC">else</font><font color="#000080"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+      <font color="#FF9933">begin</font><font color="#000080"><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c:=a+b;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; writeln('Numeri 
+      DIVERSI - Somma=',c);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+      <font color="#FF9933">end;</font><font color="#000080"><br>
+      readln;<br>
+      end.</font></b><br>
+&nbsp;</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <i><font face="Verdana" size="2" color="#FF0000">Questo programma stampa a 
+      video il messaggio &quot;<b>Scrivi due numeri</b>&quot;, e dopo aver letto le due 
+      variabili (<b>a</b> e <b>b</b>), verifica la condizione (</font></i><font face="Verdana" size="2" color="#000080">a=b</font><i><font face="Verdana" size="2" color="#FF0000">); 
+      se essa è <b>vera</b> esegue la moltiplicazione dei numeri (</font></i><font face="Verdana" size="2" color="#000080">c:=a*b</font><i><font face="Verdana" size="2" color="#FF0000">) 
+      e stampa a video il messaggio &quot;<b>Numeri UGUALI - Prodotto=</b></font><font face="Verdana" size="2" color="#000080">prodottodeinumeri</font><font face="Verdana" size="2" color="#FF0000">&quot;; 
+      se essa è <b>falsa</b> esegue la somma dei numeri e stampa a video il 
+      messaggio &quot;<b>Numeri DIVERSI - Somma=</b></font><font face="Verdana" size="2" color="#000080">sommadeinumeri</font><font face="Verdana" size="2" color="#FF0000">&quot;. 
+      Il primo <b>END</b> (10ª riga) </font></i>
+      <font face="Verdana" size="2" color="#FF0000"><u>non</u><i> deve finire né 
+      con un <b>punto</b> (perché non è lì che termina il programma), né con un
+      <b>punto e virgola</b>, perché dopo di esso vi è l'istruzione <b>ELSE</b>
+      <b>che non richiede <u>mai</u> il punto e virgola all'istruzione che la 
+      precede.</b></i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">L'istruzione <b>IF...THEN...ELSE</b> non 
+      permette però la &quot;<i>scelta multipla</i>&quot;, cioè una &quot;vasta gamma di 
+      scelte&quot;. L'istruzione che serve per fare una scelta multipla in un 
+      programma <b>Pascal</b> è &quot;<b>CASE...OF</b>&quot; spiegata di seguito.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <hr>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      <a name=caseof>
+      <font face="Verdana" size="2">
+      <span style="font-weight: 700; background-color: #FFFF00">L'istruzione &quot;CASE...OF&quot;</span></font></p>
+        <p style="margin-top: 0; margin-bottom: 0">
+        <font size="2" face="Verdana">L'istruzione <b>CASE...OF</b> (<i>dall'ingl.:caso...di</i>) 
+        permette di effettuare una &quot;<i>scelta multipla</i>&quot; all'interno di un 
+        programma scritto in <b>Pascal</b>. Essa è migliore rispetto a <b>IF...THEN...ELSE</b> 
+        in quanto quest'ultima permette di effettuare soltanto <b>2</b> scelte. 
+        La sua sintassi è:</font></p>
+      </a>
+        <p style="margin-top: 0; margin-bottom: 0"><b>
+        <font face="Verdana" size="2" color="#000080">...</font></b></p>
+        <p style="margin-top: 0; margin-bottom: 0">
+        <font face="Verdana" size="2" color="#000080"><b>CASE </b>variabile<b> 
+        OF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </b></font><i><b><font face="Verdana" size="2" color="#FF0000">senza 
+        punto e virgola</font></b></i></p>
+        <p style="margin-top: 0; margin-bottom: 0">
+        <font face="Verdana" size="2" color="#000080">condizione<b>1:</b>operazione<b>1;</b></font></p>
+        <p style="margin-top: 0; margin-bottom: 0">
+        <font face="Verdana" size="2" color="#000080">condizione<b>2:</b>operazioni<b>2;</b></font></p>
+        <p style="text-align: left; margin-top: 0; margin-bottom: 0"><b>
+        <font face="Verdana" size="2" color="#000080">...</font></b></p>
+        <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+        <font face="Verdana" size="2" color="#000080"><b>
+        else </b>operazione<b>3;</b></font></p>
+        <p style="text-align: left; margin-top: 0; margin-bottom: 0"><b>
+        <font face="Verdana" size="2" color="#000080">end;</font></b></p>
+        <p style="text-align: left; margin-top: 0; margin-bottom: 0"><b>
+        <font face="Verdana" size="2" color="#000080">...</font></b></p>
+        <p style="text-align: left; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+        <p style="margin-top: 0; margin-bottom: 0">
+        <font face="Verdana" size="2">Cioè: nel caso che la <i>variabile</i> (<b>..CASE 
+        variabile OF...</b>) verifichi la condizione<b>1</b>, il compilatore 
+        esegue l'operazione<b>1</b>; nel caso che la <i>variabile</i> verifichi 
+        la condizione<b>2</b>, il compilatore esegue l'operazione<b>2</b>, e 
+        così via; se nessuna delle condizioni è verificata, il compilatore 
+        esegue l'operazione<b>3 </b>introdotta da <b>ELSE</b> (<i>dall'ingl.: 
+        altrimenti</i>). L'istruzione <b>END;</b> è obbligatoria anche se non 
+        esiste un <b>BEGIN</b> vero e proprio; la riga che introduce tutta 
+        l'istruzione <u>non</u> deve terminare con il punto e virgola.</font></p>
+        <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+        <p style="margin-top: 0; margin-bottom: 0">
+        <font face="Verdana" size="2">Esempio di programma con <b>CASE...OF</b>:</font></p>
+        <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+        <p style="margin-top: 0; margin-bottom: 0">
+        <font face="Verdana" size="2"><b><font color="#000080">Program esempio;<br>
+        var a:integer;<br>
+        begin<br>
+        writeln('Scrivi un numero');<br>
+        readln(a);<br>
+&nbsp;</font><font color="#0033CC">case</font><font color="#000080"> a </font>
+        <font color="#0033CC">of</font><font color="#000080"><br>
+&nbsp; 1:writeln('UNO');<br>
+&nbsp; 2:writeln('DUE');<br>
+&nbsp; 3:writeln('TRE');<br>
+&nbsp; </font><font color="#0033CC">else</font><font color="#000080"> writeln('Numero 
+        non valido');<br>
+&nbsp;</font><font color="#0033CC">end;</font></b></font></p>
+        <p style="margin-top: 0; margin-bottom: 0"><b>
+        <font face="Verdana" size="2" color="#000080">readln;</font></b><font face="Verdana" size="2"><b><font color="#000080"><br>
+        end.</font></b><br>
+&nbsp;</font></p>
+        <p style="margin-top: 0; margin-bottom: 0">
+        <font face="Verdana" size="2" color="#FF0000"><i>Questo programma stampa 
+        a video il messaggio &quot;<b>Scrivi un numero</b>&quot;, e dopo aver ricevuto il 
+        numero dall'utente (il quale lo ha inserito da tastiera), verifica se la 
+        variabile </i><b>a</b><i> (quindi il numero), è uguale a 1, 2 o 3; se è 
+        uguale a <b>1</b>, stampa a video la scritta &quot;<b>UNO</b>&quot;; se è uguale a
+        <b>2</b> stampa a video la scritta &quot;<b>DUE</b>&quot; e se è uguale a <b>3</b> 
+        stampa e video la scritta &quot;<b>TRE</b>&quot;. Se il numero inserito non è né
+        <b>1</b>, né <b>2</b> e né <b>3</b>, stampa a video ciò che è introdotto 
+        da <b>ELSE</b>, cioè la scritta &quot;<b>Numero non valido</b>&quot;.</i></font></p>
+        <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+        <p style="margin-top: 0; margin-bottom: 0">
+        <font face="Verdana" size="2">Quando le operazioni da eseguire, se si 
+        verifica la condizione, sono più complesse si crea un sottoprogramma con 
+        un <b>BEGIN</b> e un <b>END</b>, con la seguente sintassi:</font></p>
+        <p style="margin-top: 0; margin-bottom: 0">
+        <font face="Verdana" size="2">...</font></p>
+        <p style="margin-top: 0; margin-bottom: 0">
+        <font face="Verdana" size="2" color="#000080"><b>CASE </b>variabile<b> 
+        OF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </b></font><i><b><font face="Verdana" size="2" color="#FF0000">senza 
+        punto e virgola</font></b></i></p>
+        <p style="margin-top: 0; margin-bottom: 0">
+        <font face="Verdana" size="2" color="#000080">condizione<b>1:</b></font></p>
+        <p style="margin-top: 0; margin-bottom: 0"><b>
+        <font face="Verdana" size="2" color="#000080">begin</font></b></p>
+        <p style="margin-top: 0; margin-bottom: 0">
+        <font face="Verdana" size="2" color="#000080">operazione<b>1;</b></font></p>
+        <p style="margin-top: 0; margin-bottom: 0"><b>
+        <font face="Verdana" size="2" color="#000080">end;</font></b></p>
+        <p style="margin-top: 0; margin-bottom: 0">
+        <font face="Verdana" size="2" color="#000080">condizione<b>2:</b></font></p>
+        <p style="margin-top: 0; margin-bottom: 0"><b>
+        <font face="Verdana" size="2" color="#000080">begin</font></b></p>
+        <p style="margin-top: 0; margin-bottom: 0">
+        <font face="Verdana" size="2" color="#000080">operazioni<b>2;</b></font></p>
+        <p style="margin-top: 0; margin-bottom: 0"><b>
+        <font face="Verdana" size="2" color="#000080">end;</font></b></p>
+        <p style="text-align: left; margin-top: 0; margin-bottom: 0"><b>
+        <font face="Verdana" size="2" color="#000080">...</font></b></p>
+        <p style="text-align: left; margin-top: 0; margin-bottom: 0">
+        <font face="Verdana" size="2" color="#000080"><b>else </b>operazione<b>3;</b></font></p>
+        <p style="text-align: left; margin-top: 0; margin-bottom: 0"><b>
+        <font face="Verdana" size="2" color="#000080">end;</font></b></p>
+        <p style="text-align: left; margin-top: 0; margin-bottom: 0"><b>
+        <font face="Verdana" size="2" color="#000080">...</font></b></p>
+        <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+        <p style="margin-top: 0; margin-bottom: 0">
+        <font face="Verdana" size="2">Esempio di programma con operazioni da 
+        eseguire più complesse, usando l'istruzione <b>CASE...OF</b>:</font></p>
+        <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+        <p style="margin-top: 0; margin-bottom: 0"><b>
+        <font face="Verdana" size="2" color="#000080">Program esempio;<br>
+        var a,b,c,d,e:integer;<br>
+        begin<br>
+        writeln('1 - somma');<br>
+        writeln('2 - differenza');<br>
+        writeln;<br>
+        writeln('Che operazione devi svolgere? (1/2)');<br>
+        readln(a);<br>
+        </font><font face="Verdana" size="2" color="#0033CC">&nbsp;case</font><font face="Verdana" size="2" color="#000080"> 
+        a </font><font face="Verdana" size="2" color="#0033CC">of</font><font face="Verdana" size="2" color="#000080"><br>
+&nbsp; 1:<br>
+        </font><font face="Verdana" size="2" color="#0033CC">&nbsp;&nbsp; begin</font><font face="Verdana" size="2" color="#000080"><br>
+&nbsp;&nbsp;&nbsp; writeln('Scrivi i due numeri');<br>
+&nbsp;&nbsp;&nbsp; readln(b,c);<br>
+&nbsp;&nbsp;&nbsp; writeln(b+c);<br>
+&nbsp;&nbsp;&nbsp; writeln;<br>
+        </font><font face="Verdana" size="2" color="#0033CC">&nbsp;&nbsp; end;</font><font face="Verdana" size="2" color="#000080"><br>
+&nbsp; 2:<br>
+        </font><font face="Verdana" size="2" color="#0033CC">&nbsp;&nbsp; begin</font><font face="Verdana" size="2" color="#000080"><br>
+&nbsp;&nbsp;&nbsp; writeln('Scrivi i due numeri');<br>
+&nbsp;&nbsp;&nbsp; readln(d,e);<br>
+&nbsp;&nbsp;&nbsp; writeln;<br>
+&nbsp;&nbsp;&nbsp; writeln(d-e);<br>
+        </font><font face="Verdana" size="2" color="#0033CC">&nbsp;&nbsp; end;</font><font face="Verdana" size="2" color="#000080"><br>
+        </font><font face="Verdana" size="2" color="#0033CC">&nbsp; else</font><font face="Verdana" size="2" color="#000080"> 
+        writeln('NUMERO NON VALIDO');<br>
+        </font><font face="Verdana" size="2" color="#0033CC">&nbsp;end;</font><font face="Verdana" size="2" color="#000080"><br>
+        readln;<br>
+        end.<br>
+&nbsp;</font></b></p>
+        <p style="text-align: left; margin-top: 0; margin-bottom: 0"><i>
+        <font face="Verdana" size="2" color="#FF0000">Questo programma stampa a 
+        video il messaggio:</font></i></p>
+        <p style="text-align: left; margin-top: 0; margin-bottom: 0"><b>
+        <font face="Verdana" size="2" color="#FF0000">1 - somma<br>
+        2 - differenza</font></b></p>
+        <p style="text-align: left; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+        <p style="text-align: left; margin-top: 0; margin-bottom: 0"><b>
+        <font face="Verdana" size="2" color="#FF0000">Che operazione devi 
+        svolgere? (1/2)</font></b></p>
+        <p style="text-align: left; margin-top: 0; margin-bottom: 0">&nbsp;</p>
+        <p style="margin-top: 0; margin-bottom: 0">
+        <font face="Verdana" size="2" color="#FF0000"><i>avvisando l'utente che 
+        potrà inserire soltanto i numeri <b>1</b> o <b>2</b> (<b>1</b> per 
+        svolgere la </i>somma<i>, <b>2</b> per svolgere la </i>differenza<i>). 
+        Ricevuto il numero inserito da tastiera (</i></font><font face="Verdana" size="2" color="#000080">readln(a);</font><font face="Verdana" size="2" color="#FF0000"><i>), 
+        verifica le condizioni: se il numero è <b>1</b>, stampa a video la 
+        scritta &quot;<b>Scrivi i due numeri'</b>&quot;, e, dopo aver lasciato una riga 
+        vuota (</i></font><font face="Verdana" size="2" color="#000080">writeln;</font><font face="Verdana" size="2" color="#FF0000"><i>), 
+        scrive la loro </i>somma<i>; se il numero è <b>2</b> stampa a video la 
+        scritta &quot;<b>Scrivi i due numeri'</b>&quot;, e, dopo aver lasciato una riga 
+        vuota (</i></font><font face="Verdana" size="2" color="#000080">writeln;</font><font face="Verdana" size="2" color="#FF0000"><i>), 
+        scrive la loro </i>differenza<i>; infine se il numero inserito non è né
+        <b>1</b>, né <b>2</b>, stampa a video ciò che è introdotto da <b>ELSE</b>, 
+        cioè la scritta &quot;NUMERO NON VALIDO&quot;.</i></font></p>
+      <a name=Struttura>
+      <a name=paroleriser>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      &nbsp;</p>
+      <a name=caseof>
+      <hr>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      <a name=while>
+      <font face="Verdana" size="2">
+      <span style="font-weight: 700; background-color: #FFFF00">Il ciclo &quot;WHILE...DO&quot;</span></font></p>
+      <a name=Struttura>
+      <a name=paroleriser>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Il ciclo <b>WHILE...DO</b> (<i>dall'ingl.: 
+      mentre...fai</i>), permette di eseguire un serie di operazioni fino a 
+      quando la condizione specificata si verifica <b><i>vera</i></b>. La sua sintassi e:</font></p>
+      </a>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#000080"><b>WHILE </b>condizione<b> 
+      DO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b></font><b><font face="Verdana" size="2" color="#FF0000"><i>senza punto 
+      e virgola</i></font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#000080">begin</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#000080">&nbsp;operazioni</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#000080">end;</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Cioè: <b><i>mentre </i></b>(<b>WHILE</b>)<i><b> </b> </i>si verifica la 
+      &quot;condizione&quot; specificata tra <b>WHILE</b> e <b>DO</b>, il <i>compilatore</i> 
+      deve eseguire (<b>DO</b>) le operazioni comprese 
+      tra il <i><b>begin</b></i> e l'<b><i>end</i></b>. Il <i>compilatore</i> 
+      eseguirà tali operazioni fino a quando la &quot;condizione&quot; si verificherà <b>
+      <i>vera</i></b>; quando la &quot;condizione&quot; sarà <i><b>falsa</b></i>, il<i> 
+      compilatore</i> &quot;uscirà&quot; da ciclo e passerà ad eseguire le istruzioni successive.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      Esempio di programma con <b>WHILE...DO</b>:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      <b><font color="#000080">Program esempio;<br>
+      var a,b:integer;<br>
+      begin<br>
+      writeln('Scrivi due numeri');<br>
+      readln(a,b);<br>
+      </font><font color="#0033CC">while</font><font color="#000080"> a&gt;b </font>
+      <font color="#0033CC">do&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font><i><font color="#FF0000">riga che introduce il ciclo; senza punto e 
+      virgola</font></i><font color="#000080"><br>
+&nbsp;</font><font color="#0033CC">begin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></b><font color="#FF0000"><i>riga di inizio delle operazioni da 
+      svolgere</i></font><b><font color="#000080"><br>
+&nbsp; a:=a-10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></b><font color="#FF0000"><i>operazioni</i></font><font color="#000080"><b><br>
+      </b></font><b><font color="#0000FF">&nbsp;</font><font color="#0033CC">end;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></b><i><font color="#FF0000">&nbsp;riga finale delle operazioni da 
+      svolgere</font></i><b><font color="#000080"><br>
+      writeln('Numero finale ',a);<br>
+      readln;<br>
+      end.</font></b><br>
+&nbsp;</font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      <i><font color="#FF0000">Questo programma stampa a video il messaggio &quot;<b>Scrivi 
+      due numeri</b>&quot;, e dopo aver letti i numeri inseriti, passa a verificare 
+      la condizione (</font></i><font color="#000080">a&gt;b</font><font color="#FF0000"><i>). 
+      Se la condizione sarà <b>vera</b> eseguirà </i>l'operazione<i> stabilita (</i></font><font color="#000080">a:=a-10</font><font color="#FF0000"><i>); 
+      terminata </i>l'operazione, <i>il </i>compilatore<i> ritorna a verificare 
+      la condizione e, se sarà <b>vera</b> eseguirà di nuovo </i>l'operazione<i> 
+      stabilita (</i></font><font color="#000080">a:=a-10</font><font color="#FF0000"><i>). 
+      Questo </i><b>ciclo </b><i>continua fino a quando la condizione si 
+      verifica <b>vera</b></i>, <i>quando essa si verificherà <b>falsa</b>, il
+      </i>compilatore<i> &quot;uscirà&quot; da ciclo ed eseguirà le operazioni successive, 
+      cioè stamperà a video il messaggio:</i></font></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">
+      <font color="#FF0000" face="Verdana" size="2"><i>&quot;<b>Numero finale</b></i> 
+      valore<i>della</i>variabile<b>a</b>&quot;, <i>e terminerà l'esecuzione del 
+      programma.</i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      Se la condizione indicata tra <b>WHILE</b> e <b>DO</b>, fosse sempre <i>
+      <b>vera</b></i>, il <i>compilatore</i> non uscirebbe <u>mai</u> dal ciclo, 
+      e al momento dell'esecuzione provocherebbe una ripetizione all'<i>infinito</i> 
+      dell'operazione specificata tra il <b>begin</b> e l'<b>end</b>; in questi 
+      casi si dice che il computer &quot;<i>si impianta</i>&quot;. Per risolvere questo 
+      problema e si deve spegnere la macchina o chiudere il compilatore e 
+      riscrivere il programma da capo. </font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+      Visto questo inconveniente, se il programma scritto è di una certa 
+      lunghezza e complessità, è bene fare una &quot;<b>copia di sicurezza</b>&quot; del
+      <i>codice sorgente</i> prima di eseguirlo.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <a name=paroleriser>
+      <hr>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      <a name=repeat>
+      <font face="Verdana" size="2">
+      <span style="font-weight: 700; background-color: #FFFF00">Il ciclo &quot;REPEAT...UNTIL&quot;</span></font></p>
+      <a name=Struttura>
+      <a name=paroleriser>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font size="2" face="Verdana">Il ciclo<b> REPEAT...UNTIL </b>(<i>dall'ingl.: 
+      ripeti...fino...</i>), permette di eseguire un serie di operazioni fino a 
+      quando la condizione specificata si verifica <b><i>falsa</i></b>. Questo 
+      ciclo è praticamente il <i>contrario</i> del ciclo <b>WHILE...DO</b>. La 
+      sua sintassi è:</font></p>
+      </a>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">REPEAT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font><i><font face="Verdana" size="2" color="#FF0000">senza punto e 
+      virgola</font></i></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#000080">begin</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#000080">&nbsp;operazioni</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#000080">end;</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#000080">
+      <b>UNTIL </b>condizione<b>;</b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Cioè: il <i>compilatore</i> ripete (<b>REPEAT</b>) 
+      le operazioni specificate tra i <i><b>begin</b></i> e l'<b><i>end</i></b>, 
+      fino a quando la &quot;condizione&quot; specificata dopo l'<b>UNTIL </b>sarà <b><i>
+      falsa</i></b>; quando la condizione sarà <b><i>vera</i></b>, il 
+      compilatore &quot;<i>uscirà</i>&quot; dal ciclo e comincerà ad eseguire le 
+      operazioni successive. Il <b>begin</b> e l'<b>end</b> possono anche esser 
+      omessi.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Esempio di programma scritto usando il ciclo
+      <b>REPEAT...UNTIL</b>:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font size="2" face="Verdana"><b><font color="#000080">Program esempio;<br>
+      var t,n:integer;<br>
+      begin<br>
+      Writeln('Dopo aver inserito un numero:');<br>
+      writeln('- Premi INVIO per inserirne un_altro');<br>
+      writeln('- Premi 0 per terminare');<br>
+      writeln;<br>
+      t:=0;<br>
+      </font><font color="#0033CC">repeat&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font><i><font color="#FF0000">senza punto e virgola</font></i><font color="#000080"><br>
+      Writeln('Inserisci un numero');&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></b><i><font color="#FF0000">&nbsp;operazioni</font></i><b><font color="#000080"><br>
+      readln(n);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></b><i><font color="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp; operazioni</font></i><font color="#000080"><b><br>
+      t:=t+n;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b></font><i><font color="#FF0000">operazioni</font></i><font color="#000080"><b><br>
+      </b></font><b><font color="#0033CC">Until</font><font color="#000080"> n=0</font><font color="#0033CC">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font><font color="#FF0000"><i>condizione</i></font></b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font size="2" face="Verdana"><b><font color="#000080">writeln('Somma 
+      totale = ',t);<br>
+      readln;<br>
+      end.</font></b></font><font color="#000080"><br>
+      </font><br>
+      <i><font face="Verdana" size="2" color="#FF0000">Questo programma stampa a 
+      video i messaggi:</font></i></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#FF0000">Dopo aver inserito un 
+      numero:</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#FF0000">- Premi INVIO per 
+      inserirne un_altro</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#FF0000">- Premi 0 per terminare</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#FF0000">Inserisci un numero</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#FF0000"><i>Prima di stampare a video 
+      &quot;<b>Inserisci un numero</b>&quot;, il compilatore &quot;</i>azzera<i>&quot; la variabile
+      <b>t</b> (detta &quot;</i>variabile di accumulamento<i>&quot;). Quando il 
+      compilatore stampa a video il messaggio &quot;<b>Inserisci un numero</b>&quot; </i>
+      entra<i> nel ciclo. Dopo aver &quot;</i>letto<i>&quot; il numero inserito ed averlo 
+      immagazzinato nella variabile <b>n</b> (</i></font><font face="Verdana" size="2" color="#000080">readln(n);</font><font face="Verdana" size="2" color="#FF0000"><i>), 
+      il compilatore esegue la somma tra il numero inserito e la variabile<b> t</b>, 
+      che è uguale a </i>zero<i>; poi verifica la </i>condizione<i> specificata 
+      da &quot;</i></font><font face="Verdana" size="2" color="#000080">Until n=0</font><font face="Verdana" size="2" color="#FF0000"><i>&quot;, 
+      la quale indica che fino a quando il numero inserito (<b>n</b>) sarà 
+      diverso da </i>zero<i>, si ripeteranno le operazioni comprese tra il <b>
+      REPEAT</b> e l'<b>UNTIL</b>. Quindi il compilatore, verificata la </i>
+      condizione<i>, se essa è <b>falsa</b> (cioè, se <b>n</b> è </i>diverso<i> 
+      da <b>0</b>) ritorna ad eseguire il programma dall'istruzione <b>REPEAT</b>; 
+      se essa, invece, è <b>vera</b> (cioè, se <b>n</b> è </i>uguale<i> a <b>0</b>), 
+      &quot;</i>esce<i>&quot; dal ciclo ed esegue le istruzioni successive, cioè stampa 
+      video</i> &quot;<b>Somma totale =</b> valore<i>della</i>variabile<b>t</b>&quot;, e 
+      termina l'esecuzione del programma.</font></p>
+      <a name=function>
+      <a name=Struttura>
+      <a name=paroleriser>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      &nbsp;</p>
+        <hr>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      <span style="font-weight: 700; background-color: #FFFF00">
+      <font face="Verdana" size="2"><a name="varie">Grafica in </a>Pascal</font></span></p>
+      <a name=function>
+      <a name=Struttura>
+      <a name=paroleriser>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Nel linguaggio <b>Pascal</b> esistono <i>due</i> 
+      diverse modalità per l'uso di uno schermo di un computer: modalità <b>
+      testuale</b> e <b>grafica</b>. </font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Per la modalità <b>testuale</b> lo schermo è 
+      suddiviso in <b>80x25</b> <i>pixel </i>(<i>dall'ingl.: <b>PI</b>cture <b>X</b>
+      <b>EL</b>ement; il <b>pixel</b> è la minima unità grafica di uno schermo</i>); 
+      in questa &quot;risoluzione&quot; vengono visualizzati i caratteri. La posizione del
+      <i>cursore</i> (quindi ogni <i>pixel</i>) è individuata da due coordinate:
+      <i>ascissa</i> (<b>x</b>) e <i>ordinata </i>(<b>y</b>), con <i>origine 
+      degli assi </i>posto in alto a sinistra nello schermo. Per individuare la 
+      posizione del cursore sullo schermo è:</font></p>
+      </a>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font color="#000080" face="Verdana" size="2"><b>...</b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">GOTOXY(ascissa, ordinata)</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Ad esempio per scrivere il messaggio &quot;<b>CIAO</b>&quot;, 
+      nel punto dello schermo di <i>ascissa</i> <b>60</b> e <i>ordinata</i> <b>5</b>, 
+      il programma da scrivere è il seguente:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2"><b><font color="#000080">Program esempio;<br>
+      begin<br>
+      </font><font color="#0033CC">gotoxy</font><font color="#000080">(</font><font color="#0033CC">60</font><font color="#000080">,</font><font color="#0033CC">5</font><font color="#000080">);<br>
+      writeln('CIAO');</font></b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">readln;</font></b><font face="Verdana" size="2"><b><font color="#000080"><br>
+      end.</font></b><br>
+&nbsp;</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">La riga delle variabili è assente perché non 
+      c'è bisogno di alcuna variabile.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Per la modalità <b>grafica </b>lo schermo 
+      può essere utilizzato a <b>bassa</b> o ad <b>alta</b> risoluzione. A <i>
+      <b>bassa</b> risoluzione</i> lo schermo è suddiviso in <b>320x200</b> <i>
+      pixel</i>, ognuno individuato da due coordinate, ascissa e ordinata, di 
+      tipo INTEGER.  </font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Per &quot;dichiarare&quot; la <b>bassa</b> risoluzione si usa il 
+      comando <b>GRAPHCOLORMODE; </b>(<i>dall'ingl: modalità grafica a colori</i>). 
+       
+      </font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Per <i>stampare a video</i> un <i><b>punto</b></i>, si usa l'istruzione:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">PLOT(x,y,c)</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Dove <b>x</b> è <i>l'ascissa</i>, <b>y</b> è
+      <i>l'ordinata</i> e <b>c </b>è il <i>colore</i> da con il quale il punto 
+      sarà &quot;disegnato&quot;. Il colore può assumere i seguenti valori:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <table border="1" cellspacing="1" VALIGN="top" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber6">
+        <tr>
+          <td width="25%" valign="top"><font face="Verdana"><b>0</b></font><font size="2" face="Verdana">= 
+          colore corrente dello SFONDO</font></td>
+          <td width="25%" valign="top"><font face="Verdana"><b>1</b></font><font size="2" face="Verdana">= 
+          <b><font color="#008000">VERDE</font></b></font></td>
+          <td width="25%" valign="top"><font face="Verdana"><b>2</b></font><font size="2" face="Verdana">= 
+          <b><font color="#FF0000">ROSSO</font></b></font></td>
+          <td width="25%" valign="top"><b><font face="Verdana">3</font></b><font size="2" face="Verdana">=<font color="#FFFF00">
+          </font><font color="#FFCC00"><b>GIALLO</b></font></font></td>
+        </tr>
+      </table>
+      <a name=paroleriser>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      &nbsp;</p>
+      </a>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Esempio di programma per <i>stampare a video</i> 
+      un punto di coordinate (<i>ascissa</i>) 40 e (<i>ordinata</i>) 23, di 
+      colore giallo, con l'istruzione <b>PLOT</b>:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <font face="Verdana" size="2"><b><font color="#000080">Program esempio;<br>
+      begin<br>
+      </font><font color="#0033CC">graphcolormode;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font><font color="#FF0000"><i>dichiarazione della modalità grafica a 
+      BASSA risoluzione</i></font></b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <font face="Verdana" size="2"><b><font color="#0033CC">plot</font><font color="#000080">(40,23,0);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></b><i><font color="#FF0000">riga dell'istruzione</font></i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <font face="Verdana" size="2"><b><font color="#000080">readln;<br>
+      end.</font></b><br>
+&nbsp;</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <font face="Verdana" size="2">La riga delle variabili è assente perché non 
+      c'è bisogno di alcuna variabile.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <font face="Verdana" size="2">Per <i>stampare a video</i> un <b><i>
+      segmento</i></b>, si usa l'istruzione:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <b><font face="Verdana" size="2" color="#000080">DRAW(x1,y1,x2,y2,c);</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Dove <b>x1</b> è <i>l'ascissa del primo 
+      punto</i>, <b>y1</b> è <i>l'ordinata del primo punto</i>, <b>x2 </b>è <i>
+      l'ascissa del secondo punto</i>, <b>y2</b> è <i>l'ordinata del secondo 
+      punto </i>e <b>c</b> è il <i>colore</i> da con il quale la linea 
+      sarà &quot;disegnata&quot;, che può assumere i valori sopradescritti. </font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">L'istruzione <b>DRAW</b> non fa altro che 
+      trovare il primo e il secondo punto (tramite le coordinate scritte tra le 
+      parentesi dell'istruzione), e unirli, creando in questo modo una linea o 
+      segmento.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Esempio di programma per stampare a video un 
+      segmento che va dal punto di ascissa 10 e ordinata 19, al punto di ascissa 
+      80 e ordinata 100, di colore rosso, con l'istruzione <b>DRAW</b>:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2"><b><font color="#000080">Program esempio;<br>
+      begin<br>
+      </font><font color="#0033CC">graphcolormode; </font><font color="#000080">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font><font color="#FF0000"><i>dichiarazione della modalità 
+      grafica a BASSA risoluzione</i></font><font color="#000080"><br>
+      </font><font color="#0033CC">draw</font><font color="#000080">(10,19,80,100,2);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></b><i><font color="#FF0000">riga dell'istruzione</font></i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2"><b><font color="#000080">readln;<br>
+      end.</font></b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2"><br>
+      La riga delle variabili è assente perché non 
+      c'è bisogno di alcuna variabile.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Per <i>stampare a video</i> un <b><i>
+      segmento</i></b>, orizzontale o verticale, si può anche utilizzare il 
+      ciclo <b>FOR...TO...DO</b> insieme all'istruzione<b> PLOT</b>, in questo 
+      modo:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0">
+      <font color="#000080" size="2" face="Verdana"><b>...</b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0">
+      <b>
+      <font face="Verdana" size="2" color="#000080">FOR </font>
+      <font face="Verdana" size="2" color="#0000FF">x</font></b><font face="Verdana" size="2" color="#000080">
+      <i>o</i> </font><b>
+      <font face="Verdana" size="2" color="#0000FF">y</font><font face="Verdana" size="2" color="#000080">:=</font></b><font face="Verdana" size="2" color="#000080">variabile1<b> 
+      TO </b>variabile2<b> DO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b></font><font face="Verdana" size="2" color="#FF0000"><i>&nbsp; <b>
+      senza punto e virgola</b></i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">PLOT(</font><font face="Verdana" size="2" color="#0000FF">x</font><font face="Verdana" size="2" color="#000080">,</font><font face="Verdana" size="2" color="#0000FF">y</font><font face="Verdana" size="2" color="#000080">,c);</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Se la variabile del ciclo <b>FOR...TO...DO
+      </b>(<b>x </b><i>o</i> <b>y</b>) è <b>x </b>nell'istruzione <b>PLOT </b>si 
+      dovrà scrivere: <b>PLOT(<font color="#0000FF">x</font>,</b><i>numero</i><b>,c);</b> 
+      dove<b> </b>&quot;<i>numero</i>&quot;<b> </b>è un numero scelto dall'utente, e la 
+      linea verrà <i>orizzontale</i>. Se la variabile del ciclo <b>FOR...TO...DO
+      </b>(<b>x </b><i>o</i> <b>y</b>) è <b>y </b>nell'istruzione <b>PLOT </b>si 
+      dovrà scrivere: <b>PLOT(</b><i>numero</i><b>,<font color="#0000FF">y</font>,c);</b> 
+      dove<b> </b>&quot;<i>numero</i>&quot;<b> </b>è un numero scelto dall'utente, e la 
+      linea verrà <i>verticale</i>. I &quot;nomi&quot; <i><b>variabile1 </b></i>e<b><i> 
+      variabile2 </i></b>dovranno essere i limiti di punti da stampare a video 
+      (per esempio: <b>...FOR x:=</b>0 <b>TO </b>100<b> DO...</b>, indica che la 
+      linea sarà formata da <b>100</b> <i>punti</i>).</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Esempio per <i>stampare a video</i> un <b>
+      <i>segmento orizzontale</i></b>, di colore verde, con il ciclo <b>FOR...TO...DO
+      </b>insieme all'istruzione<b> PLOT</b>,<b> </b>(i punti del segmento 
+      avranno la y uguale a 8):</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2"><b><font color="#000080">Program esempio;<br>
+      var x:integer;<br>
+      begin<br>
+      </font><font color="#0033CC">graphcolormode;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font><font color="#FF0000"><i>&nbsp;dichiarazione della modalità grafica 
+      a BASSA risoluzione</i></font><font color="#000080"><br>
+      for</font><font color="#0033CC"> x</font><font color="#000080">:=0 to 200 
+      do&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></b><i><font color="#FF0000">riga del</font></i><font color="#FF0000"><i> 
+      ciclo</i></font><b><font color="#000080"><br>
+      </font><font color="#0033CC">plot(x,8,1);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></b><i><font color="#FF0000">riga dell'istruzione</font></i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2"><b><font color="#000080">readln;<br>
+      end.</font></b><br>
+&nbsp;</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Esempio per <i>stampare a video</i> un <b>
+      <i>segmento verticale</i></b>, di colore verde, con il ciclo <b>FOR...TO...DO
+      </b>insieme all'istruzione<b> PLOT</b>,<b> </b>(i punti del segmento 
+      avranno la x uguale a 8):</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2"><b><font color="#000080">Program esempio;<br>
+      var y:integer;<br>
+      begin<br>
+      </font><font color="#0033CC">graphcolormode;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font><font color="#FF0000"><i>&nbsp;dichiarazione della modalità grafica 
+      a BASSA risoluzione</i></font><font color="#000080"><br>
+      for</font><font color="#0033CC"> y</font><font color="#000080">:=0 to 200 
+      do&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></b><i><font color="#FF0000">riga del</font></i><font color="#FF0000"><i> 
+      ciclo</i></font><b><font color="#000080"><br>
+      </font><font color="#0033CC">plot(8,y,1);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font></b><i><font color="#FF0000">riga dell'istruzione</font></i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2"><b><font color="#000080">readln;<br>
+      end.</font></b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Per &quot;dichiarare&quot; l'<b>alta</b> <i>risoluzione</i> si usa il 
+      comando <b>HIRES; </b>(<i>delle parole inglesi <b>HI</b>gh (alta) <b>RES</b>olution 
+      (risoluzione)</i>). Ad
+      <b>alta</b><i>
+      risoluzione</i> lo schermo è suddiviso in <b>640x200</b> <i>
+      pixel</i>. L'ambiente grafica ad <b>alta </b><i>risoluzione </i>permette 
+      di utilizzare solo il <i>nero</i> come colore di sfondo, e solo un colore 
+      grafico. Per dichiarare l'<b>alta</b> <i>risoluzione</i> si deve scrivere 
+      la seguente sintassi:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">HIRES;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </font><font face="Verdana" size="2" color="#FF0000"><i>dichiarazione 
+      della modalità grafica ad ALTA risoluzione</i></font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#000080"><b>HIRESCOLOR(c);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </b><i>dichiarazione del colore grafico</i></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Dove <b>c</b> è il <i>colore</i> da con il quale il punto 
+      sarà &quot;disegnata&quot; la grafica (punti e linee), che può assumere i 
+      valori sopradescritti. Ad
+      <b>alta</b><i>
+      risoluzione </i>il colore dei comandi <b>PLOT</b> e <b>DRAW </b>può 
+      assumere solo 2 valori:</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+        <table border="1" cellspacing="1" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber7">
+          <tr>
+            <td width="37%"><font face="Verdana"><b>0</b></font><font size="2" face="Verdana">= 
+            colore dello sfondo (NERO)</font></td>
+            <td width="63%"><font face="Verdana"><b>1</b></font><font face="Verdana" size="2">= 
+            colore dichiarato dalla procedura HIRESCOLOR(c);</font></td>
+          </tr>
+      </table>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      <font face="Verdana" size="2">Per quanto riguarda le istruzioni di <i>
+      stampa a video</i> di <b>punti</b> o <b>segmenti </b>le sintassi sono le 
+      stesse, tranne che per l'istruzione <b>GRAPHCOLORMODE; </b>che viene 
+      sostituita dalla sintassi che dichiara l'<b>alta</b> <i>risoluzione</i>.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:left">
+      &nbsp;</p>
+        <a name=paroleriser>
+        <hr>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      <a name=funzionivarie>
+      <font face="Verdana" size="2">
+      <span style="font-weight: 700; background-color: #FFFF00">Funzioni varie</span></font></p>
+      <a name=Struttura>
+      <a name=paroleriser>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Esistono nel linguaggio <b>Pascal</b> delle 
+      particolari <i>funzioni</i> che permettono di eseguire determinati 
+      calcoli. Di seguito sono elencate solo 10 (le più usate) di queste funzioni, con le relative 
+      spiegazioni ed esempi.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2" color="#FF0000">I numeri dopo i due punti 
+      (:) vicini alle variabili indicano quante cifre debbono formare il numero 
+      della variabile. Es. &quot;<b>b:1:2</b>&quot;, indica che il numero della variabile 
+      sarà formato da <b>1</b> cifra prima della virgola e <b>2</b> cifre 
+      decimali. Es. &quot;<b>a:0:0</b>&quot;,&nbsp; indica che il numero della variabile 
+      sarà formato da <i>indefiniti </i>valori prima della virgola e nessuna 
+      cifra decimale.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      <font face="Verdana" size="2">________</font><b><font size="2" face="Verdana">1</font></b><font face="Verdana" size="2">________</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      &nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font size="2" face="Verdana">
+<font color="#000080"><b>SQRT(</b></font><font color="#0033CC">variabile</font><b><font color="#000080">)</font> - </b>Calcola la 
+<i><b>radice quadrata</b></i> della <i>variabile</i> specificata tra le 
+parentesi. Es.: <b>a:=SQRT(144)</b>.</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><font size="2" face="Verdana">
+Esempio1:</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      </a>
+<p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+<b>
+<font color="#000080">Program esempio;<br>
+var a,b:real;<br>
+begin<br>
+writeln('La radice quadrata di quale numero?');<br>
+readln(a);<br>
+b:=</font><font color="#0033CC">sqrt(</font><font color="#000080">a</font><font color="#0033CC">)</font><font color="#000080">;<br>
+writeln('La radice quadrata di ',a:0:1,' è ', b:0:1);<br>
+readln;<br>
+end.</font></b><br>
+&nbsp;</font></p>
+<p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+Esempio2:</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <a name=paroleriser>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">Program esempio;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">var a:real;</font></b></p>
+      </a>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">begin</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">a:=</font><font face="Verdana" size="2" color="#0033CC">sqrt(</font><font face="Verdana" size="2" color="#000080">36</font><font face="Verdana" size="2" color="#0033CC">)</font><font face="Verdana" size="2" color="#000080">;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">writeln('La radice di 36 è 
+',a:0:1);</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">readln;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">end.</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <a name=paroleriser>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      <font face="Verdana" size="2">________</font><b><font size="2" face="Verdana">2</font></b><font face="Verdana" size="2">________</font></p>
+      </a>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <a name=paroleriser>
+<p style="margin-top: 0; margin-bottom: 0">
+<font size="2" face="Verdana">
+<font color="#000080"><b>SQR(</b></font><font color="#0033CC">variabile</font><b><font color="#000080">)</font> 
+- </b>Calcola il <i><b>quadrato</b></i> della <i>variabile</i> specificata tra 
+parentesi.  </font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font size="2" face="Verdana">
+Es.: <b>b:=SQR(23)</b>.</font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+&nbsp;</p>
+      </a>
+<p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+Esempio1:</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <a name=paroleriser>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>Program esempio;</b></font></p>
+      </a>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>var a,b:integer;</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>begin</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>writeln('Il quadrato di quale 
+numero?');</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>readln(a);</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<b>
+<font color="#000080" size="2" face="Verdana">b:=</font><font size="2" face="Verdana" color="#0033CC">sqr(</font><font color="#000080" size="2" face="Verdana">a</font><font size="2" face="Verdana" color="#0033CC">)</font><font color="#000080" size="2" face="Verdana">;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>writeln('Il quadrato di ',a,' è 
+',b);</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>readln;</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>end.</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><font size="2" face="Verdana">
+Esempio2:</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <a name=paroleriser>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">Program esempio;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">var a:integer;</font></b></p>
+      </a>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">begin</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">a:=</font><font face="Verdana" size="2" color="#0033CC">sqr(</font><font face="Verdana" size="2" color="#000080">53</font><font face="Verdana" size="2" color="#0033CC">)</font><font face="Verdana" size="2" color="#000080">;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">writeln('Il quadrato di 53 è 
+',a);</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">readln;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">end.</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <a name=paroleriser>
+      <p style="text-align: center; margin-top: 0; margin-bottom: 0">
+      <font face="Verdana" size="2">________</font><b><font size="2" face="Verdana">3</font></b><font face="Verdana" size="2">________</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font size="2" face="Verdana">
+<font color="#000080"><b>INT(</b></font><font color="#0033CC">variabile</font><b><font color="#000080">)</font> 
+- <i>Fornisce</i></b> <i><b>la</b></i> <i><b>parte intera</b></i> della <i>
+variabile</i> specificata tra le parentesi. Es.: <b>c:=int(23.45) </b>sarà 
+uguale a<b> 23</b>.</font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+&nbsp;</p>
+      </a>
+<p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+Esempio1:</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <a name=paroleriser>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>Program esempio;</b></font></p>
+      </a>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>var a,b:real;</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>begin</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>writeln('La parte intera di 
+quale numero?');</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>readln(a);</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font color="#000080" size="2" face="Verdana">b:=</font><font size="2" face="Verdana" color="#0033CC">int(</font><font color="#000080" size="2" face="Verdana">a</font><font size="2" face="Verdana" color="#0033CC">)</font><font color="#000080" size="2" face="Verdana">;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>writeln('La parte intera di 
+',a:0:5,' è ',b:0:0);</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>readln;</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>end.</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+Esempio2:</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <a name=paroleriser>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">Program esempio;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">var a:real;</font></b></p>
+      </a>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">begin</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">a:=</font><font face="Verdana" size="2" color="#0033CC">int(</font><font face="Verdana" size="2" color="#000080">78.129</font><font face="Verdana" size="2" color="#0033CC">)</font><font face="Verdana" size="2" color="#000080">;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">writeln('La parte intera di 78.129 
+è 
+',a:0:0);</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">readln;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">end.</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <a name=paroleriser>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      <font face="Verdana" size="2">________<b>4</b>________</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      &nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font size="2" face="Verdana">
+<font color="#000080"><b>TRUNC(</b></font><font color="#0033CC">variabile</font><b><font color="#000080">)</font> 
+- <i>Tronca la</i></b> <b><i>parte decimale</i></b> della <i>variabile</i> specificata 
+tra le parentesi. Es.: <b>d:=TRUNC(3.32) </b>sarà uguale a<b> 3</b>. Questa 
+funzione è pressoché uguale alla funzione <b>INT</b>.</font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+&nbsp;</p>
+      </a>
+<p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+Esempio1:</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <a name=paroleriser>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>Program esempio;</b></font></p>
+      </a>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>var a,b:real;</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>begin</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>writeln('La parte intera di 
+quale numero?');</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>readln(a);</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font color="#000080" size="2" face="Verdana">b:=</font><font size="2" face="Verdana" color="#0033CC">trunc(</font><font color="#000080" size="2" face="Verdana">a</font><font size="2" face="Verdana" color="#0033CC">)</font><font color="#000080" size="2" face="Verdana">;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>writeln('La parte intera di 
+',a:0:5,' è ',b:0:0);</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>readln;</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>end.</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+Esempio2:</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <a name=paroleriser>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">Program esempio;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">var a:real;</font></b></p>
+      </a>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">begin</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">a:=</font><font face="Verdana" size="2" color="#0033CC">trunc(</font><font face="Verdana" size="2" color="#000080">45.4935</font><font face="Verdana" size="2" color="#0033CC">)</font><font face="Verdana" size="2" color="#000080">;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">writeln('La parte intera di 
+45.4935 
+è 
+',a:0:0);</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">readln;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">end.</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0">
+&nbsp;</p>
+      <a name=paroleriser>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      &nbsp;</p>
+      <p style="text-align: center; margin-top: 0; margin-bottom: 0">
+      <font face="Verdana" size="2">________<b>5</b>________</font></p>
+<p style="margin-top: 0; margin-bottom: 0; text-align:center">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font size="2" face="Verdana">
+<font color="#000080"><b>FRAC(</b></font>variabile<b><font color="#000080">)</font> 
+- <i>Fornisce la </i></b><i><b>parte decimale</b></i> della <i>variabile</i> 
+specificata tra le parentesi. Es.: <b>e:=FRAC(3.32) </b>sarà uguale a<b> 0.32</b>. </font>
+      </p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+Esempio1:</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>Program esempio;</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>var a,b:real;</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>begin</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>writeln('La parte decimale di 
+quale numero?');</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>readln(a);</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font color="#000080" size="2" face="Verdana">b:=</font><font face="Verdana" size="2" color="#0033CC">frac(</font><font color="#000080" size="2" face="Verdana">a</font><font size="2" face="Verdana" color="#0033CC">)</font><font color="#000080" size="2" face="Verdana">;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>writeln('La parte decimale di 
+',a:0:5,' è ',b:0:5);</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>readln;</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>end.</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+Esempio2:</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">Program esempio;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">var a:real;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">begin</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">a:=</font><font face="Verdana" size="2" color="#0033CC">frac(</font><font face="Verdana" size="2" color="#000080">4166.455</font><font face="Verdana" size="2" color="#0033CC">)</font><font face="Verdana" size="2" color="#000080">;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">writeln('La parte decimale di 
+4166.455 
+è 
+',a:0:5);</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">readln;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">end.</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="text-align: center; margin-top: 0; margin-bottom: 0">
+      <font face="Verdana" size="2">________<b>6</b>________</font></p>
+<p style="margin-top: 0; margin-bottom: 0; text-align:center">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0">
+<b>
+<font size="2" face="Verdana" color="#000080">ROUND(</font></b><font size="2" face="Verdana" color="#0033CC">variabile</font><font size="2" face="Verdana"><b><font color="#000080">) 
+</font>- <i>Arrotonda il valore</i></b> della <i>variabile</i> specificata tra 
+parentesi&nbsp; all'intero più vicino. Es.: <b>f:=ROUND(3.8) </b>sarà uguale a<b> 
+4</b>.</font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+&nbsp;</p>
+      </a>
+<p style="margin-top: 0; margin-bottom: 0">
+<font face="Verdana" size="2">Esempio1:</font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+&nbsp;</p>
+      <a name=paroleriser>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>Program esempio;</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>var a,b:real;</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>begin</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>writeln('Arrotondare quale numero?');</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>readln(a);</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font color="#000080" size="2" face="Verdana">b:=</font><font face="Verdana" size="2" color="#0033CC">round(</font><font color="#000080" size="2" face="Verdana">a</font><font size="2" face="Verdana" color="#0033CC">)</font><font color="#000080" size="2" face="Verdana">;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>writeln('Il numero arrotondato 
+è ',b:0:0);</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>readln;</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>end.</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+Esempio2:</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">Program esempio;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">var a:real;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">begin</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">a:=</font><font face="Verdana" size="2" color="#0033CC">round(</font><font face="Verdana" size="2" color="#000080">318.2</font><font face="Verdana" size="2" color="#0033CC">)</font><font face="Verdana" size="2" color="#000080">;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">writeln('Il numero arrotondato 
+è 
+',a:0:0);</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">readln;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">end.</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <p style="text-align: center; margin-top: 0; margin-bottom: 0">
+      <font face="Verdana" size="2">________<b>7</b>________</font></p>
+<p style="margin-top: 0; margin-bottom: 0; text-align:center">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0">
+<b>
+<font size="2" face="Verdana" color="#000080">ABS(</font></b><font size="2" face="Verdana"><font color="#0033CC">variabile</font><b><font color="#000080">)
+</font>- </b>Calcola<i><b> il valore assoluto</b></i> della <i>variabile</i> 
+specificata tra parentesi. Es.: <b>g:=ABS(-10) </b> sarà uguale a <b>
+10</b>. </font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font size="2" face="Verdana">Esempio1:</font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>Program esempio;</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>var a,b:real;</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>begin</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>writeln('Il valore assoluto di quale numero?');</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>readln(a);</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font color="#000080" size="2" face="Verdana">b:=</font><font face="Verdana" size="2" color="#0033CC">abs(</font><font color="#000080" size="2" face="Verdana">a</font><font size="2" face="Verdana" color="#0033CC">)</font><font color="#000080" size="2" face="Verdana">;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>writeln('Il valore assoluto di 
+',a:0:0,' è ',b:0:0);</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>readln;</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font color="#000080" size="2" face="Verdana"><b>end.</b></font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+Esempio2:</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">Program esempio;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">var a:real;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">begin</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">a:=</font><font face="Verdana" size="2" color="#0033CC">abs(</font><font face="Verdana" size="2" color="#000080">-15</font><font face="Verdana" size="2" color="#0033CC">)</font><font face="Verdana" size="2" color="#000080">;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">writeln('Il valore assoluto di -15 
+è 
+',a:0:0);</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">readln;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">end.</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0">
+&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0; text-align:center">
+<font face="Verdana" size="2">________<b>8</b>_________</font></p>
+<p style="margin-top: 0; margin-bottom: 0; text-align:center">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font size="2" face="Verdana" color="#0033CC">variabile<b>1</b></font><b><font size="2" face="Verdana">
+<font color="#000080">MOD</font>
+</font></b><font size="2" face="Verdana" color="#0033CC">variabile<b>2</b></font><font size="2" face="Verdana"><b> 
+-  </b>Calcola <i><b>il resto della divisione</b></i> tra la <i>variabile<b>1</b></i> 
+e la <i>variabile<b>2</b></i>.<i> </i>Es.: <b>h:=16 MOD 5 </b>sarà uguale a<b> 1</b>.</font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font size="2" face="Verdana">Esempio1:</font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font color="#000080" size="2" face="Verdana">Program esempio;<br>
+var a,b,c:integer;<br>
+begin<br>
+writeln('Inserisci dividendo e divisore');<br>
+readln(a,b);<br>
+c:= a </font><font size="2" face="Verdana" color="#0033CC">mod</font><font color="#000080" size="2" face="Verdana"> 
+b;<br>
+writeln('Il resto della divisione è ',c);<br>
+readln;<br>
+end.</font></b><font face="Verdana" size="2"><br>
+&nbsp;</font></p>
+<p style="margin-top: 0; margin-bottom: 0"><font face="Verdana" size="2">
+Esempio2:</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">Program esempio;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">var a:integer;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">begin</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">a:=10 </font>
+<font face="Verdana" size="2" color="#0033CC">mod</font><font face="Verdana" size="2" color="#000080"> 
+3;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">writeln('Il resto della divisione 
+è 
+',a);</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">readln;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">end.</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0">
+&nbsp;</p>
+      <p style="text-align: center; margin-top: 0; margin-bottom: 0">
+      <font face="Verdana" size="2">________<b>9</b>________</font></p>
+<p style="margin-top: 0; margin-bottom: 0; text-align:center">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font size="2" face="Verdana" color="#0033CC">variabile<b>1</b></font><b><font size="2" face="Verdana"><font color="#0033CC">
+</font><font color="#000080">DIV</font> </font></b><font size="2" face="Verdana">
+<font color="#0033CC">variabile<b>2</b></font> <b>-  </b>Calcola <i><b>la parte intera del quoziente</b></i> tra 
+la <i>variabile<b>1</b></i> e la <i>variabile<b>2</b></i>.<i> </i>Es.: <b>
+i:=11 div 5 </b> sarà uguale a <b>
+2</b>. </font>
+      </p>
+<p style="margin-top: 0; margin-bottom: 0">
+&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font size="2" face="Verdana">
+Esempio1:</font></p>
+<p style="margin-top: 0; margin-bottom: 0">
+&nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font color="#000080" size="2" face="Verdana">Program esempio;<br>
+      var a,b,c:integer;<br>
+      begin<br>
+      writeln('Inserisci dividendo e divisore');<br>
+      readln(a,b);<br>
+      c:= a </font><font size="2" face="Verdana" color="#0033CC">div</font><font color="#000080" size="2" face="Verdana"> 
+      b;<br>
+      writeln('Il quoziente intero della divisione è ',c);<br>
+      readln;<br>
+      end.</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      </a>
+<p style="margin-top: 0; margin-bottom: 0"><font size="2" face="Verdana">
+Esempio2:</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <a name=paroleriser>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">Program esempio;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">var a:integer;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">begin</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">a:=10 </font>
+<font face="Verdana" size="2" color="#0033CC">div</font><font face="Verdana" size="2" color="#000080"> 
+3;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">writeln('Il quoziente intero della 
+divisione è 
+',a);</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">readln;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">end.</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0; text-align:center">
+<font face="Verdana" size="2">________<b>10</b>________</font></p>
+<p style="margin-top: 0; margin-bottom: 0; text-align:center">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0">
+<b>
+<font size="2" face="Verdana" color="#000080">RANDOM(</font></b><font size="2" face="Verdana"><font color="#0033CC">variabile</font><b><font color="#000080">) 
+</font>- <i>Genera numeri a caso</i></b> compresi fra 0 e la <i>variabile</i> 
+specificata tra parentesi (<i>numero-limite</i>). Es.: <b>N:=RANDOM(50)&nbsp; </b>calcolerà numeri 
+casuali compresi tra <b>0</b> e <b>50</b>. L'istruzione <b>RANDOMIZE </b>serve 
+per azzerare il generatore di numeri casuali, è <i>obbligatoria</i>.</font></p>
+      </a>
+<p style="margin-top: 0; margin-bottom: 0">
+&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0">
+<font face="Verdana" size="2">Esempio1:</font></p>
+      <a name=paroleriser>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font size="2" face="Verdana" color="#000080">Program esempio;<br>
+      var a,c:integer;<br>
+      begin<br>
+      writeln('Inserisci il numero-limite');<br>
+      readln(a);</font></b></p>
+      </a>
+      <p style="margin-top: 0; margin-bottom: 0"><b>
+      <font face="Verdana" size="2" color="#0000FF">randomize;</font></b><a name=paroleriser><b><font size="2" face="Verdana" color="#000080"><br>
+      c:=</font><font size="2" face="Verdana" color="#0000FF">random(</font><font size="2" face="Verdana" color="#000080">a</font><font size="2" face="Verdana" color="#0000FF">)</font><font size="2" face="Verdana" color="#000080">;<br>
+      writeln('Numero casuale compreso tra 0 e ',a,' : ',c);<br>
+      readln;<br>
+      end.</font></b><font face="Verdana" size="2"><br>
+&nbsp;</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><font size="2" face="Verdana">
+Esempio2:</font></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">Program esempio;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">var a:integer;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">begin</font></b></p>
+      </a>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#0000FF">randomize;</font></b></p>
+      <a name=paroleriser>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">a:=</font><font face="Verdana" size="2" color="#0033CC">random</font><font face="Verdana" size="2" color="#000080">(90);</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">writeln('Numero casuale compreso 
+tra 0 e 90 :',a);</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">readln;</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0"><b>
+<font face="Verdana" size="2" color="#000080">end.</font></b></p>
+<p style="margin-top: 0; margin-bottom: 0">&nbsp;</p>
+      <hr>
+      <a name=varie>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:center">
+      <a name=Errore>
+      <span style="background-color: #FFFF00"><b><font size="2" face="Verdana">I 
+      principali messaggi di errore</font></b></span></p>
+      <a name=Struttura>
+      <a name=paroleriser>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font size="2" face="Verdana">Durante la creazione di un programma in 
+      qualsiasi linguaggio c'è sempre qualche elemento da rivedere, o da <i>
+      correggere</i>. Nel linguaggio <b>Pascal</b>, quando una parte del <i>
+      codice sorgente</i> di un programma, non viene riconosciuto correttamente 
+      dal compilatore, si visualizzano <i><b>messaggi di errore</b></i> che 
+      spesso sono incomprensibili. Di seguito sono elencati e spiegati i 
+      principali messaggi errore che si visualizzano in un compilatore Pascal.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      </a>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">
+      <b>UNKNOWN IDENTIFIER - </b>(<i><b>dall.ingl.:</b> identificatore 
+      sconosciuto</i>): indica che un elemento del programma non è stato 
+      riconosciuto dal compilatore, ad esempio un variabile non dichiarata, un 
+      scritta che non fa parte del codice sorgente ecc.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">
+      <b>DUPLICATE IDENTIFIER - </b>(<i><b>dall'ingl.:</b> identificatore 
+      duplicato</i>): indica che il nome del programma coincide con il nome di 
+      una variabile o che due variabili hanno lo stesso nome.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">
+      <b>OUT OF MEMORY - </b>(<i><b>dall'ingl.:</b> fuori dalla memoria</i>): 
+      indica che il compilatore non ha memoria sufficiente ad eseguire il 
+      programma.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">
+      <b>&quot;;&quot; EXPECTED - </b>(<i><b>dall'ingl.:</b> punto e virgola 
+      aspettato</i>): indica che nel codice sorgente manca il punto e virgola 
+      alla fine di una determinata riga.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2">&quot;:&quot; EXPECTED - </font></b><font face="Verdana" size="2">
+      (<i><b>dall'ingl.:</b> due punti aspettati</i>): indica che nel codice 
+      sorgente mancano i due punti in una determinata istruzione.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2">&quot;:=&quot; EXPECTED </font></b>
+      <font face="Verdana" size="2">- (<i><b>dall'ingl.:</b> due punti e uguale 
+      aspettati</i>): indica che nel codice sorgente mancano i due punti e 
+      l'uguale in una determinata istruzione.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2">&quot;)&quot; EXPECTED </font></b>
+      <font face="Verdana" size="2">- (<i><b>dall'ingl.:</b> parentesi tonda 
+      chiusa aspettata</i>): indica che nel codice sorgente non è stata chiusa 
+      una parentesi tonda aperta.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">
+      <b>UNEXPECTED END OF FILE - </b>(<i><b>dall'ingl.:</b> inaspettata fine 
+      dell'archivio</i>): indica che il numero dei BEGIN non è uguale al numero 
+      degli END, cioè non è indicata la fine del programma con l'istruzione END.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">
+      <b>SYNTAX ERROR - </b>(<i><b>dall'ingl.: </b>errore di sintassi</i>): 
+      indica un'istruzione è stata scritta con una sintassi errata.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2"><b>ERROR IN EXPRESSION - </b>(<i><b>dall 
+      ingl.: </b>errore nell'espressione</i>): indica che un'istruzione è stata impostata in modo 
+      errato.</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">
+      <b>STRING COSTANT EXCEEDS LINE - </b>(<i><b>dall'ingl.:</b> la costante 
+      stringa eccede nella linea</i>): indica che il testo di un messaggio fra 
+      parentesi non è stato inserito fra apici, oppure che si è dimenticata la 
+      chiusura degli apici stessi. </font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Es. <b><font color="#000080">WRITELN(MESSAGGIO1);&nbsp;
+      </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <font color="#FF0000"><i>senza apici </i>ERRORE</font></b></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">&nbsp;&nbsp;&nbsp;&nbsp;
+      <font color="#000080"><b>WRITELN('MESSAGGIO2);</b></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <font color="#FF0000"><b><i>manca l'apice di chiusura </i>ERRORE</b></font></font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">
+      <b>TYPE MISMATCH - </b>(<i><b>dall'ingl.: </b>discordanza di carattere</i>): 
+      indica&nbsp; che una variabile è diversa da come si è dichiarata. </font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font face="Verdana" size="2">Es. </font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">a:integer;</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">a:=10.23;</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <b><font face="Verdana" size="2" color="#000080">...</font></b></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      <font size="2" face="Verdana">In questo caso <b>10.23</b> non è un numero 
+      intero (<b>INTEGER</b>).</font></p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; ">
+      &nbsp;</p>
+      <p style="margin-top: 0; margin-bottom: 0; text-align:right">
+      <i><font face="Verdana" size="2" ;>Campitiello Pasquale</font></i></p>
+      <hr color="#000080">
+<hr color="#0000FF">
+<hr color="#000080">
+
+<p style="margin-top: 0; margin-bottom: 0; text-align:center">
+&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0; text-align:center">
+&nbsp;</p>
+<p style="margin-top: 0; margin-bottom: 0; text-align:center">
+<font face="Verdana" size="1">Copyright © 2002</font></p>
+<p style="margin-top: 0; margin-bottom: 0; text-align:center"><b>
+<font face="Verdana" size="1">Campitiello Pasquale</font></b></p>
+
+      </body>
+
+</html>

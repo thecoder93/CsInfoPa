@@ -1,0 +1,100 @@
+object fmRiflessi: TfmRiflessi
+  Left = 246
+  Top = 137
+  Width = 545
+  Height = 327
+  Caption = 'fmRiflessi'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnCampo: TPanel
+    Left = 0
+    Top = 0
+    Width = 400
+    Height = 298
+    Align = alClient
+    BevelOuter = bvNone
+    Color = clWhite
+    TabOrder = 0
+    object shCerchio: TShape
+      Left = 88
+      Top = 80
+      Width = 30
+      Height = 30
+      Brush.Color = clRed
+      Shape = stCircle
+      OnMouseUp = shCerchioMouseUp
+    end
+  end
+  object pnComandi: TPanel
+    Left = 400
+    Top = 0
+    Width = 137
+    Height = 298
+    Align = alRight
+    BevelOuter = bvLowered
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 8
+      Top = 56
+      Width = 51
+      Height = 13
+      Caption = 'Punteggio:'
+    end
+    object Label2: TLabel
+      Left = 24
+      Top = 106
+      Width = 36
+      Height = 13
+      Caption = 'Tempo:'
+    end
+    object lbPunteggio: TLabel
+      Left = 64
+      Top = 40
+      Width = 18
+      Height = 37
+      Caption = '0'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlue
+      Font.Height = -32
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lbTempo: TLabel
+      Left = 64
+      Top = 88
+      Width = 36
+      Height = 37
+      Caption = '20'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clBlue
+      Font.Height = -32
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object btInizia: TBitBtn
+      Left = 16
+      Top = 8
+      Width = 105
+      Height = 25
+      Caption = '&Inizia'
+      TabOrder = 0
+      OnClick = btIniziaClick
+      Kind = bkYes
+    end
+  end
+  object tmCrono: TTimer
+    OnTimer = tmCronoTimer
+    Left = 440
+    Top = 160
+  end
+end

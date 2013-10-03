@@ -1,0 +1,102 @@
+{\rtf1\ansi\uc0 \deff1{\fonttbl{\f1\fmodern\fprq1\fcharset0 Courier New;}}{\colortbl;\red00\green00\blue00;\red255\green00\blue00;\red41\green40\blue255;\red131\green129\blue131;\red131\green129\blue131;\red255\green00\blue255;\red00\green130\blue00;\red129\green129\blue00;\red85\green85\blue85;\red00\green00\blue00;\red00\green00\blue00;\red131\green00\blue00;\red00\green00\blue00;\red01\green01\blue129;}
+\paperw11905\paperh16837\margl1134\margr1134\margt1134\margb1134\sectd\plain\f1\fs20
+\pard {\cf1{}}{\cf11{\b program\b0 }} {\cf1{pedaggio}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf11{\b uses\b0 }}\par\pard
+{\cf1{     tkb_graph}} {\cf11{\b in\b0 }} {\cf1{}}{\cf2{'tkb_graph.pas'}}{\cf1{}}{\cf10{,}}\par\pard
+{\cf1{       tkb_bst}} {\cf11{\b in\b0 }} {\cf1{}}{\cf2{'tkb_bst.pas'}}{\cf1{}}{\cf10{,}}\par\pard
+{\cf1{ tkb_pri_queue}} {\cf11{\b in\b0 }} {\cf1{}}{\cf2{'tkb_pri_queue'}}{\cf1{}}{\cf10{,}}\par\pard
+{\cf1{ SysUtils}} {\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf11{\b type\b0 }} {\cf1{arc}} {\cf10{=}} {\cf1{}}{\cf11{\b record\b0 }}\par\pard
+{\cf1{         x}}{\cf10{,}}{\cf1{y}}{\cf10{:}} {\cf1{}}{\cf12{char}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}         {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{     arc_v}} {\cf10{=}} {\cf1{}}{\cf11{\b array of\b0 }} {\cf1{arc}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf11{\b var\b0 }} {\cf1{g}}{\cf10{:}} {\cf1{t_graph}}{\cf10{;}}         {\cf1{}}{\cf4{\i // Grafo rappresentante la mappa\i0 }}\par\pard
+{\cf1{    x}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}}         {\cf1{}}{\cf4{\i // Numero degli archi\i0 }}\par\pard
+{\cf1{    a}}{\cf10{:}} {\cf1{t_bst}}{\cf10{;}}           {\cf1{}}{\cf4{\i // BST usato per parsare l'input\i0 }}\par\pard
+{\cf1{    f}}{\cf10{:}} {\cf1{textfile}}{\cf10{;}}        {\cf1{}}{\cf4{\i // File di input\i0 }}\par\pard
+{\cf1{    arcs}} {\cf10{:}} {\cf1{arc_v}}{\cf10{;}}       {\cf1{}}{\cf4{\i // Vettore contenente gli archi da settare nel grafo\i0 }}\par\pard
+{\cf1{    num_nodes}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}} {\cf1{}}{\cf4{\i // Numero dei nodi del grafo\i0 }}\par\pard
+{\cf1{    i}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}}         {\cf1{}}{\cf4{\i // Contatore ausiliario\i0 }}\par\pard
+{\cf1{    n{1}}}{\cf10{,}}{\cf1{n{2}}}{\cf10{:}} {\cf1{}}{\cf12{char}}{\cf1{}}{\cf10{;}}        {\cf1{}}{\cf4{\i // Variabili ausiliarie per parsare l'input\i0 }}\par\pard
+{\cf1{    caso}}{\cf10{:}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}}      {\cf1{}}{\cf4{\i // Contatore della mappa corrente\i0 }}\par\pard
+{\cf1{}}\par\pard
+{\cf5{\i \{Questa funzione ricorsiva serve a settare il tipo di nodo.\i0 }}\par\pard
+{\cf5{\i Influenza il calcolo dei pesi nell'esplorazione dei cammini del grafo.\}\i0 }}{\cf1{}}\par\pard
+{\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{set_cities}}{\cf1{}}{\cf10{(}}{\cf1{g}}{\cf10{:}} {\cf1{t_graph}}{\cf10{;}} {\cf1{a}}{\cf10{:}} {\cf1{t_bst}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b begin\b0 }}\par\pard
+{\cf1{}}     {\cf11{\b if\b0 }} {\cf1{a}}{\cf10{<>}}{\cf1{}}{\cf11{\b nil then begin\b0 }}\par\pard
+{\cf1{}}        {\cf14{set_cities}}{\cf1{}}{\cf10{(}}{\cf1{g}}{\cf10{,}} {\cf1{a^.sx}}{\cf10{);}}\par\pard
+{\cf1{}}        {\cf5{\i \{Le città sono indicate con lettere maiuscole.\}\i0 }}{\cf1{}}\par\pard
+        {\cf14{graph_set_node_type}}{\cf1{}}{\cf10{(}}{\cf1{g}}{\cf10{,}} {\cf1{a^.id}}{\cf10{, (}}{\cf1{a^.inf}} {\cf10{=}} {\cf1{}}{\cf14{upcase}}{\cf1{}}{\cf10{(}}{\cf1{a^.inf}}{\cf10{)));}}\par\pard
+{\cf1{}}        {\cf14{set_cities}}{\cf1{}}{\cf10{(}}{\cf1{g}}{\cf10{,}} {\cf1{a^.dx}}{\cf10{);}}\par\pard
+{\cf1{}}     {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf11{\b begin\b0 }}\par\pard
+{\cf1{}}     {\cf11{\b if\b0 }} {\cf1{}}{\cf14{fileexists}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf2{'input.txt'}}{\cf1{}}{\cf10{)}} {\cf1{}}{\cf11{\b then begin\b0 }}\par\pard
+{\cf1{}}       {\cf14{assign}}{\cf1{}}{\cf10{(}}{\cf1{f}}{\cf10{,}} {\cf1{}}{\cf2{'input.txt'}}{\cf1{}}{\cf10{);}}\par\pard
+{\cf1{}}       {\cf14{reset}}{\cf1{}}{\cf10{(}}{\cf1{f}}{\cf10{);}}\par\pard
+{\cf1{       caso}} {\cf10{:=}} {\cf1{}}{\cf3{{0}}}{\cf1{}}{\cf10{;}}  {\cf1{}}{\cf5{\i \{Contatore del loop\}\i0 }}{\cf1{}}\par\pard
+       {\cf14{readln}}{\cf1{}}{\cf10{(}}{\cf1{f}}{\cf10{,}} {\cf1{x}}{\cf10{);}}\par\pard
+{\cf1{}}       {\cf11{\b repeat\b0 }}      {\cf1{}}{\cf5{\i \{Loop principale\}\i0 }}{\cf1{\par\pard
+         a}}{\cf10{:=}}{\cf1{}}{\cf11{\b nil\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}         {\cf14{inc}}{\cf1{}}{\cf10{(}}{\cf1{caso}}{\cf10{);}}\par\pard
+{\cf1{}}\par\pard
+         {\cf5{\i \{Il vettore arcs contiene gli archi da settare nel grafo\}\i0 }}{\cf1{}}\par\pard
+         {\cf14{setlength}}{\cf1{}}{\cf10{(}}{\cf1{arcs}}{\cf10{,}} {\cf1{x}}{\cf10{);}}\par\pard
+{\cf1{}}\par\pard
+         {\cf5{\i \{Creo un albero binario di ricerca (BST) con struttura modificata\}\i0 }}{\cf1{}}\par\pard
+         {\cf11{\b for\b0 }} {\cf1{i}} {\cf10{:=}} {\cf1{}}{\cf3{{0}}} {\cf1{}}{\cf11{\b to\b0 }} {\cf1{}}{\cf14{length}}{\cf1{}}{\cf10{(}}{\cf1{arcs}}{\cf10{)-}}{\cf1{}}{\cf3{{1}}} {\cf1{}}{\cf11{\b do begin\b0 }}\par\pard
+{\cf1{}}             {\cf14{readln}}{\cf1{}}{\cf10{(}}{\cf1{f}}{\cf10{,}} {\cf1{n{1}}}{\cf10{,}} {\cf1{n{2}}}{\cf10{,}} {\cf1{n{2}}}{\cf10{);}}   {\cf1{}}{\cf5{\i \{Salto lo spazio leggendo {2} volte n{2}\}\i0 }}{\cf1{}}\par\pard
+             {\cf14{bst_insert}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{,}} {\cf1{n{1}}}{\cf10{);}}\par\pard
+{\cf1{}}             {\cf14{bst_insert}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{,}} {\cf1{n{2}}}{\cf10{);}}\par\pard
+{\cf1{             arcs}}{\cf10{[}}{\cf1{i}}{\cf10{]}}{\cf1{.x}} {\cf10{:=}} {\cf1{n{1}}}{\cf10{;}}\par\pard
+{\cf1{             arcs}}{\cf10{[}}{\cf1{i}}{\cf10{]}}{\cf1{.y}} {\cf10{:=}} {\cf1{n{2}}}{\cf10{;}}\par\pard
+{\cf1{}}         {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+         {\cf5{\i \{Adesso l'albero binario 'a' contiene tutti i nodi del grafo.\i0 }}\par\pard
+{\cf5{\i          Associo ad ogni nodo dell'albero un numero intero partendo da {0}.\i0 }}\par\pard
+{\cf5{\i          Serve per fare corrispondere ad ogni nodo dell'albero uno ed un solo\i0 }}\par\pard
+{\cf5{\i          nodo del grafo.\}\i0 }}{\cf1{\par\pard
+         num_nodes}} {\cf10{:=}} {\cf1{}}{\cf14{bst_assign_ids}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{);}}\par\pard
+{\cf1{}}\par\pard
+         {\cf5{\i \{Inizializzo il grafo\}\i0 }}{\cf1{}}\par\pard
+         {\cf14{graph_init_nodes}}{\cf1{}}{\cf10{(}}{\cf1{g}}{\cf10{,}} {\cf1{num_nodes}}{\cf10{);}}\par\pard
+{\cf1{}}\par\pard
+         {\cf5{\i \{Adesso procedo a settare gli archi nel grafo\}\i0 }}{\cf1{}}\par\pard
+         {\cf11{\b for\b0 }} {\cf1{i}}{\cf10{:=}}{\cf1{}}{\cf3{{0}}} {\cf1{}}{\cf11{\b to\b0 }} {\cf1{}}{\cf14{length}}{\cf1{}}{\cf10{(}}{\cf1{arcs}}{\cf10{)-}}{\cf1{}}{\cf3{{1}}} {\cf1{}}{\cf11{\b do\b0 }}\par\pard
+{\cf1{}}             {\cf14{graph_set_arc}}{\cf1{}}{\cf10{(}}{\cf1{g}}{\cf10{,}} {\cf1{}}{\cf14{bst_get_id_from_inf}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{,}}{\cf1{arcs}}{\cf10{[}}{\cf1{i}}{\cf10{]}}{\cf1{.x}}{\cf10{),}}  {\cf1{}}{\cf5{\i \{Nodo {1}\}\i0 }}{\cf1{}}\par\pard
+                              {\cf14{bst_get_id_from_inf}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{,}}{\cf1{arcs}}{\cf10{[}}{\cf1{i}}{\cf10{]}}{\cf1{.y}}{\cf10{)}}   {\cf1{}}{\cf5{\i \{Nodo {2}\}\i0 }}{\cf1{}}\par\pard
+                              {\cf10{);}}\par\pard
+{\cf1{}}\par\pard
+         {\cf5{\i \{Imposto il tipo dei nodi: città o villaggio\}\i0 }}{\cf1{}}\par\pard
+         {\cf14{set_cities}}{\cf1{}}{\cf10{(}}{\cf1{g}}{\cf10{,}} {\cf1{a}}{\cf10{);}}\par\pard
+{\cf1{}}\par\pard
+         {\cf5{\i \{Leggo il numero di cucchiai, la partenza e la destinazione\}\i0 }}{\cf1{}}\par\pard
+         {\cf14{readln}}{\cf1{}}{\cf10{(}}{\cf1{f}}{\cf10{,}} {\cf1{x}}{\cf10{,}} {\cf1{n{1}}}{\cf10{,}} {\cf1{n{1}}}{\cf10{,}} {\cf1{n{2}}}{\cf10{,}} {\cf1{n{2}}}{\cf10{);}}\par\pard
+{\cf1{}}\par\pard
+         {\cf5{\i \{Calcolo il cammino minimo e stampo il risultato.\i0 }}\par\pard
+{\cf5{\i          Notare che i nodi di partenza e destinazione sono invertiti rispetto\i0 }}\par\pard
+{\cf5{\i          all'input. Vedere la relazione per una spiegazione del funzionamento\i0 }}\par\pard
+{\cf5{\i          dell'algoritmo.\}\i0 }}{\cf1{}}\par\pard
+         {\cf14{writeln}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf2{'Caso '}}{\cf1{}}{\cf10{,}}{\cf1{caso}}{\cf10{,}}{\cf1{}}{\cf2{': '}}{\cf1{}}{\cf10{,}}\par\pard
+{\cf1{}}                         {\cf14{graph_get_best_path}}{\cf1{}}{\cf10{(}}{\cf1{g}}{\cf10{,}} {\cf1{}}{\cf14{bst_get_id_from_inf}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{,}}{\cf1{n{2}}}{\cf10{),}}\par\pard
+{\cf1{}}                                                {\cf14{bst_get_id_from_inf}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{,}}{\cf1{n{1}}}{\cf10{),}} {\cf1{x}}{\cf10{));}}\par\pard
+{\cf1{}}\par\pard
+         {\cf5{\i \{Pulizia dell'heap.\}\i0 }}{\cf1{}}\par\pard
+         {\cf14{graph_dispose}}{\cf1{}}{\cf10{(}}{\cf1{g}}{\cf10{);}}\par\pard
+{\cf1{}}         {\cf14{bst_dispose}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{);}}\par\pard
+{\cf1{}}\par\pard
+         {\cf5{\i \{Proseguo con la lettura del file\}\i0 }}{\cf1{}}\par\pard
+         {\cf14{readln}}{\cf1{}}{\cf10{(}}{\cf1{f}}{\cf10{,}} {\cf1{x}}{\cf10{);}}\par\pard
+{\cf1{}}       {\cf11{\b until\b0 }} {\cf1{x}} {\cf10{= -}}{\cf1{}}{\cf3{{1}}}{\cf1{}}{\cf10{;}} {\cf1{}}{\cf5{\i \{quando trova -{1} nel file, termina il loop\}\i0 }}{\cf1{}}\par\pard
+       {\cf14{close}}{\cf1{}}{\cf10{(}}{\cf1{f}}{\cf10{);}}\par\pard
+{\cf1{}}     {\cf11{\b end\b0 }}\par\pard
+{\cf1{}}     {\cf11{\b else\b0 }} {\cf1{}}{\cf14{writeln}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf2{'Errore nell'}}{\cf1{}}{\cf2{'apertura di input.txt'}}{\cf1{}}{\cf10{);}}\par\pard
+{\cf1{     readln}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b end\b0 }}{\cf1{.}}\par\pard
+\par\pard
+}}

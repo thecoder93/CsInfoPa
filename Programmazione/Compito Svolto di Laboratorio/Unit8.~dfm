@@ -1,0 +1,163 @@
+object Form8: TForm8
+  Left = 503
+  Top = 171
+  Width = 339
+  Height = 500
+  Caption = 'Soluzione della Torre di Hanoi con 7 dischi'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Memo1: TMemo
+    Left = 8
+    Top = 8
+    Width = 321
+    Height = 457
+    BorderStyle = bsNone
+    Color = clScrollBar
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    Lines.Strings = (
+      'Per 7 dischi le mosse richieste sono:'
+      ''
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 1 a 2'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 2 a 3'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 1 a 2'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 3 a 1'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 1 a 2'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 2 a 3'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 3 a 1'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 2 a 3'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 1 a 2'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 2 a 3'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 1 a 2'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 3 a 1'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 1 a 2'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 3 a 1'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 2 a 3'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 3 a 1'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 1 a 2'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 2 a 3'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 1 a 2'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 3 a 1'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 1 a 2'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 2 a 3'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 3 a 1'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 2 a 3'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 1 a 2'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 2 a 3'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 3 a 1'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 1 a 2'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 3 a 1'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 2 a 3'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 3 a 1'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 2 a 3'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 1 a 2'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 2 a 3'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 1 a 2'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 3 a 1'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 1 a 2'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 2 a 3'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 3 a 1'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 2 a 3'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 1 a 2'
+      'muovi un disco da 3 a 2'
+      'muovi un disco da 1 a 3'
+      'muovi un disco da 2 a 1'
+      'muovi un disco da 2 a 3'
+      'muovi un disco da 1 a 3')
+    ParentFont = False
+    ReadOnly = True
+    ScrollBars = ssVertical
+    TabOrder = 0
+  end
+end

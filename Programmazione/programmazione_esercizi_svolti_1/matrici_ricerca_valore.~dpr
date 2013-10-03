@@ -1,0 +1,34 @@
+program matrici_ricerca_valore;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+var
+matrix:array[1..4,1..3]of integer;
+trovato:boolean;
+i,j,x:integer;
+begin
+writeln('Inserisci i valori della matrice!!');
+writeln;
+for i:=1 to 4 do
+for j:=1 to 3 do begin
+writeln('Inserisci il valore di riga ',i,'  e colonna ',j);
+readln(matrix[i,j]);
+end;
+writeln;
+writeln('Inserisci il valore da ricercare');
+readln(x);
+trovato:=FALSE;
+for i:=1 to 4 do
+for j:=1 to 3 do begin
+if x=matrix[i,j] then begin
+writeln('Elemento ',x,' trovato in posiz. ',i,',',j);
+trovato:=TRUE;
+end;
+end;
+if trovato=FALSE then
+writeln('Elemento ',x,' non presente nella matrice');
+readln;
+end.

@@ -1,0 +1,63 @@
+program funzioni_zeri_consecutivi;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+type
+matrice=array[1..4,1..4]of 0..1;
+var
+x:boolean;
+mat:matrice;
+procedure crea_matrice(var mat:matrice);
+var i,j:integer;
+begin
+for i:=1 to 4 do
+for j:=1 to 4 do begin
+writeln('Inserisci l''elemento di riga ',i,' e colonna ',j);
+readln(mat[i,j]);
+end;
+end;
+
+function cerca(mat:matrice):boolean;
+var trovato:boolean; i,j:integer;
+begin
+trovato:=false;
+i:=1;
+repeat
+j:=1;
+repeat
+if ((mat[i,j]=0)and(mat[i,j+1]=0))or((mat[i,j]=0)and(mat[i+1,j]=0)and(mat[i+2,j]=0))
+then
+else
+j:=j+1;
+until (trovato=true)or(j=5);
+i:=i+1;
+until (trovato=true)or(i=5);
+cerca:=trovato;
+end;
+
+
+
+
+
+procedure stampa_matrice(mat:matrice);
+var i,j:integer;
+begin
+for i:=1 to 4 do begin
+writeln;
+for j:=1 to 4 do
+write(mat[i,j]:5)
+end;
+end;
+begin
+crea_matrice(mat);
+stampa_matrice(mat);
+writeln;
+x:=cerca(mat);
+writeln('Premi INVIO per il responso');
+readln;
+writeln(x);
+readln;
+end.

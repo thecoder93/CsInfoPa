@@ -1,0 +1,97 @@
+{\rtf1\ansi\uc0 \deff1{\fonttbl{\f1\fmodern\fprq1\fcharset0 Courier New;}}{\colortbl;\red00\green00\blue00;\red255\green00\blue00;\red41\green40\blue255;\red131\green129\blue131;\red131\green129\blue131;\red255\green00\blue255;\red00\green130\blue00;\red129\green129\blue00;\red85\green85\blue85;\red00\green00\blue00;\red00\green00\blue00;\red131\green00\blue00;\red00\green00\blue00;\red01\green01\blue129;}
+\paperw11905\paperh16837\margl1134\margr1134\margt1134\margb1134\sectd\plain\f1\fs20
+\pard {\cf1{}}{\cf11{\b unit\b0 }} {\cf1{tkb_pri_queue}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf5{\i \{Priority Queue - by TheKaneB\i0 }}\par\pard
+{\cf5{\i Questa Unit implementa una coda dove l'elemento in testa è quello con\i0 }}\par\pard
+{\cf5{\i il minore peso di tutta la struttura. L'implementazione fa uso di una\i0 }}\par\pard
+{\cf5{\i struttura ad albero binario di ricerca, basata sulla unit tkb_bst.\i0 }}\par\pard
+{\cf5{\i La priorità degli elementi viene stabilita dal parametro w, cioè dal loro peso.\}\i0 }}{\cf1{}}\par\pard
+\par\pard
+{\cf11{\b interface\b0 }}\par\pard
+{\cf1{}}\par\pard
+{\cf11{\b type\b0 }} {\cf1{pri_queue_inf}} {\cf10{=}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{     pri_queue_w}} {\cf10{=}} {\cf1{}}{\cf12{integer}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{     t_pri_queue}} {\cf10{=}} {\cf1{^pri_queue_node}}{\cf10{;}}\par\pard
+{\cf1{     pri_queue_node}} {\cf10{=}} {\cf1{}}{\cf11{\b record\b0 }}\par\pard
+{\cf1{                    inf}}{\cf10{:}} {\cf1{pri_queue_inf}}{\cf10{;}}\par\pard
+{\cf1{                    w}}{\cf10{:}} {\cf1{pri_queue_w}}{\cf10{;}}\par\pard
+{\cf1{                    sx}}{\cf10{,}} {\cf1{dx}}{\cf10{:}} {\cf1{t_pri_queue}}{\cf10{;}}\par\pard
+{\cf1{}}                    {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{pri_queue_push}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{a}}{\cf10{:}} {\cf1{t_pri_queue}}{\cf10{;}} {\cf1{i}}{\cf10{:}} {\cf1{pri_queue_inf}}{\cf10{;}} {\cf1{w}}{\cf10{:}} {\cf1{pri_queue_w}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{pri_queue_init}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{a}}{\cf10{:}} {\cf1{t_pri_queue}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{pri_queue_dispose}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{a}}{\cf10{:}} {\cf1{t_pri_queue}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b function\b0 }} {\cf1{}}{\cf14{pri_queue_pop}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{a}}{\cf10{:}} {\cf1{t_pri_queue}}{\cf10{):}} {\cf1{pri_queue_inf}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b function\b0 }} {\cf1{}}{\cf14{pri_queue_empty}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{:}} {\cf1{t_pri_queue}}{\cf10{):}} {\cf1{}}{\cf12{boolean}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf11{\b implementation\b0 }}\par\pard
+{\cf1{}}\par\pard
+{\cf5{\i \{Inserisco un nodo nella coda. I nodi sono ordinati in ordine crescente\i0 }}\par\pard
+{\cf5{\i secondo il peso w\}\i0 }}{\cf1{}}\par\pard
+{\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{pri_queue_push}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{a}}{\cf10{:}} {\cf1{t_pri_queue}}{\cf10{;}} {\cf1{i}}{\cf10{:}} {\cf1{pri_queue_inf}}{\cf10{;}} {\cf1{w}}{\cf10{:}} {\cf1{pri_queue_w}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b begin\b0 }}\par\pard
+{\cf1{}}     {\cf11{\b if\b0 }} {\cf1{a}}{\cf10{=}}{\cf1{}}{\cf11{\b nil then begin\b0 }} {\cf1{}}{\cf5{\i \{Inserimento\}\i0 }}{\cf1{}}\par\pard
+        {\cf14{new}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{);}}\par\pard
+{\cf1{        a^.sx}} {\cf10{:=}} {\cf1{}}{\cf11{\b nil\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{        a^.dx}} {\cf10{:=}} {\cf1{}}{\cf11{\b nil\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{        a^.inf}} {\cf10{:=}} {\cf1{i}}{\cf10{;}}\par\pard
+{\cf1{        a^.w}} {\cf10{:=}} {\cf1{w}}{\cf10{;}}\par\pard
+{\cf1{}}     {\cf11{\b end\b0 }}\par\pard
+{\cf1{}}     {\cf11{\b else\b0 }} {\cf1{}}{\cf5{\i \{Ricerca della posizione\}\i0 }}{\cf1{}}\par\pard
+        {\cf11{\b if\b0 }} {\cf1{w}} {\cf10{<}} {\cf1{a^.w}} {\cf11{\b then\b0 }}\par\pard
+{\cf1{}}           {\cf14{pri_queue_push}}{\cf1{}}{\cf10{(}}{\cf1{a^.sx}}{\cf10{,}} {\cf1{i}}{\cf10{,}} {\cf1{w}}{\cf10{)}}\par\pard
+{\cf1{}}        {\cf11{\b else\b0 }}\par\pard
+{\cf1{}}           {\cf14{pri_queue_push}}{\cf1{}}{\cf10{(}}{\cf1{a^.dx}}{\cf10{,}} {\cf1{i}}{\cf10{,}} {\cf1{w}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf5{\i \{Inizializzo la coda\}\i0 }}{\cf1{}}\par\pard
+{\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{pri_queue_init}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{a}}{\cf10{:}} {\cf1{t_pri_queue}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b begin\b0 }}\par\pard
+{\cf1{     a}} {\cf10{:=}} {\cf1{}}{\cf11{\b nil\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf5{\i \{Elimino la coda dall'heap\}\i0 }}{\cf1{}}\par\pard
+{\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{pri_queue_dispose}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{a}}{\cf10{:}} {\cf1{t_pri_queue}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b begin\b0 }}\par\pard
+{\cf1{}}     {\cf11{\b if\b0 }} {\cf1{a}}{\cf10{<>}}{\cf1{}}{\cf11{\b nil then begin\b0 }}\par\pard
+{\cf1{}}        {\cf14{pri_queue_dispose}}{\cf1{}}{\cf10{(}}{\cf1{a^.sx}}{\cf10{);}}\par\pard
+{\cf1{}}        {\cf14{pri_queue_dispose}}{\cf1{}}{\cf10{(}}{\cf1{a^.dx}}{\cf10{);}}\par\pard
+{\cf1{}}        {\cf14{dispose}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{);}}\par\pard
+{\cf1{        a}}{\cf10{:=}}{\cf1{}}{\cf11{\b nil\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}     {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf5{\i \{Restituisce l'elemento con peso minimo e lo cancella dalla coda.\}\i0 }}{\cf1{}}\par\pard
+{\cf11{\b function\b0 }} {\cf1{}}{\cf14{pri_queue_pop}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{a}}{\cf10{:}} {\cf1{t_pri_queue}}{\cf10{):}} {\cf1{pri_queue_inf}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+    {\cf5{\i \{Sostituisco un nodo con un figlio, e lo cancello\}\i0 }}{\cf1{}}\par\pard
+    {\cf11{\b procedure\b0 }} {\cf1{}}{\cf14{_replace}}{\cf1{}}{\cf10{(}}{\cf1{}}{\cf11{\b var\b0 }} {\cf1{a{1}}}{\cf10{:}} {\cf1{t_pri_queue}}{\cf10{;}} {\cf1{a{2}}}{\cf10{:}} {\cf1{t_pri_queue}}{\cf10{);}}\par\pard
+{\cf1{}}    {\cf11{\b var\b0 }} {\cf1{aux}}{\cf10{:}} {\cf1{t_pri_queue}}{\cf10{;}}\par\pard
+{\cf1{}}    {\cf11{\b begin\b0 }}\par\pard
+{\cf1{         aux}} {\cf10{:=}} {\cf1{a{1}}}{\cf10{;}}\par\pard
+{\cf1{         a{1}}} {\cf10{:=}} {\cf1{a{2}}}{\cf10{;}}\par\pard
+{\cf1{}}         {\cf14{dispose}}{\cf1{}}{\cf10{(}}{\cf1{aux}}{\cf10{);}}\par\pard
+{\cf1{}}    {\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf11{\b begin\b0 }}\par\pard
+{\cf1{}}    {\cf5{\i \{Eseguire esternamente il controllo pri_queue_empty !!!!! \}\i0 }}{\cf1{}}\par\pard
+\par\pard
+    {\cf5{\i \{Elemento trovato, eseguo la cancellazione\}\i0 }}{\cf1{}}\par\pard
+    {\cf11{\b if\b0 }} {\cf1{a^.sx}} {\cf10{=}} {\cf1{}}{\cf11{\b nil then begin\b0 }}\par\pard
+{\cf1{       pri_queue_pop}} {\cf10{:=}} {\cf1{a^.inf}}{\cf10{;}}\par\pard
+{\cf1{}}       {\cf14{_replace}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{,}} {\cf1{a^.dx}}{\cf10{);}}\par\pard
+{\cf1{}}    {\cf11{\b end\b0 }}\par\pard
+{\cf1{}}    {\cf11{\b else\b0 }}\par\pard
+{\cf1{       pri_queue_pop}} {\cf10{:=}} {\cf1{}}{\cf14{pri_queue_pop}}{\cf1{}}{\cf10{(}}{\cf1{a^.sx}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf5{\i \{Restituisce TRUE se la coda è vuota, altrimenti FALSE.\}\i0 }}{\cf1{}}\par\pard
+{\cf11{\b function\b0 }} {\cf1{}}{\cf14{pri_queue_empty}}{\cf1{}}{\cf10{(}}{\cf1{a}}{\cf10{:}} {\cf1{t_pri_queue}}{\cf10{):}} {\cf1{}}{\cf12{boolean}}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}{\cf11{\b begin\b0 }}\par\pard
+{\cf1{     pri_queue_empty}} {\cf10{:= (}}{\cf1{a}} {\cf10{=}} {\cf1{}}{\cf11{\b nil\b0 }}{\cf1{}}{\cf10{);}}\par\pard
+{\cf1{}}{\cf11{\b end\b0 }}{\cf1{}}{\cf10{;}}\par\pard
+{\cf1{}}\par\pard
+{\cf11{\b end\b0 }}{\cf1{.}}\par\pard
+\par\pard
+}}

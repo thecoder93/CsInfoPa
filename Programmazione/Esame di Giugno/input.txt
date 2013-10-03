@@ -1,0 +1,25 @@
+12
+A C
+A b
+A D
+A a
+a b
+a D
+C b
+C D
+C X
+b c
+c X
+X D
+19 a X
+1
+a Z
+19 a Z
+5
+A D
+D X
+A b
+b c
+c X
+39 A X
+-1

@@ -1,0 +1,2 @@
+Ricorda che per non far creare tutte le form automaticamente, devi deselezionare questa opzione andando su Tools/Environment options.
+Se pero' vuoi che comunque qualche form oltre a quella principale venga creata automaticamente vai su Project/Options

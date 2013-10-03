@@ -1,0 +1,679 @@
+
++--+-+-+-++--++-+-+++--++-+-+-+-++-+--+-+-++--+-+-+-+-+-+-+-+-++-+-+--+-++--+
+                              GUIDA AL PASCAL
+                                              by DEF
++--+-+-+-++--++-+-+++--++-+-+-+-++-+--+-+-++--+-+-+-+-+-+-+-+-++-+-+--+-++--+
+
+Il pascal e` un linguaggio di programmazione straordinario, ed a differenza
+di come la pensano in molti e` anche molto potente, grazie anche alla
+possibilita` di utilizzare file object compilati con altri linguaggi,
+e di inserire frammenti di codice assembler, un linguaggio a bassissimo
+livello con il quale e` possibile fare qualunque cosa. Magari in futuro
+scrivero` una guida anche per l`assembler.
+Il pascal e` un linguaggio ad alto livello, cioe` e` ben lontano dal linguaggio
+macchina. I linguaggi di programmazione possono essere divisi in due categorie,
+quelli che vengono eseguiti direttamente (come per esempio il basic, o i file
+batch del dos), e quelli che per essere eseguiti hanno prima bisogno di essere
+compilati (tramite la compilazione viene creato un file .obj) e linkati
+(con il link viene creato il file eseguibile).
+Il pascal fa parte di questi ultimi, ed e` un pregio, perche` i file che vengono
+eseguiti direttamente sono molto + lenti e gli errori non vengono segnalati,
+ma si scoprono man mano che si esegue il programma.
+Esistono vari compilatori per il pascal, e tra di loro vi sono poche differenze.
+Io consiglierei il Borland Pascal 7.0, l'ultima versione rilasciata, prima
+dell`avvento del Delphi, il "pascal visuale" un po` come il visual basic, che
+e` il basic visuale. Io sinceramente consiglierei il Delphi x chi ha intenzione
+di programmare sotto so windows con interfaccia grafica; con il pascal, si
+possono creare non solo applicazioni che girano sotto dos o sotto windows in
+interfaccia in modalita` testo, ma addirittura si possono creare sistemi
+operativi! come per esempio, Menuet, scritto con 25000 righe in turbo pascal,
++ quasi 2000 scritte in Assembler. Il borland pascal 7.0 e` downloadabile
+dall`url http://www.computertemple.com nella sezione utility.
+Ecco un semplicissimo programma in Pascal:
+
+program prova;
+{questo e` un commento!}
+uses crt;
+var stringa : string;
+
+begin
+     stringa := 'Hello world!!!';
+     writeln(stringa);
+     repeat until keypressed;
+end.
+
+provate a compilarlo ed eseguirlo, otterrete come output:
+
+Hello world!!!
+
+Ora esaminiamo questo piccolo frammento di codice sorgente:
+
+program prova;   ---> questa riga non fa altro che dichiarare il nome del
+                      programma che scriviamo; questa riga e` omettibile;
+                      il nome del programma non puo` contenere spazi, io
+                      consiglierei di sostituirli con gli underline _ .
+
+{questo e` un commento} ---> Servono commenti? :))) spero di no, cmq
+                             tra parentesi graffe possono essere
+                             inseriti i commenti; cio` e` molto utile
+                             quando il programma diventera` + complesso,
+                             e dovremo rivederlo, cosi` potremo commentare
+                             a cosa servira` una riga
+
+uses crt;   ---> il pascal come qualunque altro linguaggio di programmazione
+                 permette di inserire librerie nel proprio programma. Le
+                 librerie specificamente in pascal sono chiamate "unit".
+                 Queste sono molto utili, per diminuire il codice sorgente
+                 del programma; infatti, procedure e funzioni (spieghero`
+                 dopo cosa sono + approfonditamente) possono essere scritte
+                 in unit; queste quando vengono compilate, creano un file
+                 con estensione .tpu , quindi poi bastera` inserire nel
+                 proprio programma "uses libreria,libreria2,nlibrerie;"
+                 (ricordate che il file libreria si dovra` trovare nella
+                 stessa directory del file sorgente, oppure nelle directory
+                 tpu del nostro compilatore pascal). Spesso le librerie
+                 vengono utilizzate a scopo commerciale, infatti vengono
+                 dati gratuitamente i file .tpu (dai quali non si puo` vedere
+                 il codice sorgente della unit), e i file sorgenti ,invece,
+                 vengono dati solo in cambio di soldi. (In verita` dalle tpu
+                 si puo` risalire ai codici sorgenti delle librerie in un
+                 modo non molto legale detto Reverse engineering :) ).
+                 Con questa riga non abbiamo fatto altro quindi che includere
+                 la libreria "crt" nel nostro programma. Questa libreria e`
+                 insieme a quella "dos", la + utilizzata, per l`utilita` delle
+                 procedure incluse.
+
+var striga : string;   ---> leggi + avanti...
+
+begin   --->  con il comando begin si dichiara l`inizio del programma,
+             di un ciclo, di una procedura o di una funzione.
+             In questo caso abbiamo dichiarato l`inizio del programma
+             vero e proprio.
+
+stringa := 'Hello world!!!';   ---> leggi + avanti...
+
+writeln(stringa);   ---> con il comando writeln viene stampato a video
+                         un testo, od una variabile come in questo caso.
+                         Il testo viene stampato sul punto attuale del cursore.
+
+repeat until keypressed;   ---> Questo e` un ciclo, e la sua sintassi e`:
+                                repeat comando1 comando2 ... until condizione;
+                                cioe` vengono ripetuti i comandi finche`
+                                non avviene la condizione. In questo caso
+                                come vedete viene ripetuto " " finche` non
+                                viene premuto un tasto. Cioe` non avviene
+                                un bel niente finche` non viene premuto un
+                                tasto. Altri cicli li vedremo + avanti...
+
+end.    ---> End e` l`equivalente dell`opposto di begin, infatti esso
+             dichiara la fine di una procedure, di un ciclo, di una funzione
+             o del programma vero e proprio. In questo caso dichiara la fine
+             del programma essendo seguito da un punto . Quando ,invece,
+             dichiara la fine di un`altra delle ipotesi suddette viene seguito
+             da una virgola, .
+
+
+Come avete notato alla fine di ogni riga e` obbligatorio inserire un ";", se
+no viene considerato come un errore. Le uniche eccezioni sono il begin,
+i commenti, e l`end finale, che come avete visto e` seguito da punto.
+Inoltre, avrete sicuramente notato che il codice dopo il begin e spostato
+con una tabulazione a destra. Questo non e` obbligatorio ma e` molto utile
+per rendere il programma facilmente "leggibile".
+
+Come premesso ora parlero` approfonditamente delle variabili, della loro
+funzione e dichiarazione.
+Le variabili non sono altro che dei "cassetti" infatti, quando dichiariamo
+una variabile non facciamo altro che assegnare ad una parte della nostra
+memoria ram il compito di contenere un valore. Le variabili vengono dichiarate
+con questa sintassi:
+var nomevariabile : tipovariabile;
+Il nome della variabile puo` essere qualunque basta che non sia una parola
+chiave. Le parole chiave variano da compilatore a compilatore.
+I tipi di variabili possono essere del testo : "string", un singolo carattere
+della tabella ASCII : "char", booleano cioe` con valori true o false "boolean",
+od un numero. I tipi di variabili numero sono molti,
+ecco i maggiori:
+"byte" : valori da 0 a 255
+"integer" : valori da -32768 a 32767
+"float" : valori in virgola mobile
+
+I valori delle variabili devono essere dichiarati dopo il begin, con questa
+sintassi:
+nomevariabile := valore;
+Quando la variabile e` numerica la sintassi e` come in questo esempio:
+
+numero:=6378;
+
+mentre quando si tratta di un testo o di un carattere:
+
+stringa:='Hello world!!!';
+carattere:='d';
+
+Le variabili sono utili per ottenere degli input da colui che esegue il
+programma, vedete per esempio questo codice:
+
+uses crt;
+
+var input1,input2 : string;
+    input3 : byte;
+
+begin
+        clrscr;
+        writeln;
+        write('Qual e'' il tuo nome? ');
+        readln(input1);
+        write('Qual e'' il tuo cognome? ');
+        readln(input2);
+        write('Quanti anni hai?');
+        readln(input3);
+        writeln;
+        writeln(input1,' ',input2,' ha ', input3, ' anni.');
+        repeat until keypressed;
+end.
+
+eseguendo questo programma otterrete:
+
+
+        Qual e' il tuo nome? DEF
+        Qual e' il tuo cognome? DEF
+        Quanti anni hai? 16
+
+        DEF DEF ha 16 anni.
+
+Analizziamolo:
+le righe fino al begin le abbiamo tutte gia` visto precedentemente.
+clrscr;   ---> questa procedura si trova nella libreria crt, e non fa
+               altro che fare pagina pulita.
+
+writeln;   ---> come visto in precedenza writeln serve per stampare
+                a video qualcosa, in questo caso lasciamo solo una riga vuota.
+
+write('Qual e'' il tuo nome?');   ---> write ha lo stesso utilizzo di writeln,
+                                        ma al termine della scrittura a video
+                                        non va a capo. Come avete visto inoltre
+                                        per far visualizzare un apice ' bisogna
+                                        digitarlo due volte, se no sarebbe un
+                                        errore. Cio` vale anche per writeln.
+
+readln(input1);    ---> readln e` l`opposto di writeln, infatti a posto
+                        di inviare un output alla periferica standard (video),
+                        riceve un input dalla periferica standard (tastiera).
+                        In effetti, questa riga non fa altro che aspettare che
+                        l`utente dgt qualcosa, e poi assegna cio` che e` stato
+                        digitato alla variabile.
+
+write('Qual e'' il tuo cognome?');---\
+readln(input2);    ----------------\
+write('Quanti anni hai?');   -----| tutti questi comandi sono stati gia` visti
+readln(input3);   ----------------/
+writeln;   -------------------------/
+
+writeln(input1,' ',input2,' ha ', input3, ' anni.');  ---> Con questa riga
+                                                        scriviamo le variabili
+                                                        ottenute + uno spazio
+                                                        tra di loro e "ha"
+                                                        e "anni.", in modo da
+                                                        ottenere: "Nome Cognome
+                                                        ha num_anni anni."
+
+repeat until keypressed; ---> gia` visti
+end.            ----------------/\
+
+Tramite la spiegazione e gli esempi spero di aver chiarito cosa sia una
+variabile, come dichiararla, come assegnargli un valore.
+
+Spesso quando si scrive un programma si incontra il problema di dover scrivere
++ volte una stessa serie di comandi; a questo punto vengono in aiuto le
+procedure. Infatti queste non sono nient`altro che una serie di comandi che
+possono essere chiamati con una sola riga. Ecco un esempio:
+
+uses crt;
+
+var ancora : string;
+label prova2;
+
+
+procedure prova1;
+var addendo1, addendo2, risultato : integer;
+
+begin
+        clrscr;
+        writeln;
+        writeln;
+        writeln;
+        write('Inserisci il primo addendo : ');
+        readln(addendo1);
+        write('Inserisci il secondo addendo : ');
+        readln(addendo2);
+        risultato := addendo1 + addendo2;
+        writeln;
+        writeln('Il risultato e'' ',risultato); 
+end;
+         
+begin
+
+        prova2:
+                prova1;
+                writeln;
+                write('Un''altra addizione? (s/n)');
+                readln(ancora);
+                if ancora='s' then goto prova2;
+end.
+
+
+come vedete e` un semplice programma che fa un`addizione. La procedura
+non era strettamente necessaria, ma era solo per esempio.
+Analizziamo le cose nuove all`interno del semplice programma:
+
+label prova2;   --->con questa riga abbiamo dichiarato un`"etichetta".
+                    Queste sono molto utili per rimandare il programma
+                    ad una certa riga in qualsiasi momento. E` un po` come
+                    quando col basic vi era "then goto numeroriga", e` la
+                    stessa cosa qui, solo che si rimanda al nome della label.
+
+procedure prova1;   --->Vedi + avanti...
+
+risultato := addendo1 + addendo2;   --->Come abbiamo detto in precedenza in
+                                        questo modo si assegnano dei valori
+                                        alle variabili. In questo caso
+                                        abbiamo assegnato a risultato il
+                                        valore della somma del valore di
+                                        addendo1 e del valore di addendo2.
+                                        Quel + tra le variabili viene detto
+                                        operatore. Ve ne sono altri, ecco i
+                                        + diffusi:
+
+                                        + (gia` visto) per la somma
+                                        - per la sottrazione
+                                        / per la divisione
+                                        * per la moltiplicazione
+
+prova2:    ---> Assegniamo l`inizio della label, dichiarata in precedenza.
+                Quando chiameremo la label, il programma continuera` ad
+                eseguire i comandi da qui in poi.
+
+prova1;   ---> Con questa riga richiamiamo la procedura scritta in precedenza.
+
+if ancora='s' then goto prova2;  ---> controlla se ("if" = "se") la variabile
+                                      ancora e` uguale a "s"; se e` uguale
+                                      allora ("then" = "allora")
+                                      vai alla ("goto" = "vai a") label prova2.
+
+
+
+Come avete visto le procedure sono come dei veri e propri programmi
+all`interno del nostro programma che possono essere chiamati quando si vuole.
+Ecco la sintassi:
+
+procedure nomeprocedura(eventuali_variabili : tipo);
+eventuali_variabili_2 : tipo;
+begin
+        comando1;
+        comando2;
+        comando3;
+        ...
+end;
+
+Come avete visto dopo il nome della procedura tra parentesi e` possibile
+inserire dei valori da poi utilizzare all`interno del programma.
+Inoltre prima del begin della procedura si possono anche dichiarare delle
+variabili da utilizzare, basta che il loro nome non sia lo stesso di quello
+tra parentesi dopo il nome della procedura. Non e` possibile creare
+concatenazioni di procedure, cioe` non si possono inserire altre procedure
+all`interno delle procedure.
+Come detto in precedenza vi sono anche le funzioni. Queste sono molto simili
+alle procedure, l`unica differenza e` che restituiscono un valore.
+Ecco la sintassi:
+
+function nomefunzione(variabili : tipo):tipo_funzione;
+eventuali_variabili : tipo;
+begin
+        comando1;
+        comando2;
+        comando3;
+        ...
+        nomefunzione:=valore;
+end;
+
+
+in cui:
+
+tipo_funzione ---> i tipi sono gli stessi delle variabili
+nomefunzione:=valore ---> con la penultima riga non facciamo altro
+                          che assegnare alla funzione il valore da restituire.
+
+Ecco subito un esempio chiarificatore:
+
+uses crt;
+
+var a1,a2:integer;
+
+
+function somma(addendo1,addendo2:integer):integer;
+begin
+        somma:=addendo1+addendo2;
+end;
+         
+begin
+                writeln;
+                write('Inserisci il primo addendo: ');
+                readln(a1);
+                write('Inserisci il secondo addendo: ');
+                readln(a2);
+                writeln;
+                writeln('Il risultato e'' ',somma(a1,a2));
+                repeat until keypressed;
+end.
+
+Come vedete, la funzione somma non fa altro che addizionare le variabili
+che gli vengono inviate.
+
+In precedenza, abbiamo visto il comando if. Spieghiamolo meglio; questo e`
+molto semplice infatti e` il corrispondente in inglese di come diremmo in
+italiano:
+se variabile1='Ciao' allora fai questo;.
+Cosi` in inglese, e quindi in pascal, faremo:
+if variabile1='Ciao' then comando1;
+Come vedete, cosi` eseguiamo un solo comando, per eseguire + comandi,
+ecco la sintassi:
+
+if variabile=2 then begin
+        comando1;
+        comando2;
+        comando3;
+        ...
+end;
+
+Inoltre, e` possibile inserire anche "else" il corrispondente dell`italiano
+"se no, invece, fai questo". Ecco un esempio di sintassi:
+
+if (questione=false) and (anni=16) then begin
+        comando1;
+        comando2;
+        comando3;
+        ...
+end else begin
+        comando1;
+        comando2;
+        comando3;
+        ...
+end;
+
+In questo codice, oltre ad usare else, abbiamo introdotto anche l`utilizzo
+di + di una condizione con AND che equivale ad e. Quindi se questione=false
+e anni=16 esegue i comandi. Inoltre, oltre ad AND esiste anche OR che equivale
+ad o.
+Spieghiamo invece ora gli altri cicli, oltre a repeat ... until.
+For , ecco la sua sintassi:
+for nomevariabile:=numero to numero2 do begin
+        comando1;
+        comando2;
+        comando3;
+        ...
+end;
+
+Grazie a questo ciclo si possono ripetere un determinato numero di volte
+dei comandi. Ecco un esempio:
+
+uses crt;
+
+var i : integer;
+
+
+begin
+        for i:=1 to 10000 do begin
+                write('Hello World! ',i);
+                clrscr;
+        end;                
+end.
+
+Questo esempio scrive Hello world! 1 , poi pulisce la pagina e scrive
+Hello world! 2, fino ad arrivare a 10000
+
+Un altro ciclo e` While (che corrisponde a "finche`"), ecco la sintassi:
+
+while condizione do begin
+        comando1;
+        comando2;
+        comando3;
+        ...
+end;
+
+Finche` si verifica la condizione si ripetono i comandi.
+
+Bene, come direbbe il grande Michael Bakunin: Ex Claro?
+Credo di aver spiegato chiaramente i concetti base del pascal, ora potete
+gia` iniziare a divertirvi con la vostra fantasia a creare nuovi programmi.
+
+Cerco di spiegare ora qualcosa in + sul pascal.
+Come ho detto all`inizio all`interno del pascal e` possibile inserire codice
+assembler. Questo e` possibile con asm ... end;
+Scrivendo asm si dice al compilatore che da li` fino al primo end; le
+istruzioni sono in assembler. Esempio:
+
+begin
+        asm
+                mov al, 07h
+        end;
+end.
+
+Questo programma e` un esempio e non fa assolutamente niente, inserisce solo
+il valore 07 in esadecimale nella parte bassa del registro ax.
+Naturalmente, non posso spiegarvi l`assembler in questa guida, sarebbe troppo
+lunga, vi consiglio di leggere la guida all'asm di Michael Bakunin
+downloadabile da http://go.to/tankcommandos . Magari in futuro ne scrivero`
+una anch`io. Se si conosce bene sia l`assembler che il pascal, si puo` fare
+qualunque cosa dal sistema operativo al videogioco tridimensionale.
+
+Inoltre, ho detto in precedenza che all`interno del pascal si possono utilizzare
+funzioni scritte in altri linguaggi, basta compilarli ed ottenere il file
+con estensione obj. Per inserire questo file bisogna scrivere all`inizio del
+programma la riga:
+{$L nomefile.obj}
+in questo modo si potranno richiamare funzioni e procedure scritte nel file
+object. Naturalmente per ogni linguaggio esistono alcuni altri provvedimenti
+da prendere, di cui io non parlo in questa guida. Per esempio, per inserire
+l'object di un file assembler, bisognera` dichiarare nel file asm le procedure
+come public, e poi inserire nel nostro codice le procedure del file object
+che useremo in questo modo:
+procedure nomeprocedura; external;
+Dicendo external; il compilatore cerchera` direttamente la funzione nel file
+object.
+
+Infine, sfrutto quest`ultima parte della guida per parlare dei colori.
+Nella unit crt, vi sono infatti le procedure textcolor(colore) e
+textbackground(colore). Queste dichiarano il colore del testo e dello sfondo
+in modalita` testo. Per esempio:
+
+textcolor(white);
+textbackground(blue);
+clrscr;
+writeln('Hello world!');
+
+non fa altro che mettere sfondo blu e testo bianco e scrivere Hello world!
+
+Ecco infine un piccolo programma di esempio:
+
+program prova_arcobaleno;
+
+uses crt;
+
+var coloretesto,coloresfondo : integer;
+    i : byte;
+
+
+procedure arcobaleno;
+begin
+        if coloretesto > 20 then begin
+        coloretesto:=0;
+        coloresfondo:=1;
+        end else begin
+        coloretesto := coloretesto + 1;
+        coloresfondo := coloresfondo + 1;
+        end;
+        textcolor(coloretesto);
+        textbackground(coloresfondo);
+        clrscr;
+        writeln;
+        writeln('               HELLO WORLD!!!');
+        delay(10);
+end;
+
+begin
+        coloretesto:=1;
+        coloresfondo:=0;
+        repeat
+        arcobaleno;
+        until keypressed;
+        textcolor(15);
+        textbackground(1);
+        clrscr;
+        writeln;
+        writeln('               Tabella ASCII');
+        writeln;
+        writeln('   premi il pulsante PAUSA per bloccare la lista');
+        writeln('   premi qualsiasi tasto per ricominciare a far scorrere la lista o per uscire');
+        delay(2000);
+        i:=0;
+	readln;
+	repeat
+        writeln(i,' = ',chr(i));
+        i:=i+1;
+	delay(100);
+	until keypressed;
+end.
+
+
+Questo esempio che ho scritto prima visualizza la scritta hello world
+(la tipica scritta che viene visualizzata di solito quando si scrive
+per la prima volta un programma) con effetto arcobaleno, e poi visualizza
+la tabella ascii. Ecco i comandi nuovi che ho inserito in questo esempio:
+
+delay ---> questo comando attende un determinato periodo di tempo,
+           la sintassi e`: delay(ms) . Tra parentesi va il tempo da
+           attendere in millesimi di secondo, quindi 1000 = 1 secondo.
+chr --->   questa funzione restituisce il carattere del numero inserito
+           tra parentesi. Sintassi: chr(numero) . Per esempio se scriviamo
+           write(chr(21)); otterremo scritto : § .Infatti, se tenendo premuto
+           l`alt sinistro della vostra tastiera digitate 21 sui numeri sulla
+           destra della vostra tastiera otterrete: §.
+Inoltre come avrete notato questa volta dopo l`if al posto di uguale =
+abbiamo utilizzato >. > sta a significare maggiore, < minore ed <> diverso.
+
+Siamo giunti agli sgoccioli della guida, perche` non so + cosa spiegare...
+
+Ecco un esempio di un altro programma:
+
+{$M 65000,0,65000}
+
+program esegui;
+
+uses dos,crt;
+
+var file_da_eseguire : string;
+
+
+begin
+        clrscr;
+        writeln;
+        write('Path del file da eseguire : ');
+        readln(file_da_eseguire);
+        swapvectors;
+        exec('c:\command.com',' /c ' + file_da_eseguire);
+        swapvectors;
+	writeln;
+	writeln('Premi un tasto per uscire dal programma');
+	repeat until keypressed;
+end.
+
+La prima riga fa utilizzare 65000 byte di memoria, in modo da permettere
+l`esecuzione di programmi. Swapvectors, deve essere sempre usato prima e dopo
+exec. Exec ,infine, non fa altro che eseguire un file. Ecco la sintassi:
+exec(interprete_dei_comandi,parametri);
+L`interprete dei comandi del dos e di windows e` il command.com, quindi
+bastera` scrivere il suo path. Come parametri /c indica di eseguire un file,
+od un comando come ad esempio dir.
+
+Ora sapete quindi anche come eseguire un file.
+Ecco discusse qui altre procedure utili, di cui non ho avuto la possibilta`
+di parlare:
+
+gotoxy(y,x); ---> sposta il cursore alla x ed alla y data (x e` la riga dello
+                  schermo, mentre y e` la colonna) (in modalita` testo normale
+                  vi sono 20 righe ed 80 colonne)
+
+random(numero); ---> sceglie casualmente un numero da 1 fino al numero inserito
+		     fra parentesi. Per esempio :
+		     write(random(100));
+		     scrivera` a video un numero casuale da 1 a 100.
+
+initgraph(drivergrafico,modografico,pathdeldriver) ---> inizializza il modo
+						grafico. Questa funzione per
+						essere eseguita ha bisogno
+						della unit graph (quindi
+						dovremo inserire graph
+						dopo uses), e del path
+						della directory bgi che si
+						trova nella cartella del nostro
+						pascal.
+
+Ecco un esempio di utilizzo della modalita` grafica:
+
+uses Graph;
+
+var Driver_grafico,Modo_grafico,Errore: Integer;
+
+begin
+	Driver_grafico := Detect;
+	InitGraph(Driver_grafico, Modo_grafico,'qui va il path dei file bgi'); {per es. c:\tp\bgi\ }
+	Errore := GraphResult;
+	if Errore = grOk then begin
+        	Line(0, 0, GetMaxX, GetMaxY);
+     		Readln;
+     		CloseGraph;
+        end else Writeln('Errore grafico:', GraphErrorMsg(Errore));
+end.
+
+
+
+Vediamo un po`:
+
+Driver_grafico := Detect;  ---> Determina automaticamente il driver grafico giusto per la nostra
+				scheda video, e lo assegna alla variabile Driver_grafico
+
+InitGraph(Driver_grafico, Modo_grafico,'qui va il path dei file bgi'); ---> Questa riga
+							inizializza la modalita` grafica,
+							utilizzando il driver determinato
+							precedentemente. Nel terzo parametro
+							va inserito il path dei file grafici
+							con estensione .bgi. Per esempio, il mio e`
+							'c:\progra~1\borlan~1\bgi\'
+
+Errore := GraphResult;   ---> Questa riga controlla il risultato ottenuto dopo essere stata
+			      inizializzata la grafica.
+
+if Errore = grOk then begin  ---> se non vi e` errore allora:
+
+Line(0, 0, GetMaxX, GetMaxY);   ---> disegna una linea che va dall`angolo in alto a sinistra sullo
+				     schermo, fino all`angolo in basso a destra. GetMaxX e GetMaxY
+				     sono delle costanti che indicano l`ultima riga e l`ultima colonna
+				     dello schermo.
+
+Readln;    ---> aspetta che si prema un tasto (proprio come repeat until keypressed)
+
+CloseGraph;   ---> chiude la modalita` grafica
+
+end else Writeln('Errore grafico:', GraphErrorMsg(Errore));  ---> se, invece, vi sono stati errori nella
+								inizializzazione, scrive a video:
+								Errore grafico: ed il codice dell`errore
+
+end.   ---> fine programma
+
+
+
+La guida e` finita spero vi sia piaciuta.
+Per critiche, per mandarmi affCENSUREDulo o per presentarmi vostra sorella :)) scrivetemi
+all'email linuxmandrake@libero.it
+
+DEF
+NetViria Crew - http://netviriacrew.cjb.net

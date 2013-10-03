@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<root>
+    <level>
+        <filename>TUTORIAL0.XML</filename>
+        <description>Newbie!</description>
+    </level>
+    <level>
+        <filename>TUTORIAL1.XML</filename>
+        <description>Lamah map</description>
+    </level>
+    <level>
+        <filename>LEVEL1.XML</filename>
+        <description>Hacker map</description>
+    </level>
+    <level>
+        <filename>LEVEL2.XML</filename>
+        <description>Guru map</description>
+    </level>
+</root>

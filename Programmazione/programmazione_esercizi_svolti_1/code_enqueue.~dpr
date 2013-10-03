@@ -1,0 +1,42 @@
+program code_enqueue;
+
+{$APPTYPE CONSOLE}
+
+uses
+  SysUtils;
+
+type
+puntatore=^cella
+cella=record
+info:integer;
+next:puntatore;
+end;
+sentinella=record
+testa:puntatore;
+coda:puntatore;
+end;
+procedure stampa
+begin
+
+procedure enqueue(x:integer);
+var paux:puntatore;
+begin
+new(paux);
+paux^.info:=x;
+paux^.next:=nil;
+if coda=nil then
+coda:=paux;
+testa:=paux
+else
+coda^.next:=paux;
+coda:=paux;
+end;
+
+begin
+until n<>0 repeat
+writeln('Inserisci l''elemento da inserire nella coda');
+readln(x);
+enqueue(x);
+
+end.
+ 

@@ -1,0 +1,40 @@
+package LD06;
+
+{$R *.RES}
+{$ALIGN ON}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$IMPLICITBUILD OFF}
+
+requires
+  vcl50,
+  VCLDB50;
+
+contains
+  LDResourceBitBtn in 'LDResourceBitBtn.pas',
+  LDResGlyphPropEdit in 'LDResGlyphPropEdit.pas',
+  LDHyperlinkLabel in 'LDHyperlinkLabel.pas',
+  LDRecNoField in 'LDRecNoField.pas',
+  LDEdit in 'LDEdit.pas',
+  LDTipOfTheDay in 'LDTipOfTheDay.pas',
+  In_3 in '..\..\..\..\Programmi\Borland\Delphi5\Bin\In_3.pas' {Form1};
+
+end.

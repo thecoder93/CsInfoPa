@@ -1,0 +1,44 @@
+object Form3: TForm3
+  Left = 508
+  Top = 183
+  Width = 341
+  Height = 225
+  Caption = 'Realizzato da...'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Memo1: TMemo
+    Left = 8
+    Top = 8
+    Width = 313
+    Height = 185
+    BorderStyle = bsNone
+    Color = cl3DLight
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Verdana'
+    Font.Style = [fsBold]
+    Lines.Strings = (
+      'Questo programma '#232' stato realizzato '
+      'durante il corso di  Programmazione e '
+      'Laboratorio da Viviana Pezzano e Danilo '
+      'Di Maio, frequentanti il C.d.L. in '
+      'Informatica  (Facolt'#224' di Scienze '
+      'MM.FF.NN. di Palermo).'
+      ''
+      'I Sorgenti e l'#39'eseguibile sono sotto licenza '
+      'GPL allegata alla cartella e raggiungibile '
+      'all'#39' indirizzo:  '
+      'http://www.gnu.org/licenses/gpl.txt')
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 0
+  end
+end

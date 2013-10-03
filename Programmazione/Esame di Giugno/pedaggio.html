@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Source file</title>
+<link rel="stylesheet" type="text/css" href="highlight.css">
+</head>
+<body class="hl">
+<pre class="hl"><span class="kwa">program</span> pedaggio<span class="sym">;</span>
+
+<span class="kwa">uses</span>
+     tkb_graph <span class="kwa">in</span> <span class="str">'tkb_graph.pas'</span><span class="sym">,</span>
+       tkb_bst <span class="kwa">in</span> <span class="str">'tkb_bst.pas'</span><span class="sym">,</span>
+ tkb_pri_queue <span class="kwa">in</span> <span class="str">'tkb_pri_queue'</span><span class="sym">,</span>
+ SysUtils <span class="sym">;</span>
+
+<span class="kwa">type</span> arc <span class="sym">=</span> <span class="kwa">record</span>
+         x<span class="sym">,</span>y<span class="sym">:</span> <span class="kwb">char</span><span class="sym">;</span>
+         <span class="kwa">end</span><span class="sym">;</span>
+     arc_v <span class="sym">=</span> <span class="kwa">array of</span> arc<span class="sym">;</span>
+
+<span class="kwa">var</span> g<span class="sym">:</span> t_graph<span class="sym">;</span>         <span class="slc">// Grafo rappresentante la mappa</span>
+    x<span class="sym">:</span> <span class="kwb">integer</span><span class="sym">;</span>         <span class="slc">// Numero degli archi</span>
+    a<span class="sym">:</span> t_bst<span class="sym">;</span>           <span class="slc">// BST usato per parsare l'input</span>
+    f<span class="sym">:</span> textfile<span class="sym">;</span>        <span class="slc">// File di input</span>
+    arcs <span class="sym">:</span> arc_v<span class="sym">;</span>       <span class="slc">// Vettore contenente gli archi da settare nel grafo</span>
+    num_nodes<span class="sym">:</span> <span class="kwb">integer</span><span class="sym">;</span> <span class="slc">// Numero dei nodi del grafo</span>
+    i<span class="sym">:</span> <span class="kwb">integer</span><span class="sym">;</span>         <span class="slc">// Contatore ausiliario</span>
+    n1<span class="sym">,</span>n2<span class="sym">:</span> <span class="kwb">char</span><span class="sym">;</span>        <span class="slc">// Variabili ausiliarie per parsare l'input</span>
+    caso<span class="sym">:</span> <span class="kwb">integer</span><span class="sym">;</span>      <span class="slc">// Contatore della mappa corrente</span>
+
+<span class="com">{Questa funzione ricorsiva serve a settare il tipo di nodo.</span>
+<span class="com">Influenza il calcolo dei pesi nell'esplorazione dei cammini del grafo.}</span>
+<span class="kwa">procedure</span> <span class="kwd">set_cities</span><span class="sym">(</span>g<span class="sym">:</span> t_graph<span class="sym">;</span> a<span class="sym">:</span> t_bst<span class="sym">);</span>
+<span class="kwa">begin</span>
+     <span class="kwa">if</span> a<span class="sym">&lt;&gt;</span><span class="kwa">nil then begin</span>
+        <span class="kwd">set_cities</span><span class="sym">(</span>g<span class="sym">,</span> a^.sx<span class="sym">);</span>
+        <span class="com">{Le città sono indicate con lettere maiuscole.}</span>
+        <span class="kwd">graph_set_node_type</span><span class="sym">(</span>g<span class="sym">,</span> a^.id<span class="sym">, (</span>a^.inf <span class="sym">=</span> <span class="kwd">upcase</span><span class="sym">(</span>a^.inf<span class="sym">)));</span>
+        <span class="kwd">set_cities</span><span class="sym">(</span>g<span class="sym">,</span> a^.dx<span class="sym">);</span>
+     <span class="kwa">end</span><span class="sym">;</span>
+<span class="kwa">end</span><span class="sym">;</span>
+
+<span class="kwa">begin</span>
+     <span class="kwa">if</span> <span class="kwd">fileexists</span><span class="sym">(</span><span class="str">'input.txt'</span><span class="sym">)</span> <span class="kwa">then begin</span>
+       <span class="kwd">assign</span><span class="sym">(</span>f<span class="sym">,</span> <span class="str">'input.txt'</span><span class="sym">);</span>
+       <span class="kwd">reset</span><span class="sym">(</span>f<span class="sym">);</span>
+       caso <span class="sym">:=</span> <span class="num">0</span><span class="sym">;</span>  <span class="com">{Contatore del loop}</span>
+       <span class="kwd">readln</span><span class="sym">(</span>f<span class="sym">,</span> x<span class="sym">);</span>
+       <span class="kwa">repeat</span>      <span class="com">{Loop principale}</span>
+         a<span class="sym">:=</span><span class="kwa">nil</span><span class="sym">;</span>
+         <span class="kwd">inc</span><span class="sym">(</span>caso<span class="sym">);</span>
+
+         <span class="com">{Il vettore arcs contiene gli archi da settare nel grafo}</span>
+         <span class="kwd">setlength</span><span class="sym">(</span>arcs<span class="sym">,</span> x<span class="sym">);</span>
+
+         <span class="com">{Creo un albero binario di ricerca (BST) con struttura modificata}</span>
+         <span class="kwa">for</span> i <span class="sym">:=</span> <span class="num">0</span> <span class="kwa">to</span> <span class="kwd">length</span><span class="sym">(</span>arcs<span class="sym">)-</span><span class="num">1</span> <span class="kwa">do begin</span>
+             <span class="kwd">readln</span><span class="sym">(</span>f<span class="sym">,</span> n1<span class="sym">,</span> n2<span class="sym">,</span> n2<span class="sym">);</span>   <span class="com">{Salto lo spazio leggendo 2 volte n2}</span>
+             <span class="kwd">bst_insert</span><span class="sym">(</span>a<span class="sym">,</span> n1<span class="sym">);</span>
+             <span class="kwd">bst_insert</span><span class="sym">(</span>a<span class="sym">,</span> n2<span class="sym">);</span>
+             arcs<span class="sym">[</span>i<span class="sym">]</span>.x <span class="sym">:=</span> n1<span class="sym">;</span>
+             arcs<span class="sym">[</span>i<span class="sym">]</span>.y <span class="sym">:=</span> n2<span class="sym">;</span>
+         <span class="kwa">end</span><span class="sym">;</span>
+
+         <span class="com">{Adesso l'albero binario 'a' contiene tutti i nodi del grafo.</span>
+<span class="com">         Associo ad ogni nodo dell'albero un numero intero partendo da 0.</span>
+<span class="com">         Serve per fare corrispondere ad ogni nodo dell'albero uno ed un solo</span>
+<span class="com">         nodo del grafo.}</span>
+         num_nodes <span class="sym">:=</span> <span class="kwd">bst_assign_ids</span><span class="sym">(</span>a<span class="sym">);</span>
+
+         <span class="com">{Inizializzo il grafo}</span>
+         <span class="kwd">graph_init_nodes</span><span class="sym">(</span>g<span class="sym">,</span> num_nodes<span class="sym">);</span>
+
+         <span class="com">{Adesso procedo a settare gli archi nel grafo}</span>
+         <span class="kwa">for</span> i<span class="sym">:=</span><span class="num">0</span> <span class="kwa">to</span> <span class="kwd">length</span><span class="sym">(</span>arcs<span class="sym">)-</span><span class="num">1</span> <span class="kwa">do</span>
+             <span class="kwd">graph_set_arc</span><span class="sym">(</span>g<span class="sym">,</span> <span class="kwd">bst_get_id_from_inf</span><span class="sym">(</span>a<span class="sym">,</span>arcs<span class="sym">[</span>i<span class="sym">]</span>.x<span class="sym">),</span>  <span class="com">{Nodo 1}</span>
+                              <span class="kwd">bst_get_id_from_inf</span><span class="sym">(</span>a<span class="sym">,</span>arcs<span class="sym">[</span>i<span class="sym">]</span>.y<span class="sym">)</span>   <span class="com">{Nodo 2}</span>
+                              <span class="sym">);</span>
+
+         <span class="com">{Imposto il tipo dei nodi: città o villaggio}</span>
+         <span class="kwd">set_cities</span><span class="sym">(</span>g<span class="sym">,</span> a<span class="sym">);</span>
+
+         <span class="com">{Leggo il numero di cucchiai, la partenza e la destinazione}</span>
+         <span class="kwd">readln</span><span class="sym">(</span>f<span class="sym">,</span> x<span class="sym">,</span> n1<span class="sym">,</span> n1<span class="sym">,</span> n2<span class="sym">,</span> n2<span class="sym">);</span>
+
+         <span class="com">{Calcolo il cammino minimo e stampo il risultato.</span>
+<span class="com">         Notare che i nodi di partenza e destinazione sono invertiti rispetto</span>
+<span class="com">         all'input. Vedere la relazione per una spiegazione del funzionamento</span>
+<span class="com">         dell'algoritmo.}</span>
+         <span class="kwd">writeln</span><span class="sym">(</span><span class="str">'Caso '</span><span class="sym">,</span>caso<span class="sym">,</span><span class="str">': '</span><span class="sym">,</span>
+                         <span class="kwd">graph_get_best_path</span><span class="sym">(</span>g<span class="sym">,</span> <span class="kwd">bst_get_id_from_inf</span><span class="sym">(</span>a<span class="sym">,</span>n2<span class="sym">),</span>
+                                                <span class="kwd">bst_get_id_from_inf</span><span class="sym">(</span>a<span class="sym">,</span>n1<span class="sym">),</span> x<span class="sym">));</span>
+
+         <span class="com">{Pulizia dell'heap.}</span>
+         <span class="kwd">graph_dispose</span><span class="sym">(</span>g<span class="sym">);</span>
+         <span class="kwd">bst_dispose</span><span class="sym">(</span>a<span class="sym">);</span>
+
+         <span class="com">{Proseguo con la lettura del file}</span>
+         <span class="kwd">readln</span><span class="sym">(</span>f<span class="sym">,</span> x<span class="sym">);</span>
+       <span class="kwa">until</span> x <span class="sym">= -</span><span class="num">1</span><span class="sym">;</span> <span class="com">{quando trova -1 nel file, termina il loop}</span>
+       <span class="kwd">close</span><span class="sym">(</span>f<span class="sym">);</span>
+     <span class="kwa">end</span>
+     <span class="kwa">else</span> <span class="kwd">writeln</span><span class="sym">(</span><span class="str">'Errore nell'</span><span class="str">'apertura di input.txt'</span><span class="sym">);</span>
+     readln<span class="sym">;</span>
+<span class="kwa">end</span>.
+
+</pre>
+</body>
+</html>
+<!--HTML generated by highlight 2.4.8, http://www.andre-simon.de/-->

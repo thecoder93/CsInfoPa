@@ -1,0 +1,1782 @@
+====================================
+||  Esempi di programmi in Pascal  ||
+====================================
+
+Somma
+
+Programma che calcola la somma tra due numeri.
+
+ 
+
+Program somma;
+Var a,b,S:integer;
+Begin
+ Writeln('Scrivi il primo addendo');
+ Readln(a);
+ Writeln('Scrivi il secondo addendo');
+ Readln(b);
+ S:=a+b;
+ Writeln('Il risultato della somma è ',S);
+
+ readln;
+End.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Differenza
+
+Programma che calcola la differenza tra due numeri.
+
+ 
+
+Program differenza;
+Var a,b,D:integer;
+Begin
+ Writeln('Scrivi minuendo');
+ Readln(a);
+ Writeln('Scrivi sottraendo');
+ Readln(b);
+ D:=a-b;
+ Writeln('Il risultato della differenza è ',D);
+
+ readln;
+End.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna suá
+
+
+--------------------------------------------------------------------------------
+
+Prodotto
+
+Programma che calcola il prodotto tra due numeri.
+
+ 
+
+Program prodotto;
+Var a,b,P:integer;
+Begin
+ Writeln('Scrivi il primo numero da moltiplicare');
+ Readln(a);
+ Writeln('Scrivi il secondo numero da moltiplicare');
+ Readln(b);
+ P:=a*b;
+ Writeln('Il prodotto è ',P);
+
+ readln;
+End.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Divisione
+
+Programma che calcola la divisione tra due numeri.
+
+ 
+
+Program divisione;
+Var a,b,D:real;
+Begin
+ Writeln('Scrivi dividendo');
+ Readln(a);
+ Writeln('Scrivi divisore');
+ Readln(b);
+ D:=a/b;
+ Writeln('il quoziente è ',D:0:1);
+
+ readln;
+End.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna suá
+
+
+--------------------------------------------------------------------------------
+
+Radice quadrata
+
+Programma che calcola la radice quadrata di un numero.
+
+ 
+
+Program radice_quadrata;
+var a,b:real;
+begin
+ writeln('Scrivi il numero del quale si vuole calcolare la radice quadrata');
+ readln(a);
+ b:=sqrt(a);
+ writeln('La radice quadrata di ',a:0:2,' è ', b:0:2);
+
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Potenza1
+
+Programma che calcola la potenza di un numero utilizzando la struttura IF...THEN...ELSE e FOR...TO...DO..
+
+ 
+
+PROGRAM potenza;
+
+uses CRT;
+VAR base,esp,P,c:INTEGER;
+BEGIN
+
+ clrscr;
+ WRITELN('Inserisci la base');
+ READLN(base);
+ WRITELN('Inserisci l''esponente');
+ READLN(esp);
+ if esp=1 then Writeln('La potenza con esponente 1 è uguale alla base stessa')
+                else begin
+                         P:=base*base;
+                         FOR c:= 1 TO (esp-2) DO
+                         P:=P*base;
+                         WRITELN('Il risultato della potenza è ',p);
+                         end;
+
+ readln;
+END.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna su Ó
+
+
+--------------------------------------------------------------------------------
+
+Potenza2
+
+Programma che calcola la potenza di un numero utilizzando il ciclo REPEAT...UNTIL.
+
+ 
+
+PROGRAM potenza;
+
+uses CRT;
+VAR base,esp,P,v:INTEGER;
+BEGIN
+
+ clrscr;
+ WRITELN('Inserisci la base');
+ READLN(base);
+ WRITELN('Inserisci l''esponente');
+ READLN(esp);
+ v:=2;
+ P:=base*base;
+  repeat
+   v:=v+1;
+   P:=P*base;
+  until v=esp;
+ WRITELN('Il risultato della potenza è ',p);
+
+ readln;
+END.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Potenza3
+
+Programma che calcola la potenza di un numero (Questo programma utilizza delle istruzioni non spiegate nella guida).
+
+ 
+
+PROGRAM Potenza;
+
+uses CRT;
+Var a,b,p:real;
+BEGIN
+
+ clrscr;
+ Writeln('BASE:');
+ Readln(a);
+ Writeln('ESPONENTE:');
+ Readln(b);
+ P:=exp(b*ln(a));
+ WriteLn('La potenza con base ',a:0:1,' ed esponente ',b:0:1,' è uguale a ',P:0:1);
+
+ readln;
+END.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna suá
+
+
+--------------------------------------------------------------------------------
+
+Equazione di 1º grado
+
+Programma che calcola la soluzione di un'equazione di 1º grado, del tipo: ax=b
+
+
+Program equazione_primo_grado;
+
+uses CRT;
+var a,b,x:real;
+begin
+
+ clrscr;
+ writeln('Programma per la risoluzione di un''equazione di 1º grado del tipo:');
+ writeln('_________________________ax=b________________________');
+ writeln;
+ writeln('Scrivi il valore di a');
+ readln(a);
+ writeln('Scrivi il valore di b');
+ readln(b);
+ x:=b/a;
+ writeln;
+ writeln('L''equazione è ',a:0:0,'x=',b:0:0);
+ writeln('La x di questa equazione è uguale a ',x:0:2);
+
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Equazione di 2º grado
+
+Programma che calcola la soluzione di un'equazione di 2º grado, del tipo: ax2=b
+
+ 
+
+Program equazione_secondo_grado;
+
+uses CRT;
+var a,b,x1,x:real;
+begin
+
+ clrscr;
+ writeln('Programma per la risoluzione di un''equazione di 2º grado del tipo:');
+ writeln('______________________ax^2=b______________________');
+ writeln;
+ writeln('Scrivi il valore di a');
+ readln(a);
+ writeln('Scrivi il valore di b');
+ readln(b);
+ x1:=b/a;
+ x:=sqrt(x1);
+ writeln;
+ writeln('L''equazione è ',a:0:0,'x^2=',b:0:0);
+ writeln('Le x di questa equazione sono uguali a ±',x:0:2);
+
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna su Ó
+
+
+--------------------------------------------------------------------------------
+
+Area rettangolo
+
+Programma che calcola l'area di un rettangolo.
+
+ 
+
+Program area_rettangolo;
+
+uses CRT;
+var a,b,s:integer;
+begin
+
+ clrscr;
+ writeln('Scrivi il valore dell''altezza');
+ readln(a);
+ writeln('Scrivi il valore della base');
+ readln(b);
+ s:=a*b;
+ writeln;
+ writeln('L''area di questo rettangolo è ',s);
+
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Area quadrato
+
+Programma che calcola l'area di un quadrato.
+
+ 
+
+Program area_quadrato;
+
+uses CRT;
+var a,s:integer;
+begin
+
+ clrscr;
+ writeln('Scrivi il valore del lato');
+ readln(a);
+ s:=sqr(a);
+ writeln;
+ writeln('L''area di questo quadrato è ',s);
+
+ readln;
+end.
+ 
+
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna suá
+
+
+--------------------------------------------------------------------------------
+
+Area triangolo
+
+Programma che calcola l'area di un triangolo.
+
+ 
+
+Program area_triangolo;
+
+uses CRT;
+var a,b,s:real;
+begin
+
+ clrscr;
+ writeln('Scrivi il valore della base');
+ readln(a);
+
+ writeln('Scrivi il valore dell''altezza');
+
+ readlN(b);
+ s:=(a*b)/2;
+ writeln;
+ writeln('L''area di questo triangolo è ',s:0:2);
+
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Area rombo
+
+Programma che calcola l'area di un rombo.
+
+ 
+
+Program area_rombo;
+
+uses CRT;
+var a,b,s:real;
+begin
+
+ clrscr;
+ writeln('Scrivi il valore della diagonale maggiore');
+ readln(a);
+
+ writeln('Scrivi il valore della diagonale minore');
+
+ readln(b);
+ s:=(a*b)/2;
+ writeln;
+ writeln('L''area di questo rombo è ',s:0:2);
+
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna su Ó
+
+
+--------------------------------------------------------------------------------
+
+Area trapezio
+
+Programma che calcola l'area di un trapezio.
+
+ 
+
+Program area_trapezio;
+
+uses CRT;
+var a,b,c,s:real;
+begin
+
+ clrscr;
+ writeln('Scrivi il valore della base maggiore');
+ readln(a);
+
+ writeln('Scrivi il valore della base minore');
+
+ readlN(b);
+
+ writeln('Scrivi il valore dell''altezza');
+
+ readln(c);
+ s:=(a+b)*c/2;
+ writeln;
+ writeln('L''area di questo trapezio è ',s:0:2);
+
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Area cerchio
+
+Programma che calcola l'area di un cerchio.
+
+ 
+
+Program area_cerchio;
+
+uses CRT;
+var r,s:real;
+begin
+
+ clrscr;
+ writeln('Scrivi il valore del raggio');
+ readln(r);
+ s:=3.14*(sqr(r));
+ writeln;
+ writeln('L''area di questo cerchio è ',s:0:2);
+
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna suá
+
+
+--------------------------------------------------------------------------------
+
+Volume sfera
+
+Programma che calcola il volume di una sfera.
+
+ 
+
+Program Volume_sfera;
+
+uses CRT;
+var r,v:real;
+begin
+
+ clrscr;
+ writeln('Scrivi il valore del raggio');
+ readln(r);
+ v:=(4/3)*3.14*(sqr(r)*r);
+ writeln;
+ writeln('Il volume di questa sfera è ',v:0:2);
+
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Volume parallelepipedo
+
+Programma che calcola il volume di un parallelepipedo a base quadrata.
+
+ 
+
+Program Volume_parallelepipedo;
+
+uses CRT;
+var a,b,v:integer;
+begin
+
+ clrscr;
+ writeln('Scrivi il valore del lato di base');
+ readln(a);
+
+ writeln('Scrivi il valore dell''altezza');
+ readln(b);
+ v:=sqr(a)*b;
+ writeln;
+ writeln('Il volume di questo parallelepipedo a base quadrata è ',v);
+
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna su Ó
+
+
+--------------------------------------------------------------------------------
+
+Volume cubo
+
+Programma che calcola il volume di un cubo.
+
+ 
+
+Program Volume_cubo;
+
+uses CRT;
+var a,v:integer;
+begin
+
+ clrscr;
+ writeln('Scrivi il valore del lato');
+ readln(a);
+
+ v:=sqr(a)*a;
+ writeln;
+ writeln('Il volume di questo cubo è ',v);
+
+ readln;
+end.
+
+ 
+
+
+--------------------------------------------------------------------------------
+
+Volume cilindro
+
+Programma che calcola il volume di un cilindro.
+
+ 
+
+Program Volume_cilindro;
+
+uses CRT;
+var r,h,v:real;
+begin
+
+ clrscr;
+ writeln('Scrivi il valore del raggio');
+ readln(r);
+
+ writeln('Scrivi il valore dell''altezza');
+
+ readln(h);
+
+ v:=3.14*sqr(r)*h;
+ writeln;
+ writeln('Il volume di questo cilindro è ',v:0:2);
+
+ readln;
+end.
+
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna suá
+
+
+--------------------------------------------------------------------------------
+
+Volume piramide
+
+Programma che calcola il volume di una piramide retta.
+
+ 
+
+Program Volume_piramide;
+
+uses CRT;
+var l,h,v:real;
+begin
+
+ clrscr;
+ writeln('Scrivi il valore del lato di base');
+ readln(l);
+
+ writeln('Scrivi il valore dell''altezza');
+
+ readln(h);
+
+ v:=(1/3)*sqr(l)*h;
+ writeln;
+ writeln('Il volume di questa piramide è ',v:0:2);
+
+ readln;
+end.
+
+ 
+
+
+--------------------------------------------------------------------------------
+
+Volume prisma
+
+Programma che calcola il volume di un prisma retto.
+
+ 
+
+Program Volume_prisma;
+
+uses CRT;
+var a,h,v:integer;
+begin
+
+ clrscr;
+ writeln('Scrivi il valore dell''area di base');
+ readln(a);
+
+ writeln('Scrivi il valore dell''altezza');
+
+ readln(h);
+
+ v:=a*h;
+ writeln;
+ writeln('Il volume di questo prisma è ',v);
+
+ readln;
+end.
+
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna su Ó
+
+
+--------------------------------------------------------------------------------
+
+Volume cono
+
+Programma che calcola il volume di un cono.
+
+ 
+
+Program Volume_cono;
+
+uses CRT;
+var r,h,v:real;
+begin
+
+ clrscr;
+ writeln('Scrivi il valore del raggio');
+ readln(r);
+
+ writeln('Scrivi il valore dell''altezza');
+
+ readln(h);
+
+ v:=(1/3)*3.14*sqr(r)*h;
+ writeln;
+ writeln('Il volume di questo cono è ',v:0:2);
+
+ readln;
+end.
+
+ 
+
+
+--------------------------------------------------------------------------------
+
+Pitagora
+
+Programma che calcola l'ipotenusa o uno dei due cateti di un triangolo rettangolo, inserendo i valori dei lati che si conoscono.
+
+ 
+
+Codice sorgente molto lungo. 
+
+CLICCA QUI PER APRIRE UN NUOVA PAGINA CON IL PROGRAMMA.
+
+ 
+
+
+--------------------------------------------------------------------------------
+
+Tavola pitagorica
+
+Programma che stampa a video la tavola pitagorica.
+
+ 
+
+Program Tavola_Pitagorica;
+
+uses CRT;
+Var A,B:integer;
+Begin
+
+ clrscr;
+ writeln(' __________________ Tavola Pitagorica __________________');
+ writeln;
+  For A:=1 to 10 do
+   begin
+    For B:=1 to 10 do write(A*B:6);
+    writeln;
+   end;
+ writeln;
+
+ readln;
+End.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna suá
+
+
+--------------------------------------------------------------------------------
+
+Funzioni
+
+Programma che stampa a video la spiegazione e la sintassi delle funzioni più conosciute in Pascal.
+
+ 
+
+Codice sorgente molto lungo. 
+
+CLICCA QUI PER APRIRE UNA NUOVA PAGINA CON IL PROGRAMMA.
+
+ 
+
+
+--------------------------------------------------------------------------------
+
+Nome
+
+Programma che stampa a video il nome inserito da tastiera con una cornice.
+
+ 
+
+Program nome;
+
+uses CRT;
+Const N='SCRIVI QUI IL TUO NOME';
+A='******************************';B='**';
+(*Secondo i caratteri del tuo nome modella
+gli spazi del secondo inserimento di B, alla undicesima riga del programma*)
+Begin
+
+ clrscr;
+ writeln('',A);
+ writeln('',A);
+ write('',B);
+ write(' ',N);
+ writeln(' ',B);
+ writeln('',A);
+ writeln('',A);
+
+ readln;
+End.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna su Ó
+
+
+--------------------------------------------------------------------------------
+
+Elenco
+
+Programma che stampa a video un nome corrispondente al numero dell'elenco inserito.
+
+ 
+
+Program elenco;
+
+uses CRT;
+Var a:integer;
+begin
+
+ clrscr;
+ writeln('Scrivi un numero corrispondente a un nome dell''elenco');
+ readln(a);
+  case a of
+   1:writeln('Romolo Rossi');
+   2:writeln('Anna Pompilio');
+   3:Writeln('Tullio Mito');
+   4:writeln('Antonio Martio');
+   5:writeln('Tarquinio Superbia');
+   6:Writeln('Lidia Gladiatore');
+   7:Writeln('Francesca Salemmi');
+   8:Writeln('Nina Miriade');
+   else writeln('ERRORE: il numero inserito non corrisponde a un nome');
+  end;
+
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Scelta
+
+Programma che calcola la somma tra due numeri (inseriti da tastiera) se il primo è minore del secondo, altrimenti calcola la differenza tra i due numeri.
+
+ 
+
+Program scelta;
+
+uses CRT;
+Var a,b,c,d:integer;
+begin
+
+ clrscr;
+ writeln('Scrivi il primo numero');
+ readln(a);
+ writeln('Scrivi il secondo numero');
+ readln(b);
+ writeln;
+ if a<b then writeln(a+b)
+             else writeln(a-b);
+
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna suá
+
+
+--------------------------------------------------------------------------------
+
+MCD e mcm
+
+Programma che calcola il massimo comune divisore e il minimo comune multiplo tra due numeri inseriti da tastiera, secondo l'algoritmo di Euclide.
+
+ 
+
+Program MCD_mcm;
+
+uses CRT;
+var n1,n2,MCD,mcm:real;
+begin
+
+ clrscr;
+ writeln('Scrivi i due numeri');
+ readln(n1,n2);
+ while n1<>n2 do
+  begin
+   if n1>n2 then n1:=n1-n2
+                   else n2:=n2-n1;
+  end;
+ MCD:=n1;
+ writeln;
+ writeln('MCD = ',MCD:0:0);
+ mcm:=(n1*n2)/MCD;
+ writeln('mcm = ',mcm:0:0);
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Pari - dispari
+
+Programma che dichiara se un numero è pari o è dispari.
+
+ 
+
+Program pari_e_dispari;
+
+uses CRT;
+Var a,D:integer;
+Begin
+
+ clrscr;
+ writeln('Scrivi il numero');
+ readln(a);
+ D:=a MOD 2;
+ If D=0 then writeln('Il numero è pari')
+             else writeln('Il numero è dispari');
+
+ readln;
+End.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna su Ó
+
+
+--------------------------------------------------------------------------------
+
+Tabelline
+
+Programma che calcola la tabellina di un numero inserito da tastiera.
+
+ 
+
+Program Tabellina;
+
+uses CRT;
+Var a,b,c:integer;
+Begin
+
+ clrscr;
+ writeln('Scrivi il numero della tabellina');
+ readln(a);
+ writeln('_____Tabellina del ',a);
+ C:=1;
+  Repeat
+   b:=a*c;
+   writeln(b);
+   C:=c+1;
+  Until C>10;
+
+ readln;
+End.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Fattoriale
+
+Programma che calcola il fattoriale di un numero inserito da tastiera con il ciclo REPEAT...UNTIL.
+
+ 
+
+Program fattoriale;
+
+uses CRT;
+Var N:integer;
+
+       Nfatt:longint;
+Begin
+
+ clrscr;
+ writeln('Scrivi il numero da fattorializzare');
+ readln(N);
+ Nfatt:=N;
+  Repeat
+   N:=N-1;
+   Nfatt:=Nfatt*N;
+  Until N=1;
+ writeln('Il fattoriale è ',Nfatt);
+
+ readln;
+End.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna suá
+
+
+--------------------------------------------------------------------------------
+
+Calcolatrice
+
+Programma che simula una semplice calcolatrice.
+
+ 
+
+Program calcolatrice;
+
+uses CRT;
+var a,c,d:real;
+       b:char;
+begin
+
+ clrscr;
+ writeln(' |-------------|');
+ writeln(' |7    8    9 + |');
+ writeln(' |4    5    6  - |');
+ writeln(' |1    2    3  * |');
+ writeln(' |0     .   =  / |');
+ writeln(' |-------------|');
+ writeln;
+ writeln('Inserisci il primo numero, il segno e il secondo numero e tra un');
+ writeln('inserimento e l''altro premi INVIO');
+ writeln;
+ readln(a);
+ readln(b);
+ readln(c);
+ writeln;
+  case b of
+   '+':writeln(a+c:0:2);
+   '-':writeln(a-c:0:2);
+   '*':writeln(a*c:0:2);
+   '/':writeln(a/c:0:2);
+
+   else writeln('ERRORE');
+  end;
+
+ readln;
+end.
+
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna su Ó
+
+
+--------------------------------------------------------------------------------
+
+Rigori
+
+Programma che permette di giocare ai rigori con il computer.
+
+ 
+
+Program rigori;
+
+uses CRT;
+var a,b:integer;
+       c:string;
+begin
+
+ repeat
+
+   clrscr;
+   writeln('____________________________');
+   writeln('| 1                           3                         5|');
+   writeln('|                                                            |');
+   writeln('| 2                           4                         6|');
+   writeln;
+   writeln('Dove vuoi tirare il pallone?');
+   readln(a);
+   b:=random(7);
+   if a=b then Writeln('Parata!!!')
+              else writeln('GOAL!!!');
+   writeln('Vuoi giocare ancora?(si/no)');
+   readln(c);
+ until c='no';
+ writeln('GAME OVER');
+
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Password
+
+Programma che genera password casuali con 6 caratteri (numeri e lettere).
+
+ 
+
+Codice sorgente molto lungo.
+
+CLICCA QUI PER APRIRE UNA NUOVA PAGINA CON IL PROGRAMMA.
+
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna suá
+
+
+--------------------------------------------------------------------------------
+
+Arcobaleno
+
+Programma che visualizza una scritta con effetto arcobaleno.
+
+ 
+
+Codice sorgente molto lungo. 
+
+CLICCA QUI PER APRIRE UNA NUOVA PAGINA CON IL PROGRAMMA.
+
+ 
+
+
+--------------------------------------------------------------------------------
+
+Binario
+
+Programma che trasforma un numero dal sistema decimale al sistema binario.
+
+ 
+
+Program binario;
+
+uses CRT;
+Var N,Q,R,K:integer;
+Begin
+
+ clrscr;
+ writeln('______Rappresentazione binaria di un numero in base 10______');
+ writeln;
+ writeln('Scrivere il numero in base 10');
+ readln(N);
+ writeln;
+ K:=0;
+ While N>0 do
+  begin
+   Q:=N div 2;
+   R:=N mod 2;
+  writeln('Cifra numero',K,'= ',R);
+  N:=Q;
+  K:=K+1;
+ end;
+ writeln;
+ writeln('Le cifre prese in ordine dall''ultima alla prima danno il');
+ writeln('corrispondente binario del numero base 10 inserito');
+
+ readln;
+End.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna su Ó
+
+
+--------------------------------------------------------------------------------
+
+Ottale
+
+Programma che trasforma un numero dal sistema decimale al sistema ottale.
+
+ 
+
+Program ottale;
+
+uses CRT;
+Var NCIFRE, CIFRA, ACCUMULATORE, K: integer;
+begin
+
+ clrscr;
+ writeln('Programma per rappresentare in base 10 un numero dato in base 8');
+ writeln;
+ writeln('Scrivere il numero delle cifre del numero in base 8');
+ readln(NCIFRE);
+ ACCUMULATORE:=0;
+ writeln;
+ For K:=1 to NCIFRE do
+  begin
+   writeln ('Scrivere la cifra di posto ',K,' ');
+   readln (CIFRA);
+   ACCUMULATORE:=ACCUMULATORE*8+CIFRA;
+  end;
+ writeln;
+ writeln('Il numero dato in base 10, è uguale in base 8 a ',ACCUMULATORE);
+
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Diagonale
+
+Programma che calcola il numero delle diagonali di un poligono inserendo il numero dei lati dello stesso.
+
+ 
+
+Program diagonale;
+
+uses CRT;
+Var a,D:real;
+Begin
+
+ clrscr;
+ writeln('Scrivi il numero dei lati del poligono');
+ readln(a);
+ D:=(a-3)*(a/2);
+ writeln('Le diagonali di questo poligono sono ',D:0:1);
+
+ readln;
+End.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna suá
+
+
+--------------------------------------------------------------------------------
+
+Kramer
+
+Programma che risolve un sistema di primo grado secondo il metodo di Kramer.
+
+ 
+
+Program Sistema_Lineare;
+
+uses CRT;
+Var A1,B1,C1,A2,B2,C2,DELTA,DELTAX,DELTAY:real;
+Begin
+
+ clrscr;
+ Writeln('Risoluzione di un sistema lineare nella forma');
+ Writeln;
+ Writeln('[A1x+B1y=C1');
+ Writeln;
+ Writeln('[A2x+B2y=C2');
+ Writeln;
+ Writeln('Digitare i coefficienti ed i termini noti richiesti');
+ Write('A1= ');
+ Readln(A1);
+ Write('B1= ');
+ Readln(B1);
+ Write('C1= ');
+ Readln(C1);
+ Write('A2= ');
+ Readln(A2);
+ Write('B2= ');
+ Readln(B2);
+ Write('C2= ');
+ Readln(C2);
+ DELTA:=A1*B2-A2*B1;
+ DELTAX:=C1*B2-C2*B1;
+ DELTAY:=A1*C2-A2*C1;
+ If (DELTA<>0) then
+                               begin
+
+                                writeln;
+                                writeln ('Sistema determinato');
+                                writeln ('x=',DELTAX/DELTA:8:3,'  y=',DELTAY/DELTA:8:3);
+                               end
+    else 
+
+         begin
+           if (DELTAX=0) and (DELTAY=0) then writeln ('Sistema indeterminato');
+           if (DELTAX<>0) and (DELTAY<>0) then writeln ('Sistema impossibile');
+         end;
+ readln;
+End.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Multiplo
+
+Programma che dichiara se un numero è multiplo di un altro.
+
+ 
+
+Program Multiplo;
+
+uses CRT;
+Var a,b,c:integer;
+Begin
+
+ clrscr;
+ Writeln('Scrivi un numero');
+ Readln(a);
+ Writeln('Scrivi il numero della tabellina');
+ Readln(b);
+ c:=a mod b;
+ writeln;
+ if c=0 then writeln('Il numero ',a,' è un multiplo di ',b)
+            else writeln('Il numero ',a,' non è un multiplo di ',b);
+
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna su Ó
+
+
+--------------------------------------------------------------------------------
+
+Somma numeri
+
+Programma che somma i primi 50 numeri interi.
+
+ 
+
+Program somma_numeri;
+
+uses CRT;
+Var n,s:integer;
+Begin
+
+ clrscr;
+ S:=0;
+ For n:=1 to 50 do
+   S:=s+n;
+ Writeln('La somma dei numeri è ',S);
+
+ readln;
+End.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Perimetro rettangolo
+
+Programma che calcola il perimetro di un rettangolo.
+
+ 
+
+Program perimetrorettangolo;
+
+uses CRT;
+var a,b,c:integer;
+begin
+
+ clrscr;
+ writeln('Scrivi il valore del lato maggiore');
+ readln(a);
+ writeln('Scrivi il valore del lato minore');
+ readln(b);
+ c:=(b*2)+(a*2);
+ writeln;
+ writeln('Il perimetro di questo rettangolo è ',c);
+
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna suá
+
+
+--------------------------------------------------------------------------------
+
+Perimetro quadrato
+
+Programma che calcola il perimetro di un triangolo.
+
+ 
+
+Program perimetroquadrato;
+
+uses CRT;
+var a,b:integer;
+begin
+
+ clrscr;
+ writeln('Scrivi il valore del lato');
+ readln(a);
+ b:=a*4;
+ writeln;
+ writeln('Il perimetro di questo quadrato è ',b);
+
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Perimetro triangolo
+
+Programma che calcola il perimetro di un triangolo.
+
+ 
+
+Program perimetrotriangolo;
+
+uses CRT;
+var a,b,c,d:integer;
+begin
+
+ clrscr;
+ writeln('Scrivi il valore del primo lato');
+ readln(a);
+
+ writeln('Scrivi il valore del secondo lato');
+
+ readln(b);
+
+ writeln('Scrivi il valore del terzo lato');
+
+ readln(c);
+ d:=a+b+c;
+ writeln;
+ writeln('Il perimetro di questo triangolo è ',d);
+
+ readln;
+end.
+
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna su Ó
+
+
+--------------------------------------------------------------------------------
+
+Perimetro rombo
+
+Programma che calcola il perimetro di un rombo.
+
+ 
+
+Program perimetrorombo;
+
+uses CRT;
+var a,d:integer;
+begin
+
+ clrscr;
+ writeln('Scrivi il valore del lato');
+ readln(a);
+
+ d:=a*4;
+ writeln;
+ writeln('Il perimetro di questo rombo è ',d);
+
+ readln;
+end.
+
+ 
+
+
+--------------------------------------------------------------------------------
+
+Perimetro trapezio
+
+Programma che calcola il perimetro di un trapezio.
+
+ 
+
+Program perimetrotrap;
+
+uses CRT;
+var a,b,c,d,e:integer;
+begin
+
+ clrscr;
+ writeln('Scrivi il valore del lato obliquo');
+ readln(a);
+
+ writeln('Scrivi il valore della base maggiore');
+
+ readln(b);
+
+ writeln('Scrivi il valore della base minore');
+
+ readln(c);
+
+ writeln('Scrivi il valore dell''altezza o del secondo lato obliquo');
+
+ readln(d);
+ e:=a+b+c+d;
+ writeln;
+ writeln('Il perimetro di questo trapezio è ',e);
+
+ readln;
+end.
+
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna suá
+
+
+--------------------------------------------------------------------------------
+
+Circonferenza
+
+Programma che calcola la circonferenza di un cerchio.
+
+ 
+
+Program circonferenza;
+
+uses CRT;
+var C,r:real;
+begin
+
+ clrscr;
+ writeln('Scrivi il valore del raggio');
+ readln(r);
+
+ C:=6.28*r;
+ writeln;
+ writeln('La circonferenza di questo cerchio è ',C:0:2);
+
+ readln;
+end.
+
+ 
+
+
+--------------------------------------------------------------------------------
+
+Media
+
+Programma che calcola la media aritmetica tra 3 numeri inseriti da tastiera.
+
+ 
+
+Program media;
+
+uses CRT;
+Var a,b,c,M,N:real;
+Begin
+
+ clrscr;
+ Writeln('Scrivi il 1º, il 2° e il 3° numero separati da un INVIO');
+ Readln(a,b,c);
+ M:=(a+b+c)/3;
+ Writeln('La media aritmetica è= ',M:6:1);
+
+ readln;
+End.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna suá
+
+
+--------------------------------------------------------------------------------
+
+Ordine crescente
+
+Programma che restituisce in ordine crescente 3 numeri inseriti da tastiera.
+
+ 
+
+Program crescente;
+uses CRT;
+var a,b,c,t:integer;
+begin
+ clrscr;
+ writeln('Scrivi 3 numeri');
+ readln(a,b,c);
+  Repeat
+    If a>b then begin t:=b; b:=a; a:=t; end;
+    If b>c then begin t:=c; c:=b; b:=t; end;
+  Until (a<b) and (b<c);
+ writeln;
+ writeln('I numeri in ordine crescente sono ',a,' ',b,' ',c);
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Equazione retta
+
+Programma che restituisce l'equazione di una retta passante per 2 punti.
+
+ 
+
+Program EquazioneRetta;
+uses CRT;
+var a,b,c,x1,y1,x2,y2:real;
+begin
+ clrscr;
+ writeln('Programma che calcola l''equazione di una retta passante per 2 punti');
+ writeln('A(x1,y1) e B(x2,y2)');
+ writeln;
+ write('x1 = ');
+ readln(x1);
+ write('y1 = ');
+ readln(y1);
+ write('x2 = ');
+ readln(x2);
+ write('y2 = ');
+ readln(y2);
+ a:=y2-y1;
+ b:=x1-x2;
+ c:=x2*y1-x1*y2;
+ writeln('L''equazione della retta è: ');
+ write(a:8:2,'x');
+ if b>=0 then write ('+',b:8:2,'y') 
+
+               else write (b:8:2,'y');
+ if c>=0 then write ('+',c:8:2,'=0') 
+
+               else write (c:8:2,'=0');
+ readln;
+end.
+
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna suá
+
+
+--------------------------------------------------------------------------------
+
+Fattoriale 2
+
+Programma che calcola il fattoriale di un numero (inserito da tastiera) con il ciclo FOR...TO...DO.
+
+ 
+
+Program Fattoriale2;
+
+uses CRT;
+var N,I:integer;
+       Fattoriale:longint;
+begin
+
+ clrscr;
+ writeln('Scrivere il numero di cui si vuole calcolare il fattoriale');
+ readln(N);
+ Fattoriale:=1;
+ if N>0 then for I:=1 to N do Fattoriale:=Fattoriale*I;
+ writeln;
+ writeln('Il fattoriale di ',N,' è ',Fattoriale);
+ writeln;
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Triangolo
+
+Programma che dichiara se un triangolo è equilatero, isoscele o scaleno, inserendo da tastiera le misure dei lati. 
+
+ 
+
+Program Triangolo;
+
+uses CRT;
+var a,b,c:integer;
+begin
+
+ clrscr;
+ writeln('Programma per dichiara se un triangolo è equilatero, isoscele o scaleno');
+ writeln;
+ writeln('Scrivi le misure dei lati del triangolo separate da uno spazio');
+ readln(a,b,c);
+ writeln;
+ if (a=b) and (b=c) then writeln('Il triangolo è equilatero');
+ if (a=b) and (c<>a) then writeln('Il triangolo è isoscele');
+ if (c=b) and (a<>c) then writeln('Il triangolo è isoscele');
+ if (a=c) and (b<>a) then writeln('Il triangolo è isoscele');
+ if (a<>b) and (b<>c) and (a<>c) then writeln('Il triangolo è scaleno');
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Torna suá
+
+
+--------------------------------------------------------------------------------
+
+Ordine crescente di 4 numeri
+
+Programma che restituisce in ordine crescente 4 numeri inseriti da tastiera.
+
+ 
+
+Program Ordinamento;
+uses CRT;
+var a,b,c,d,T:integer;
+begin
+ clrscr;
+ writeln('Scrivere 4 numeri');
+ readln(a,b,c,d);
+ repeat
+   if a>b then begin T:=a; a:=b; b:=T; end;
+   if b>c then begin T:=b; b:=c; c:=T; end;
+   if c>d then begin T:=c; c:=d; d:=T; end;
+ Until (a<b) and (b<c) and (c<d);
+ writeln('I quattro numeri ordinati sono ',a,' ',b,' ',c,' ',d);
+ readln;
+end.
+ 
+
+
+--------------------------------------------------------------------------------
+
+Esadecimale
+
+Programma che trasforma un numero dal sistema decimale al sistema esadecimale.
+
+ 
+
+Program esadecimale;
+uses CRT;
+var n,R:integer;
+begin
+ clrscr;
+ write('Scrivi il numero in base 10: ');
+ readln(n);
+ write('CIFRE: ');
+  while n<>0 do
+   begin
+    R:=n mod 16;
+    n:=n div 16;
+    If R<10 then write(R)
+                  else
+                        begin
+                         If r=10 then write('A');
+                         If r=11 then write('B');
+                         If r=12 then write('C');
+                         If r=13 then write('D');
+                         If r=14 then write('F');
+                         If r=15 then write('G');
+                        end;
+   end;
+ writeln;
+
+ writeln('Le cifre prese in ordine dall''ultima alla prima danno'); 
+
+ writeln('il numero in esadecimale');
+
+ readln;
+end.

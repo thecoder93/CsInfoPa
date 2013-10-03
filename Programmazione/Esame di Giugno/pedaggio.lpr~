@@ -1,0 +1,99 @@
+program pedaggio;
+
+uses
+     tkb_graph in 'tkb_graph.pas',
+       tkb_bst in 'tkb_bst.pas',
+ tkb_pri_queue in 'tkb_pri_queue',
+ SysUtils ;
+
+type arc = record
+         x,y: char;
+         end;
+     arc_v = array of arc;
+
+var g: t_graph;         // Grafo rappresentante la mappa
+    x: integer;         // Numero degli archi
+    a: t_bst;           // BST usato per parsare l'input
+    f: textfile;        // File di input
+    arcs : arc_v;       // Vettore contenente gli archi da settare nel grafo
+    num_nodes: integer; // Numero dei nodi del grafo
+    i: integer;         // Contatore ausiliario
+    n1,n2: char;        // Variabili ausiliarie per parsare l'input
+    caso: integer;      // Contatore della mappa corrente
+    
+{Questa funzione ricorsiva serve a settare il tipo di nodo.
+Influenza il calcolo dei pesi nell'esplorazione dei cammini del grafo.}
+procedure set_cities(g: t_graph; a: t_bst);
+begin
+     if a<>nil then begin
+        set_cities(g, a^.sx);
+        {Le città sono indicate con lettere maiuscole.}
+        graph_set_node_type(g, a^.id, (a^.inf = upcase(a^.inf)));
+        set_cities(g, a^.dx);
+     end;
+end;
+
+begin
+     if fileexists('input.txt') then begin
+       assign(f, 'input.txt');
+       reset(f);
+       caso := 0;  {Contatore del loop}
+       readln(f, x);
+       repeat      {Loop principale}
+         a:=nil;
+         inc(caso);
+
+         {Il vettore arcs contiene gli archi da settare nel grafo}
+         setlength(arcs, x);
+
+         {Creo un albero binario di ricerca (BST) con struttura modificata}
+         for i := 0 to length(arcs)-1 do begin
+             readln(f, n1, n2, n2);   {Salto lo spazio}
+             bst_insert(a, n1);
+             bst_insert(a, n2);
+             arcs[i].x := n1;
+             arcs[i].y := n2;
+         end;
+
+         {Adesso l'albero binario 'a' contiene tutti i nodi del grafo.
+         Associo ad ogni nodo dell'albero un numero intero partendo da 0.
+         Serve per fare corrispondere ad ogni nodo dell'albero uno ed un solo
+         nodo del grafo.}
+         num_nodes := bst_assign_ids(a);
+
+         {Inizializzo il grafo}
+         graph_init_nodes(g, num_nodes);
+
+         {Adesso procedo a settare gli archi nel grafo}
+         for i:=0 to length(arcs)-1 do
+             graph_set_arc(g, bst_get_id_from_inf(a,arcs[i].x),  {Nodo 1}
+                              bst_get_id_from_inf(a,arcs[i].y)   {Nodo 2}
+                              );
+
+         {Imposto il tipo dei nodi: città o villaggio}
+         set_cities(g, a);
+
+         {Leggo il numero di cucchiai, la partenza e la destinazione}
+         readln(f, x, n1, n1, n2, n2);
+
+         {Calcolo il cammino minimo e stampo il risultato.
+         Notare che i nodi di partenza e destinazione sono invertiti rispetto
+         all'input. Vedere la relazione per una spiegazione del funzionamento
+         dell'algoritmo.}
+         writeln('Caso ',caso,': ',
+                         graph_get_best_path(g, bst_get_id_from_inf(a,n2),
+                                                bst_get_id_from_inf(a,n1), x));
+
+         {Pulizia dell'heap.}
+         graph_dispose(g);
+         bst_dispose(a);
+
+         {Proseguo con la lettura del file}
+         readln(f, x);
+       until x = -1; {quando trova -1 nel file, termina il loop}
+       close(f);
+     end
+     else writeln('Errore nell''apertura di input.txt');
+     readln;
+end.
+

@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<root>
+    <style>
+        <DoubleBuffered>False</DoubleBuffered>
+        <CellSizeInPixel>20</CellSizeInPixel>
+        <ShowGridLines>True</ShowGridLines>
+        <wall>
+            <color>$808080</color>
+            <bitmap/>
+        </wall>
+        <free>
+            <color>$FFFF00</color>
+            <bitmap/>
+        </free>
+        <goal>
+            <color>$FFFFFF</color>
+            <bitmap/>
+        </goal>
+        <player>
+            <color>$0000FF</color>
+            <bitmap/>
+        </player>
+        <box>
+            <color>$00FFFF</color>
+            <bitmap/>
+        </box>
+    </style>
+    <map>
+        <matrix width="15" height="10">
+            <row>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+            </row>
+            <row>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="goal" box="0"/>
+                <c kind="goal" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+            </row>
+            <row>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="goal" box="0"/>
+                <c kind="goal" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="1"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="1"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="wall" box="0"/>
+            </row>
+            <row>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="goal" box="0"/>
+                <c kind="goal" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="free" box="1"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="wall" box="0"/>
+            </row>
+            <row>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="goal" box="0"/>
+                <c kind="goal" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="wall" box="0"/>
+            </row>
+            <row>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="goal" box="0"/>
+                <c kind="goal" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="1"/>
+                <c kind="free" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+            </row>
+            <row>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="free" box="1"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="1"/>
+                <c kind="free" box="0"/>
+                <c kind="wall" box="0"/>
+            </row>
+            <row>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="1"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="1"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="1"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="1"/>
+                <c kind="free" box="0"/>
+                <c kind="wall" box="0"/>
+            </row>
+            <row>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="free" box="0"/>
+                <c kind="wall" box="0"/>
+            </row>
+            <row>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+                <c kind="wall" box="0"/>
+            </row>
+        </matrix>
+        <player>
+            <Position X="8" Y="4"/>
+        </player>
+    </map>
+</root>
